@@ -4,7 +4,7 @@ Updated: 6 September 2026. This is our working source of truth. Update it after 
 
 **Checked means implemented and verified locally unless explicitly labelled staging/production.** An implemented feature can still await commit, release or staff acceptance. Optional features do not silently become launch requirements.
 
-**Latest completed: S6 — POS handoff verified through separate login, correct branch/tab, expired sessions and denied branches. Full prior POS regression: 235 tests / 25 suites passed. Next: category mapping administration and parity. Live bucket and AI staging acceptance remain open. Autonomous implementation and commits authorized on 6 September.**
+**Latest completed: I5 category mappings and D1 original-capability inventory. Mapping package 0.9.0 passes 15 focused POS tests, 24 workspace checks and desktop/mobile verification. Parity review made phone intake, receiving filters, item activity and upload correction explicit below. Full prior POS regression: 235 tests / 25 suites passed. Live bucket and AI staging acceptance remain open. Autonomous implementation and commits authorized on 6 September.**
 
 ## A. Purpose and design
 
@@ -32,6 +32,10 @@ Updated: 6 September 2026. This is our working source of truth. Update it after 
 - [x] R11c Protect existing/unsaved edits, check persisted job outcomes after failures and reconcile a lost response without automatically repeating a paid request. Verified with real POS/PostgreSQL and a deterministic provider boundary.
 - [ ] R11d Verify configured AI assistance with the real provider in staging, including confidence quality, staff usability and recovery of jobs left running by a server restart. Deterministic provider fixtures do not complete this acceptance.
 - [ ] R12 Real-device capture, offline/reconnection, expired sessions and branch changes during unsaved work.
+- [ ] R13 Restore deliberate phone camera/burst intake, large-phone-image handling, duplicate-shot warnings and PWA install/share/update support; preserve physical-unit semantics and verify image quality.
+- [ ] R14 Receiving task/category filters and useful sorting across all results, preserving delivery context and clear empty states.
+- [ ] R15 Reachable item activity with actor/time and human/AI changes; retain cost permissions and branch boundaries.
+- [ ] R16 Audited correction of accidental unreceived uploads, including queued work and delivery membership; protect received stock and avoid silent deletion.
 
 ## P. Pricing
 
@@ -69,7 +73,7 @@ Updated: 6 September 2026. This is our working source of truth. Update it after 
 
 ## D. Administration and parity
 
-- [ ] D1 Inventory every original capability: preserved, redesigned, delegated to POS or explicitly retired.
+- [x] D1 Inventory original capabilities from the active Railway import graph, distinguish masked legacy controls and historical CSV claims, and track outstanding parity explicitly. See `docs/original-capability-inventory.md`; no removal approved.
 - [ ] D2 Authorized paths for categories/inherited fields, mappings, users/permissions and diagnostics, away from daily workflows.
 - [ ] D3 Existing-data compatibility: older imports, flags, incomplete counts and published evidence.
 - [ ] D4 Approve and perform removal of superseded code/components only after parity review.
