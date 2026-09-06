@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "checks": [
+    "POS login keeps selected product and branch",
+    "POS editor creates missing XL with zero opening stock",
+    "Refresh exposes new size and preserves valid matches",
+    "Explicit product and variant selection",
+    "Incoming and retained POS prices reviewed",
+    "Desktop/mobile confirmation",
+    "Three units added to chosen existing variant",
+    "POS price and cost unchanged"
+  ]
+}

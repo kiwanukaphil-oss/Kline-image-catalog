@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { postPos, formatMoney, type CatalogItem } from '@/lib/catalog-api';
+import { postPos, requestPos, formatMoney, type CatalogItem } from '@/lib/catalog-api';
 import { posProductLink } from '@/lib/pos-navigation';
 import { Modal, SearchField, usePosRead } from './workspace-ui';
 type Product = {
@@ -47,6 +47,32 @@ export function Restock({
     branch,
   );
   const link = product ? posProductLink(product.id, branch, 'stock') : null;
+  async function refreshVariants() {
+    // Returning from POS refreshes the selected product without discarding still-valid size matches.
+    if (!product) return;
+    setBusy(true);
+    setError('');
+    try {
+      const rows = await requestPos<Product[]>(
+        `/catalog-workspace/items/${item.id}/restock-options?search=${encodeURIComponent(product.master_sku || product.name)}`,
+        branch,
+      );
+      const fresh = rows.find((row) => row.id === product.id);
+      if (!fresh)
+        throw new Error('This product is no longer available for restocking. Choose another product.');
+      setProduct(fresh);
+      setMatches((previous) =>
+        Object.fromEntries(
+          Object.entries(previous).filter(([, id]) => fresh.variants?.some((variant) => variant.id === id)),
+        ),
+      );
+      setReview(null);
+    } catch (cause) {
+      setError((cause as Error).message);
+    } finally {
+      setBusy(false);
+    }
+  }
   async function submitRestock(apply: boolean) {
     // The same reviewed identities travel on retry; the server resolves an already committed receipt idempotently.
     if (!product) return;
@@ -149,6 +175,9 @@ export function Restock({
               Add a missing size in POS
             </a>
           )}
+          <Button variant="outline" disabled={busy} onClick={refreshVariants}>
+            Refresh POS sizes
+          </Button>
           <div className="dialog-actions">
             <Button
               variant="outline"
