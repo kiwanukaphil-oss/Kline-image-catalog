@@ -14,3 +14,18 @@ finished provisioning. These are not the final acceptance result.
 This evidence contains staging-only sample merchandise. Credentials, tokens,
 database secrets and signed photo URLs are excluded. It does not substitute for
 uncoached staff, real-phone or real-provider AI acceptance.
+
+## Authentication hardening and health checks
+
+`auth-proxy.json` records the deployed ADR-087 check: 25 successful session reads
+without consuming login attempts, and caller-supplied forwarding headers cannot
+split the login bucket. POS commit dbde269 passes all 261 backend tests / 27
+suites. The deployed API has no public TCP proxy. Recent API logs contain no
+proxy-validation warnings. Independent clients/IPv6 are verified locally; the
+live check uses one actual network client.
+
+`health.json` is the final passing eight-probe snapshot. `health-first-run.json`
+and `health-after-auth-first-run.json` retain transport failure samples. The
+final run records an explicit IPv4-first DNS option; this does not establish the
+root cause of earlier connection timeouts. The repeated browser handoff and
+original-private-photo checks pass in `handoff.json`.

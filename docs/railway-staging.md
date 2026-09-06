@@ -118,3 +118,19 @@ The actual staging service worker also passes share POST, IndexedDB persistence,
 offline/reconnect, authenticated review and private-cache exclusion. Only
 `/offline.html` enters Cache Storage. These browser checks do not certify physical
 camera quality or the operating system's installed-app share picker.
+
+## Authentication and monitoring handover
+
+Staging POS commit `dbde269` implements ADR-087 with `CLIENT_IP_SOURCE=railway`.
+The explicit validated edge address supplies IP rate keys and request audit
+records. There is no public API TCP proxy. Direct deployments retain socket
+identity; no global Express proxy trust is enabled. Session reads no longer
+consume the unchanged 20-attempt / 15-minute auth allowance. Authenticated
+upload and AI limits remain keyed by user ID.
+
+All 261 backend tests / 27 suites pass on the isolated release worktree. The
+actual edge resists caller-supplied forwarding headers, and 25 session reads
+leave the login budget unchanged. See `verification/railway/auth-proxy.json`.
+The limiter remains per process; multi-replica enforcement requires a separate
+scaling design. See `monitoring-and-rollback.md` for read-only health probes,
+incident procedures and remaining ownership decisions.

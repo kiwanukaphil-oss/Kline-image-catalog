@@ -4,7 +4,7 @@ Updated: 6 September 2026. This is our working source of truth. Update it after 
 
 **Checked means implemented and verified locally unless explicitly labelled staging/production.** An implemented feature can still await commit, release or staff acceptance. Optional features do not silently become launch requirements.
 
-**Release candidate: package 0.16.0. Core workflows and administration are implemented. 249 clean committed POS backend tests, 22 POS frontend tests, 24 workspace checks and eight accessibility views pass; audits report zero known vulnerabilities. All 21 browser cases pass, including the targeted two-app repeat after preview restart. Local backup/restore and all 108 migration checks pass. The isolated Railway deployment, real private bucket and cross-app acceptance pass. Live AI integration passes on two real photos; broader staff accuracy, physical devices and production release remain pending.**
+**Release candidate: package 0.16.0. Core workflows and administration are implemented. 261 clean committed POS backend tests, 22 POS frontend tests, 24 workspace checks and eight accessibility views pass; audits report zero known vulnerabilities. All 21 browser cases pass, including the targeted two-app repeat after preview restart. Local backup/restore and all 108 migration checks pass. The isolated Railway deployment, real private bucket and cross-app acceptance pass. Live AI integration passes on two real photos; broader staff accuracy, physical devices and production release remain pending.**
 
 ## A. Purpose and design
 
@@ -88,7 +88,7 @@ Updated: 6 September 2026. This is our working source of truth. Update it after 
 - [x] T5 Baseline: 224 POS tests/24 suites, 24 workspace checks, four pricing-example checks, nine browser checks. See `verification/packaged-workspace.json`.
 - [x] T6 Passing recorded TypeScript, lint/build, syntax and Railway source checks.
 - [x] T7 Feature tests and package verification extended through 0.16.0; all seven installed files match source.
-- [x] T8 249 clean committed backend tests/26 suites, 22 POS frontend tests/5 suites, 24 workspace checks, zero dependency advisories, eight clean accessibility scans and 1,000-lot benchmark pass. All 21 browser cases pass after targeted navigation and missing-size restock repeats. See `verification/release-validation.json`.
+- [x] T8 261 clean committed backend tests/27 suites (including 12 client-IP/auth-limit checks at POS dbde269), 22 POS frontend tests/5 suites, 24 workspace checks, zero dependency advisories, eight clean accessibility scans and 1,000-lot benchmark pass. All 21 browser cases pass after targeted navigation and missing-size restock repeats. See `verification/release-validation.json`.
 - [x] T9 Local consistent backup restored into a new database: 13 table counts match; original/restored ledgers both have 108 migrations and no pending/checksum issues. Disabled-mount rollback and image recovery pass existing integration tests. Production backup, object storage, monitoring and rollback acceptance remain G5/G7/G8. See `docs/operations.md`.
 
 ## G. Source control and release
@@ -100,7 +100,7 @@ Updated: 6 September 2026. This is our working source of truth. Update it after 
 - [x] G5 Both frontends and POS API healthy on Railway; all 108 migrations current; actual CORS, login, private byte-preserving images, pricing, partial receipts, stock and POS navigation pass. Live AI integration now passes (R11d); broader staff quality acceptance remains R11e. Evidence: `verification/railway/`.
 - [ ] G6 Owner/staff acceptance of required checklist items on staging.
 - [ ] G7 Approve production backup/migration/deployment, release, then verify production behavior.
-- [ ] G8 Monitoring/rollback confirmation, staff handover and closure of launch issues. Read-only staging health probes and an incident/rollback runbook are prepared in `app/tests/railway-health.mjs` and `docs/monitoring-and-rollback.md`; scheduling, alert ownership and production rehearsal remain pending. The observed proxy/login-rate-limit warning is explicitly tracked as an unresolved launch issue.
+- [ ] G8 Monitoring/rollback confirmation, staff handover and closure of launch issues. Read-only staging health probes and an incident/rollback runbook are prepared in `app/tests/railway-health.mjs` and `docs/monitoring-and-rollback.md`; scheduling, alert ownership and production rehearsal remain pending. The proxy/login-rate-limit issue is resolved in staging at POS dbde269: explicit validated edge identity, 25 session reads without consuming login attempts, spoof resistance and all 261 backend tests pass. Monitoring ownership and staff/production approval remain open.
 
 ## O. Optional scope — decide explicitly
 
@@ -130,4 +130,6 @@ Complete required A–G tasks, decide O items explicitly and obtain owner accept
 
 | 2026-09-06 | Both pricing examples verified on Railway at 1,000 lots / 3,000 sizes each, including exact saved prices and mobile Undo. Added bounded parallel pricing reads (12.6s to 6.0s observed with 2,000 drafts). Real staging PWA share/offline/cache checks pass. | Synthetic unpriced deliveries are ready for staff acceptance; physical device and owner/production gates remain open. |
 
-| 2026-09-06 | G8 preparation: eight read-only live health probes pass on repeat; first-run POS connection failure retained with exit code 1, passing repeat returns 0. Added monitoring/rollback procedure and tracked the proxy/login-limiter launch issue. | Changes await commit confirmation. Scheduled monitoring, named ownership, proxy verification and G6/G7 acceptance remain pending. See `verification/railway/health.json`, `health-first-run.json` and `docs/monitoring-and-rollback.md`. |
+| 2026-09-06 | G8 preparation: eight read-only live health probes pass on repeat; first-run POS connection failure retained with exit code 1, passing repeat returns 0. Added monitoring/rollback procedure and tracked the proxy/login-limiter launch issue. | Committed and pushed as ca48eb6. Scheduled monitoring, named ownership, proxy verification and G6/G7 acceptance remain pending. See `verification/railway/health.json`, `health-first-run.json` and `docs/monitoring-and-rollback.md`. |
+
+| 2026-09-06 | G8 technical follow-up complete: POS dbde269 uses validated Railway client identity for IP limits and audits; session reads no longer spend the login allowance. All 261 backend tests / 27 suites and actual Railway header-spoof/session checks pass. | Owner/staff acceptance, physical phones, monitoring ownership and production rollout approval remain required. Evidence: `verification/railway/auth-proxy.json`; no production changes. |

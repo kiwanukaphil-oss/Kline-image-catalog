@@ -86,6 +86,7 @@ const result = {
   checked_at: new Date().toISOString(),
   project_id: '9ce0cab6-9ab1-4da3-854b-afcf4cfa914b',
   scope: 'Isolated Railway staging; unauthenticated, read-only checks',
+  node_options: process.execArgv,
   passed: checks.every((check) => check.passed === true),
   checks,
   limitations:

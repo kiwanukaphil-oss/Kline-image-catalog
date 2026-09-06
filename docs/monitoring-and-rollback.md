@@ -24,6 +24,12 @@ On 6 September 2026, all eight probes passed on the repeat run (exit code 0).
 The first run returned exit code 1 for a POS connection failure while the other
 seven checks passed; it is retained in `verification/railway/health-first-run.json`.
 The successful repeat does not establish the cause of that initial failure.
+After the auth deployment, further transport failures occurred on varying probes;
+a failure sample is retained in `verification/railway/health-after-auth-first-run.json`.
+The final eight-probe run passed with `node --dns-result-order=ipv4first
+app/tests/railway-health.mjs`; the evidence records that option. DNS inspection
+returned an IPv4 address, so this result does not prove IPv6 caused the failures.
+The separate actual browser/POS/private-photo regression also passed.
 
 HTML availability alone does not prove the application boots in a browser.
 API `/api/health` alone does not prove database availability; the separate
@@ -45,7 +51,7 @@ a scheduler or send alerts.
 |---|---|---|
 | Catalog or POS unavailable | Service deployment state, startup logs, public origin and browser network errors | Restore the recorded last known working application deployment after operator authorization |
 | API healthy, database check fails | PostgreSQL service, connection pool exhaustion, private connection variables and migration errors | Pause receiving; restore database connectivity before retrying reviewed work |
-| Login returns 429 for unrelated users | Auth logs, proxy/client address handling and login-attempt rate | Investigate the proxy warning below; preserve brute-force protection |
+| Login returns 429 for unrelated users | Auth logs, proxy/client address handling and login-attempt rate | Verify CLIENT_IP_SOURCE and ingress assumptions below; preserve brute-force protection |
 | Receipt photo missing | Existing receipt's image-transfer status and private bucket access | Use image retry for that receipt; do not receive the stock again |
 | AI stalls or returns a failure | Persisted per-lot job outcome and API/provider logs | Reopen saved results first; retire abandoned work through existing recovery before an explicit new extraction |
 | Stock differs from a physical count | Correct branch, recent sales, returns, receipts, transfers and movement history | Resolve with authorized, audited POS operations |
@@ -55,19 +61,33 @@ versions. Exclude credentials, signed photo URLs, raw provider responses and
 personal data. An operator must separately check image backlog, stale AI work
 and branch discrepancies; the unauthenticated probe cannot assess them.
 
-## Open launch issue: proxy-aware login limiting
+## Verified Railway login identity
 
-Staging logs previously reported `ERR_ERL_UNEXPECTED_X_FORWARDED_FOR`.
-The committed POS `backend/src/server.js` does not configure Express `trust proxy`;
-its limiter allows 20 requests per 15 minutes and mounts on all `/api/auth`
-requests. This may group distinct clients under a proxy address. The scope of
-the impact has not been reproduced with independent clients.
+Resolved in staging at POS commit `dbde269` (ADR-087). Explicit
+`CLIENT_IP_SOURCE=railway` selects a validated `X-Real-IP` for IP rate keys and
+request audit records. Socket identity remains the default elsewhere. Railway
+[documents the header](https://docs.railway.com/networking/public-networking/specs-and-limits),
+and its [staff confirm the edge overwrites it](https://station.railway.com/questions/need-authoritative-railway-client-ip-p-b7a7b4bd).
+The staging API has no public TCP proxy; private-network peers must remain trusted.
+Global Express proxy trust is disabled. Missing or invalid edge headers fall back
+to the socket address, and IPv6 limiter keys retain subnet normalization.
 
-Before production, verify the actual trusted Railway forwarding path, implement
-the appropriate client-address policy, and test both independent clients and
-spoofed forwarding headers. Do not suppress validation or trust arbitrary
-forwarded addresses merely to remove the warning. This remains an unresolved G8
-launch issue; the health script deliberately avoids the authentication route.
+The 20-attempt / 15-minute auth allowance is unchanged, but GET session reads no
+longer spend it. Twelve real Express/PostgreSQL tests cover independent clients,
+spoofed chains, IPv6 rotation, direct mode, malformed headers, audit records,
+limit exhaustion and session access after exhaustion. All 261 backend tests pass.
+
+Actual staging verification shows 25 session reads consume no login attempts;
+caller-supplied X-Real-IP, X-Forwarded-For, Forwarded and CF-Connecting-IP headers
+do not split the bucket. See `verification/railway/auth-proxy.json`. Two initial
+runs hit local connection timeouts after successful API responses; the completed
+run passed after the probe consumed session response bodies to reuse connections.
+This does not establish the cause of every earlier transport timeout.
+
+This is still a process-local limiter. Deployments reset counters and multiple
+replicas have independent counters. Add a distributed policy before scaling the
+API to multiple replicas. Revalidate client identity when changing ingress
+providers or exposing additional network paths.
 
 ## Application rollback procedure
 
@@ -104,7 +124,7 @@ database and bucket recovery acceptance remains G7.
 | Runner, alert destination and response hours | Owner to confirm; none configured by this work |
 | Authority to pause receiving and initiate rollback | Owner to assign |
 | Production backup retention, recovery targets and private-photo restore proof | G7 pending |
-| Proxy-aware login limiting verified with independent clients | Open launch issue |
+| Proxy-aware login limiting | Verified locally and on staging; independent clients/IPv6 tested locally, real edge spoof resistance verified live |
 | Staff/device acceptance and approval of rollout | G6/G7 pending |
 
 No alert messages, scheduled jobs, production changes or automatic rollbacks are

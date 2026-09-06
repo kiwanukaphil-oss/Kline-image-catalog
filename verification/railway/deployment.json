@@ -13,23 +13,23 @@
     {
       "id": "13c68002-d728-40f8-9a87-af6352d1ac76",
       "name": "pos-web",
-      "deployment_id": "361ab1b9-a749-400c-9ef6-b04f09390509",
+      "deployment_id": "2fb460a1-b010-4ce7-8fca-011dd472b4da",
       "status": "SUCCESS",
-      "commit": "904dea0e6dc605b92a73908b95e856ebcdd0aa00"
+      "commit": "dbde269e5563353cf04285765fd3ae675cb74a90"
     },
     {
       "id": "09c99ba0-f513-4560-802c-99cb42f5d17e",
       "name": "catalog-web",
-      "deployment_id": "812dfc24-e1ec-473f-a5b7-4800c1182d2c",
+      "deployment_id": "034f2c2c-b865-40c9-8bf0-5ecc490d4ae3",
       "status": "SUCCESS",
-      "commit": "a8fd05d8e998d7347c4bac5910d57ce469b24c79"
+      "commit": "ca48eb6"
     },
     {
       "id": "dd279046-29fd-4128-8e73-d900ebdca780",
       "name": "pos-api",
-      "deployment_id": "ed53e162-0047-452e-9b3d-c2c6d269fee3",
+      "deployment_id": "32ec3304-56c7-413c-91bd-3099ca8221bd",
       "status": "SUCCESS",
-      "commit": "904dea0e6dc605b92a73908b95e856ebcdd0aa00"
+      "commit": "dbde269e5563353cf04285765fd3ae675cb74a90"
     }
   ],
   "migrations": {
@@ -51,5 +51,10 @@
   ],
   "ai_verification": "ai-provider.json",
   "storage_request_checksum_calculation": "WHEN_REQUIRED",
-  "ai_checked_at": "2026-09-06T14:46:39.378Z"
+  "ai_checked_at": "2026-09-06T14:46:39.378Z",
+  "runtime_checked_at": "2026-09-06T17:42:37.485381+00:00",
+  "client_ip_source": "railway",
+  "api_public_tcp_proxies": 0,
+  "proxy_validation_warnings_in_recent_200_log_entries": 0,
+  "auth_verification": "auth-proxy.json"
 }

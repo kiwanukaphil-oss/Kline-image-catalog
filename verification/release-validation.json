@@ -2,12 +2,12 @@
   "checked_at": "2026-09-06",
   "workspace_package": "0.16.0",
   "backend": {
-    "suites": 26,
-    "tests": 249,
+    "suites": 27,
+    "tests": 261,
     "passed": true,
-    "commit": "402133c",
+    "commit": "dbde269",
     "clean_install": true,
-    "working_tree_comparison_tests": 250
+    "note": "Full regression on isolated release worktree; existing clean locked dependencies unchanged. Unrelated local AI edits excluded."
   },
   "pos_frontend": {
     "suites": 5,
@@ -63,5 +63,14 @@
       "drafts": 2000,
       "scope": "Single observed staging comparison; synthetic shared-image lots"
     }
+  },
+  "railway_auth": {
+    "passed": true,
+    "commit": "dbde269",
+    "focused_tests": 12,
+    "session_reads_without_login_budget": 25,
+    "edge_spoof_resistance": true,
+    "evidence": "railway/auth-proxy.json",
+    "limitation": "Process-local limiter; independent clients and IPv6 verified locally, one actual network client in the deployed check."
   }
 }
