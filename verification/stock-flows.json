@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "checks": [
+    "Real adjustment refreshes selected variant",
+    "Sale and sellable return refresh the original branch",
+    "Dispatch removes source stock",
+    "Receipt adds destination stock without duplicating source",
+    "Mobile destination movement history shows transfer in"
+  ]
+}

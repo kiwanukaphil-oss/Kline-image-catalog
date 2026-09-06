@@ -80,3 +80,11 @@ Implemented in-app zoom/fit, fresh-URL reload independent of unsaved form state,
 ## Durable pricing history — P10
 
 Added current-account/branch applied and undone receipt history, actor/date metadata, exact original rows, protected cost reads and confirmed Undo after reload. Reuses existing POS plan ledger and transactional safeguards. Verified 27 focused POS tests, desktop/mobile reload and Undo, frontend checks, package 0.8.0. Next P11 full 1,000-lot benchmark.
+
+## Large-delivery verification — P11
+
+The real 1,000-lot benchmark found and fixed POS's 100 KB body-parser rejection for reviewed pricing. ADR-077 bounds authenticated preview payloads at 2 MB; other limits remain unchanged and oversized requests return 413. Locally: full pricing load 459 ms, selection 108 ms, review of 3,000 sizes 353 ms. Twenty-eight focused POS tests pass. No benchmark prices/stock applied; production network and unique images remain staging checks. Next S5.
+
+## Stock flows and current regression
+
+S5 verified with real POS adjustment, sale, sellable return, transfer dispatch and destination receipt. Stock cards refresh the exact SKU and branch; mobile movement history shows the destination transfer. Full current POS regression: 235 tests across 25 suites pass (`verification/pos-regression-current.json`).

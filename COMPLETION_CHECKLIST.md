@@ -4,7 +4,7 @@ Updated: 6 September 2026. This is our working source of truth. Update it after 
 
 **Checked means implemented and verified locally unless explicitly labelled staging/production.** An implemented feature can still await commit, release or staff acceptance. Optional features do not silently become launch requirements.
 
-**Latest completed: P10 — durable pricing history with protected Undo after reload. Next: P11 large-delivery benchmark. Live bucket and AI staging acceptance remain open. Autonomous implementation and commits authorized on 6 September.**
+**Latest completed: P11 and S5 — 1,000-lot pricing benchmark plus actual adjustment/return/transfer UI verification. Full POS regression: 235 tests / 25 suites passed. Next: POS navigation and administration parity. Live bucket and AI staging acceptance remain open. Autonomous implementation and commits authorized on 6 September.**
 
 ## A. Purpose and design
 
@@ -45,7 +45,7 @@ Updated: 6 September 2026. This is our working source of truth. Update it after 
 - [x] P8 Both requested Hugo Boss/XL and shorts/H&M examples verified against real POS services.
 - [x] P9 Matching/proposal compilation exercised for 1,000 lots / 3,000 size lines.
 - [x] P10 Durable pricing History with actor/date, exact changes and authorized Undo after reload. Existing account/branch and cost boundaries retained; 27 focused POS tests and mobile reload/Undo verified in package 0.8.0.
-- [ ] P11 Large-delivery browser/database benchmark: load time, requests, selection and pagination. P9 is not this benchmark.
+- [x] P11 Large-delivery browser/database benchmark: 1,000 lots / 3,000 sizes, 459 ms complete pricing load, six workspace requests, 108 ms selection and 353 ms review locally. Found and fixed POS's 100 KB preview-body limit with an authenticated 2 MB allowance. See `verification/large-delivery.json`; production network/unique-photo throughput remains staging validation.
 - [ ] P12 Staff can complete both examples and resolve conflicts without procedural instructions.
 
 ## S. Current stock
@@ -55,7 +55,7 @@ Updated: 6 September 2026. This is our working source of truth. Update it after 
 - [x] S2 Size-level low/out-of-stock/discrepancy views, configured thresholds and signed negative balances.
 - [x] S3 Movement details, refresh/timestamps and retention of failed-refresh snapshots.
 - [x] S4 Real POS sale changes availability while received quantities stay historical.
-- [ ] S5 Verify real return, transfer and adjustment flows and refresh the correct branch/variant in this UI.
+- [x] S5 Verified real adjustment, sale/return and dispatched/received transfer endpoints against current-stock UI, including destination-branch mobile movement history. See `verification/stock-flows.json`.
 - [ ] S6 Supported links into authorized POS product/price/stock actions with correct context and expired-session handling.
 
 ## I. Remaining POS handoffs

@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "lots": 1000,
+  "size_lines": 3000,
+  "metrics": {
+    "seed_ms": 0,
+    "receiving_first_page_ms": 311,
+    "pricing_complete_load_ms": 459,
+    "pricing_workspace_requests": 6,
+    "select_all_ms": 108,
+    "review_1000_lots_ms": 353
+  },
+  "total_api_requests": 19,
+  "environment": "Local development build, real POS and PostgreSQL, reused real photo object; network and unique-photo staging load remain separate",
+  "prices_applied": false
+}
