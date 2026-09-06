@@ -11,6 +11,7 @@ import { AiFieldHint } from './ai-field-hint';
 import { PhotoInspector } from './photo-inspector';
 import { CategoryMappings } from './category-mappings';
 import { Restock } from './restock';
+import { ItemActivity } from './item-activity';
 import type { Category } from './upload-delivery';
 import type { CategoryField } from './receiving';
 type Detail = { item: CatalogItem; fields: CategoryField[]; revision: string; blockers: string[] };
@@ -68,6 +69,7 @@ export function DraftEditor({
     [holdForPhoto, setHoldForPhoto] = useState(false);
   const [mappingOpen, setMappingOpen] = useState(false);
   const [restockOpen, setRestockOpen] = useState(false);
+  const [activityOpen, setActivityOpen] = useState(false);
   const item = detail.data?.item,
     editable = session.can_edit && !item?.is_published;
   useEffect(() => {
@@ -249,6 +251,17 @@ export function DraftEditor({
         item && (
           <div className="draft-layout">
             <div className="draft-evidence">
+              <Button variant="ghost" disabled={busy} onClick={() => setActivityOpen(true)}>
+                Item activity
+              </Button>
+              {activityOpen && (
+                <ItemActivity
+                  itemId={itemId}
+                  branch={branch}
+                  name={item.name}
+                  onClose={() => setActivityOpen(false)}
+                />
+              )}
               {session.can_publish &&
                 session.can_open_pos_product &&
                 !item.is_published &&

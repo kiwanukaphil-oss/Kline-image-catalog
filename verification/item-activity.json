@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "checks": [
+    "Actor and timestamp history opens from item",
+    "Recorded before/after readable",
+    "History pages beyond 24 records",
+    "Parent unsaved edit retained",
+    "Mobile layout inspected"
+  ]
+}

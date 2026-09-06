@@ -1,6 +1,13 @@
 /** All new SQL is branch-scoped. Pricing, authentication and receipt writes stay in POS. */
 function createWorkspaceRepository({ pool, publicationRepository }) {
   return {
+    async itemActivity(client,itemId,page) {
+      const total=(await client.query('SELECT count(*)::int AS total FROM inventory.item_events WHERE item_id=$1',[itemId])).rows[0].total;
+      const items=(await client.query(`SELECT e.id,e.event_type,e.source,e.field_path,e.before_value,e.after_value,e.created_at,u.full_name AS actor
+        FROM inventory.item_events e LEFT JOIN users u ON u.id=e.actor WHERE e.item_id=$1
+        ORDER BY e.created_at DESC,e.id DESC LIMIT 24 OFFSET $2`,[itemId,(page-1)*24])).rows;
+      return {items,total,page,limit:24};
+    },
     async categoryMappings(client = pool) {
       const categories = await client.query(`SELECT c.id,c.name,c.parent_id,m.pos_category_id,m.xmin::text AS mapping_revision
         FROM inventory.categories c LEFT JOIN inventory.pos_category_map m ON m.image_category_id=c.id

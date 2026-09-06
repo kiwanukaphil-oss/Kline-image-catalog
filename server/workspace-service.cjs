@@ -6,6 +6,15 @@ function revisionOf(context) {
   if (!process.env.JWT_SECRET) throw new Error('POS JWT_SECRET is required.');
   return createHmac('sha256', process.env.JWT_SECRET).update(JSON.stringify(context)).digest('hex');
 }
+/** Project recorded domain fields only; never serialize free-form audit summaries or unknown private snapshots. */
+function activityValue(value,keys,canViewCost,depth=0) {
+  if(depth>5||value===undefined)return null;
+  if(value===null||typeof value==='boolean'||typeof value==='number')return value;
+  if(typeof value==='string')return value.slice(0,1000);
+  if(Array.isArray(value))return value.slice(0,100).map(entry=>activityValue(entry,keys,canViewCost,depth+1));
+  return Object.fromEntries(Object.entries(value).filter(([key])=>keys.has(key)&&(!/cost|margin|profit/i.test(key)||canViewCost))
+    .map(([key,entry])=>[key,activityValue(entry,keys,canViewCost,depth+1)]));
+}
 
 /** Compose the workspace from authoritative POS services and narrowly scoped repository reads. */
 function createWorkspaceService({ source }) {
@@ -33,6 +42,27 @@ function createWorkspaceService({ source }) {
     return context;
   }
   return {
+    async itemActivity({itemId,branchId,page,canViewCost}) {
+      // Authorize the parent first and derive allowed attribute keys from its category, not an audit payload.
+      return repository.transaction(async client=>{
+        const context=await requireContext(client,itemId,branchId);
+        const fields=await repository.categoryFields(client,context.item.category_id);
+        const keys=new Set(['name','brand','status','attributes','entries','variant_attributes','size','color','colour','fit','quantity','total_quantity','price','base_price','price_override','effective_price','selling_price','incoming_price','sku','rows','matches','lines','hold_reason','cost_price','base_cost_price','cost_override',...fields.map(field=>field.key)]);
+        const result=await repository.itemActivity(client,itemId,page);
+        return {...result,items:result.items.map(event=>{
+          const field=event.field_path || '',last=field.split('.').pop();
+          const isCost=/cost|margin|profit/i.test(field);
+          const known=keys.has(last)||['details','stock_distribution','variant_pricing','variant_cost','restock'].includes(field);
+          const visible=known&&(!isCost||canViewCost);
+          const labels={details:'Details',stock_distribution:'Size quantities',variant_pricing:'Prices',variant_cost:'Costs',restock:'Restock',pricing_plan:'Pricing plan'};
+          const label=fields.find(entry=>entry.key===last)?.label || (Object.hasOwn(labels,field)?labels[field]:keys.has(last)?last.replaceAll('_',' '):'Item');
+          return {id:event.id,created_at:event.created_at,actor:event.actor||'System',
+            source:['ai','manual','pricing','undo','shop','approval','upload'].includes(event.source)?event.source:'system',field:label,
+            before:visible?activityValue(event.before_value,keys,canViewCost):null,
+            after:visible?activityValue(event.after_value,keys,canViewCost):null};
+        })};
+      });
+    },
     async restockOptions({itemId,branchId,search}) {
       return repository.transaction(async client => {
         const context = await requireContext(client,itemId,branchId);

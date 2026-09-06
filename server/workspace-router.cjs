@@ -47,6 +47,7 @@ function createWorkspaceRouter(dependencies) {
     next();
   });
   router.get('/category-mappings', checkPermission('settings.categories'), reply(() => service.categoryMappings()));
+  router.get('/items/:id/activity',reply(req=>service.itemActivity({itemId:uuid(req.params.id),branchId:req.branchId,page:page(req.query.page),canViewCost:new Set(req.user.permissions||[]).has('catalog.view_cost')})));
   router.get('/items/:id/restock-options',checkPermission('catalog.publish'),checkPermission('products.view'),reply(req =>
     service.restockOptions({itemId:uuid(req.params.id),branchId:req.branchId,search:text(req.query.search || '',120)})));
   router.post('/items/:id/restock/:action',checkPermission('catalog.publish'),checkPermission('products.view'),reply(req => {

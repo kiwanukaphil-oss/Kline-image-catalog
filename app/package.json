@@ -13,7 +13,7 @@
     "format": "oxfmt",
     "typecheck": "tsc --noEmit",
     "test:browser": "node tests/browser.mjs",
-    "check:format": "oxfmt --check app components/receiving.tsx components/category-mappings.tsx components/restock.tsx components/ai-fill.tsx components/ai-field-hint.tsx components/photo-inspector.tsx components/pricing.tsx components/pricing-history.tsx components/pricing-group-controls.tsx components/stock.tsx components/draft-editor.tsx components/upload-delivery.tsx components/photo-intake.tsx components/install-app.tsx components/workspace-ui.tsx lib tests vite.config.ts",
+    "check:format": "oxfmt --check app components/receiving.tsx components/category-mappings.tsx components/restock.tsx components/ai-fill.tsx components/ai-field-hint.tsx components/photo-inspector.tsx components/pricing.tsx components/pricing-history.tsx components/pricing-group-controls.tsx components/stock.tsx components/draft-editor.tsx components/item-activity.tsx components/upload-delivery.tsx components/photo-intake.tsx components/install-app.tsx components/workspace-ui.tsx lib tests vite.config.ts",
     "test:pricing-groups": "node tests/pricing-groups.mjs"
   },
   "dependencies": {
