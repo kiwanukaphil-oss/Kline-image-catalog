@@ -25,6 +25,7 @@ import {
 import { PricingChoiceField, PricingExceptionRules } from './pricing-group-controls';
 import { PricingHistory } from './pricing-history';
 import { useWorkspaceProtection } from '@/lib/workspace-protection';
+import { loadPricingWorkspace } from '@/lib/pricing-workspace';
 
 /** Pricing has one explicit commercial intent per plan; the server owns the exact review and save. */
 export function Pricing({
@@ -76,18 +77,18 @@ export function Pricing({
       /* Read every pricing page before filtering, retaining only unpublished merchandise. */
 
       try {
-        let page = 1;
-        const all: PriceItem[] = [];
-        while (active) {
-          const { data } = await postPos<{ data: { items: PriceItem[]; total: number; limit: number } }>(
-            '/catalog/pricing/workspace',
-            branch,
-            scope.length ? { item_ids: scope } : { page },
-          );
-          all.push(...data.items);
-          if (scope.length || all.length >= data.total) break;
-          page++;
-        }
+        const all = await loadPricingWorkspace(
+          scope,
+          async (body) => {
+            const { data } = await postPos<{ data: { items: PriceItem[]; total: number; limit: number } }>(
+              '/catalog/pricing/workspace',
+              branch,
+              body,
+            );
+            return data;
+          },
+          () => active,
+        );
         if (active) {
           setItems(
             all
