@@ -123,7 +123,7 @@ try {
   assert(result.data.rows.every((row) => row.price_after === expectedPrice(row)));
   await page.getByRole('dialog', { name: 'Review prices', exact: true }).waitFor();
   metrics.review_1000_lots_ms = Math.round(performance.now() - reviewStart);
-  await page.screenshot({ path: `../verification/railway/${evidence}-review.png` });
+  await page.screenshot({ path: `../verification/railway/${evidence}-review.png`, animations: 'disabled' });
   const verifyPrices = new Pool(pool.options);
   try {
     // Check actual saved values, then restore the unpriced fixture through the normal audited UI.
@@ -155,7 +155,10 @@ try {
       )
     ).rows[0];
     assert.equal(Number(restored.priced), 0);
-    await page.screenshot({ path: `../verification/railway/${evidence}-undo-mobile.png` });
+    await page.screenshot({
+      path: `../verification/railway/${evidence}-undo-mobile.png`,
+      animations: 'disabled',
+    });
   } finally {
     await verifyPrices.end();
   }
