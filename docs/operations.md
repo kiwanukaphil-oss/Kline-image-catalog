@@ -12,7 +12,9 @@ Photo-transfer failures are recoverable independently of stock receipt. AI progr
 
 ## Staging and production gates
 
-The isolated Railway project `kline-catalog-staging` is deployed and verified. See `railway-staging.md` for exact origins, identities, services and evidence. The existing `dynamic-balance` production project remains unchanged. Live AI, physical-device and uncoached staff acceptance remain required.
+The isolated Railway project `kline-catalog-staging` is deployed and verified. See `railway-staging.md` for exact origins, identities, services and evidence. The existing `dynamic-balance` production project remains unchanged. Live AI integration passes; broader staff AI quality, physical-device and uncoached staff acceptance remain required.
+
+See [monitoring and rollback](monitoring-and-rollback.md) for the repeatable read-only staging health check, incident actions, open proxy/login-limiter issue and outstanding ownership decisions. This is a prepared runbook, not configured continuous monitoring.
 
 Before production: take and verify a fresh database backup, verify private object storage recovery separately, record the deployed backend/frontend versions and rollback targets, and review migration status. Do not restore a backup over live commerce as an ordinary application rollback. Monitor startup/migration errors, authentication/CORS failures, photo-transfer backlog, stale AI jobs and branch stock discrepancies. The owner must accept staging and approve the production rollout.
 

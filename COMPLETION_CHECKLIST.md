@@ -100,7 +100,7 @@ Updated: 6 September 2026. This is our working source of truth. Update it after 
 - [x] G5 Both frontends and POS API healthy on Railway; all 108 migrations current; actual CORS, login, private byte-preserving images, pricing, partial receipts, stock and POS navigation pass. Live AI integration now passes (R11d); broader staff quality acceptance remains R11e. Evidence: `verification/railway/`.
 - [ ] G6 Owner/staff acceptance of required checklist items on staging.
 - [ ] G7 Approve production backup/migration/deployment, release, then verify production behavior.
-- [ ] G8 Monitoring/rollback confirmation, staff handover and closure of launch issues.
+- [ ] G8 Monitoring/rollback confirmation, staff handover and closure of launch issues. Read-only staging health probes and an incident/rollback runbook are prepared in `app/tests/railway-health.mjs` and `docs/monitoring-and-rollback.md`; scheduling, alert ownership and production rehearsal remain pending. The observed proxy/login-rate-limit warning is explicitly tracked as an unresolved launch issue.
 
 ## O. Optional scope — decide explicitly
 
@@ -129,3 +129,5 @@ Complete required A–G tasks, decide O items explicitly and obtain owner accept
 | 2026-09-06 | R11d complete: owner supplied staging key, AI enabled, two real photo runs succeed, preserved edits and saved-result recovery verified. Railway unsigned-header upload failure resolved with SDK checksum compatibility setting; existing private-photo/POS checks still pass. | R11e/A5/P12/G6 and physical-device R12 require owner/staff acceptance. Production gates remain open. |
 
 | 2026-09-06 | Both pricing examples verified on Railway at 1,000 lots / 3,000 sizes each, including exact saved prices and mobile Undo. Added bounded parallel pricing reads (12.6s to 6.0s observed with 2,000 drafts). Real staging PWA share/offline/cache checks pass. | Synthetic unpriced deliveries are ready for staff acceptance; physical device and owner/production gates remain open. |
+
+| 2026-09-06 | G8 preparation: eight read-only live health probes pass on repeat; first-run POS connection failure retained with exit code 1, passing repeat returns 0. Added monitoring/rollback procedure and tracked the proxy/login-limiter launch issue. | Changes await commit confirmation. Scheduled monitoring, named ownership, proxy verification and G6/G7 acceptance remain pending. See `verification/railway/health.json`, `health-first-run.json` and `docs/monitoring-and-rollback.md`. |
