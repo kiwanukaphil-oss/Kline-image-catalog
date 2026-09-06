@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "checks": [
+    "401 preserves unsaved item input",
+    "Same-account reauthentication retains active branch",
+    "Pricing branch change requires explicit discard",
+    "Keep working retains price and branch",
+    "Discard completes workspace navigation"
+  ]
+}

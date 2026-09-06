@@ -24,6 +24,7 @@ import {
 } from '@/lib/pricing-groups';
 import { PricingChoiceField, PricingExceptionRules } from './pricing-group-controls';
 import { PricingHistory } from './pricing-history';
+import { useWorkspaceProtection } from '@/lib/workspace-protection';
 
 /** Pricing has one explicit commercial intent per plan; the server owns the exact review and save. */
 export function Pricing({
@@ -55,6 +56,7 @@ export function Pricing({
     [receipt, setReceipt] = useState<PricePlan | null>(null);
   const [version, setVersion] = useState(0);
   const [historyOpen, setHistoryOpen] = useState(false);
+  useWorkspaceProtection(!!shared || !!rules.length || !!Object.keys(exceptions).length || !!plan, busy);
   useEffect(() => {
     /* Reset plans when scope changes and ignore responses from an abandoned workspace. */
 

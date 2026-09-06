@@ -10,6 +10,7 @@ import { Pricing } from '@/components/pricing';
 import { Stock } from '@/components/stock';
 import { CategoryMappings } from '@/components/category-mappings';
 import { InstallApp } from '@/components/install-app';
+import { Modal } from '@/components/workspace-ui';
 type Destination = 'Receiving' | 'Pricing' | 'Stock';
 
 /** Restore the tab's POS session, then obtain authoritative capabilities. */
@@ -22,6 +23,13 @@ export default function Workspace() {
   const [dark, setDark] = useState(false);
   const [mappingsOpen, setMappingsOpen] = useState(false);
   const [error, setError] = useState('');
+  const [expired, setExpired] = useState(false);
+  const [navigation, setNavigation] = useState<{ action?: () => void; busy: boolean } | null>(null);
+  function navigateSafely(action: () => void) {
+    const event = new CustomEvent('kline-before-navigation', { cancelable: true, detail: { busy: false } });
+    if (window.dispatchEvent(event)) action();
+    else setNavigation({ action: event.detail.busy ? undefined : action, busy: event.detail.busy });
+  }
   async function restoreSession() {
     /* Reload POS identity before choosing an authorized remembered or default branch. */
 
@@ -36,6 +44,7 @@ export default function Workspace() {
       setSession(data);
       setBranch(activeBranch);
       setError('');
+      setExpired(false);
     } catch (cause) {
       setError((cause as Error).message);
     } finally {
@@ -48,12 +57,15 @@ export default function Workspace() {
     setSession(null);
     setBranch('');
     setPriceScope([]);
+    setExpired(false);
+    setNavigation(null);
   }
   useEffect(() => {
     if (sessionStorage.getItem('kline.session')) void restoreSession();
     else setChecking(false);
-    window.addEventListener('kline-session-expired', signOut);
-    return () => window.removeEventListener('kline-session-expired', signOut);
+    const expireSession = () => setExpired(true);
+    window.addEventListener('kline-session-expired', expireSession);
+    return () => window.removeEventListener('kline-session-expired', expireSession);
   }, []);
   useEffect(() => {
     document.documentElement.classList.toggle('dark', dark);
@@ -86,8 +98,11 @@ export default function Workspace() {
               className={`nav-link ${destination === name ? 'active' : ''}`}
               aria-current={destination === name ? 'page' : undefined}
               onClick={() => {
-                setDestination(name);
-                if (name === 'Pricing') setPriceScope([]);
+                if (name !== destination)
+                  navigateSafely(() => {
+                    setDestination(name);
+                    if (name === 'Pricing') setPriceScope([]);
+                  });
               }}
             >
               <Icon size={19} />
@@ -101,7 +116,7 @@ export default function Workspace() {
             <strong>{session.full_name || session.username}</strong>
             <small>POS account</small>
           </div>
-          <Button variant="ghost" size="icon" onClick={signOut} aria-label="Sign out">
+          <Button variant="ghost" size="icon" onClick={() => navigateSafely(signOut)} aria-label="Sign out">
             <LogOut size={17} />
           </Button>
         </div>
@@ -135,9 +150,12 @@ export default function Workspace() {
               aria-label="Active branch"
               value={branch}
               onChange={(e) => {
-                setBranch(e.target.value);
-                sessionStorage.setItem('kline.branch', e.target.value);
-                setPriceScope([]);
+                const nextBranch = e.target.value;
+                navigateSafely(() => {
+                  setBranch(nextBranch);
+                  sessionStorage.setItem('kline.branch', nextBranch);
+                  setPriceScope([]);
+                });
               }}
             >
               {session.branches
@@ -157,7 +175,13 @@ export default function Workspace() {
           >
             {dark ? <Sun size={18} /> : <Moon size={18} />}
           </Button>
-          <Button className="mobile-only" variant="ghost" size="icon" onClick={signOut} aria-label="Sign out">
+          <Button
+            className="mobile-only"
+            variant="ghost"
+            size="icon"
+            onClick={() => navigateSafely(signOut)}
+            aria-label="Sign out"
+          >
             <LogOut size={17} />
           </Button>
         </header>
@@ -178,18 +202,64 @@ export default function Workspace() {
               branch={branch}
               session={session}
               scope={priceScope}
-              onDone={() => setDestination('Receiving')}
+              onDone={() => navigateSafely(() => setDestination('Receiving'))}
             />
           )}
           {destination === 'Stock' && <Stock branch={branch} canOpenPos={!!session.can_open_pos_product} />}
         </main>
       </div>
+      {navigation && (
+        <Modal
+          title={navigation.busy ? 'Work is still saving' : 'Leave unsaved work?'}
+          onClose={() => setNavigation(null)}
+        >
+          <p>
+            {navigation.busy
+              ? 'Wait for the current operation to finish, then try again.'
+              : 'Changes you have not saved will be discarded.'}
+          </p>
+          <Button variant="outline" onClick={() => setNavigation(null)}>
+            Keep working
+          </Button>
+          {navigation.action && (
+            <Button
+              onClick={() => {
+                const action = navigation.action;
+                setNavigation(null);
+                action?.();
+              }}
+            >
+              Discard and leave
+            </Button>
+          )}
+        </Modal>
+      )}
+      {expired && (
+        <Modal title="Sign in to continue" description="Your unsaved work is still here." onClose={() => {}}>
+          <SignIn
+            onSignIn={restoreSession}
+            connectionError={error}
+            resume={{ id: session.id, username: session.username }}
+          />
+          <Button variant="ghost" onClick={() => navigateSafely(signOut)}>
+            Sign out
+          </Button>
+        </Modal>
+      )}
     </div>
   );
 }
 
 /** Authenticate through POS without persisting the submitted password. */
-function SignIn({ onSignIn, connectionError }: { onSignIn: () => Promise<void>; connectionError: string }) {
+function SignIn({
+  onSignIn,
+  connectionError,
+  resume,
+}: {
+  onSignIn: () => Promise<void>;
+  connectionError: string;
+  resume?: { id: string; username: string };
+}) {
   const [error, setError] = useState(connectionError),
     [busy, setBusy] = useState(false);
   useEffect(() => setError(connectionError), [connectionError]);
@@ -201,7 +271,7 @@ function SignIn({ onSignIn, connectionError }: { onSignIn: () => Promise<void>; 
     setBusy(true);
     setError('');
     try {
-      const result = await postPos<{ token: string; user: { default_branch_id: string } }>(
+      const result = await postPos<{ token: string; user: { id: string; default_branch_id: string } }>(
         '/auth/login',
         '',
         {
@@ -209,8 +279,10 @@ function SignIn({ onSignIn, connectionError }: { onSignIn: () => Promise<void>; 
           password: form.get('password'),
         },
       );
+      if (resume && result.user.id !== resume.id)
+        throw new Error('Sign in with the account that owns this work.');
       sessionStorage.setItem('kline.session', result.token);
-      sessionStorage.setItem('kline.branch', result.user.default_branch_id);
+      if (!resume) sessionStorage.setItem('kline.branch', result.user.default_branch_id);
       await onSignIn();
     } catch (cause) {
       setError((cause as Error).message);
@@ -219,23 +291,31 @@ function SignIn({ onSignIn, connectionError }: { onSignIn: () => Promise<void>; 
     }
   }
   return (
-    <main className="login">
-      <div className="login-intro">
-        <div className="wordmark">K—LINE.</div>
-        <p>
-          FROM ARRIVAL
-          <br />
-          TO THE SHOP FLOOR.
-        </p>
-        <span>A considered workspace for your merchandise.</span>
-      </div>
+    <main className={resume ? 'space-y-4' : 'login'}>
+      {!resume && (
+        <div className="login-intro">
+          <div className="wordmark">K—LINE.</div>
+          <p>
+            FROM ARRIVAL
+            <br />
+            TO THE SHOP FLOOR.
+          </p>
+          <span>A considered workspace for your merchandise.</span>
+        </div>
+      )}
       <form className="login-form" onSubmit={submitCredentials}>
         <span className="eyebrow">YOUR WORKSPACE</span>
         <h1>Welcome back.</h1>
         <p className="muted">Sign in with your POS account.</p>
         <label>
           Username
-          <Input name="username" autoComplete="username" required />
+          <Input
+            name="username"
+            autoComplete="username"
+            defaultValue={resume?.username}
+            readOnly={!!resume}
+            required
+          />
         </label>
         <label>
           Password

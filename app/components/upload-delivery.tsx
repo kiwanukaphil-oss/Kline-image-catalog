@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Upload, Check } from 'lucide-react';
 import { PhotoIntake } from './photo-intake';
 import { IntakeCancellation } from './intake-cancellation';
+import { useWorkspaceProtection } from '@/lib/workspace-protection';
 import { sharedPhotos } from '@/lib/shared-photos';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -41,6 +42,7 @@ export function UploadDelivery({
   const [preparing, setPreparing] = useState(false);
   const [intakeVersion, setIntakeVersion] = useState(0);
   const [cancelling, setCancelling] = useState<PendingPhoto | null>(null);
+  useWorkspaceProtection(!!files.length, busy || preparing);
   useEffect(() => {
     lifetime.current = new AbortController();
     readPendingPhotos(userId, branch)

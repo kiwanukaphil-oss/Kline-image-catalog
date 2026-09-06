@@ -13,6 +13,7 @@ import { CategoryMappings } from './category-mappings';
 import { Restock } from './restock';
 import { ItemActivity } from './item-activity';
 import { IntakeCancellation } from './intake-cancellation';
+import { useWorkspaceProtection } from '@/lib/workspace-protection';
 import type { Category } from './upload-delivery';
 import type { CategoryField } from './receiving';
 type Detail = { item: CatalogItem; fields: CategoryField[]; revision: string; blockers: string[] };
@@ -72,6 +73,7 @@ export function DraftEditor({
   const [restockOpen, setRestockOpen] = useState(false);
   const [activityOpen, setActivityOpen] = useState(false);
   const [cancellationOpen, setCancellationOpen] = useState(false);
+  useWorkspaceProtection(dirty, busy);
   const item = detail.data?.item,
     editable = session.can_edit && !item?.is_published && !item?.is_cancelled;
   useEffect(() => {

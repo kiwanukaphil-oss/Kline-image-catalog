@@ -100,3 +100,7 @@ User-started POS preview confirmed on Vite port 3000. Corrected development link
 ## R16 ? reversible intake cancellation
 
 Package 0.14.0 adds reviewed cancellation/restore and saved-phone cancellation, with retained evidence and membership. POS migration 108 reserves cancelled IDs against late uploads. 41 focused integration tests and actual mobile browser checks pass; lint/typecheck/build and installed source comparison pass. No production migration or deletion occurred.
+
+## R12 ? session and navigation recovery
+
+Expired authentication now opens same-account sign-in over the mounted workspace; draft input and active branch survive. Pricing/navigation guards distinguish unsaved work from in-flight writes. Real browser 401 and branch/destination discard/keep paths pass, as do TypeScript and lint. Physical phone acceptance remains open.
