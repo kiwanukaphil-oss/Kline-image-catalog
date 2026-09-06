@@ -8,3 +8,6 @@ This is a draft release candidate. Staging needs to be selected or created; phys
 
 
 Railway staging is now deployed in a new isolated project: both frontends, POS API, all 108 migrations and private image storage. Live browser acceptance covers upload recovery, counts, shared prices/size exception, partial receipt recovery, eight exact stock units, original photo bytes, denied unsigned image access, and cross-app login/branch/deep-link behavior. POS frontend Docker/Nginx runtime was validated by Railway. Production remains untouched; live AI provider, physical devices and staff acceptance are still open.
+
+
+Live AI now passes on two real private photos: staff edits survive, printed/handwritten evidence is retained, uncertain material inference remains low confidence, and counts remain unconfirmed. Reopening saved results issues no new extraction request. Staging uses AWS_REQUEST_CHECKSUM_CALCULATION=WHEN_REQUIRED after reproducing a deployed unsigned-header upload error; original photo integrity and POS handoff regression still pass. Broader staff accuracy assessment remains open.

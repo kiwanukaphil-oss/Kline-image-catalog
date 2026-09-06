@@ -43,10 +43,12 @@
     "foreign_origin_denied": true
   },
   "anonymous_workspace_denied": true,
-  "ai_enabled": false,
+  "ai_enabled": true,
   "remaining": [
-    "Real AI provider key and confidence acceptance",
+    "Broader staff AI confidence/accuracy acceptance",
     "Physical-device and uncoached staff acceptance",
     "Production backup/restore, monitoring and explicit release approval"
-  ]
+  ],
+  "ai_verification": "ai-provider.json",
+  "storage_request_checksum_calculation": "WHEN_REQUIRED"
 }

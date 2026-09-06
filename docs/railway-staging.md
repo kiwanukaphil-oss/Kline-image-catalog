@@ -73,9 +73,21 @@ delivery without adding more stock and is guarded to this staging project.
 
 ## Remaining acceptance
 
-AI is disabled until `OPENAI_API_KEY` is securely configured on `pos-api`.
-Then enable `CATALOG_AI_ENABLED=true` and verify actual extraction/evidence
-quality. No automatic paid extraction has been attempted.
+The owner configured `OPENAI_API_KEY`; `CATALOG_AI_ENABLED=true` is now deployed.
+Two real photos completed extraction using the configured default model. Staff
+names, brands and colours were preserved; counts remain unconfirmed and no stock
+was received. Printed/handwritten size evidence and handwritten LINEN were
+retained, while uncertain fabric inference is marked low confidence. Reopening
+saved results made no new extraction requests. Evidence is in
+`verification/railway/ai-provider.json`; wider staff quality acceptance remains.
+
+Set `AWS_REQUEST_CHECKSUM_CALCULATION=WHEN_REQUIRED` on the staging API.
+Deployed uploads failed with an unsigned-header error after redeployment;
+uploads succeeded with this S3 compatibility setting. The setting uses the
+[documented AWS SDK checksum control](https://docs.aws.amazon.com/sdkref/latest/guide/feature-dataintegrity.html).
+Private photo byte-integrity and POS handoff checks passed again afterward.
+TLS, request signing, conditional writes and application SHA-256 verification
+remain in place.
 
 The owner/staff must complete the uncoached tasks in `staging-acceptance.md`
 and physical-phone camera, installation and sharing checks. Automated browser

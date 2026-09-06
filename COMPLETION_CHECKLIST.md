@@ -4,7 +4,7 @@ Updated: 6 September 2026. This is our working source of truth. Update it after 
 
 **Checked means implemented and verified locally unless explicitly labelled staging/production.** An implemented feature can still await commit, release or staff acceptance. Optional features do not silently become launch requirements.
 
-**Release candidate: package 0.16.0. Core workflows and administration are implemented. 249 clean committed POS backend tests, 22 POS frontend tests, 24 workspace checks and eight accessibility views pass; audits report zero known vulnerabilities. All 21 browser cases pass, including the targeted two-app repeat after preview restart. Local backup/restore and all 108 migration checks pass. The isolated Railway deployment, real private bucket and cross-app acceptance pass. Live AI provider, physical devices, staff acceptance and production release remain pending.**
+**Release candidate: package 0.16.0. Core workflows and administration are implemented. 249 clean committed POS backend tests, 22 POS frontend tests, 24 workspace checks and eight accessibility views pass; audits report zero known vulnerabilities. All 21 browser cases pass, including the targeted two-app repeat after preview restart. Local backup/restore and all 108 migration checks pass. The isolated Railway deployment, real private bucket and cross-app acceptance pass. Live AI integration passes on two real photos; broader staff accuracy, physical devices and production release remain pending.**
 
 ## A. Purpose and design
 
@@ -30,7 +30,8 @@ Updated: 6 September 2026. This is our working source of truth. Update it after 
 - [x] R11a Select individual or multiple photographed lots and explicitly run AI fill; show progress and per-lot results, stop after the current photo and resume remaining work.
 - [x] R11b Review uncertain suggestions with evidence beside editable fields; correct/confirm details and separately confirm physical quantities. Review is revision-checked and audited; original observations remain historical.
 - [x] R11c Protect existing/unsaved edits, check persisted job outcomes after failures and reconcile a lost response without automatically repeating a paid request. Verified with real POS/PostgreSQL and a deterministic provider boundary.
-- [ ] R11d Real-provider confidence quality and staff acceptance remain staging gates. Local abandoned-job recovery is implemented: explicit progress check retires runs older than 15 minutes, prevents duplicate active attempts and rejects late results. Package 0.15.0; 33 focused tests and AI browser workflow pass.
+- [x] R11d Actual staging AI extraction succeeds on two private photos, preserves staff names/brands/colours, retains label evidence and low-confidence inference, leaves quantities unconfirmed and reopens saved results without new paid requests. See `verification/railway/ai-provider.json`. Abandoned-job recovery remains verified in package 0.15.0.
+- [ ] R11e Broader confidence/accuracy assessment with staff on their own merchandise photos; part of G6 acceptance.
 - [ ] R12 Physical-device capture/install/share acceptance remains. Browser offline/reconnection passes; real 401 recovery preserves unsaved input and branch through same-account login, and navigation guards retain/discard unsaved pricing explicitly. See `verification/session-navigation.json` and `verification/pwa-share.json`.
 - [x] R13 Camera/burst intake, native fallback, large-image preparation, non-destructive duplicate warnings and install/share/offline/update support implemented. Six capture/queue and seven actual service-worker checks pass. See `docs/phone-intake.md`; physical phone quality and OS integration remain R12/G5.
 - [x] R14 Task/category filters and useful ordering run before pagination, preserving branch/delivery context and recoverable empty states. Package 0.12.0; 18 focused POS tests and mobile browser verification. See `verification/receiving-filters.json`.
@@ -96,7 +97,7 @@ Updated: 6 September 2026. This is our working source of truth. Update it after 
 - [x] G2 Packaged integration committed as catalog `3f0af21` and POS `1cc61ba`; subsequent verified slices committed under the user's continuing authorization. Unrelated POS AI edits remain separate.
 - [x] G3 Catalog main pushed to the provided repository. POS changes pushed on `catalog/workspace-release`; draft [Inventory_POS PR #1](https://github.com/kiwanukaphil-oss/Inventory_POS/pull/1) awaits staging/acceptance. Production master remains unchanged.
 - [x] G4 New private Railway project `kline-catalog-staging`, separate PostgreSQL volume/bucket, secure staging identity, branch and exact frontend origins configured. See `docs/railway-staging.md`.
-- [x] G5 Both frontends and POS API healthy on Railway; all 108 migrations current; actual CORS, login, private byte-preserving images, pricing, partial receipts, stock and POS navigation pass. AI disabled pending a staging provider key (R11d). Evidence: `verification/railway/`.
+- [x] G5 Both frontends and POS API healthy on Railway; all 108 migrations current; actual CORS, login, private byte-preserving images, pricing, partial receipts, stock and POS navigation pass. Live AI integration now passes (R11d); broader staff quality acceptance remains R11e. Evidence: `verification/railway/`.
 - [ ] G6 Owner/staff acceptance of required checklist items on staging.
 - [ ] G7 Approve production backup/migration/deployment, release, then verify production behavior.
 - [ ] G8 Monitoring/rollback confirmation, staff handover and closure of launch issues.
@@ -124,3 +125,5 @@ Complete required A–G tasks, decide O items explicitly and obtain owner accept
 | 2026-09-06 | T8 completed: cross-app navigation and missing-size restock pass after owner restart. New private Railway project `kline-catalog-staging` created with separate PostgreSQL and image bucket. | G4/G5 in progress: Node runtime and staging services. |
 
 | 2026-09-06 | G4/G5 and I6 completed in the new Railway project: live receiving, private original photos, exact eight-unit stock and cross-app session/branch checks pass. | R11d needs staging AI key; G6/A5/P12/R12 require owner/staff and physical devices. Production gates remain open. |
+
+| 2026-09-06 | R11d complete: owner supplied staging key, AI enabled, two real photo runs succeed, preserved edits and saved-result recovery verified. Railway unsigned-header upload failure resolved with SDK checksum compatibility setting; existing private-photo/POS checks still pass. | R11e/A5/P12/G6 and physical-device R12 require owner/staff acceptance. Production gates remain open. |
