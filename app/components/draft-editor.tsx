@@ -9,6 +9,7 @@ import { requestPos, postPos, formatMoney, type CatalogItem, type Session } from
 import { Modal, Photo, usePosRead } from './workspace-ui';
 import { AiFieldHint } from './ai-field-hint';
 import { PhotoInspector } from './photo-inspector';
+import { CategoryMappings } from './category-mappings';
 import type { Category } from './upload-delivery';
 import type { CategoryField } from './receiving';
 type Detail = { item: CatalogItem; fields: CategoryField[]; revision: string; blockers: string[] };
@@ -64,6 +65,7 @@ export function DraftEditor({
     [checkAiProgress, setCheckAiProgress] = useState(false);
   const [inspecting, setInspecting] = useState(false),
     [holdForPhoto, setHoldForPhoto] = useState(false);
+  const [mappingOpen, setMappingOpen] = useState(false);
   const item = detail.data?.item,
     editable = session.can_edit && !item?.is_published;
   useEffect(() => {
@@ -559,6 +561,24 @@ export function DraftEditor({
                     </Button>
                   )}
                 </div>
+              )}
+              {session.can_manage_categories &&
+                detail.data?.blockers.some((message) => message.includes('Map this catalog category')) && (
+                  <Button variant="outline" disabled={busy || dirty} onClick={() => setMappingOpen(true)}>
+                    Connect POS category
+                  </Button>
+                )}
+              {mappingOpen && (
+                <CategoryMappings
+                  branch={branch}
+                  categoryId={category}
+                  onClose={() => setMappingOpen(false)}
+                  onSaved={() => {
+                    setMappingOpen(false);
+                    detail.refresh();
+                    onSaved();
+                  }}
+                />
               )}
               {!!detail.data?.blockers.length && (
                 <details className="readiness-details">

@@ -1,6 +1,22 @@
 /** All new SQL is branch-scoped. Pricing, authentication and receipt writes stay in POS. */
 function createWorkspaceRepository({ pool, publicationRepository }) {
   return {
+    async categoryMappings(client = pool) {
+      const categories = await client.query(`SELECT c.id,c.name,c.parent_id,m.pos_category_id,m.xmin::text AS mapping_revision
+        FROM inventory.categories c LEFT JOIN inventory.pos_category_map m ON m.image_category_id=c.id
+        WHERE c.active=true ORDER BY c.name,c.id`);
+      const posCategories = await client.query('SELECT id,name,parent_id FROM categories WHERE is_active=true ORDER BY name,id');
+      return { categories: categories.rows, pos_categories: posCategories.rows };
+    },
+    async saveCategoryMapping(client, { categoryId, posCategoryId, userId, before }) {
+      // Preserve one mapping per category and audit the global change in the same transaction.
+      await client.query(`INSERT INTO inventory.pos_category_map(id,image_category_id,pos_category_id,created_at,updated_at)
+        VALUES(gen_random_uuid(),$1,$2,now(),now()) ON CONFLICT(image_category_id)
+        DO UPDATE SET pos_category_id=EXCLUDED.pos_category_id,updated_at=now()`, [categoryId,posCategoryId]);
+      await client.query(`INSERT INTO user_audit_logs(user_id,action,module,description)
+        VALUES($1,'catalog.category_mapping.update','catalog',$2)`,
+        [userId,JSON.stringify({category_id:categoryId,before:before.pos_category_id,after:posCategoryId})]);
+    },
     async pricingHistory(branchId, userId, page) {
       // Select public receipt metadata only; exact rows remain behind the POS cost-redacting read endpoint.
       const values = [branchId, userId];

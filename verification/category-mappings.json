@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "checks": [
+    "Blocked item opens category connection",
+    "Saving clears mapping blocker",
+    "Global mapping persists",
+    "360px layout fits"
+  ],
+  "package": "0.9.0"
+}

@@ -64,7 +64,7 @@ Updated: 6 September 2026. This is our working source of truth. Update it after 
 - [x] I2 Visible image status/retry independent of receipt; protect manual images and prevent duplicate stock after failure. 29 focused POS tests and desktop/mobile recovery verified.
 - [ ] I3 Explicit receive-against-existing-product workflow with deliberate product/variant matching; no implicit merges.
 - [ ] I4 Restock price/cost policy, new/existing sizes, stale matches, branch stock, audit and retry tests.
-- [ ] I5 Reachable, permission-controlled category-mapping administration with actionable receiving blockers.
+- [x] I5 Reachable, permission-controlled category mappings from settings and blocked receiving items. Package 0.9.0; audited, stale-protected saves, 15 focused POS tests, 24 workspace checks and desktop/mobile verification. See `verification/category-mappings.json`.
 - [ ] I6 Cross-app session/navigation design and staging verification; keep tokens out of URLs.
 
 ## D. Administration and parity

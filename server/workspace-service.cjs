@@ -33,6 +33,23 @@ function createWorkspaceService({ source }) {
     return context;
   }
   return {
+    async categoryMappings() {
+      const result = await repository.categoryMappings();
+      return { ...result, categories: result.categories.map(row => ({ ...row, revision: revisionOf(row) })) };
+    },
+    async saveCategoryMapping({categoryId,posCategoryId,userId,expectedRevision}) {
+      // Lock the category before rereading its mapping so waiting writers cannot use an old joined snapshot.
+      return repository.transaction(async client => {
+        const category = await client.query('SELECT id FROM inventory.categories WHERE id=$1 AND active=true FOR UPDATE',[categoryId]);
+        if (!category.rowCount) throw DomainError.notFound('Catalog category unavailable.');
+        const before = (await repository.categoryMappings(client)).categories.find(row => row.id === categoryId);
+        if (revisionOf(before) !== expectedRevision) throw DomainError.conflict('This mapping changed. Reload mappings before saving.');
+        const target = await client.query('SELECT id FROM categories WHERE id=$1 AND is_active=true FOR SHARE',[posCategoryId]);
+        if (!target.rowCount) throw DomainError.validationFailed('Choose an active POS category.');
+        await repository.saveCategoryMapping(client,{categoryId,posCategoryId,userId,before});
+        return { saved: true };
+      });
+    },
     pricingHistory: (branchId, userId, page) => repository.pricingHistory(branchId, userId, page),
     async history(branchId, kind, { page, search, batchId }) {
       // Bound response size while preserving stable ordering and search across the complete history.

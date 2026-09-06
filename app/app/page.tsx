@@ -1,13 +1,14 @@
 'use client';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { ArrowDownToLine, Boxes, LogOut, Moon, Sun, Tag } from 'lucide-react';
+import { ArrowDownToLine, Boxes, LogOut, Moon, Sun, Tag, Settings } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { requestPos, postPos, type Session } from '@/lib/catalog-api';
 import { Receiving } from '@/components/receiving';
 import { Pricing } from '@/components/pricing';
 import { Stock } from '@/components/stock';
+import { CategoryMappings } from '@/components/category-mappings';
 type Destination = 'Receiving' | 'Pricing' | 'Stock';
 
 /** Restore the tab's POS session, then obtain authoritative capabilities. */
@@ -18,6 +19,7 @@ export default function Workspace() {
   const [destination, setDestination] = useState<Destination>('Receiving');
   const [priceScope, setPriceScope] = useState<string[]>([]);
   const [dark, setDark] = useState(false);
+  const [mappingsOpen, setMappingsOpen] = useState(false);
   const [error, setError] = useState('');
   async function restoreSession() {
     /* Reload POS identity before choosing an authorized remembered or default branch. */
@@ -105,6 +107,23 @@ export default function Workspace() {
       </aside>
       <div className="workspace-main">
         <header className="topbar">
+          {session.can_manage_categories && (
+            <Button
+              variant="ghost"
+              size="icon"
+              aria-label="Category mappings"
+              onClick={() => setMappingsOpen(true)}
+            >
+              <Settings size={17} />
+            </Button>
+          )}
+          {mappingsOpen && (
+            <CategoryMappings
+              key={`${session.id}:${branch}`}
+              branch={branch}
+              onClose={() => setMappingsOpen(false)}
+            />
+          )}
           <span className="muted desktop-only">
             K-Line / <b>{destination}</b>
           </span>

@@ -42,6 +42,10 @@ function createWorkspaceRouter(dependencies) {
     res.set('Cache-Control', 'no-store');
     next();
   });
+  router.get('/category-mappings', checkPermission('settings.categories'), reply(() => service.categoryMappings()));
+  router.put('/category-mappings/:id', checkPermission('settings.categories'), reply(req =>
+    service.saveCategoryMapping({categoryId:uuid(req.params.id),posCategoryId:uuid(req.body.pos_category_id),
+      userId:req.user.id,expectedRevision:text(req.body.expected_revision,64)})));
   router.get(
     '/pricing-history',
     checkPermission('catalog.edit'),
