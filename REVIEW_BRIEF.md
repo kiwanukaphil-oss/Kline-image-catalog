@@ -92,3 +92,7 @@ S5 verified with real POS adjustment, sale, sellable return, transfer dispatch a
 ## POS navigation — S6 in progress
 
 Implemented product/branch/tab handoff, local post-login return paths and product permission gating. Both frontend TypeScript checks pass; catalog lint passes. Browser acceptance is blocked because automatic approval review rejected hidden and foreground POS frontend startup with `blocked by policy`. Backend preview is refreshed. User-run `server/tests/start-pos-preview.ps1` unblocks the required browser checks; see `docs/pos-navigation-work.md`. S6 is deliberately uncommitted and unchecked.
+
+## S6 completed
+
+User-started POS preview confirmed on Vite port 3000. Corrected development links and helper. Browser verifies independent login, exact product/tab/branch, expired-session recovery and denied branch. Fixed login guard/form redirect race and preserved local destination on 401. Six redirect tests and both frontend TypeScript checks pass; catalog lint/build/format pass. Staging remains separate.

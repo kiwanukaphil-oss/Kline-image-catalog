@@ -1,11 +1,9 @@
-# POS navigation: implementation awaiting browser verification
+﻿# POS navigation
 
-Stock detail links now address a POS handoff route with product, branch and requested tab. Links contain no tokens. The existing POS login preserves a local return destination, and the handoff checks the logged-in account's product permission and branch membership before switching the active branch and opening the product workspace. Invalid or unauthorized links produce a bounded error. The stock/pricing links open their corresponding product tabs.
+Stock links open an authenticated POS handoff containing product, branch and requested tab, never tokens. POS rechecks product access and branch membership before changing branch and opening the corresponding product tab.
 
-Both frontends pass TypeScript; catalog lint passes. Browser verification is not complete and this slice is intentionally uncommitted.
+Login guards and the login form share one local-only return destination. Expired-session API redirects retain it in tab-scoped storage until authentication completes. External, backslash and login-loop destinations are rejected. This fixes the race where the authenticated login guard previously redirected to Dashboard before the form could resume the product.
 
-Automatic approval review rejected both the hidden-process and foreground launches of the local POS frontend. The only reason supplied was `blocked by policy`. The backend preview was successfully refreshed and remains on `127.0.0.1:5109` with the dedicated local test database and allowed frontend origin `http://127.0.0.1:3010`.
+Verified locally against both real apps: separate login, exact product/pricing tab, correct destination branch, stock tab, expired session and rejected unauthorized branch. Six redirect-safety tests pass; both frontend TypeScript checks and catalog lint/build/format pass. Evidence: verification/pos-navigation.json and pos-handoff-desktop.png.
 
-To unblock browser verification, run `server/tests/start-pos-preview.ps1` in a local PowerShell session and leave it running. It starts the POS frontend on `http://127.0.0.1:3010` against the test backend. No production service or database is involved. The catalog preview remains on port 5198.
-
-Next checks: follow the product link while signed out of POS; log in and verify exact destination/branch; verify pricing and stock tabs; verify expired-session recovery and a denied branch. Staging cross-app acceptance remains separate.
+The user-started POS Vite preview listens on port 3000; the helper and catalog development links now match it. Catalog remains on 5198 and the dedicated test backend on 5109. Production requires NEXT_PUBLIC_POS_URL, the exact allowed origin and enabled POS branch selection. Cross-origin staging acceptance remains I6/G5.

@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "checks": [
+    "Separate POS login resumes exact product and pricing tab",
+    "Requested authorized branch becomes active",
+    "Stock link opens variants tab",
+    "Expired POS session preserves destination after login",
+    "Unauthorized branch stays blocked",
+    "Handoff contains no credentials"
+  ]
+}

@@ -12,6 +12,7 @@ export type Session = {
   can_publish: boolean;
   can_view_cost: boolean;
   can_ai_extract: boolean;
+  can_open_pos_product?: boolean;
 };
 export type Variant = {
   id: string;

@@ -160,7 +160,7 @@ export default function Workspace() {
               onDone={() => setDestination('Receiving')}
             />
           )}
-          {destination === 'Stock' && <Stock branch={branch} />}
+          {destination === 'Stock' && <Stock branch={branch} canOpenPos={!!session.can_open_pos_product} />}
         </main>
       </div>
     </div>

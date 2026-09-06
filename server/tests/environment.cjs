@@ -20,7 +20,7 @@ function configureTestEnvironment() {
   process.env.NODE_ENV = 'test';
   process.env.DB_SSL = 'false';
   process.env.JWT_SECRET = 'kline-disposable-local-test-signing-key-not-for-production';
-  process.env.CORS_ORIGINS = 'http://127.0.0.1:5198,http://localhost:5198,http://[::1]:5198';
+  process.env.CORS_ORIGINS = 'http://127.0.0.1:5198,http://localhost:5198,http://[::1]:5198,http://127.0.0.1:3000';
   process.env.CATALOG_AI_ENABLED = 'false';
   process.env.CATALOG_WORKSPACE_ENABLED = 'true';
   process.env.BRANCH_MODE = 'active';

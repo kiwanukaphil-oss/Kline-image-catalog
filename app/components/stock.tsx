@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { requestPos, formatMoney, type Variant } from '@/lib/catalog-api';
 import { Modal, Pagination, Photo, SearchField, usePosRead } from './workspace-ui';
 import { useWorkspaceTool } from '@/lib/webmcp';
+import { posProductLink } from '@/lib/pos-navigation';
 type StockLine = Variant & { stock_state: string };
 type StockChoice = { id: string; label: string };
 type Product = {
@@ -46,7 +47,7 @@ const labelState = (state: string) =>
   ({ low: 'Low stock', out: 'Out of stock', negative: 'Negative stock', in: 'In stock' })[state] || state;
 
 /** Refresh authoritative POS snapshots while visible; retain a timestamped snapshot after transient failures. */
-export function Stock({ branch }: { branch: string }) {
+export function Stock({ branch, canOpenPos }: { branch: string; canOpenPos: boolean }) {
   const [search, setSearch] = useState(''),
     [category, setCategory] = useState(''),
     [brand, setBrand] = useState(''),
@@ -306,6 +307,7 @@ export function Stock({ branch }: { branch: string }) {
       {data && <Pagination page={page} total={data.total} limit={data.limit} onChange={setPage} />}
       {product && (
         <StockDetail
+          canOpenPos={canOpenPos}
           key={product.product_id}
           product={product}
           branch={branch}
@@ -319,11 +321,13 @@ export function Stock({ branch }: { branch: string }) {
 
 /** Movement balances belong to the named variant; receiving history is never substituted for availability. */
 function StockDetail({
+  canOpenPos,
   product,
   branch,
   updated,
   onClose,
 }: {
+  canOpenPos: boolean;
   product: Product;
   branch: string;
   updated: string;
@@ -333,7 +337,7 @@ function StockDetail({
     `/catalog-workspace/stock/${product.product_id}/movements`,
     branch,
   );
-  const posUrl = process.env.NEXT_PUBLIC_POS_URL;
+  const posUrl = canOpenPos ? posProductLink(product.product_id, branch, 'product') : null;
   return (
     <Modal
       title={product.name}
@@ -351,14 +355,29 @@ function StockDetail({
           </h2>
           <p className="muted">Updated {new Date(updated).toLocaleTimeString()}</p>
           {posUrl && (
-            <a
-              className="pos-link"
-              href={`${posUrl.replace(/\/$/, '')}/products/${product.product_id}?branch_id=${encodeURIComponent(branch)}`}
-              target="_blank"
-              rel="noreferrer"
-            >
+            <a className="pos-link" href={posUrl} target="_blank" rel="noreferrer">
               Open product in POS <ArrowUpRight size={15} />
             </a>
+          )}
+          {posUrl && (
+            <div className="flex flex-wrap gap-4">
+              <a
+                className="pos-link"
+                href={posProductLink(product.product_id, branch, 'prices')!}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Prices in POS <ArrowUpRight size={15} />
+              </a>
+              <a
+                className="pos-link"
+                href={posProductLink(product.product_id, branch, 'stock')!}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Stock in POS <ArrowUpRight size={15} />
+              </a>
+            </div>
           )}
         </div>
       </div>
