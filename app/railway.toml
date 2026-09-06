@@ -1,5 +1,7 @@
+# Legacy config reference, retained for review. Railway service settings are
+# authoritative; its build engine installs dependencies before this command.
 [build]
-buildCommand = "npm ci && npm run build"
+buildCommand = "npm run build"
 
 [deploy]
 startCommand = "node dist/standalone/server.js"
