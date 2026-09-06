@@ -72,3 +72,7 @@ Implemented independent durable photo recovery (POS ADR-076, migration 107, pack
 ## Complete receipt and delivery history — R9
 
 Package 0.6.0 adds bounded search and pagination across complete branch history. Verified 205 receipts without repeats, 27-delivery browser pagination, older receipt-ID lookup and clear-search recovery. Eleven focused POS tests, 24 workspace checks, build, TypeScript, lint and formatting pass. Previous array routes remain compatibility removal candidates. Next: full photo inspection.
+
+## Photo inspection — R10
+
+Implemented in-app zoom/fit, fresh-URL reload independent of unsaved form state, and an audited photo/label hold using existing flag publication blockers. Twelve focused POS tests, desktop/mobile browser recovery, 24 workspace checks and frontend checks pass. Package 0.7.0; next P10 durable pricing history.

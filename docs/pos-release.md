@@ -4,7 +4,7 @@ The reviewed initial implementation is committed as catalog `65a4f07` and POS `6
 
 ## Runtime artifact
 
-The catalog's `server/` directory owns `@kline/pos-workspace@0.6.0`, including stock discovery, AI review and independent photo recovery. `npm pack` produces `kline-pos-workspace-0.6.0.tgz`. POS stores the tarball in `backend/vendor/` and its package-lock pins the file dependency and integrity. No registry or adjacent catalog checkout is needed at runtime. The installed package contains five runtime modules, its manifest and README; it has no test image store, database credentials or automatic migration code. The earlier 0.2.0 and 0.3.0 tarballs are retained as a removal candidate pending review.
+The catalog's `server/` directory owns `@kline/pos-workspace@0.7.0`, including stock discovery, AI review and independent photo recovery. `npm pack` produces `kline-pos-workspace-0.7.0.tgz`. POS stores the tarball in `backend/vendor/` and its package-lock pins the file dependency and integrity. No registry or adjacent catalog checkout is needed at runtime. The installed package contains five runtime modules, its manifest and README; it has no test image store, database credentials or automatic migration code. The earlier 0.2.0 and 0.3.0 tarballs are retained as a removal candidate pending review.
 
 After changing runtime source, increment the package version, pack it into the POS vendor directory, install that exact file dependency, then verify it:
 

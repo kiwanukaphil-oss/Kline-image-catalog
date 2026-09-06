@@ -176,6 +176,7 @@ function createWorkspaceService({ source }) {
           attributes[key] = value;
         }
         const before = {
+          status: context.item.status,
           name: context.item.name,
           brand: context.item.brand,
           category_id: context.item.category_id,
@@ -190,6 +191,8 @@ function createWorkspaceService({ source }) {
         if (!Array.isArray(reviewedAiFields) || reviewedAiFields.some((key) => !reviewableKeys.includes(key)))
           throw DomainError.validationFailed('Invalid AI review fields.');
         const after = {
+          status: payload.hold_for_photo === true ? 'flag' : payload.resolve_flag === true ? 'draft' : context.item.status,
+          ...(payload.hold_for_photo === true ? { hold_reason: 'Photo or label needs checking' } : {}),
           name: payload.name,
           brand: payload.brand,
           category_id: categoryId,
@@ -209,6 +212,7 @@ function createWorkspaceService({ source }) {
           ...after,
           categoryId,
           resolveFlag: payload.resolve_flag === true,
+          holdForPhoto: payload.hold_for_photo === true,
           clearConfidence: [...new Set([...reviewedAiFields, ...changedFields])],
         });
         await repository.recordEdit(client, { itemId, userId, before, after });

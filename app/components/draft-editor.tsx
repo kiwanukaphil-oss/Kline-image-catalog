@@ -8,6 +8,7 @@ import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { requestPos, postPos, formatMoney, type CatalogItem, type Session } from '@/lib/catalog-api';
 import { Modal, Photo, usePosRead } from './workspace-ui';
 import { AiFieldHint } from './ai-field-hint';
+import { PhotoInspector } from './photo-inspector';
 import type { Category } from './upload-delivery';
 import type { CategoryField } from './receiving';
 type Detail = { item: CatalogItem; fields: CategoryField[]; revision: string; blockers: string[] };
@@ -61,6 +62,8 @@ export function DraftEditor({
     [resolveFlag, setResolveFlag] = useState(false);
   const [extracting, setExtracting] = useState(false),
     [checkAiProgress, setCheckAiProgress] = useState(false);
+  const [inspecting, setInspecting] = useState(false),
+    [holdForPhoto, setHoldForPhoto] = useState(false);
   const item = detail.data?.item,
     editable = session.can_edit && !item?.is_published;
   useEffect(() => {
@@ -80,6 +83,8 @@ export function DraftEditor({
       })),
     );
     setDirty(false);
+    setResolveFlag(false);
+    setHoldForPhoto(false);
   }, [detail.data]);
   useEffect(() => {
     const warn = (event: BeforeUnloadEvent) => {
@@ -128,6 +133,7 @@ export function DraftEditor({
           category_id: category,
           attributes: values,
           resolve_flag: resolveFlag,
+          hold_for_photo: holdForPhoto,
           review_ai_fields: reviewAiFields,
         }),
       });
@@ -250,10 +256,11 @@ export function DraftEditor({
                   )}
                 </div>
               )}
-              {item.image_url && (
-                <a className="text-link" href={item.image_url} target="_blank" rel="noreferrer">
-                  View full photo
-                </a>
+              <Button variant="link" onClick={() => setInspecting(true)}>
+                Inspect photo
+              </Button>
+              {inspecting && (
+                <PhotoInspector itemId={itemId} branch={branch} onClose={() => setInspecting(false)} />
               )}
               {editable &&
                 session.can_ai_extract &&
@@ -406,6 +413,16 @@ export function DraftEditor({
                         <AiFieldHint item={item} field={field.key} value={attributes[field.key]} />
                       </div>
                     ))}
+                  {item.status !== 'flag' && editable && (
+                    <label className="inline-check">
+                      <Checkbox
+                        checked={holdForPhoto}
+                        disabled={busy}
+                        onCheckedChange={(value) => edit(() => setHoldForPhoto(value))}
+                      />
+                      Hold for photo or label check
+                    </label>
+                  )}
                   {item.status === 'flag' && editable && (
                     <label className="inline-check">
                       <Checkbox

@@ -70,16 +70,16 @@ function createWorkspaceRepository({ pool, publicationRepository }) {
     },
     async updateDetails(
       client,
-      { itemId, branchId, userId, name, brand, categoryId, attributes, resolveFlag, clearConfidence = [] },
+      { itemId, branchId, userId, name, brand, categoryId, attributes, resolveFlag, holdForPhoto, clearConfidence = [] },
     ) {
       /* Update branch-owned draft identity and clear a problem flag only on explicit confirmation. */
 
       const { rows } = await client.query(
         `UPDATE inventory.items SET name=$1,brand=$2,category_id=$3,
-        attributes=$4,updated_by=$5,status=CASE WHEN $8 THEN 'draft' ELSE status END,
+        attributes=$4,updated_by=$5,status=CASE WHEN $10 THEN 'flag' WHEN $8 THEN 'draft' ELSE status END,
         confidence=COALESCE(confidence,'{}'::jsonb)-$9::text[]
         WHERE id=$6 AND branch_id=$7 RETURNING id,updated_at`,
-        [name, brand, categoryId, attributes, userId, itemId, branchId, resolveFlag, clearConfidence],
+        [name, brand, categoryId, attributes, userId, itemId, branchId, resolveFlag, clearConfidence, holdForPhoto === true],
       );
       return rows[0];
     },

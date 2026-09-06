@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "checks": [
+    "Fresh photo reload after an unavailable image",
+    "Desktop zoom and mobile fit",
+    "Escape closes viewer while preserving unsaved draft",
+    "Saved photo hold requires explicit resolution"
+  ]
+}

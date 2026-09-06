@@ -4,7 +4,7 @@ Updated: 6 September 2026. This is our working source of truth. Update it after 
 
 **Checked means implemented and verified locally unless explicitly labelled staging/production.** An implemented feature can still await commit, release or staff acceptance. Optional features do not silently become launch requirements.
 
-**Latest completed: R9 — searchable, paginated receipt and delivery history. Next: R10 photo inspection. Live bucket and AI staging acceptance remain open. Autonomous implementation and commits authorized on 6 September.**
+**Latest completed: R10 — in-app photo inspection and audited holds. Next: P10 durable pricing history. Live bucket and AI staging acceptance remain open. Autonomous implementation and commits authorized on 6 September.**
 
 ## A. Purpose and design
 
@@ -26,7 +26,7 @@ Updated: 6 September 2026. This is our working source of truth. Update it after 
 - [x] R7 Partial receipt recovery and fresh review after competing edits; received details/counts protected.
 - [x] R8 Historical receipts remain unchanged after a POS sale changes availability.
 - [x] R9 Complete receipt/delivery history search and pagination beyond the former 200-receipt limit. All 205 test receipts traversed exactly once; receipt-ID search, desktop/mobile navigation and clear-search verified in package 0.6.0.
-- [ ] R10 Full photo/label inspection and deliberate handling of unreadable/missing images.
+- [x] R10 Full photo/label inspection with zoom, fit, unavailable-image reload and preservation of unsaved details. An audited photo/label hold blocks receiving until explicit resolution. Package 0.7.0; 12 POS tests and desktop/mobile recovery verified.
 - [x] R11a Select individual or multiple photographed lots and explicitly run AI fill; show progress and per-lot results, stop after the current photo and resume remaining work.
 - [x] R11b Review uncertain suggestions with evidence beside editable fields; correct/confirm details and separately confirm physical quantities. Review is revision-checked and audited; original observations remain historical.
 - [x] R11c Protect existing/unsaved edits, check persisted job outcomes after failures and reconcile a lost response without automatically repeating a paid request. Verified with real POS/PostgreSQL and a deterministic provider boundary.

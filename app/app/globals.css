@@ -2013,3 +2013,16 @@ td small {
     padding: 14px;
   }
 }
+
+.photo-inspector {
+  overflow: auto;
+  max-height: 65vh;
+  min-height: 180px;
+  background: var(--muted);
+  border-radius: 10px;
+  overscroll-behavior: contain;
+}
+.photo-inspector img {
+  display: block;
+  margin: auto;
+}
