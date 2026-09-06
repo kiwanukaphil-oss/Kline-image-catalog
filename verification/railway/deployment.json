@@ -1,0 +1,52 @@
+{
+  "checked_at": "2026-09-06T14:12:58.680Z",
+  "project_id": "9ce0cab6-9ab1-4da3-854b-afcf4cfa914b",
+  "environment_id": "f5099338-7b6a-425b-8a78-fea771ff5809",
+  "isolated_from_production": true,
+  "services": [
+    {
+      "id": "2ffc064d-f2ec-4431-88b4-8866bd6f1784",
+      "name": "Postgres",
+      "deployment_id": "e15c9776-45f4-44c0-b334-bdd7d1e6574f",
+      "status": "SUCCESS"
+    },
+    {
+      "id": "13c68002-d728-40f8-9a87-af6352d1ac76",
+      "name": "pos-web",
+      "deployment_id": "361ab1b9-a749-400c-9ef6-b04f09390509",
+      "status": "SUCCESS",
+      "commit": "904dea0e6dc605b92a73908b95e856ebcdd0aa00"
+    },
+    {
+      "id": "09c99ba0-f513-4560-802c-99cb42f5d17e",
+      "name": "catalog-web",
+      "deployment_id": "812dfc24-e1ec-473f-a5b7-4800c1182d2c",
+      "status": "SUCCESS",
+      "commit": "a8fd05d8e998d7347c4bac5910d57ce469b24c79"
+    },
+    {
+      "id": "dd279046-29fd-4128-8e73-d900ebdca780",
+      "name": "pos-api",
+      "deployment_id": "068ee34d-71a9-485c-a608-fef24060507f",
+      "status": "SUCCESS",
+      "commit": "904dea0e6dc605b92a73908b95e856ebcdd0aa00"
+    }
+  ],
+  "migrations": {
+    "applied": 108,
+    "pending": 0,
+    "checksum_mismatches": 0,
+    "up_to_date": true
+  },
+  "cors": {
+    "allowed_origin": "https://catalog-web-production-2d56.up.railway.app",
+    "foreign_origin_denied": true
+  },
+  "anonymous_workspace_denied": true,
+  "ai_enabled": false,
+  "remaining": [
+    "Real AI provider key and confidence acceptance",
+    "Physical-device and uncoached staff acceptance",
+    "Production backup/restore, monitoring and explicit release approval"
+  ]
+}

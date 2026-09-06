@@ -4,7 +4,8 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
-const evidence = path.join(root, 'verification');
+const evidence = path.resolve(root, process.env.KLINE_EVIDENCE_DIR || 'verification');
+await fs.mkdir(evidence, { recursive: true });
 const browser = await chromium.launch({ channel: 'chrome', headless: true });
 const page = await browser.newPage({ viewport: { width: 1366, height: 1000 } });
 const errors = [],
@@ -25,11 +26,11 @@ const snapshot = async (name) => {
 /** Exercise the UI against the real local POS host, including a deliberately interrupted upload. */
 try {
   await page.goto(process.env.KLINE_PREVIEW_URL || 'http://[::1]:5198');
-  await page.getByLabel('Username').fill('testadmin');
-  await page.getByLabel('Password', { exact: true }).fill('testpass123');
+  await page.getByLabel('Username').fill(process.env.KLINE_TEST_USERNAME || 'testadmin');
+  await page.getByLabel('Password', { exact: true }).fill(process.env.KLINE_TEST_PASSWORD || 'testpass123');
   await page.getByRole('button', { name: 'Sign in', exact: true }).click();
   await page.getByRole('heading', { name: 'Receiving', exact: true }).waitFor();
-  const deliveryName = 'September delivery';
+  const deliveryName = process.env.KLINE_TEST_DELIVERY || 'September delivery';
   await page.getByRole('button', { name: 'New delivery', exact: true }).first().click();
   await page.getByLabel('Delivery name').fill(deliveryName);
   await page.getByLabel('Delivery category').selectOption({ label: 'Trousers' });

@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "checked_at": "2026-09-06T14:09:14.285Z",
+  "checks": [
+    "Interrupted photo uploads resume into one persistent delivery",
+    "Details and multi-size counts save without a separate approval screen",
+    "Zero selling prices fail before review",
+    "Selection, shared price, size exception, exact review and save complete on mobile",
+    "A real edit after review requires a fresh receipt review while completed lots stay received",
+    "Three lots receive eight units and leave durable per-lot receipts",
+    "Current-stock cards, movement history and dark appearance work at desktop and 360px",
+    "Failed refresh retains timestamped stock with an explicit stale state",
+    "No uncaught browser errors"
+  ]
+}

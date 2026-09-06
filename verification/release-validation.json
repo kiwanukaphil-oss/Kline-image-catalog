@@ -41,8 +41,15 @@
     "migrations": 108
   },
   "limits": [
-    "Local fixtures only",
-    "Physical-device, real provider/bucket, staff and staging acceptance pending",
-    "No production deployment or schema change"
-  ]
+    "Live AI provider key and confidence acceptance pending",
+    "Physical-device and uncoached staff acceptance pending",
+    "No existing production project, schema or master branch deployment changed"
+  ],
+  "railway": {
+    "passed": true,
+    "project_id": "9ce0cab6-9ab1-4da3-854b-afcf4cfa914b",
+    "evidence": "railway/deployment.json",
+    "browser": "railway/browser.json",
+    "private_photos_and_pos": "railway/handoff.json"
+  }
 }

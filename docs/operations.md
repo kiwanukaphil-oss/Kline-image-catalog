@@ -12,7 +12,7 @@ Photo-transfer failures are recoverable independently of stock receipt. AI progr
 
 ## Staging and production gates
 
-The accessible Railway POS project `dynamic-balance` currently exposes only production. Select or create an isolated staging environment with its own database, private bucket, identities and branch configuration. Build the frontend with the staging POS API/UI origins and add only its exact origin to POS CORS. Validate private photo upload/read/retry, AI if enabled, denied permissions/branches, receipt retries and both app sessions.
+The isolated Railway project `kline-catalog-staging` is deployed and verified. See `railway-staging.md` for exact origins, identities, services and evidence. The existing `dynamic-balance` production project remains unchanged. Live AI, physical-device and uncoached staff acceptance remain required.
 
 Before production: take and verify a fresh database backup, verify private object storage recovery separately, record the deployed backend/frontend versions and rollback targets, and review migration status. Do not restore a backup over live commerce as an ordinary application rollback. Monitor startup/migration errors, authentication/CORS failures, photo-transfer backlog, stale AI jobs and branch stock discrepancies. The owner must accept staging and approve the production rollout.
 

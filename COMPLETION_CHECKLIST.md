@@ -4,7 +4,7 @@ Updated: 6 September 2026. This is our working source of truth. Update it after 
 
 **Checked means implemented and verified locally unless explicitly labelled staging/production.** An implemented feature can still await commit, release or staff acceptance. Optional features do not silently become launch requirements.
 
-**Release candidate: package 0.16.0. Core workflows and administration are implemented. 249 clean committed POS backend tests, 22 POS frontend tests, 24 workspace checks and eight accessibility views pass; audits report zero known vulnerabilities. All 21 browser cases pass, including the targeted two-app repeat after preview restart. Local backup/restore and all 108 migration checks pass. Staging, real devices/provider/bucket and staff acceptance remain pending.**
+**Release candidate: package 0.16.0. Core workflows and administration are implemented. 249 clean committed POS backend tests, 22 POS frontend tests, 24 workspace checks and eight accessibility views pass; audits report zero known vulnerabilities. All 21 browser cases pass, including the targeted two-app repeat after preview restart. Local backup/restore and all 108 migration checks pass. The isolated Railway deployment, real private bucket and cross-app acceptance pass. Live AI provider, physical devices, staff acceptance and production release remain pending.**
 
 ## A. Purpose and design
 
@@ -69,7 +69,7 @@ Updated: 6 September 2026. This is our working source of truth. Update it after 
 - [x] I3 Explicit existing-product restock: choose product, match each size, review destination SKUs/prices and confirm. Package 0.10.0; actual desktop/mobile receipt verified, no implicit merging. See `verification/restock.json`.
 - [x] I4 Restock policy keeps POS prices/costs; six focused tests cover stale prices/quantities/actor, invalid matches, branch isolation, intervening stock movements, atomic audit and concurrent retry. Real two-app journey creates XL with zero opening stock, refreshes matching choices and receives exactly three units. See `verification/restock-missing-size.json`; staging/staff acceptance remains G5/G6.
 - [x] I5 Reachable, permission-controlled category mappings from settings and blocked receiving items. Package 0.9.0; audited, stale-protected saves, 15 focused POS tests, 24 workspace checks and desktop/mobile verification. See `verification/category-mappings.json`.
-- [ ] I6 Cross-app session/navigation design and staging verification; keep tokens out of URLs.
+- [x] I6 Actual Railway HTTPS cross-app pricing/stock links preserve branch and destination through separate/expired login; unauthorized branch denied, no credentials in URLs. See `verification/railway/handoff.json`.
 
 ## D. Administration and parity
 
@@ -95,8 +95,8 @@ Updated: 6 September 2026. This is our working source of truth. Update it after 
 - [x] G1 Reviewed app committed as `65a4f07`; POS safeguard as `6de2d74`; unrelated POS AI edits excluded.
 - [x] G2 Packaged integration committed as catalog `3f0af21` and POS `1cc61ba`; subsequent verified slices committed under the user's continuing authorization. Unrelated POS AI edits remain separate.
 - [x] G3 Catalog main pushed to the provided repository. POS changes pushed on `catalog/workspace-release`; draft [Inventory_POS PR #1](https://github.com/kiwanukaphil-oss/Inventory_POS/pull/1) awaits staging/acceptance. Production master remains unchanged.
-- [ ] G4 Select/configure staging POS, frontend origins, branch identities and private bucket.
-- [ ] G5 Deploy reviewed staging migration/backend/frontend; verify actual CORS, login, images, AI if enabled, receipts and POS navigation.
+- [x] G4 New private Railway project `kline-catalog-staging`, separate PostgreSQL volume/bucket, secure staging identity, branch and exact frontend origins configured. See `docs/railway-staging.md`.
+- [x] G5 Both frontends and POS API healthy on Railway; all 108 migrations current; actual CORS, login, private byte-preserving images, pricing, partial receipts, stock and POS navigation pass. AI disabled pending a staging provider key (R11d). Evidence: `verification/railway/`.
 - [ ] G6 Owner/staff acceptance of required checklist items on staging.
 - [ ] G7 Approve production backup/migration/deployment, release, then verify production behavior.
 - [ ] G8 Monitoring/rollback confirmation, staff handover and closure of launch issues.
@@ -122,3 +122,5 @@ Complete required A–G tasks, decide O items explicitly and obtain owner accept
 | 2026-09-06 | R13?R16, administration, session recovery and local accessibility/operations completed through package 0.16.0; source pushed and POS draft PR opened. | Final POS preview repeat awaits restart; staging target remains undecided. Clean committed-tree verification passed: 249 tests/26 suites at POS 402133c. |
 
 | 2026-09-06 | T8 completed: cross-app navigation and missing-size restock pass after owner restart. New private Railway project `kline-catalog-staging` created with separate PostgreSQL and image bucket. | G4/G5 in progress: Node runtime and staging services. |
+
+| 2026-09-06 | G4/G5 and I6 completed in the new Railway project: live receiving, private original photos, exact eight-unit stock and cross-app session/branch checks pass. | R11d needs staging AI key; G6/A5/P12/R12 require owner/staff and physical devices. Production gates remain open. |

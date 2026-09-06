@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "checked_at": "2026-09-06T14:10:29.434Z",
+  "catalog": "https://catalog-web-production-2d56.up.railway.app",
+  "pos": "https://pos-web-production-fee4.up.railway.app",
+  "checks": [
+    "Three received lots total exactly eight units in real staging POS stock",
+    "All three original photos survive handoff byte-for-byte; unsigned bucket requests are denied",
+    "POS price/stock deep links, branch context, expired login and denied branches pass on HTTPS"
+  ]
+}

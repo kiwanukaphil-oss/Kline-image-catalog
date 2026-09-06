@@ -22,3 +22,9 @@ Screenshots prefixed `receiving-`, `pricing-`, `receipt-`, `stock-` record the i
 <!-- Removal candidate: app/verification contains duplicate stock screenshots from an earlier runner working-directory mistake. Authoritative latest artifacts are in this root verification directory. Retained until review. -->
 
 Clean POS release at `402133c`: `npm ci` succeeded and all 249 tests/26 suites passed, independently of unrelated local AI edits. The earlier working-tree run had 250 passing tests. Exact installed package files match source.
+
+## Railway acceptance
+
+The separate staging deployment now passes real HTTPS workflow and private-photo
+checks. See `railway/README.md`, its JSON records and `../docs/railway-staging.md`.
+The original local regression evidence above is retained with its original scope.

@@ -32,4 +32,4 @@ The preview now uses this normal POS app and installed package. Its local-only g
 5. With staging identities, verify login, branch restrictions, private image upload/read, delivery/count edits, group price and exception review, receiving, safe retry and current POS availability. Verify a disallowed origin receives no CORS access. Live AI extraction and cross-app navigation need their own staging checks.
 6. Promote only after staging review. Disabling the flag hides workspace routes while preserving delivery records and receipts. It does not reverse received stock; stock corrections continue through the POS's audited workflow.
 
-Actual staging identity, origins, bucket access and deployment configuration have not been exercised. Those are release-environment checks, not claims made by the local test evidence.
+Actual staging identity, CORS, both frontends, original private photos and POS navigation now pass on the isolated Railway deployment. See `railway-staging.md` and `verification/railway/`. Provider AI, physical-device/staff acceptance and production release remain open.
