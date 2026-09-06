@@ -27,7 +27,7 @@
     {
       "id": "dd279046-29fd-4128-8e73-d900ebdca780",
       "name": "pos-api",
-      "deployment_id": "068ee34d-71a9-485c-a608-fef24060507f",
+      "deployment_id": "ed53e162-0047-452e-9b3d-c2c6d269fee3",
       "status": "SUCCESS",
       "commit": "904dea0e6dc605b92a73908b95e856ebcdd0aa00"
     }
@@ -50,5 +50,6 @@
     "Production backup/restore, monitoring and explicit release approval"
   ],
   "ai_verification": "ai-provider.json",
-  "storage_request_checksum_calculation": "WHEN_REQUIRED"
+  "storage_request_checksum_calculation": "WHEN_REQUIRED",
+  "ai_checked_at": "2026-09-06T14:46:39.378Z"
 }
