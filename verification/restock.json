@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "checks": [
+    "Explicit product and variant selection",
+    "Incoming and retained POS prices reviewed",
+    "Desktop/mobile confirmation",
+    "Three units added to chosen existing variant",
+    "POS price and cost unchanged"
+  ]
+}

@@ -10,6 +10,7 @@ import { Modal, Photo, usePosRead } from './workspace-ui';
 import { AiFieldHint } from './ai-field-hint';
 import { PhotoInspector } from './photo-inspector';
 import { CategoryMappings } from './category-mappings';
+import { Restock } from './restock';
 import type { Category } from './upload-delivery';
 import type { CategoryField } from './receiving';
 type Detail = { item: CatalogItem; fields: CategoryField[]; revision: string; blockers: string[] };
@@ -66,6 +67,7 @@ export function DraftEditor({
   const [inspecting, setInspecting] = useState(false),
     [holdForPhoto, setHoldForPhoto] = useState(false);
   const [mappingOpen, setMappingOpen] = useState(false);
+  const [restockOpen, setRestockOpen] = useState(false);
   const item = detail.data?.item,
     editable = session.can_edit && !item?.is_published;
   useEffect(() => {
@@ -241,6 +243,26 @@ export function DraftEditor({
         item && (
           <div className="draft-layout">
             <div className="draft-evidence">
+              {session.can_publish &&
+                session.can_open_pos_product &&
+                !item.is_published &&
+                !detail.data?.blockers.length && (
+                  <Button variant="outline" disabled={busy || dirty} onClick={() => setRestockOpen(true)}>
+                    Restock existing product
+                  </Button>
+                )}
+              {restockOpen && (
+                <Restock
+                  item={item}
+                  branch={branch}
+                  onClose={() => setRestockOpen(false)}
+                  onReceived={() => {
+                    setRestockOpen(false);
+                    detail.refresh();
+                    onSaved();
+                  }}
+                />
+              )}
               <Photo url={item.image_url} name={item.name || 'Photographed merchandise'} />
               {item.photo_handoff && (
                 <div className="space-y-2" role="status">

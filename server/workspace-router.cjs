@@ -43,6 +43,17 @@ function createWorkspaceRouter(dependencies) {
     next();
   });
   router.get('/category-mappings', checkPermission('settings.categories'), reply(() => service.categoryMappings()));
+  router.get('/items/:id/restock-options',checkPermission('catalog.publish'),checkPermission('products.view'),reply(req =>
+    service.restockOptions({itemId:uuid(req.params.id),branchId:req.branchId,search:text(req.query.search || '',120)})));
+  router.post('/items/:id/restock/:action',checkPermission('catalog.publish'),checkPermission('products.view'),reply(req => {
+    // Require complete reviewed identities and never infer a product/variant merge from names or sizes.
+    if (!['review','receive'].includes(req.params.action)) throw DomainError.notFound('Restock action unavailable.');
+    if (!Array.isArray(req.body.matches) || !req.body.matches.length || req.body.matches.length>100 || req.body.matches.some(row => !row || typeof row!=='object'))
+      throw DomainError.validationFailed('Match the incoming sizes.');
+    return service.restockItem({itemId:uuid(req.params.id),productId:uuid(req.body.product_id),branchId:req.branchId,userId:req.user.id,
+      matches:req.body.matches.map(row => ({line_id:uuid(row.line_id),variant_id:uuid(row.variant_id)})),
+      expectedRevision:req.body.expected_revision,apply:req.params.action==='receive'});
+  }));
   router.put('/category-mappings/:id', checkPermission('settings.categories'), reply(req =>
     service.saveCategoryMapping({categoryId:uuid(req.params.id),posCategoryId:uuid(req.body.pos_category_id),
       userId:req.user.id,expectedRevision:text(req.body.expected_revision,64)})));

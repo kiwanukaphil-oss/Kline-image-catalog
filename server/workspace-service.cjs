@@ -33,6 +33,21 @@ function createWorkspaceService({ source }) {
     return context;
   }
   return {
+    async restockOptions({itemId,branchId,search}) {
+      return repository.transaction(async client => {
+        const context = await requireContext(client,itemId,branchId);
+        return publicationRepository.restockOptions(client,context.item.pos_category_id,search);
+      });
+    },
+    async restockItem(input) {
+      // External image recovery follows the committed stock transaction and never changes receipt success.
+      const result = await source('services/catalogRestockService').restockCatalogItem(input);
+      if (input.apply) {
+        try { result.photo_handoff = await transferCatalogPhoto(input); }
+        catch (error) { console.error('Restocked; photo retry required:',error.message); }
+      }
+      return result;
+    },
     async categoryMappings() {
       const result = await repository.categoryMappings();
       return { ...result, categories: result.categories.map(row => ({ ...row, revision: revisionOf(row) })) };
