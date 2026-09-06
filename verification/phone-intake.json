@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "checks": [
+    "Similar shots retained with warning",
+    "Large real PNG resized under POS limit",
+    "Ordinary photo bytes retained",
+    "Two consecutive camera shots",
+    "Camera track released on Done",
+    "All five choices persisted for retry"
+  ]
+}

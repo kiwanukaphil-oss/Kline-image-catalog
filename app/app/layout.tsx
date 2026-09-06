@@ -4,6 +4,7 @@ import './globals.css';
 export const metadata: Metadata = {
   title: 'K-Line | Stock workspace',
   description: 'Receive, price and monitor K-Line stock.',
+  manifest: '/manifest.webmanifest',
 };
 
 export default function RootLayout({

@@ -32,7 +32,7 @@ Updated: 6 September 2026. This is our working source of truth. Update it after 
 - [x] R11c Protect existing/unsaved edits, check persisted job outcomes after failures and reconcile a lost response without automatically repeating a paid request. Verified with real POS/PostgreSQL and a deterministic provider boundary.
 - [ ] R11d Verify configured AI assistance with the real provider in staging, including confidence quality, staff usability and recovery of jobs left running by a server restart. Deterministic provider fixtures do not complete this acceptance.
 - [ ] R12 Real-device capture, offline/reconnection, expired sessions and branch changes during unsaved work.
-- [ ] R13 Restore deliberate phone camera/burst intake, large-phone-image handling, duplicate-shot warnings and PWA install/share/update support; preserve physical-unit semantics and verify image quality.
+- [x] R13 Camera/burst intake, native fallback, large-image preparation, non-destructive duplicate warnings and install/share/offline/update support implemented. Six capture/queue and seven actual service-worker checks pass. See `docs/phone-intake.md`; physical phone quality and OS integration remain R12/G5.
 - [ ] R14 Receiving task/category filters and useful sorting across all results, preserving delivery context and clear empty states.
 - [ ] R15 Reachable item activity with actor/time and human/AI changes; retain cost permissions and branch boundaries.
 - [ ] R16 Audited correction of accidental unreceived uploads, including queued work and delivery membership; protect received stock and avoid silent deletion.

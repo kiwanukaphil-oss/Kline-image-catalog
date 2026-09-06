@@ -1,0 +1,11 @@
+# Phone intake and installation
+
+New delivery supports a persistent rear-camera view for consecutive shots, a native phone camera fallback and multi-file selection. Photos remain visible for review and individual removal before queuing. A small luminance fingerprint flags similar shots without deleting or merging physical units.
+
+JPEG/PNG/WebP sources up to 30 MB are decoded one at a time. Sources within the POS 5 MB limit retain their bytes. Larger sources are resized to at most 2560 pixels on the longest edge and encoded as JPEG at quality 0.92, with a visible Resized for upload label. This creates an upload derivative, not an archive of the full-resolution phone original; ordinary supported uploads and their POS handoff remain byte-preserving. Real label readability remains device/staging acceptance.
+
+The upload queue commits before network transfer. Queued choices leave the selection so a later selection cannot accidentally queue them again. Camera tracks stop when capture closes. Browser checks use real decoding and a deterministic browser camera, not a physical phone.
+
+The install manifest includes 192/512 icons and a multipart share target. Shared photos are kept in a local unpredictable share record and opened for authenticated delivery review; no automatic stock upload or AI request occurs. The share record is consumed only after the account/branch upload queue commits. An offline reload retains its share intent. The service worker caches only a static offline notice, never POS responses, tokens, private photos or the workspace HTML. Updates are offered explicitly and do not reload an open dialog.
+
+Verified: six capture/queue checks and seven real service-worker share/offline checks, plus frontend type/lint/build/format. Evidence: `verification/phone-intake.json`, `verification/pwa-share.json` and screenshots. Physical camera quality, operating-system install/share sheet and supported-phone behavior remain R12/G5. Safe-update behavior follows the [service-worker lifecycle](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API/Using_Service_Workers); local share intake follows the [Web Share Target contract](https://developer.chrome.com/docs/capabilities/web-apis/web-share-target).

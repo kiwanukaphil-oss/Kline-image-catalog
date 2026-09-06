@@ -1,6 +1,8 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
-import { Camera, Upload, Check } from 'lucide-react';
+import { Upload, Check } from 'lucide-react';
+import { PhotoIntake } from './photo-intake';
+import { sharedPhotos } from '@/lib/shared-photos';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Modal } from './workspace-ui';
@@ -33,6 +35,8 @@ export function UploadDelivery({
     [progress, setProgress] = useState('');
   const lifetime = useRef<AbortController | null>(null),
     batchId = useRef(crypto.randomUUID());
+  const [preparing, setPreparing] = useState(false);
+  const [intakeVersion, setIntakeVersion] = useState(0);
   useEffect(() => {
     lifetime.current = new AbortController();
     readPendingPhotos(userId, branch)
@@ -40,26 +44,7 @@ export function UploadDelivery({
       .catch((cause) => setError(cause.message));
     return () => lifetime.current?.abort();
   }, [userId, branch]);
-  function choosePhotos(list: FileList | null) {
-    /* Reject unsupported or oversized photos before attempting browser persistence or upload. */
-
-    const chosen = Array.from(list || []);
-    if (
-      chosen.some(
-        (file) =>
-          !['image/jpeg', 'image/png', 'image/webp'].includes(file.type) || file.size > 5 * 1024 * 1024,
-      )
-    ) {
-      setError('Choose JPEG, PNG or WebP photos up to 5 MB each.');
-      return;
-    }
-    if (chosen.length > 100) {
-      setError('Choose up to 100 photos at a time.');
-      return;
-    }
-    setError('');
-    setFiles(chosen);
-  }
+  // The former file-only picker is superseded by PhotoIntake's reviewed capture and preparation workflow.
   /** A failed batch-link is retried using the already created intake item, never a replacement item. */
   async function uploadQueued(photos: PendingPhoto[]) {
     const token = sessionStorage.getItem('kline.session');
@@ -118,6 +103,16 @@ export function UploadDelivery({
       }
       await queuePhotos(queued);
       setFiles([]);
+      const shareId = new URLSearchParams(location.search).get('share');
+      if (shareId) {
+        const url = new URL(location.href);
+        url.searchParams.delete('share');
+        history.replaceState(null, '', url);
+        await sharedPhotos(shareId, true).catch(() =>
+          console.warn('Shared source remains locally; its upload queue is already saved.'),
+        );
+      }
+      setIntakeVersion((version) => version + 1);
       setPending(await readPendingPhotos(userId, branch));
       await uploadQueued(queued);
     } catch (cause) {
@@ -146,7 +141,7 @@ export function UploadDelivery({
       title="New delivery"
       description="Each photo creates one lot. Count its sizes after upload."
       onClose={() => {
-        if (!busy) onClose();
+        if (!busy && !preparing) onClose();
       }}
     >
       <label>
@@ -163,18 +158,7 @@ export function UploadDelivery({
           ))}
         </select>
       </label>
-      <label className="upload-drop">
-        <Camera size={28} />
-        <strong>{files.length ? `${files.length} photos selected` : 'Choose photos'}</strong>
-        <span>JPEG, PNG or WebP · up to 5 MB each</span>
-        <input
-          aria-label="Delivery photos"
-          type="file"
-          multiple
-          accept="image/jpeg,image/png,image/webp"
-          onChange={(e) => choosePhotos(e.target.files)}
-        />
-      </label>
+      <PhotoIntake key={intakeVersion} onChange={setFiles} disabled={busy} onWorkingChange={setPreparing} />
       {pending.length > 0 && (
         <div className="pending-uploads">
           <strong>{pending.length} saved photos waiting</strong>
@@ -190,7 +174,7 @@ export function UploadDelivery({
           {error}
         </p>
       )}
-      <Button className="h-11" disabled={busy || !files.length} onClick={startDelivery}>
+      <Button className="h-11" disabled={busy || preparing || !files.length} onClick={startDelivery}>
         {busy ? <Check size={16} /> : <Upload size={16} />} {busy ? 'Adding photos…' : 'Add to Receiving'}
       </Button>
     </Modal>

@@ -9,6 +9,7 @@ import { Receiving } from '@/components/receiving';
 import { Pricing } from '@/components/pricing';
 import { Stock } from '@/components/stock';
 import { CategoryMappings } from '@/components/category-mappings';
+import { InstallApp } from '@/components/install-app';
 type Destination = 'Receiving' | 'Pricing' | 'Stock';
 
 /** Restore the tab's POS session, then obtain authoritative capabilities. */
@@ -107,6 +108,7 @@ export default function Workspace() {
       </aside>
       <div className="workspace-main">
         <header className="topbar">
+          <InstallApp />
           {session.can_manage_categories && (
             <Button
               variant="ghost"

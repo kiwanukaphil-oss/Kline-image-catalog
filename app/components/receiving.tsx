@@ -113,6 +113,9 @@ export function Receiving({
     branch,
   );
   const selectedItems = inventory.data?.items.filter((item) => selected.includes(item.id)) || [];
+  useEffect(() => {
+    if (session.can_upload && new URLSearchParams(location.search).has('share')) setUploading(true);
+  }, [session.can_upload]);
   const refreshInventory = inventory.refresh,
     refreshBatches = batches.refresh,
     refreshReceipts = receipts.refresh;
