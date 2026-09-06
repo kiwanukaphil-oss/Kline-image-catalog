@@ -29,7 +29,7 @@ try {
   await page.getByText('Existing POS link · receiving locked', { exact: true }).waitFor();
   assert.equal(await page.getByRole('button', { name: 'Save details', exact: true }).count(), 0);
   assert.equal(await page.getByRole('button', { name: 'Restock existing product', exact: true }).count(), 0);
-  await page.screenshot({ path: '../verification/older-data-mobile.png' });
+  await page.screenshot({ path: '../verification/older-data-mobile.png', animations: 'disabled' });
   await fs.writeFile(
     '../verification/older-data.json',
     JSON.stringify(
