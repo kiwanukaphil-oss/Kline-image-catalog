@@ -4,7 +4,7 @@ Updated: 6 September 2026. This is our working source of truth. Update it after 
 
 **Checked means implemented and verified locally unless explicitly labelled staging/production.** An implemented feature can still await commit, release or staff acceptance. Optional features do not silently become launch requirements.
 
-**Latest completed: P11 and S5 — 1,000-lot pricing benchmark plus actual adjustment/return/transfer UI verification. Full POS regression: 235 tests / 25 suites passed. Next: POS navigation and administration parity. Live bucket and AI staging acceptance remain open. Autonomous implementation and commits authorized on 6 September.**
+**Latest completed: P11 and S5 — 1,000-lot pricing benchmark plus actual adjustment/return/transfer UI verification. Full POS regression: 235 tests / 25 suites passed. Active: S6 POS handoff implemented, awaiting browser verification; automatic approval review blocked local POS frontend launch. See `docs/pos-navigation-work.md`. Live bucket and AI staging acceptance remain open. Autonomous implementation and commits authorized on 6 September.**
 
 ## A. Purpose and design
 
@@ -56,7 +56,7 @@ Updated: 6 September 2026. This is our working source of truth. Update it after 
 - [x] S3 Movement details, refresh/timestamps and retention of failed-refresh snapshots.
 - [x] S4 Real POS sale changes availability while received quantities stay historical.
 - [x] S5 Verified real adjustment, sale/return and dispatched/received transfer endpoints against current-stock UI, including destination-branch mobile movement history. See `verification/stock-flows.json`.
-- [ ] S6 Supported links into authorized POS product/price/stock actions with correct context and expired-session handling.
+- [ ] S6 Supported links into authorized POS product/price/stock actions with correct context and expired-session handling. Implementation and TypeScript complete; browser verification blocked by automatic approval review rejecting local POS frontend launch. User can start `server/tests/start-pos-preview.ps1` to unblock. This slice is uncommitted.
 
 ## I. Remaining POS handoffs
 

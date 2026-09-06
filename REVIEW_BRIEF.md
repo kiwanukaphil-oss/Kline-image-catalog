@@ -88,3 +88,7 @@ The real 1,000-lot benchmark found and fixed POS's 100 KB body-parser rejection 
 ## Stock flows and current regression
 
 S5 verified with real POS adjustment, sale, sellable return, transfer dispatch and destination receipt. Stock cards refresh the exact SKU and branch; mobile movement history shows the destination transfer. Full current POS regression: 235 tests across 25 suites pass (`verification/pos-regression-current.json`).
+
+## POS navigation — S6 in progress
+
+Implemented product/branch/tab handoff, local post-login return paths and product permission gating. Both frontend TypeScript checks pass; catalog lint passes. Browser acceptance is blocked because automatic approval review rejected hidden and foreground POS frontend startup with `blocked by policy`. Backend preview is refreshed. User-run `server/tests/start-pos-preview.ps1` unblocks the required browser checks; see `docs/pos-navigation-work.md`. S6 is deliberately uncommitted and unchecked.
