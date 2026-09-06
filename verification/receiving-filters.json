@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "checks": [
+    "Task filter selects only reconciliation rows",
+    "Useful oldest-first ordering",
+    "Mobile controls fit",
+    "Empty results preserve filters",
+    "Clear filters preserves chosen sort"
+  ]
+}

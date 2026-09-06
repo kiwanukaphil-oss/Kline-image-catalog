@@ -88,6 +88,9 @@ export function Receiving({
     [uploading, setUploading] = useState(false),
     [receiving, setReceiving] = useState(false);
   const [receipt, setReceipt] = useState<Receipt | null>(null);
+  const [task, setTask] = useState('all'),
+    [categoryFilter, setCategoryFilter] = useState(''),
+    [sort, setSort] = useState('newest');
   const [deliverySearch, setDeliverySearch] = useState(''),
     [deliveryPage, setDeliveryPage] = useState(1);
   const [receiptSearch, setReceiptSearch] = useState(''),
@@ -102,6 +105,9 @@ export function Receiving({
   const query = new URLSearchParams({
     page: String(page),
     search,
+    task,
+    sort,
+    ...(categoryFilter ? { category_id: categoryFilter } : {}),
     ...(batch ? { batch_id: batch.id } : {}),
   }).toString();
   const inventory = usePosRead<{ items: CatalogItem[]; total: number; page: number; limit: number }>(
@@ -324,10 +330,71 @@ export function Receiving({
               onChange={(value) => {
                 setSearch(value);
                 setPage(1);
+                setSelected([]);
               }}
               placeholder="Find incoming merchandise"
             />
             <span className="muted">{inventory.data?.total ?? '—'} lots</span>
+          </div>
+          <div className="flex flex-wrap gap-3 mb-4">
+            <label className="flex-1 min-w-36">
+              Task
+              <select
+                aria-label="Receiving task"
+                className="w-full min-w-0"
+                value={task}
+                onChange={(event) => {
+                  setTask(event.target.value);
+                  setPage(1);
+                  setSelected([]);
+                }}
+              >
+                <option value="all">All merchandise</option>
+                <option value="incoming">Not received</option>
+                <option value="count">Confirm counts</option>
+                <option value="price">Retail price needed</option>
+                <option value="flagged">Flagged photos</option>
+                <option value="reconcile">Check POS link</option>
+                <option value="received">Received</option>
+              </select>
+            </label>
+            <label className="flex-1 min-w-36">
+              Category
+              <select
+                aria-label="Receiving category"
+                className="w-full min-w-0"
+                value={categoryFilter}
+                onChange={(event) => {
+                  setCategoryFilter(event.target.value);
+                  setPage(1);
+                  setSelected([]);
+                }}
+              >
+                <option value="">All categories</option>
+                {refs.data?.data.categories.map((category) => (
+                  <option key={category.id} value={category.id}>
+                    {category.name}
+                  </option>
+                ))}
+              </select>
+            </label>
+            <label className="flex-1 min-w-36">
+              Sort
+              <select
+                aria-label="Receiving sort"
+                className="w-full min-w-0"
+                value={sort}
+                onChange={(event) => {
+                  setSort(event.target.value);
+                  setPage(1);
+                  setSelected([]);
+                }}
+              >
+                <option value="newest">Newest first</option>
+                <option value="oldest">Oldest first</option>
+                <option value="name">Name A–Z</option>
+              </select>
+            </label>
           </div>
           {inventory.error ? (
             <p role="alert" className="error">
@@ -339,8 +406,27 @@ export function Receiving({
             </p>
           ) : !inventory.data?.items.length ? (
             <div className="empty-state">
-              <h2>No merchandise here yet.</h2>
-              <p>Add photos to start this delivery.</p>
+              <h2>
+                {search || task !== 'all' || categoryFilter
+                  ? 'No merchandise matches.'
+                  : 'No merchandise here yet.'}
+              </h2>
+              {search || task !== 'all' || categoryFilter ? (
+                <Button
+                  variant="outline"
+                  onClick={() => {
+                    setSearch('');
+                    setTask('all');
+                    setCategoryFilter('');
+                    setPage(1);
+                    setSelected([]);
+                  }}
+                >
+                  Clear filters
+                </Button>
+              ) : (
+                <p>Add photos to start this delivery.</p>
+              )}
             </div>
           ) : (
             <div className="receiving-list">

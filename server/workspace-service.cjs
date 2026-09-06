@@ -83,13 +83,14 @@ function createWorkspaceService({ source }) {
       return result;
     },
     /** Bound each page and return authoritative blockers without serializing internal cost values. */
-    async listItems(branchId, { page = 1, search = '', batchId = null }) {
+    async listItems(branchId, { page = 1, search = '', batchId = null, categoryId, receivingTask, sortBy }) {
       // Batch IDs are looked up inside the authorized branch before any item read.
       const itemIds = batchId ? await repository.batchItemIds(branchId, batchId) : undefined;
       const result = await listCatalogItems({
         branchId,
         itemIds,
         search,
+        categoryId, receivingTask, sortBy,
         limit: 48,
         offset: (page - 1) * 48,
       });

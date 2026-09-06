@@ -32,6 +32,10 @@ function createWorkspaceRouter(dependencies) {
       next(error);
     }
   };
+  const choice = (value,allowed) => {
+    if(!allowed.includes(value))throw DomainError.validationFailed('Invalid filter choice.');
+    return value;
+  };
   router.use(
     authenticate,
     checkPermission('catalog.view'),
@@ -110,6 +114,9 @@ function createWorkspaceRouter(dependencies) {
         page: page(req.query.page),
         search: text(req.query.search || '', 200),
         batchId: req.query.batch_id ? uuid(req.query.batch_id) : null,
+        categoryId:req.query.category_id ? uuid(req.query.category_id) : undefined,
+        receivingTask:choice(req.query.task || 'all',['all','incoming','count','price','flagged','received','reconcile']),
+        sortBy:choice(req.query.sort || 'newest',['newest','oldest','name']),
       }),
     ),
   );

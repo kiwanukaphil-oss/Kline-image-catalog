@@ -33,7 +33,7 @@ Updated: 6 September 2026. This is our working source of truth. Update it after 
 - [ ] R11d Verify configured AI assistance with the real provider in staging, including confidence quality, staff usability and recovery of jobs left running by a server restart. Deterministic provider fixtures do not complete this acceptance.
 - [ ] R12 Real-device capture, offline/reconnection, expired sessions and branch changes during unsaved work.
 - [x] R13 Camera/burst intake, native fallback, large-image preparation, non-destructive duplicate warnings and install/share/offline/update support implemented. Six capture/queue and seven actual service-worker checks pass. See `docs/phone-intake.md`; physical phone quality and OS integration remain R12/G5.
-- [ ] R14 Receiving task/category filters and useful sorting across all results, preserving delivery context and clear empty states.
+- [x] R14 Task/category filters and useful ordering run before pagination, preserving branch/delivery context and recoverable empty states. Package 0.12.0; 18 focused POS tests and mobile browser verification. See `verification/receiving-filters.json`.
 - [ ] R15 Reachable item activity with actor/time and human/AI changes; retain cost permissions and branch boundaries.
 - [ ] R16 Audited correction of accidental unreceived uploads, including queued work and delivery membership; protect received stock and avoid silent deletion.
 
