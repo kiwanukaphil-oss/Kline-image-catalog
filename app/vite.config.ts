@@ -34,6 +34,15 @@ const localBindingConfig = {
 };
 
 export default defineConfig(async () => {
+  // Railway runs the self-contained Node server; local previews retain their
+  // existing Workers adapter so both targets share the same application code.
+  if (process.env.KLINE_RUNTIME === 'node') {
+    return {
+      css: { postcss: { plugins: [tailwindcss()] } },
+      plugins: [vinext()],
+    };
+  }
+
   // Keep Wrangler and Miniflare state project-local. These are non-secret tool
   // settings; application environment belongs in ignored `.env*` files.
   process.env.WRANGLER_WRITE_LOGS ??= 'false';

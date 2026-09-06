@@ -4,7 +4,7 @@ Updated: 6 September 2026. This is our working source of truth. Update it after 
 
 **Checked means implemented and verified locally unless explicitly labelled staging/production.** An implemented feature can still await commit, release or staff acceptance. Optional features do not silently become launch requirements.
 
-**Release candidate: package 0.16.0. Core workflows and administration are implemented. 249 clean committed POS backend tests, 22 POS frontend tests, 24 workspace checks and eight accessibility views pass; audits report zero known vulnerabilities. Latest isolated browser run: 20/21 passed; two-app repeat awaits the stopped POS preview on port 3000. Local backup/restore and all 108 migration checks pass. Staging, real devices/provider/bucket and staff acceptance remain pending.**
+**Release candidate: package 0.16.0. Core workflows and administration are implemented. 249 clean committed POS backend tests, 22 POS frontend tests, 24 workspace checks and eight accessibility views pass; audits report zero known vulnerabilities. All 21 browser cases pass, including the targeted two-app repeat after preview restart. Local backup/restore and all 108 migration checks pass. Staging, real devices/provider/bucket and staff acceptance remain pending.**
 
 ## A. Purpose and design
 
@@ -87,7 +87,7 @@ Updated: 6 September 2026. This is our working source of truth. Update it after 
 - [x] T5 Baseline: 224 POS tests/24 suites, 24 workspace checks, four pricing-example checks, nine browser checks. See `verification/packaged-workspace.json`.
 - [x] T6 Passing recorded TypeScript, lint/build, syntax and Railway source checks.
 - [x] T7 Feature tests and package verification extended through 0.16.0; all seven installed files match source.
-- [ ] T8 249 clean committed backend tests/26 suites, 22 POS frontend tests/5 suites, 24 workspace checks, zero dependency advisories, eight clean accessibility scans and 1,000-lot benchmark pass. Latest isolated browser run passes 20/21; repeat cross-app navigation after the owner restarts POS preview (automation restart was policy-blocked). See `verification/release-validation.json`.
+- [x] T8 249 clean committed backend tests/26 suites, 22 POS frontend tests/5 suites, 24 workspace checks, zero dependency advisories, eight clean accessibility scans and 1,000-lot benchmark pass. All 21 browser cases pass after targeted navigation and missing-size restock repeats. See `verification/release-validation.json`.
 - [x] T9 Local consistent backup restored into a new database: 13 table counts match; original/restored ledgers both have 108 migrations and no pending/checksum issues. Disabled-mount rollback and image recovery pass existing integration tests. Production backup, object storage, monitoring and rollback acceptance remain G5/G7/G8. See `docs/operations.md`.
 
 ## G. Source control and release
@@ -120,3 +120,5 @@ Complete required A–G tasks, decide O items explicitly and obtain owner accept
 | 2026-09-06 | User prioritized the explicit AI fill workflow; R11a–c implemented in package 0.4.0. | 21 focused POS tests, four AI browser checks and 24 workspace checks. Evidence: `verification/ai-fill.json`. Real-provider R11d remains open; next I1. |
 
 | 2026-09-06 | R13?R16, administration, session recovery and local accessibility/operations completed through package 0.16.0; source pushed and POS draft PR opened. | Final POS preview repeat awaits restart; staging target remains undecided. Clean committed-tree verification passed: 249 tests/26 suites at POS 402133c. |
+
+| 2026-09-06 | T8 completed: cross-app navigation and missing-size restock pass after owner restart. New private Railway project `kline-catalog-staging` created with separate PostgreSQL and image bucket. | G4/G5 in progress: Node runtime and staging services. |

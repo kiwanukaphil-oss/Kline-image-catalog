@@ -20,9 +20,9 @@
     "passed": true
   },
   "browser": {
-    "latest_passed": 20,
+    "latest_passed": 21,
     "latest_total": 21,
-    "blocked": "POS preview on port 3000 stopped; cross-app navigation passed in earlier same-version run, latest repeat awaits restart"
+    "targeted_repeat": "POS navigation and missing-size restock passed after owner restarted port 3000 on 2026-09-06; prior 20/21 isolated-run evidence retained."
   },
   "accessibility": {
     "views": 8,

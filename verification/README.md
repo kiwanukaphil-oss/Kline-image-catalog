@@ -17,7 +17,7 @@ Screenshots prefixed `receiving-`, `pricing-`, `receipt-`, `stock-` record the i
 
 ## Final local release evidence
 
-`release-validation.json` is the current rollup. `browser-regression.json` retains the latest isolated 20/21 result: the POS preview had stopped for the navigation case. Its earlier same-version run passed; a final repeat awaits the owner restarting port 3000. `accessibility.json` has eight zero-violation axe scans. `backup-restore.json` and `migration-recovery.json` record the local restore exercise. Dependency audits found no known vulnerabilities. `large-delivery.json` records the refreshed 1,000-lot benchmark.
+`release-validation.json` is the current rollup. `browser-regression.json` retains the latest isolated 20/21 result: the POS preview had stopped for the navigation case. The owner restarted port 3000 and targeted navigation and missing-size restock repeats both passed on 2026-09-06, completing all 21 cases; see the individual JSON evidence. `accessibility.json` has eight zero-violation axe scans. `backup-restore.json` and `migration-recovery.json` record the local restore exercise. Dependency audits found no known vulnerabilities. `large-delivery.json` records the refreshed 1,000-lot benchmark.
 
 <!-- Removal candidate: app/verification contains duplicate stock screenshots from an earlier runner working-directory mistake. Authoritative latest artifacts are in this root verification directory. Retained until review. -->
 
