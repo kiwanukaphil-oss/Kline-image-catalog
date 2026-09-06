@@ -1,0 +1,14 @@
+**/node_modules/
+.test-data/
+**/dist/
+**/.wrangler/
+**/.next/
+**/*.tsbuildinfo
+**/.env
+**/.env.*
+!**/.env.example
+*.log
+design/.qa/
+design/*preview.html
+design/*script-check.js
+output/

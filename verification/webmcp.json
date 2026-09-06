@@ -1,0 +1,9 @@
+{
+  "supported_context": false,
+  "verified": false,
+  "reason": "This Chrome context does not expose document.modelContext.",
+  "tools": [
+    "read_visible_stock",
+    "read_receiving_selection"
+  ]
+}

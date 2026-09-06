@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "checks": [
+    "current snapshot total independent of drafts",
+    "low stock by size",
+    "out of stock",
+    "size-scoped totals",
+    "SKU search",
+    "movement detail",
+    "360px mobile no overflow",
+    "light and dark screenshots",
+    "new receipt adds exactly once without implicit merging"
+  ],
+  "javascriptErrors": []
+}

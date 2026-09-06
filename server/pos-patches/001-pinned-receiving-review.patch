@@ -1,0 +1,214 @@
+diff --git a/backend/src/controllers/catalogController.js b/backend/src/controllers/catalogController.js
+index cb0a994..2480d69 100644
+--- a/backend/src/controllers/catalogController.js
++++ b/backend/src/controllers/catalogController.js
+@@ -418,6 +418,7 @@ const publishCatalogItem = async (req, res) => {
+       itemId,
+       branchId: req.branchId,
+       userId: req.user.id,
++      expectedRevision: req.body?.expected_revision,
+     });
+     return res.json({
+       success: true,
+diff --git a/backend/src/repositories/CatalogPublicationRepository.js b/backend/src/repositories/CatalogPublicationRepository.js
+index f0e91e1..1c7a147 100644
+--- a/backend/src/repositories/CatalogPublicationRepository.js
++++ b/backend/src/repositories/CatalogPublicationRepository.js
+@@ -26,6 +26,13 @@ class CatalogPublicationRepository {
+ 
+   /** Lock the evidence row and load every server-owned publication input. */
+   static async loadLockedContext(client, { itemId, branchId }) {
++    // Acquire the parent before reading joined costs: a waiting statement can
++    // otherwise retain child values from before the preceding writer committed.
++    const lockedItem = await client.query(
++      "SELECT id FROM inventory.items WHERE id = $1 AND branch_id = $2 FOR UPDATE",
++      [itemId, branchId]
++    );
++    if (!lockedItem.rows.length) return null;
+     const itemResult = await client.query(
+       `SELECT i.*, category.name AS catalog_category_name,
+               item_cost.cost_price AS base_cost_price,
+diff --git a/backend/src/services/catalogPublicationService.js b/backend/src/services/catalogPublicationService.js
+index 06f8b2f..37d60af 100644
+--- a/backend/src/services/catalogPublicationService.js
++++ b/backend/src/services/catalogPublicationService.js
+@@ -7,6 +7,7 @@
+  */
+ 
+ const DomainError = require("../errors/DomainError");
++const { createHmac, timingSafeEqual } = require("node:crypto");
+ const CatalogPublicationRepository = require("../repositories/CatalogPublicationRepository");
+ const StockRepository = require("../repositories/StockRepository");
+ const { mintUniqueEan13 } = require("../utils/barcode");
+@@ -112,8 +113,27 @@ const existingPublicationResult = (context) => ({
+   already_published: true,
+ });
+ 
+-/** Publish one reviewed photographed lot and all of its sellable lines. */
+-const publishCatalogItem = ({ itemId, branchId, userId }) =>
++/** Sign the full review without disclosing costs; scope it to this actor and branch. */
++const createPublicationRevision = (context, { branchId, userId }) => {
++  if (!process.env.JWT_SECRET) throw new Error("POS JWT_SECRET is required.");
++  return createHmac("sha256", process.env.JWT_SECRET)
++    .update(JSON.stringify(["catalog-receiving-v1", branchId, userId, context]))
++    .digest("hex");
++};
++
++/** Validate an opaque review token before any product or stock mutation. */
++const requirePublicationRevision = (context, { expectedRevision, branchId, userId }) => {
++  if (typeof expectedRevision !== "string" || !/^[a-f0-9]{64}$/.test(expectedRevision)) {
++    throw DomainError.validationFailed("A valid receiving review is required.");
++  }
++  const current = createPublicationRevision(context, { branchId, userId });
++  if (!timingSafeEqual(Buffer.from(expectedRevision, "hex"), Buffer.from(current, "hex"))) {
++    throw DomainError.conflict("This lot changed. Review it again before receiving.");
++  }
++};
++
++/** Publish one photographed lot, checking an optional pinned review under the same locks. */
++const publishCatalogItem = ({ itemId, branchId, userId, expectedRevision }) =>
+   CatalogPublicationRepository.withTransaction(async (client) => {
+     const context = await CatalogPublicationRepository.loadLockedContext(
+       client,
+@@ -125,6 +145,11 @@ const publishCatalogItem = ({ itemId, branchId, userId }) =>
+       return existingPublicationResult(context);
+     }
+ 
++    // Legacy clients remain compatible; the workspace route always requires a token.
++    if (expectedRevision !== undefined) {
++      requirePublicationRevision(context, { expectedRevision, branchId, userId });
++    }
++
+     const blockers = catalogPublicationBlockers(context);
+     if (blockers.length) {
+       throw DomainError.validationFailed("Catalog item is not ready to publish.",
+@@ -245,5 +270,6 @@ module.exports = {
+   buildPosVariantAttributes,
+   buildVariantSku,
+   catalogPublicationBlockers,
++  createPublicationRevision,
+   publishCatalogItem,
+ };
+diff --git a/backend/tests/integration/catalog-publication.test.js b/backend/tests/integration/catalog-publication.test.js
+index 9243382..1dbd10b 100644
+--- a/backend/tests/integration/catalog-publication.test.js
++++ b/backend/tests/integration/catalog-publication.test.js
+@@ -119,6 +119,118 @@ afterAll(async () => {
+ });
+ 
+ describe("Railway catalog variant pricing and POS publication", () => {
++  /** Obtain a token from the same locked context used by the workspace detail projection. */
++  async function reviewPublication(scope = {}) {
++    const repository = require("../../src/repositories/CatalogPublicationRepository");
++    const { createPublicationRevision } = require("../../src/services/catalogPublicationService");
++    return repository.withTransaction(async (client) => {
++      const context = await repository.loadLockedContext(client, {
++        itemId: CATALOG_ITEM_ID, branchId: IDS.branches.main,
++      });
++      return createPublicationRevision(context, {
++        branchId: IDS.branches.main, userId: IDS.users.admin, ...scope,
++      });
++    });
++  }
++
++  /** Seed a commercially ready lot through the existing HTTP pricing boundary. */
++  async function seedPricedReview() {
++    await seedReviewedCatalogLot();
++    const request = authenticatedRequestAs(app, USER_PAYLOADS.admin);
++    const priced = await request.patch(`/api/catalog/items/${CATALOG_ITEM_ID}/pricing`)
++      .set("X-Branch-Id", IDS.branches.main)
++      .send({ base_price: 100000, base_cost_price: 50000 });
++    expect(priced.status).toBe(200);
++    return request;
++  }
++
++  it.each([
++    ["identity", "UPDATE inventory.items SET name='Changed shirt' WHERE id=$1"],
++    ["retail", "UPDATE inventory.items SET price=110000 WHERE id=$1"],
++    ["protected cost", "UPDATE inventory.item_costs SET cost_price=60000 WHERE item_id=$1"],
++    ["quantity", "UPDATE inventory.item_variant_lines SET quantity=quantity+1 WHERE item_id=$1"],
++    ["size price", "UPDATE inventory.item_variant_lines SET price_override=150000 WHERE item_id=$1"],
++  ])("rejects a reviewed receipt after a %s change without POS writes", async (_label, statement) => {
++    // Each independent fixture proves that the token covers an input used by publication.
++    const request = await seedPricedReview();
++    const expected_revision = await reviewPublication();
++    await getTestPool().query(statement, [CATALOG_ITEM_ID]);
++    const response = await request.post(`/api/catalog/items/${CATALOG_ITEM_ID}/publish`)
++      .set("X-Branch-Id", IDS.branches.main).send({ expected_revision });
++    expect(response.status).toBe(409);
++    expect(response.body.message).toMatch(/Review it again/);
++    const result = await getTestPool().query(
++      "SELECT COUNT(*)::int AS count FROM inventory.catalog_publications WHERE item_id=$1", [CATALOG_ITEM_ID]
++    );
++    expect(result.rows[0].count).toBe(0);
++  });
++
++  it("rejects malformed, tampered, cross-actor and cross-branch receiving revisions", async () => {
++    // A token never grants authority and cannot be reused as another operator's review.
++    const request = await seedPricedReview();
++    const revisions = [
++      ["invalid", 400],
++      ["0".repeat(64), 409],
++      [await reviewPublication({ userId: IDS.users.cashier }), 409],
++      [await reviewPublication({ branchId: UNKNOWN_CATALOG_ITEM_ID }), 409],
++    ];
++    for (const [expected_revision, status] of revisions) {
++      const response = await request.post(`/api/catalog/items/${CATALOG_ITEM_ID}/publish`)
++        .set("X-Branch-Id", IDS.branches.main).send({ expected_revision });
++      expect(response.status).toBe(status);
++    }
++  });
++
++  it("rereads protected costs after waiting for a preceding writer's item lock", async () => {
++    // Wait for a real PostgreSQL blocking relationship, then commit a cost-only change.
++    const request = await seedPricedReview();
++    const expected_revision = await reviewPublication();
++    const writer = await getTestPool().connect();
++    let pendingReceipt;
++    try {
++      await writer.query("BEGIN");
++      await writer.query("SELECT id FROM inventory.items WHERE id=$1 FOR UPDATE", [CATALOG_ITEM_ID]);
++      const { rows: [{ pid }] } = await writer.query("SELECT pg_backend_pid() AS pid");
++      pendingReceipt = request.post(`/api/catalog/items/${CATALOG_ITEM_ID}/publish`)
++        .set("X-Branch-Id", IDS.branches.main).send({ expected_revision }).then(response => response);
++      let blocked = false;
++      for (let attempt = 0; attempt < 100; attempt++) {
++        const waiting = await writer.query(
++          "SELECT 1 FROM pg_stat_activity WHERE datname=current_database() AND $1=ANY(pg_blocking_pids(pid))", [pid]
++        );
++        if (waiting.rows.length) { blocked = true; break; }
++        await new Promise(resolve => setTimeout(resolve, 10));
++      }
++      expect(blocked).toBe(true);
++      await writer.query("UPDATE inventory.item_costs SET cost_price=60000 WHERE item_id=$1", [CATALOG_ITEM_ID]);
++      await writer.query("COMMIT");
++      expect((await pendingReceipt).status).toBe(409);
++    } finally {
++      await writer.query("ROLLBACK");
++      writer.release();
++      if (pendingReceipt) await pendingReceipt;
++    }
++  });
++
++  it("receives a pinned review once and reconciles concurrent retries with the same token", async () => {
++    // Both requests carry the pre-publication token; the second must return the original receipt.
++    const request = await seedPricedReview();
++    const expected_revision = await reviewPublication();
++    const responses = await Promise.all([1, 2].map(() =>
++      request.post(`/api/catalog/items/${CATALOG_ITEM_ID}/publish`)
++        .set("X-Branch-Id", IDS.branches.main).send({ expected_revision })
++    ));
++    expect(responses.map(response => response.status)).toEqual([200, 200]);
++    expect(responses.map(response => response.body.data.already_published).sort()).toEqual([false, true]);
++    expect(responses[0].body.data.product_id).toBe(responses[1].body.data.product_id);
++    const stock = await getTestPool().query(
++      `SELECT SUM(bi.stock_quantity)::int AS quantity FROM branch_inventory bi
++       JOIN product_variants pv ON pv.id=bi.variant_id WHERE pv.product_id=$1 AND bi.branch_id=$2`,
++      [responses[0].body.data.product_id, IDS.branches.main]
++    );
++    expect(stock.rows[0].quantity).toBe(6);
++  });
++
+   it("keeps catalog costs absent for editors without cost permission", async () => {
+     await seedReviewedCatalogLot();
+     const pool = getTestPool();

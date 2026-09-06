@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "checked_at": "2026-09-06T09:45:14.950Z",
+  "scope": "Group selection and proposal compilation; real POS integration reported separately.",
+  "checks": [
+    "1,000 Hugo Boss shirts: all 3,000 sizes selected, XL at 150,000 and others at 100,000",
+    "All shorts share a price with every H&M size receiving the brand exception",
+    "Conflicting exceptions are order independent and block review",
+    "Exact brand filters, word search and missing-price eligibility avoid unintended matches",
+    "Selecting XL alone never changes the unselected size defaults",
+    "3,000 exact review rows collapse into two accurate price groups"
+  ]
+}

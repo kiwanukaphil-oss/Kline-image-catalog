@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "checks": [
+    "zero-price rejection",
+    "mobile width 360",
+    "fill preserves existing price",
+    "size exception resolves 2 lines",
+    "4 exact price changes",
+    "quantities confirmed",
+    "12-unit receipt across 3 lots",
+    "published undo refused",
+    "catalog search"
+  ],
+  "javascriptErrors": []
+}

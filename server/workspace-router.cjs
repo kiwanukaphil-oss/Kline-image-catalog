@@ -1,0 +1,174 @@
+const { createWorkspaceService } = require('./workspace-service.cjs');
+const UUID = /^[0-9a-f]{8}(?:-[0-9a-f]{4}){3}-[0-9a-f]{12}$/i;
+
+/** Reuse POS authentication, effective permissions and branch resolution on every new route. */
+function createWorkspaceRouter(dependencies) {
+  const { source, posRequire } = dependencies;
+  const router = posRequire('express').Router();
+  const { authenticate } = source('middleware/auth');
+  const { checkPermission, attachPermissions } = source('middleware/permissions');
+  const { resolveBranchContext } = source('middleware/branchContext');
+  const DomainError = source('errors/DomainError');
+  const service = createWorkspaceService(dependencies);
+  const uuid = (value) => {
+    if (!UUID.test(String(value))) throw DomainError.validationFailed('Invalid identifier.');
+    return value;
+  };
+  const text = (value, max = 120) => {
+    if (typeof value !== 'string' || value.trim().length > max)
+      throw DomainError.validationFailed('Invalid text value.');
+    return value.trim();
+  };
+  const page = (value) => {
+    const result = Number(value || 1);
+    if (!Number.isSafeInteger(result) || result < 1 || result > 100000)
+      throw DomainError.validationFailed('Invalid page.');
+    return result;
+  };
+  const reply = (action) => async (req, res, next) => {
+    try {
+      res.json(await action(req));
+    } catch (error) {
+      next(error);
+    }
+  };
+  router.use(
+    authenticate,
+    checkPermission('catalog.view'),
+    resolveBranchContext({ required: true, allowedStatuses: ['active'] }),
+    attachPermissions(),
+  );
+  router.use((_req, res, next) => {
+    res.set('Cache-Control', 'no-store');
+    next();
+  });
+  router.get(
+    '/batches',
+    reply((req) => service.listBatches(req.branchId)),
+  );
+  router.post(
+    '/batches',
+    checkPermission('catalog.upload'),
+    reply((req) => {
+      const title = text(req.body.title);
+      if (!title) throw DomainError.validationFailed('Name this delivery.');
+      return service.createBatch({
+        id: uuid(req.body.id),
+        branchId: req.branchId,
+        userId: req.user.id,
+        title,
+      });
+    }),
+  );
+  router.put(
+    '/batches/:id/items/:itemId',
+    checkPermission('catalog.upload'),
+    reply((req) =>
+      service.addBatchItem({
+        batchId: uuid(req.params.id),
+        itemId: uuid(req.params.itemId),
+        branchId: req.branchId,
+        userId: req.user.id,
+      }),
+    ),
+  );
+  router.get(
+    '/items',
+    reply((req) =>
+      service.listItems(req.branchId, {
+        page: page(req.query.page),
+        search: text(req.query.search || '', 200),
+        batchId: req.query.batch_id ? uuid(req.query.batch_id) : null,
+      }),
+    ),
+  );
+  router.get(
+    '/items/:id',
+    reply((req) => service.itemDetail(req.branchId, uuid(req.params.id), req.user.id)),
+  );
+  router.post(
+    '/items/:id/receive',
+    checkPermission('catalog.publish'),
+    reply((req) => {
+      /* Require a reviewed snapshot at this boundary; POS verifies it inside the receipt transaction. */
+      const expectedRevision = req.body?.expected_revision;
+      if (typeof expectedRevision !== 'string' || !/^[a-f0-9]{64}$/.test(expectedRevision))
+        throw DomainError.validationFailed('A valid receiving review is required.');
+      return service.receiveItem({
+        itemId: uuid(req.params.id),
+        branchId: req.branchId,
+        userId: req.user.id,
+        expectedRevision,
+      });
+    }),
+  );
+  router.patch(
+    '/items/:id',
+    checkPermission('catalog.edit'),
+    reply((req) => {
+      /* Validate draft identifiers and scalar fields before delegating the revision-checked edit. */
+
+      const payload = {
+        ...req.body,
+        name: text(req.body.name, 250),
+        brand: text(req.body.brand || '', 150),
+        category_id: uuid(req.body.category_id),
+      };
+      if (!payload.attributes || typeof payload.attributes !== 'object' || Array.isArray(payload.attributes))
+        throw DomainError.validationFailed('Invalid product attributes.');
+      return service.updateDetails({
+        branchId: req.branchId,
+        itemId: uuid(req.params.id),
+        userId: req.user.id,
+        payload,
+      });
+    }),
+  );
+  router.patch(
+    '/items/:id/count',
+    checkPermission('catalog.edit'),
+    reply((req) =>
+      service.confirmCount({
+        branchId: req.branchId,
+        itemId: uuid(req.params.id),
+        userId: req.user.id,
+        payload: req.body,
+      }),
+    ),
+  );
+  // Current availability requires inventory.view in addition to catalog access.
+  router.get(
+    '/stock',
+    checkPermission('inventory.view'),
+    reply((req) => {
+      /* Allow only supported stock states and bounded search, size and pagination inputs. */
+
+      const state = req.query.state || 'all';
+      if (!['all', 'in', 'low', 'out', 'negative'].includes(state))
+        throw DomainError.validationFailed('Invalid stock filter.');
+      return service.stock(req.branchId, {
+        search: text(req.query.search || '', 200),
+        size: text(req.query.size || '', 100),
+        state,
+        page: page(req.query.page),
+      });
+    }),
+  );
+  router.get(
+    '/stock/:id/movements',
+    checkPermission('inventory.view'),
+    reply((req) => service.movements(req.branchId, uuid(req.params.id))),
+  );
+  router.get(
+    '/receipts',
+    reply((req) => service.receipts(req.branchId, req.query.batch_id ? uuid(req.query.batch_id) : null)),
+  );
+  router.use((error, _req, res, _next) => {
+    if (error instanceof DomainError)
+      return res.status(error.statusCode).json({ message: error.message, details: error.details });
+    console.error('Workspace request failed:', error.message);
+    return res.status(500).json({ message: 'The workspace service could not complete this request.' });
+  });
+  return router;
+}
+module.exports = { createWorkspaceRouter };

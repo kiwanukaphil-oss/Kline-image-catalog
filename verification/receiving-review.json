@@ -1,0 +1,25 @@
+{
+  "checked_at": "2026-09-06T10:00:47.592Z",
+  "passed": true,
+  "pos_tests": 29,
+  "pos_suites": 2,
+  "workspace_checks": 24,
+  "browser_checks": 9,
+  "typecheck": "passed",
+  "lint": "passed",
+  "format": "passed",
+  "production_build": "passed",
+  "javascript_syntax": "passed",
+  "pos_patch_reverse_check": "passed",
+  "screenshots_inspected": [
+    "pricing-desktop.png",
+    "pricing-mobile.png",
+    "receipt-stale-mobile.png"
+  ],
+  "limits": [
+    "Local test databases only",
+    "Production adapter mounting, delivery migration and staging verification pending",
+    "Legacy clients without a review token retain their existing behavior",
+    "No commit, push or deployment"
+  ]
+}
