@@ -336,10 +336,18 @@ export function DraftEditor({
                   <Button
                     variant="outline"
                     disabled={busy || dirty}
-                    onClick={() => {
+                    onClick={async () => {
                       setCheckAiProgress(false);
                       setError('');
-                      detail.refresh();
+                      setBusy(true);
+                      try {
+                        await postPos(`/catalog-workspace/items/${itemId}/ai-recovery`, branch, {});
+                        detail.refresh();
+                      } catch (cause) {
+                        setError((cause as Error).message);
+                      } finally {
+                        setBusy(false);
+                      }
                     }}
                   >
                     Check saved progress

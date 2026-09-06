@@ -13,3 +13,7 @@ Suggested size distributions appear in Sizes & quantities. Staff still confirm p
 After a failed or uncertain response, the UI stops the queue and offers **Check saved progress**. It does not automatically repeat a potentially paid request. A saved success is reviewed; a recorded failure becomes an explicit retry choice. A still-running job remains visibly running. Server-restart/orphaned-job recovery and real-provider quality remain staging acceptance tasks, not guarantees inferred from the local fixture.
 
 Local verification uses real POS routes, permissions, job persistence, PostgreSQL and browser interactions. Only the external inference response is deterministic. It proves selection, stopping/retry, protected fields, evidence review, correction, quantity confirmation and lost-response reconciliation. It does not measure vision accuracy or spend a real provider request.
+
+## Interrupted server recovery
+
+Check saved progress explicitly closes AI runs older than 15 minutes as interrupted. This exceeds the current bounded provider maximum of five 120-second attempts plus backoff. It does not call the provider or erase attempt usage. Active runs cannot be started twice. Completion rechecks ownership under the item lock, so late provider results from closed runs cannot overwrite newer work. Review existing fields before an explicit retry. Package 0.15.0; 33 PostgreSQL tests and existing browser workflow pass. Live provider quality remains staging acceptance.

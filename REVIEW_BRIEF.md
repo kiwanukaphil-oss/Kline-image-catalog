@@ -104,3 +104,7 @@ Package 0.14.0 adds reviewed cancellation/restore and saved-phone cancellation, 
 ## R12 ? session and navigation recovery
 
 Expired authentication now opens same-account sign-in over the mounted workspace; draft input and active branch survive. Pricing/navigation guards distinguish unsaved work from in-flight writes. Real browser 401 and branch/destination discard/keep paths pass, as do TypeScript and lint. Physical phone acceptance remains open.
+
+## R11d ? abandoned AI attempts
+
+Explicit progress recovery closes stale running jobs after 15 minutes, audits recovery, blocks concurrent attempts and rejects late completion. Usage accounting remains retained. 33 focused POS tests, the complete AI browser flow, TypeScript/lint/build and seven-file installed package comparison pass. Existing unrelated AI service edits were left untouched.

@@ -173,7 +173,22 @@ export function AiFill({
             Stop after this photo
           </Button>
         ) : unresolved ? (
-          <Button disabled={loading} onClick={() => setRevision((value) => value + 1)}>
+          <Button
+            disabled={loading}
+            onClick={async () => {
+              setLoading(true);
+              setError('');
+              try {
+                for (const item of items)
+                  await postPos(`/catalog-workspace/items/${item.id}/ai-recovery`, branch, {});
+                setRevision((value) => value + 1);
+              } catch (cause) {
+                setError((cause as Error).message);
+              } finally {
+                setLoading(false);
+              }
+            }}
+          >
             Check saved progress
           </Button>
         ) : (

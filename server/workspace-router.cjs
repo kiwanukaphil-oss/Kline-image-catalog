@@ -47,6 +47,8 @@ function createWorkspaceRouter(dependencies) {
     next();
   });
   router.get('/category-mappings', checkPermission('settings.categories'), reply(() => service.categoryMappings()));
+  router.post('/items/:id/ai-recovery',checkPermission('catalog.edit'),reply(req=>
+    service.recoverAi({itemId:uuid(req.params.id),branchId:req.branchId,userId:req.user.id})));
   router.post('/intake/:id/cancellation',checkPermission('catalog.delete'),reply(req=>{
     const reason=text(req.body.reason,300);if(!reason)throw DomainError.validationFailed('Enter a reason.');
     return service.changeIntakeCancellation({itemId:uuid(req.params.id),branchId:req.branchId,userId:req.user.id,reason,

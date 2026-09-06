@@ -42,6 +42,7 @@ function createWorkspaceService({ source }) {
     return context;
   }
   return {
+    recoverAi:input=>source('models/CatalogAiRun').recoverAbandoned(input),
     changeIntakeCancellation:input=>source('services/catalogCancellationService').changeIntakeCancellation(input),
     async itemActivity({itemId,branchId,page,canViewCost}) {
       // Authorize the parent first and derive allowed attribute keys from its category, not an audit payload.
