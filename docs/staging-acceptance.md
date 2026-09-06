@@ -2,6 +2,18 @@
 
 Use an isolated staging branch and test stock. Give staff the task, without explaining which controls to use. Record completion time, wrong turns, mistakes and whether assistance was needed. Screenshots and automated fixtures do not substitute for this record.
 
+Staging: https://catalog-web-production-2d56.up.railway.app. The ignored local
+file `.test-data/staging-login.txt` contains its login. Two unreceived test
+deliveries are prepared: `Synthetic scale acceptance` (1,000 Hugo Boss shirt
+lots) and `Shorts scale acceptance` (1,000 lots, half H&M). Each has three size
+lines. Their prices were saved, checked in PostgreSQL and restored through
+Undo, so staff can start with unpriced merchandise. These synthetic lots reuse
+one existing photo; they are not a unique-image throughput benchmark.
+
+Automated staging checks pass for both pricing examples and share-target,
+offline/reconnect and private-cache behavior. The results below remain pending
+until a person completes them without coaching on the actual store device.
+
 | Task | Expected outcome | Result / observer notes |
 |---|---|---|
 | Photograph a mixed delivery on the actual store phone, including similar-looking units and one large source image | Correct number of lots; no lost or silently merged units; labels remain legible | Pending |

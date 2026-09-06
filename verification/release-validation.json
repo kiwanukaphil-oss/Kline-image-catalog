@@ -51,6 +51,17 @@
     "evidence": "railway/deployment.json",
     "browser": "railway/browser.json",
     "private_photos_and_pos": "railway/handoff.json",
-    "ai_provider": "railway/ai-provider.json"
+    "ai_provider": "railway/ai-provider.json",
+    "scale_examples": [
+      "railway/large-delivery.json",
+      "railway/shorts-scale.json"
+    ],
+    "pwa": "railway/pwa-share.json",
+    "pricing_loading_comparison_ms": {
+      "before": 12638,
+      "after": 5959,
+      "drafts": 2000,
+      "scope": "Single observed staging comparison; synthetic shared-image lots"
+    }
   }
 }

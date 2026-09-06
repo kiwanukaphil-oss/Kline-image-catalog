@@ -1,14 +1,15 @@
 import { chromium } from 'playwright';
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
+const evidence = process.env.KLINE_EVIDENCE_DIR || '../verification';
 const browser = await chromium.launch({ channel: 'chrome', headless: true }),
   context = await browser.newContext({ viewport: { width: 390, height: 844 } }),
   page = await context.newPage();
 try {
   // Use the real installed service worker and IndexedDB; shared photos wait for authenticated delivery review.
-  await page.goto('http://[::1]:5198');
-  await page.getByLabel('Username').fill('testadmin');
-  await page.getByLabel('Password', { exact: true }).fill('testpass123');
+  await page.goto(process.env.KLINE_PREVIEW_URL || 'http://[::1]:5198');
+  await page.getByLabel('Username').fill(process.env.KLINE_TEST_USERNAME || 'testadmin');
+  await page.getByLabel('Password', { exact: true }).fill(process.env.KLINE_TEST_PASSWORD || 'testpass123');
   await page.getByRole('button', { name: 'Sign in', exact: true }).click();
   await page.waitForFunction(() => navigator.serviceWorker.controller !== null);
   const manifest = await page.evaluate(async () => await (await fetch('/manifest.webmanifest')).json());
@@ -31,7 +32,7 @@ try {
   await page.goto(url);
   await page.getByRole('dialog', { name: 'New delivery', exact: true }).waitFor();
   await page.getByRole('img', { name: 'Shared-shirt.png', exact: true }).waitFor();
-  await page.screenshot({ path: '../verification/pwa-share-mobile.png', animations: 'disabled' });
+  await page.screenshot({ path: `${evidence}/pwa-share-mobile.png`, animations: 'disabled' });
   const cached = await page.evaluate(async () => {
     const result = [];
     for (const key of await caches.keys()) {
@@ -58,7 +59,7 @@ try {
   await page.getByRole('button', { name: 'Resume uploads', exact: true }).waitFor();
   assert.equal(new URL(page.url()).searchParams.has('share'), false);
   await fs.writeFile(
-    '../verification/pwa-share.json',
+    `${evidence}/pwa-share.json`,
     JSON.stringify(
       {
         passed: true,

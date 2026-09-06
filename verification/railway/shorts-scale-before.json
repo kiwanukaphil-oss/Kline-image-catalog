@@ -1,0 +1,19 @@
+{
+  "passed": true,
+  "scenario": "All shorts 60,000; H&M 80,000",
+  "lots": 1000,
+  "size_lines": 3000,
+  "metrics": {
+    "seed_ms": 4010,
+    "receiving_first_page_ms": 2714,
+    "pricing_complete_load_ms": 12638,
+    "pricing_workspace_requests": 11,
+    "select_all_ms": 104,
+    "review_1000_lots_ms": 1721
+  },
+  "total_api_requests": 32,
+  "environment": "Railway HTTPS and PostgreSQL; 1000 synthetic lots sharing an existing photo object. Not a unique-photo upload or concurrent-user throughput test.",
+  "prices_applied": true,
+  "prices_restored": true,
+  "exact_size_exception_verified": true
+}

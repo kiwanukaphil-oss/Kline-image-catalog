@@ -11,3 +11,6 @@ Railway staging is now deployed in a new isolated project: both frontends, POS A
 
 
 Live AI now passes on two real private photos: staff edits survive, printed/handwritten evidence is retained, uncertain material inference remains low confidence, and counts remain unconfirmed. Reopening saved results issues no new extraction request. Staging uses AWS_REQUEST_CHECKSUM_CALCULATION=WHEN_REQUIRED after reproducing a deployed unsigned-header upload error; original photo integrity and POS handoff regression still pass. Broader staff accuracy assessment remains open.
+
+
+Both original pricing examples now pass on Railway with 1,000 lots / 3,000 size lines each. Every saved price is checked in PostgreSQL and mobile Undo restores all prices to null; no stock is published. Actual staging PWA share/offline/private-cache checks also pass. Bounded concurrent pricing reads improve the observed 2,000-draft load from 12.6s to 6.0s. This uses synthetic lots with a reused photo, not unique-image upload or concurrent-user load.

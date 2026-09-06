@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "checks": [
+    "Manifest and both install icons load",
+    "Real share POST persists local photo",
+    "Authenticated delivery opens for deliberate review",
+    "Only static offline notice cached",
+    "Offline reload preserves share intent",
+    "Reconnect restores photo",
+    "Share consumed only after upload queue commits"
+  ]
+}

@@ -98,3 +98,23 @@ No claim of a production backup/restore drill is made.
 
 The temporary public PostgreSQL maintenance proxy was removed after migration
 and checksum verification. Application traffic uses Railway private networking.
+
+## Pricing scale and mobile browser acceptance
+
+`app/tests/railway-scale.mjs` creates or reuses a guarded synthetic staging
+delivery, exercises 1,000 lots / 3,000 size lines, verifies every saved price
+directly in PostgreSQL, then uses mobile Undo and verifies all prior null prices
+are restored. `KLINE_SCALE_SCENARIO=shorts` tests the H&M brand exception;
+the default tests the Hugo Boss XL exception. No stock is published.
+
+The scale checks exposed sequential page loading. The frontend now loads up to
+three pricing pages concurrently, preserving page order and complete selection.
+Failures discard the incomplete result; an abandoned scope stops further page
+groups. Focused tests cover ordering, concurrency, cancellation, page failure
+and explicit selection scope. Compare `shorts-scale-before.json` with the final
+`shorts-scale.json` in `verification/railway` for observed network timings.
+
+The actual staging service worker also passes share POST, IndexedDB persistence,
+offline/reconnect, authenticated review and private-cache exclusion. Only
+`/offline.html` enters Cache Storage. These browser checks do not certify physical
+camera quality or the operating system's installed-app share picker.
