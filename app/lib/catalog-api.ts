@@ -43,6 +43,10 @@ export type CatalogItem = {
   price: number | null;
   revision: string;
   status: string;
+  confidence?: Record<string, string>;
+  ai_field_evidence?: Record<string, { source: string; observation: string }>;
+  ai_visible_text?: string | null;
+  ai_run?: { status: string; updated_at: string } | null;
 };
 export class ApiError extends Error {
   constructor(

@@ -1,0 +1,26 @@
+{
+  "checked_at": "2026-09-06T10:12:46.982Z",
+  "passed": true,
+  "reviewed_commits": {
+    "catalog": "65a4f07",
+    "pos": "6de2d74"
+  },
+  "package": "@kline/pos-workspace@0.2.0",
+  "artifact_sha256": "84e34167433500e3a77663d79fd030fd96027d4ff9c63cbf951e8affa9512711",
+  "pos_tests": 224,
+  "pos_suites": 24,
+  "workspace_checks": 24,
+  "pricing_checks": 4,
+  "browser_checks": 9,
+  "installed_files_match_source": true,
+  "clean_locked_install": true,
+  "preview_schema_preflight": "106_catalog_workspace_receiving.sql",
+  "railway_runtime_check": "passed",
+  "typecheck": "passed",
+  "limits": [
+    "Packaged integration is uncommitted pending review",
+    "No push, staging or production deployment",
+    "No production database or credential changes",
+    "Private live bucket, staging CORS and cross-app checks remain"
+  ]
+}

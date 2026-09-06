@@ -149,6 +149,8 @@ function createWorkspaceRouter(dependencies) {
       return service.stock(req.branchId, {
         search: text(req.query.search || '', 200),
         size: text(req.query.size || '', 100),
+        categoryId: req.query.category_id ? uuid(req.query.category_id) : null,
+        brandId: req.query.brand_id ? uuid(req.query.brand_id) : null,
         state,
         page: page(req.query.page),
       });

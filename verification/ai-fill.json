@@ -1,0 +1,28 @@
+{
+  "passed": true,
+  "checked_at": "2026-09-06T10:33:41.080Z",
+  "tasks": [
+    "R11a",
+    "R11b",
+    "R11c"
+  ],
+  "package": "@kline/pos-workspace@0.4.0",
+  "focused_pos_tests": 21,
+  "ai_browser_checks": 4,
+  "workspace_checks": 24,
+  "provider": "External inference boundary is a deterministic fixture",
+  "typecheck": "passed",
+  "lint": "passed",
+  "format": "passed",
+  "build": "passed",
+  "package_matches_source": true,
+  "screenshots_inspected": [
+    "ai-review-desktop.png",
+    "ai-review-mobile.png"
+  ],
+  "remaining": [
+    "Real-provider staging quality and staff usability",
+    "Server-restart/orphaned AI job recovery"
+  ],
+  "release": "Uncommitted; no push, deployment or real inference calls"
+}

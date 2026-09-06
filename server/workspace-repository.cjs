@@ -69,15 +69,16 @@ function createWorkspaceRepository({ pool, publicationRepository }) {
     },
     async updateDetails(
       client,
-      { itemId, branchId, userId, name, brand, categoryId, attributes, resolveFlag },
+      { itemId, branchId, userId, name, brand, categoryId, attributes, resolveFlag, clearConfidence = [] },
     ) {
       /* Update branch-owned draft identity and clear a problem flag only on explicit confirmation. */
 
       const { rows } = await client.query(
         `UPDATE inventory.items SET name=$1,brand=$2,category_id=$3,
-        attributes=$4,updated_by=$5,status=CASE WHEN $8 THEN 'draft' ELSE status END
+        attributes=$4,updated_by=$5,status=CASE WHEN $8 THEN 'draft' ELSE status END,
+        confidence=COALESCE(confidence,'{}'::jsonb)-$9::text[]
         WHERE id=$6 AND branch_id=$7 RETURNING id,updated_at`,
-        [name, brand, categoryId, attributes, userId, itemId, branchId, resolveFlag],
+        [name, brand, categoryId, attributes, userId, itemId, branchId, resolveFlag, clearConfidence],
       );
       return rows[0];
     },
@@ -93,6 +94,13 @@ function createWorkspaceRepository({ pool, publicationRepository }) {
         [categoryId],
       );
       return rows;
+    },
+    async latestAiRun(client, itemId) {
+      const { rows } = await client.query(
+        "SELECT status,updated_at FROM inventory.item_jobs WHERE item_id=$1 AND job_type='ai_fill' ORDER BY created_at DESC,id DESC LIMIT 1",
+        [itemId],
+      );
+      return rows[0] || null;
     },
     async activeCategory(client, categoryId) {
       return (
@@ -116,7 +124,10 @@ function createWorkspaceRepository({ pool, publicationRepository }) {
       );
     },
     /** Start at POS variants and join one image per product; repeated evidence never multiplies stock. */
-    async readStock(branchId, { search = '', size = '', state = 'all', page = 1 }) {
+    async readStock(
+      branchId,
+      { search = '', size = '', state = 'all', page = 1, categoryId = null, brandId = null },
+    ) {
       const result = await pool.query(
         `WITH scoped AS (
         SELECT p.id AS product_id,p.name,p.master_sku,b.name AS brand,c.name AS category_name,
@@ -130,8 +141,10 @@ function createWorkspaceRepository({ pool, publicationRepository }) {
         LEFT JOIN branch_inventory bi ON bi.variant_id=pv.id AND bi.branch_id=$1
         LEFT JOIN brands b ON b.id=p.brand_id LEFT JOIN categories c ON c.id=p.category_id
         WHERE p.is_active=true
-          AND ($2='' OR concat_ws(' ',p.name,p.master_sku,b.name,pv.sku,pv.variant_attributes::text) ILIKE '%'||$2||'%')
+          AND ($2='' OR concat_ws(' ',p.name,p.master_sku,b.name,pv.sku,pv.barcode,pv.variant_attributes::text) ILIKE '%'||$2||'%')
           AND ($3='' OR pv.variant_attributes->>'size'=$3)
+          AND ($6::uuid IS NULL OR p.category_id=$6)
+          AND ($7::uuid IS NULL OR p.brand_id=$7)
       ), grouped AS (
         SELECT product_id,name,master_sku,brand,category_name,sum(quantity)::int AS quantity,
           jsonb_agg(jsonb_build_object('id',id,'sku',sku,'variant_attributes',variant_attributes,'quantity',quantity,
@@ -139,7 +152,7 @@ function createWorkspaceRepository({ pool, publicationRepository }) {
         FROM scoped GROUP BY product_id,name,master_sku,brand,category_name
         HAVING $4='all' OR bool_or(stock_state=$4)
       ) SELECT *,count(*) OVER()::int AS total FROM grouped ORDER BY name,product_id LIMIT 48 OFFSET $5`,
-        [branchId, search, size, state, (page - 1) * 48],
+        [branchId, search, size, state, (page - 1) * 48, categoryId, brandId],
       );
       return result.rows;
     },
@@ -149,6 +162,24 @@ function createWorkspaceRepository({ pool, publicationRepository }) {
         JOIN products p ON p.id=pv.product_id WHERE p.is_active=true AND pv.is_active=true
         AND nullif(variant_attributes->>'size','') IS NOT NULL ORDER BY size`)
       ).rows.map((row) => row.size);
+    },
+    /** Keep exact POS identities and full category paths available even when the current filters match nothing. */
+    async stockFilterChoices() {
+      const [categories, brands] = await Promise.all([
+        pool.query(`WITH RECURSIVE category_paths AS (
+          SELECT id,name,name::text AS label,0 AS depth FROM categories WHERE parent_id IS NULL
+          UNION ALL SELECT c.id,c.name,cp.label || ' / ' || c.name,cp.depth+1
+          FROM categories c JOIN category_paths cp ON c.parent_id=cp.id WHERE cp.depth<20
+        ) SELECT cp.id,cp.label FROM category_paths cp WHERE EXISTS (
+          SELECT 1 FROM products p JOIN product_variants pv ON pv.product_id=p.id
+          WHERE p.category_id=cp.id AND p.is_active=true AND pv.is_active=true
+        ) ORDER BY cp.label,cp.id`),
+        pool.query(`SELECT b.id,b.name AS label FROM brands b WHERE EXISTS (
+          SELECT 1 FROM products p JOIN product_variants pv ON pv.product_id=p.id
+          WHERE p.brand_id=b.id AND p.is_active=true AND pv.is_active=true
+        ) ORDER BY b.name,b.id`),
+      ]);
+      return { categories: categories.rows, brands: brands.rows };
     },
     async stockImages(branchId, productIds) {
       /* Choose at most one authorized evidence photo per POS product so joins cannot multiply stock. */

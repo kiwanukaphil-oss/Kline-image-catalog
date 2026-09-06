@@ -1,8 +1,24 @@
 # K-Line implementation review
 
-6 September 2026 · Working slice with pinned receiving review · Ready for local review
+6 September 2026 · Packaged POS integration · Ready for local review
 
-The approved direction is implemented in `C:\Projects\Kline Image Catalog`, with `origin` set to `https://github.com/kiwanukaphil-oss/Kline-image-catalog.git`. The new remote was empty. No commit, push, deployment or production migration has been made.
+The ongoing task list is [COMPLETION_CHECKLIST.md](COMPLETION_CHECKLIST.md). It distinguishes verified local implementation, release gates and optional scope, and will be updated as we proceed.
+
+### Latest completed task: R11a–c — AI fill workflow
+
+AI fill is now a visible selected-lot action and a single-photo action. Staff can run selected photos sequentially, stop after the current photo, review persisted results and explicitly retry failures after checking saved progress. The app reconciles an uncertain response instead of automatically issuing another paid request. Existing POS fill-empty protection remains authoritative.
+
+Uncertain suggestions show confidence and expandable evidence beside editable fields. Saving reviewed details uses the signed edit revision, records reviewed keys, clears reviewed/changed fields' AI confidence markers and preserves source observations. Physical quantities still require separate confirmation. Unsaved inputs and in-flight operations are protected.
+
+Package 0.4.0 is installed and matches source. Validation: 21 focused POS tests, four AI workflow browser checks and 24 workspace integration checks, plus TypeScript, lint, formatting and build. Desktop/mobile screenshots were inspected. Only the external inference boundary was replaced for the AI browser test; no real-provider accuracy or staging claim is made. AI actions remain capability-gated, and the ordinary local preview keeps live AI disabled. See `docs/ai-fill-workflow.md`, ADR-075 and `verification/ai-fill.json`. Real-provider quality, staff usability and orphaned-job recovery remain R11d. No new commit, push or deployment was made.
+
+### Latest completed task: S1 — stock discovery
+
+Stock now combines exact POS category/brand filters with size and availability filters, and searches variant barcodes alongside product names, brands and SKUs. Category choices use full paths. Filter choices remain available after an empty result; Clear filters restores the list. No stock or pricing data is changed by filtering.
+
+The workspace package was rebuilt as `0.3.0` and installed in the normal POS host. Its seven files match source. Nine focused POS tests, three new desktop/mobile browser checks and all 24 workspace integration checks pass, as do TypeScript, lint, formatting and the production build. The desktop/360px screenshots were inspected. Evidence: `verification/stock-discovery.json`. The earlier 224-test full-suite result remains the packaged-integration baseline; the focused suite was rerun for S1. Next functional task: I1, durable photo handoff into POS.
+
+The approved direction is implemented in `C:\Projects\Kline Image Catalog`, with `origin` set to `https://github.com/kiwanukaphil-oss/Kline-image-catalog.git`. Following owner approval, the reviewed app was committed as `65a4f07` and its POS receiving safeguard as `6de2d74`. Unrelated POS AI changes were excluded. Neither commit has been pushed or deployed.
 
 Receiving now groups deliveries, saves interrupted photo uploads for recovery, edits category-based details, confirms physical size counts and shows the next task per lot. Pricing has a visible, dedicated workflow for selecting similar merchandise, entering a shared selling price, adding size exceptions, reviewing exact changes and saving. Costs are separate. Stock reads actual POS variant/branch availability with search, size and shortage filters, movement history and an explicit freshness state.
 
@@ -20,6 +36,14 @@ Evidence is in `verification/`. Local Playwright with installed Chrome provided 
 
 ## Integration and release boundary
 
+### Packaged POS integration after commit approval
+
+`@kline/pos-workspace@0.2.0` is installed from a versioned tarball in the POS backend's `vendor` directory, pinned by its package-lock. Its five runtime modules reuse the host POS dependencies. Tests, fixture credentials and test-only image storage are excluded. The normal POS server mounts it behind `CATALOG_WORKSPACE_ENABLED=true`, after the existing security middleware. POS migration 106 owns the two delivery tables; both the canonical fresh database and existing local preview applied it successfully.
+
+Fresh validation: **224/224 POS tests across 24 suites**, **24/24 workspace integration checks**, **4/4 pricing-example checks** and **9/9 browser checks** through the installed package. The installed package matches its source, a clean locked dependency install resolves it, the preview's schema preflight passes, and the Railway runtime source check passes. See `verification/pos-packaged-workspace-jest.json` and `verification/packaged-workspace.json`. This phase adds no frontend UI changes; its existing build/lint checks remain recorded, with TypeScript checked again against the integration.
+
+ADR-074 records packaging, migration ownership, the enable flag and release sequence. These new changes are awaiting review separately from the two completed commits. Production credentials, buckets, CORS origins and deployment configuration were not changed.
+
 ### Pricing refinement after local review
 
 Pricing now supports exact category, brand and size filters, word search, and selection of every matching lot across display pages. Optional brand/size exception rows expand to the selected sizes; different prices on overlapping exceptions block review instead of depending on rule order. Individual overrides remain available. The authoritative review groups results by price, with paginated exact changes available to inspect. Staff can price another group after saving.
@@ -29,7 +53,7 @@ Six group-logic checks cover 1,000 lots / 3,000 sizes, both requested examples, 
 
 The new server adapter reuses the existing POS authentication, permission, branch, stock-normalization and publication services. Additional schema is isolated to receiving organization. Its migration was applied only to `kline_catalog_workspace_test`. This integration phase also ran the POS's canonical Jest setup, which recreated its disposable `kline_inventory_pos_test` database and applied all 105 migrations. No live database was changed.
 
-The next production integration work must mount the adapter and migrate its two receiving tables through the POS release process. Production CORS, live private bucket access, AI extraction and POS cross-app login/deep-link behavior have not been exercised.
+The next integration is now implemented locally: the normal POS server mounts the installed `@kline/pos-workspace@0.2.0` package when explicitly enabled, and POS migration 106 tracks the two delivery tables. The runtime artifact excludes test hosts, fixtures and credentials. Production CORS, live private bucket access, AI extraction and POS cross-app login/deep-link behavior have not been exercised. See `docs/pos-release.md` for the concrete rollout sequence.
 
 The receiving concurrency gap is closed locally. The POS publication service signs the complete reviewed context for the actor and branch, then checks it under the publication transaction's locks before creating stock. Lock acquisition now precedes the joined cost read. Changes to identity, quantity, retail or protected costs require a fresh review. A completed receipt reconciles before token comparison, so concurrent retries preserve exactly one receipt. The workspace requires this contract and fails at startup against an older POS service. The legacy publisher remains backward compatible for older clients. See POS ADR-073 and `verification/pos-receiving-jest.json`.
 
@@ -39,4 +63,4 @@ Follow-up capabilities from the approved direction include a durable image hando
 
 The original image app and POS source checkouts retain their pre-existing changes. This phase adds focused POS controller, publication service/repository and regression-test changes plus ADR-073; the unrelated AI edits remain intact. The prior design brief is preserved as `design/DESIGN_REVIEW.md`, and old concepts remain available. Removal candidates are marked in comments rather than deleted.
 
-Review the live local workflows and `docs/architecture.md` before the next phase. Your confirmation is still required before committing or pushing this first implementation, and separately before any deployment.
+The new packaged-integration changes are awaiting review; the earlier app and receiving-safeguard commits are already complete. Review the local workflows and `docs/pos-release.md` before committing this next change or deploying it. The local preview now runs through the installed package and normal POS security middleware.

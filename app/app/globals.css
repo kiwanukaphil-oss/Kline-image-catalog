@@ -1245,11 +1245,59 @@ td small {
   margin-bottom: 20px;
 }
 .stock-toolbar .search {
-  max-width: 550px;
+  max-width: none;
+  min-width: 250px;
+  flex: 1 1 300px;
+}
+.ai-field-hint {
+  margin-top: 6px;
+  color: var(--muted-foreground);
+  font-size: 11px;
+}
+.ai-field-hint summary {
+  cursor: pointer;
+  color: var(--primary);
+}
+.ai-field-hint p,
+.ai-visible-text p {
+  margin-top: 6px;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+}
+.ai-visible-text {
+  font-size: 12px;
+  margin-top: 16px;
+}
+.ai-fill-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border);
+  flex-wrap: wrap;
+}
+.ai-fill-row .photo {
+  width: 52px;
+  height: 64px;
+  flex-shrink: 0;
+}
+.ai-fill-row > div:nth-child(2) {
+  flex: 1;
+  min-width: 140px;
+}
+.ai-fill-row p {
+  font-size: 12px;
+  color: var(--muted-foreground);
+  margin-top: 6px;
+}
+.stock-toolbar {
+  flex-wrap: wrap;
 }
 .stock-toolbar > select {
-  margin-left: auto;
+  margin-left: 0;
   min-width: 135px;
+  max-width: 230px;
+  flex: 1 1 135px;
   font-size: 12px;
 }
 .stock-filters {
@@ -1621,6 +1669,7 @@ td small {
   .stock-toolbar > select {
     margin-left: 0;
     min-width: 100%;
+    max-width: none;
   }
   .stock-filters {
     gap: 2px;

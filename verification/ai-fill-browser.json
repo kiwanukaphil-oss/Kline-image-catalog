@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "checked_at": "2026-09-06T10:30:13.155Z",
+  "provider": "deterministic external-boundary fixture; not real AI accuracy",
+  "checks": [
+    "Selected photos fill sequentially; a provider failure pauses and only retries after checking saved progress",
+    "AI preserves existing staff details and records suggested quantities separately from confirmation",
+    "Reopening reuses saved results; evidence guides correction and reviewed details plus physical counts save on mobile",
+    "A lost AI response is reconciled from saved progress without automatically paying for another request"
+  ]
+}

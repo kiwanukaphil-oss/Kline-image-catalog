@@ -92,6 +92,10 @@ function createWorkspaceService({ source }) {
             brand: item.brand,
             category_id: item.category_id,
             attributes: item.attributes,
+            confidence: item.confidence || {},
+            ai_field_evidence: item.ai_field_evidence || {},
+            ai_visible_text: item.ai_visible_text || null,
+            ai_run: await repository.latestAiRun(client, itemId),
             status: item.status,
             image_url: await createCatalogImageUrl(item.image_path),
             is_published: published(context),
@@ -154,7 +158,27 @@ function createWorkspaceService({ source }) {
           category_id: context.item.category_id,
           attributes: context.item.attributes,
         };
-        const after = { name: payload.name, brand: payload.brand, category_id: categoryId, attributes };
+        const reviewableKeys = [
+          'name',
+          'brand',
+          ...fields.filter((field) => field.key !== 'size').map((field) => field.key),
+        ];
+        const reviewedAiFields = payload.review_ai_fields || [];
+        if (!Array.isArray(reviewedAiFields) || reviewedAiFields.some((key) => !reviewableKeys.includes(key)))
+          throw DomainError.validationFailed('Invalid AI review fields.');
+        const after = {
+          name: payload.name,
+          brand: payload.brand,
+          category_id: categoryId,
+          attributes,
+          reviewed_ai_fields: reviewedAiFields,
+        };
+        const changedFields = reviewableKeys.filter((key) => {
+          const oldValue =
+            key === 'name' || key === 'brand' ? context.item[key] : context.item.attributes?.[key];
+          const newValue = key === 'name' || key === 'brand' ? payload[key] : attributes[key];
+          return JSON.stringify(oldValue ?? null) !== JSON.stringify(newValue ?? null);
+        });
         await repository.updateDetails(client, {
           itemId,
           branchId,
@@ -162,6 +186,7 @@ function createWorkspaceService({ source }) {
           ...after,
           categoryId,
           resolveFlag: payload.resolve_flag === true,
+          clearConfidence: [...new Set([...reviewedAiFields, ...changedFields])],
         });
         await repository.recordEdit(client, { itemId, userId, before, after });
         return { saved: true };
@@ -245,6 +270,7 @@ function createWorkspaceService({ source }) {
         limit: 48,
         updated_at: new Date().toISOString(),
         sizes: await repository.stockSizes(),
+        ...(await repository.stockFilterChoices()),
       };
     },
     movements: (branchId, productId) => repository.stockMovements(branchId, productId),

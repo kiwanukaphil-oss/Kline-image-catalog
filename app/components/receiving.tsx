@@ -1,6 +1,15 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
-import { ArrowDownToLine, ArrowLeft, ArrowRight, Check, PackagePlus, Plus, Tag } from 'lucide-react';
+import {
+  ArrowDownToLine,
+  ArrowLeft,
+  ArrowRight,
+  Check,
+  PackagePlus,
+  Plus,
+  Sparkles,
+  Tag,
+} from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -15,6 +24,7 @@ import {
 import { Modal, Photo, SearchField, Pagination, usePosRead } from './workspace-ui';
 import { UploadDelivery, type Category } from './upload-delivery';
 import { DraftEditor } from './draft-editor';
+import { AiFill } from './ai-fill';
 import { useWorkspaceTool } from '@/lib/webmcp';
 import { readPendingPhotos } from '@/lib/upload-queue';
 type Batch = { id: string; title: string; created_at: string; item_count: number; received_count: number };
@@ -76,6 +86,7 @@ export function Receiving({
     [uploading, setUploading] = useState(false),
     [receiving, setReceiving] = useState(false);
   const [receipt, setReceipt] = useState<Receipt | null>(null);
+  const [aiItems, setAiItems] = useState<CatalogItem[] | null>(null);
   const [pendingCount, setPendingCount] = useState(0);
   const refs = usePosRead<{ data: References }>('/catalog/reference-data', branch);
   const batches = usePosRead<Batch[]>('/catalog-workspace/batches', branch);
@@ -354,6 +365,12 @@ export function Receiving({
                   Price
                 </Button>
               )}
+              {session.can_ai_extract && (
+                <Button variant="outline" onClick={() => setAiItems([...selectedItems])}>
+                  <Sparkles size={16} />
+                  AI fill
+                </Button>
+              )}
               {session.can_publish && (
                 <Button onClick={() => setReceiving(true)}>
                   <ArrowDownToLine size={16} />
@@ -436,6 +453,21 @@ export function Receiving({
           onPrice={() => {
             setEditing(null);
             onPrice([editing]);
+          }}
+        />
+      )}
+      {aiItems && (
+        <AiFill
+          items={aiItems}
+          branch={branch}
+          onClose={() => {
+            setAiItems(null);
+            refreshReceiving();
+          }}
+          onReview={(id) => {
+            setAiItems(null);
+            refreshReceiving();
+            setEditing(id);
           }}
         />
       )}

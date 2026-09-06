@@ -1,0 +1,24 @@
+{
+  "task": "S1",
+  "passed": true,
+  "checked_at": "2026-09-06T10:21:30.857Z",
+  "package": "@kline/pos-workspace@0.3.0",
+  "artifact_sha256": "2514d394e58c3fda73c90c4e4872158ae792ac33498b49e566c2e40b5bec78c8",
+  "focused_pos_tests": 9,
+  "browser_checks": 3,
+  "workspace_checks": 24,
+  "installed_package_matches_source": true,
+  "typecheck": "passed",
+  "lint": "passed",
+  "format": "passed",
+  "production_build": "passed",
+  "inspected_screenshots": [
+    "stock-discovery-desktop.png",
+    "stock-discovery-mobile.png"
+  ],
+  "limits": [
+    "Local test databases only",
+    "No new commit, push or deployment",
+    "Full POS suite baseline is recorded separately"
+  ]
+}

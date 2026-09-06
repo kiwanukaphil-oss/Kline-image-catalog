@@ -7,6 +7,7 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { requestPos, postPos, formatMoney, type CatalogItem, type Session } from '@/lib/catalog-api';
 import { Modal, Photo, usePosRead } from './workspace-ui';
+import { AiFieldHint } from './ai-field-hint';
 import type { Category } from './upload-delivery';
 import type { CategoryField } from './receiving';
 type Detail = { item: CatalogItem; fields: CategoryField[]; revision: string; blockers: string[] };
@@ -58,6 +59,8 @@ export function DraftEditor({
     [dirty, setDirty] = useState(false),
     [discard, setDiscard] = useState(false),
     [resolveFlag, setResolveFlag] = useState(false);
+  const [extracting, setExtracting] = useState(false),
+    [checkAiProgress, setCheckAiProgress] = useState(false);
   const item = detail.data?.item,
     editable = session.can_edit && !item?.is_published;
   useEffect(() => {
@@ -88,6 +91,11 @@ export function DraftEditor({
     return () => window.removeEventListener('beforeunload', warn);
   }, [dirty]);
   const fields = effectiveFields(category, references.categories, references.fields);
+  const reviewAiFields = [
+    'name',
+    'brand',
+    ...fields.filter((field) => field.key !== 'size').map((field) => field.key),
+  ].filter((key) => !!item?.confidence?.[key]);
   const quantity = rows.reduce((sum, row) => sum + (Number(row.quantity) || 0), 0);
   function edit(update: () => void) {
     update();
@@ -120,6 +128,7 @@ export function DraftEditor({
           category_id: category,
           attributes: values,
           resolve_flag: resolveFlag,
+          review_ai_fields: reviewAiFields,
         }),
       });
       setDirty(false);
@@ -168,15 +177,29 @@ export function DraftEditor({
     /* Ask the existing POS extraction service to fill empty fields, then reread its saved result. */
 
     setBusy(true);
+    setExtracting(true);
     setError('');
     try {
-      await postPos(`/catalog/items/${itemId}/ai-extract`, branch, {});
+      const result = await postPos<{ data: { applied_fields: string[] } }>(
+        `/catalog/items/${itemId}/ai-extract`,
+        branch,
+        { only_empty: true },
+      );
+      setSaved(
+        result.data.applied_fields.length
+          ? 'Photo details filled. Review the suggestions below.'
+          : 'No new details found. Existing values were kept.',
+      );
+      setTab('details');
+      setCheckAiProgress(false);
       detail.refresh();
       onSaved();
     } catch (cause) {
       setError((cause as Error).message);
+      setCheckAiProgress(true);
     } finally {
       setBusy(false);
+      setExtracting(false);
     }
   }
   return (
@@ -202,13 +225,35 @@ export function DraftEditor({
                   View full photo
                 </a>
               )}
-              {editable && session.can_ai_extract && (
-                <Button variant="outline" disabled={busy || dirty} onClick={extractPhoto}>
-                  <Sparkles size={15} />
-                  Read photo
-                </Button>
-              )}
+              {editable &&
+                session.can_ai_extract &&
+                (checkAiProgress || item.ai_run?.status === 'running' ? (
+                  <Button
+                    variant="outline"
+                    disabled={busy || dirty}
+                    onClick={() => {
+                      setCheckAiProgress(false);
+                      setError('');
+                      detail.refresh();
+                    }}
+                  >
+                    Check saved progress
+                  </Button>
+                ) : (
+                  <Button variant="outline" disabled={busy || dirty} onClick={extractPhoto}>
+                    <Sparkles size={15} />
+                    {extracting ? 'Reading photo…' : 'AI fill'}
+                  </Button>
+                ))}
               <div className="lot-caption">
+                {item.ai_run?.status === 'running' && <small role="status">Analysis is still running.</small>}
+                {dirty && session.can_ai_extract && <small>Save your edits before AI fill.</small>}
+                {item.ai_visible_text && (
+                  <details className="ai-visible-text">
+                    <summary>Text read from photo</summary>
+                    <p>{item.ai_visible_text}</p>
+                  </details>
+                )}
                 <span className="eyebrow">PHOTOGRAPHED LOT</span>
                 <strong>{item.stock_quantity ?? 0} units</strong>
                 <small>
@@ -222,6 +267,7 @@ export function DraftEditor({
               <Tabs
                 value={tab}
                 onValueChange={(value) => {
+                  if (busy) return;
                   if (dirty) {
                     setError('Save your edits before switching tasks.');
                     return;
@@ -242,18 +288,19 @@ export function DraftEditor({
                     Product name
                     <Input
                       value={name}
-                      disabled={!editable}
+                      disabled={!editable || busy}
                       maxLength={250}
                       onChange={(e) => edit(() => setName(e.target.value))}
                       placeholder="e.g. Straight-leg trousers"
                     />
                   </label>
+                  <AiFieldHint item={item} field="name" value={name} />
                   <div className="field-pair">
                     <label>
                       Brand
                       <Input
                         value={brand}
-                        disabled={!editable}
+                        disabled={!editable || busy}
                         maxLength={150}
                         onChange={(e) => edit(() => setBrand(e.target.value))}
                       />
@@ -262,7 +309,7 @@ export function DraftEditor({
                       Category
                       <select
                         value={category}
-                        disabled={!editable}
+                        disabled={!editable || busy}
                         onChange={(e) => edit(() => setCategory(e.target.value))}
                       >
                         {references.categories.map((category) => (
@@ -273,62 +320,67 @@ export function DraftEditor({
                       </select>
                     </label>
                   </div>
+                  <AiFieldHint item={item} field="brand" value={brand} />
                   {fields
                     .filter((field) => field.key !== 'size')
                     .map((field) => (
-                      /* Render the configured category field with a matching input type and accessible label. */ <label
+                      /* Render the configured category field with a matching input type and accessible label. */ <div
                         key={field.key}
                       >
-                        {field.label}
-                        {field.required ? ' *' : ''}
-                        {field.type === 'select' || field.type === 'boolean' ? (
-                          <select
-                            aria-label={field.label}
-                            disabled={!editable}
-                            value={String(attributes[field.key] ?? '')}
-                            onChange={(e) =>
-                              /* Preserve unknown booleans as null instead of silently turning them into false. */ edit(
-                                () =>
-                                  setAttributes((prior) => ({
-                                    ...prior,
-                                    [field.key]:
-                                      field.type === 'boolean'
-                                        ? e.target.value === ''
-                                          ? null
-                                          : e.target.value === 'true'
-                                        : e.target.value,
-                                  })),
-                              )
-                            }
-                          >
-                            <option value="">Not set</option>
-                            {(field.type === 'boolean' ? ['true', 'false'] : field.options || []).map(
-                              (option) => (
-                                <option key={option} value={option}>
-                                  {field.type === 'boolean' ? (option === 'true' ? 'Yes' : 'No') : option}
-                                </option>
-                              ),
-                            )}
-                          </select>
-                        ) : (
-                          <Input
-                            aria-label={field.label}
-                            value={String(attributes[field.key] ?? '')}
-                            disabled={!editable}
-                            inputMode={field.type === 'number' ? 'decimal' : 'text'}
-                            onChange={(e) =>
-                              edit(() =>
-                                setAttributes((prior) => ({ ...prior, [field.key]: e.target.value })),
-                              )
-                            }
-                          />
-                        )}
-                      </label>
+                        <label>
+                          {field.label}
+                          {field.required ? ' *' : ''}
+                          {field.type === 'select' || field.type === 'boolean' ? (
+                            <select
+                              aria-label={field.label}
+                              disabled={!editable || busy}
+                              value={String(attributes[field.key] ?? '')}
+                              onChange={(e) =>
+                                /* Preserve unknown booleans as null instead of silently turning them into false. */ edit(
+                                  () =>
+                                    setAttributes((prior) => ({
+                                      ...prior,
+                                      [field.key]:
+                                        field.type === 'boolean'
+                                          ? e.target.value === ''
+                                            ? null
+                                            : e.target.value === 'true'
+                                          : e.target.value,
+                                    })),
+                                )
+                              }
+                            >
+                              <option value="">Not set</option>
+                              {(field.type === 'boolean' ? ['true', 'false'] : field.options || []).map(
+                                (option) => (
+                                  <option key={option} value={option}>
+                                    {field.type === 'boolean' ? (option === 'true' ? 'Yes' : 'No') : option}
+                                  </option>
+                                ),
+                              )}
+                            </select>
+                          ) : (
+                            <Input
+                              aria-label={field.label}
+                              value={String(attributes[field.key] ?? '')}
+                              disabled={!editable || busy}
+                              inputMode={field.type === 'number' ? 'decimal' : 'text'}
+                              onChange={(e) =>
+                                edit(() =>
+                                  setAttributes((prior) => ({ ...prior, [field.key]: e.target.value })),
+                                )
+                              }
+                            />
+                          )}
+                        </label>
+                        <AiFieldHint item={item} field={field.key} value={attributes[field.key]} />
+                      </div>
                     ))}
                   {item.status === 'flag' && editable && (
                     <label className="inline-check">
                       <Checkbox
                         checked={resolveFlag}
+                        disabled={busy}
                         onCheckedChange={(value) => edit(() => setResolveFlag(value))}
                       />
                       I have resolved this item&apos;s problem flag
@@ -336,13 +388,24 @@ export function DraftEditor({
                   )}
                   {editable && (
                     <Button disabled={busy} onClick={saveDetails}>
-                      {busy ? 'Saving…' : 'Save details'}
+                      {busy
+                        ? extracting
+                          ? 'Reading photo…'
+                          : 'Saving…'
+                        : reviewAiFields.length
+                          ? 'Save reviewed details'
+                          : 'Save details'}
                     </Button>
                   )}
                 </div>
               )}
               {tab === 'sizes' && (
                 <div className="count-editor">
+                  {item.stock_distribution_source === 'ai_suggested' && (
+                    <p className="muted">
+                      Suggested from the photo. Confirm the physical sizes and quantities.
+                    </p>
+                  )}
                   <div className="count-columns">
                     <span>SIZE</span>
                     <span>UNITS</span>
@@ -355,7 +418,7 @@ export function DraftEditor({
                       <Input
                         aria-label={`Size ${index + 1}`}
                         value={row.size}
-                        disabled={!editable || !fields.some((field) => field.key === 'size')}
+                        disabled={!editable || busy || !fields.some((field) => field.key === 'size')}
                         placeholder="Standard"
                         onChange={(e) =>
                           edit(() =>
@@ -371,7 +434,7 @@ export function DraftEditor({
                         aria-label={`Quantity ${index + 1}`}
                         inputMode="numeric"
                         value={row.quantity}
-                        disabled={!editable}
+                        disabled={!editable || busy}
                         onChange={(e) =>
                           edit(() =>
                             setRows((prior) =>
@@ -386,7 +449,7 @@ export function DraftEditor({
                         <Button
                           size="icon"
                           variant="ghost"
-                          disabled={rows.length === 1}
+                          disabled={busy || rows.length === 1}
                           aria-label={`Remove size ${index + 1}`}
                           onClick={() =>
                             edit(() => setRows((prior) => prior.filter((entry) => entry.id !== row.id)))
@@ -400,7 +463,7 @@ export function DraftEditor({
                   {editable && (
                     <Button
                       variant="ghost"
-                      disabled={rows.length >= 100}
+                      disabled={busy || rows.length >= 100}
                       onClick={() =>
                         edit(() =>
                           setRows((prior) => [
@@ -443,7 +506,7 @@ export function DraftEditor({
                     </div>
                   ))}
                   {editable && (
-                    <Button disabled={dirty} onClick={onPrice}>
+                    <Button disabled={busy || dirty} onClick={onPrice}>
                       <Tag size={15} />
                       Set prices
                     </Button>

@@ -1,6 +1,6 @@
 {
   "passed": true,
-  "checked_at": "2026-09-06T09:44:15.412Z",
+  "checked_at": "2026-09-06T10:09:54.987Z",
   "checks": [
     "Compiled Hugo Boss size rule previews and persists 100,000 / 150,000 through real POS",
     "Compiled brand exception prices every H&M size and keeps other shorts on the shared price",

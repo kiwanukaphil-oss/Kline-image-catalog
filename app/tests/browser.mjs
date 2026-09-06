@@ -166,7 +166,7 @@ try {
   assert.equal(await page.locator('.receipt-row').count(), 3);
   pass('Three lots receive eight units and leave durable per-lot receipts');
   await page.getByRole('button', { name: 'Stock', exact: true }).click();
-  await page.getByLabel('Search product, brand or SKU').fill('Studio');
+  await page.getByLabel('Search product, brand, SKU or barcode').fill('Studio');
   await page.locator('.stock-card').filter({ hasText: names[0] }).first().waitFor();
   await snapshot('stock-mobile');
   assert(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth));

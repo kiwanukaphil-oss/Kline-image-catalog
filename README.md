@@ -1,6 +1,6 @@
 # K-Line merchandise workspace
 
-Receiving, Pricing and Stock in one focused workspace. This is the first working implementation of the approved redesign, connected locally to the existing K-Line POS services and an isolated PostgreSQL database. It has not been deployed or committed.
+Receiving, Pricing and Stock in one focused workspace, connected locally to the existing POS services and an isolated PostgreSQL database. The initial implementation is committed; further integration work is tracked in the [completion checklist](COMPLETION_CHECKLIST.md). It has not been deployed.
 
 ## Review it locally
 
@@ -34,7 +34,7 @@ The original app remains available in its own checkout. This is a new implementa
 
 ## Start from a fresh checkout
 
-Requires Node 22.13 or newer, local PostgreSQL, installed Chrome, and the existing POS backend with its dependencies, migrations through the reviewed-pricing-plan migration, and the pinned receiving review contract (ADR-073). The matching POS change is implemented in the adjacent checkout; the workspace fails at startup against an older backend. The POS remains a separate dependency; it is not copied or replaced here.
+Requires Node 22.13 or newer, local PostgreSQL, installed Chrome, and the existing POS backend with its dependencies, migration 106, the pinned receiving review contract (ADR-073) and the packaged workspace mount (ADR-074). The matching POS changes are present in the adjacent checkout. The POS remains a separate dependency; it is not copied or replaced here.
 
 The focused [POS integration patch](server/pos-patches/README.md) preserves this backend dependency for another checkout without including unrelated local POS changes.
 
@@ -87,10 +87,10 @@ Generated shadcn primitives are retained and excluded from application lint rath
 
 ## Connecting the actual POS deployment
 
-This is release work for the next approved phase. The local host deliberately refuses production/remote databases.
+The runtime wiring is now implemented locally for review. The local test host deliberately refuses production/remote databases. See the [packaged integration and release sequence](docs/pos-release.md).
 
-1. Bring the additive SQL migration into the POS's normal, reviewed migration process.
-2. Install this server adapter beside the POS backend and mount `createWorkspaceRouter(loadPosDependencies(POS_BACKEND_PATH))` at `/api/catalog-workspace`, after its security/body-parsing middleware and before its final not-found handler.
+1. Apply POS migration 106 through the POS's normal, reviewed migration process.
+2. Deploy the POS backend with its locked `@kline/pos-workspace` tarball dependency and enable `CATALOG_WORKSPACE_ENABLED=true`. The normal server mounts the package after its security middleware and before the final not-found handler.
 3. Allow the new frontend origin in POS CORS, including `Authorization` and `X-Branch-Id`. Configure `NEXT_PUBLIC_POS_API_URL` and the optional `NEXT_PUBLIC_POS_URL` before the frontend build.
 4. Complete the release gaps in `REVIEW_BRIEF.md`, then verify with staging identities, branch permissions and the private image bucket before any rollout.
 

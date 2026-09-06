@@ -2,6 +2,8 @@
 
 Approved direction: Receiving, Pricing and Stock, with group pricing as the ordinary case and size exceptions as an explicit edit. The empty `kiwanukaphil-oss/Kline-image-catalog` repository hosts the new frontend and the narrow POS extension.
 
+The extension now ships as a private, versioned npm tarball installed into the normal POS backend. Migration 106 belongs to the POS migration manifest. `CATALOG_WORKSPACE_ENABLED=true` mounts the package through the existing POS security middleware. It requires no sibling catalog source tree at runtime. See `pos-release.md` and ADR-074 for the release boundary.
+
 ## Boundaries
 
 The browser holds a POS JWT in tab-scoped session storage. It sends the active branch on every scoped request. Credentials are used only by the existing login endpoint. The server resolves actual permissions and branch access independently of anything shown or hidden in the UI.
@@ -17,6 +19,8 @@ Receiving uses a separate actor/branch-scoped publication revision returned with
 Pricing inputs compile into the existing reviewed-plan contract. The parent default changes only when every size is selected. A subset generates explicit selected-line edits. Fill/revise intent and existing-size protection remain server-owned. Cost-only plans use `retail_mode: leave`.
 
 Stock begins with POS variants and joins branch inventory exactly once. A lateral image query chooses one evidence photo per product. Additional evidence therefore cannot multiply quantity. POS-only products remain visible. Null reorder configuration is preserved; stock errors do not become zeroes. Only retail prices appear in the stock projection.
+
+Stock accepts exact `category_id` and `brand_id` UUID filters alongside size/state/search. Search includes variant barcodes. Category choices include their full paths and, like brands/sizes, remain available even when the current combination returns no products. The common product taxonomy does not expose other branches' quantities. Barcode/SKU matches narrow the matching variant rows just as size filtering does.
 
 ## New endpoints
 

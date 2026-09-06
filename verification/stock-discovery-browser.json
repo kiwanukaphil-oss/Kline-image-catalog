@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "checked_at": "2026-09-06T10:20:38.652Z",
+  "checks": [
+    "Category, brand, size and a real barcode combine to find exactly the intended POS product",
+    "Stock discovery controls fit a 360px viewport",
+    "Empty results preserve filter choices and Clear filters restores stock on mobile"
+  ]
+}

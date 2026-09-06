@@ -6,6 +6,7 @@ import { requestPos, formatMoney, type Variant } from '@/lib/catalog-api';
 import { Modal, Pagination, Photo, SearchField, usePosRead } from './workspace-ui';
 import { useWorkspaceTool } from '@/lib/webmcp';
 type StockLine = Variant & { stock_state: string };
+type StockChoice = { id: string; label: string };
 type Product = {
   product_id: string;
   name: string;
@@ -23,6 +24,8 @@ type StockResult = {
   limit: number;
   updated_at: string;
   sizes: string[];
+  categories: StockChoice[];
+  brands: StockChoice[];
 };
 type Movement = {
   id: string;
@@ -45,6 +48,8 @@ const labelState = (state: string) =>
 /** Refresh authoritative POS snapshots while visible; retain a timestamped snapshot after transient failures. */
 export function Stock({ branch }: { branch: string }) {
   const [search, setSearch] = useState(''),
+    [category, setCategory] = useState(''),
+    [brand, setBrand] = useState(''),
     [size, setSize] = useState(''),
     [state, setState] = useState('all'),
     [page, setPage] = useState(1);
@@ -53,7 +58,19 @@ export function Stock({ branch }: { branch: string }) {
     [loading, setLoading] = useState(true),
     [version, setVersion] = useState(0);
   const [product, setProduct] = useState<Product | null>(null);
-  const query = new URLSearchParams({ search, size, state, page: String(page) }).toString();
+  const [choices, setChoices] = useState<{
+    sizes: string[];
+    categories: StockChoice[];
+    brands: StockChoice[];
+  }>({ sizes: [], categories: [], brands: [] });
+  const query = new URLSearchParams({
+    search,
+    size,
+    state,
+    category_id: category,
+    brand_id: brand,
+    page: String(page),
+  }).toString();
   useWorkspaceTool({
     name: 'read_visible_stock',
     title: 'Read visible stock',
@@ -69,7 +86,7 @@ export function Stock({ branch }: { branch: string }) {
       if (!data) throw new Error('Stock has not loaded successfully.');
       return {
         branch_id: branch,
-        filters: { search, size, state, page },
+        filters: { search, size, state, category_id: category, brand_id: brand, page },
         updated_at: data.updated_at,
         stale: !!error,
         total: data.total,
@@ -92,6 +109,7 @@ export function Stock({ branch }: { branch: string }) {
       requestPos<StockResult>(`/catalog-workspace/stock?${query}`, branch, { signal: controller.signal })
         .then((result) => {
           setData(result);
+          setChoices({ sizes: result.sizes, categories: result.categories, brands: result.brands });
           setError('');
           setProduct((previous) =>
             previous ? result.products.find((p) => p.product_id === previous.product_id) || null : null,
@@ -145,15 +163,39 @@ export function Stock({ branch }: { branch: string }) {
         <SearchField
           value={search}
           onChange={(value) => changeFilter(() => setSearch(value))}
-          placeholder="Search product, brand or SKU"
+          placeholder="Search product, brand, SKU or barcode"
         />
+        <select
+          aria-label="Filter by category"
+          value={category}
+          onChange={(e) => changeFilter(() => setCategory(e.target.value))}
+        >
+          <option value="">All categories</option>
+          {choices.categories.map((choice) => (
+            <option key={choice.id} value={choice.id}>
+              {choice.label}
+            </option>
+          ))}
+        </select>
+        <select
+          aria-label="Filter by brand"
+          value={brand}
+          onChange={(e) => changeFilter(() => setBrand(e.target.value))}
+        >
+          <option value="">All brands</option>
+          {choices.brands.map((choice) => (
+            <option key={choice.id} value={choice.id}>
+              {choice.label}
+            </option>
+          ))}
+        </select>
         <select
           aria-label="Filter by size"
           value={size}
           onChange={(e) => changeFilter(() => setSize(e.target.value))}
         >
           <option value="">All sizes</option>
-          {data?.sizes.map((value) => (
+          {choices.sizes.map((value) => (
             <option key={value}>{value}</option>
           ))}
         </select>
@@ -192,7 +234,21 @@ export function Stock({ branch }: { branch: string }) {
       {data && data.products.length === 0 ? (
         <div className="empty-state">
           <h2>No matching stock.</h2>
-          <p>Try another size, product or stock filter.</p>
+          <p>Try another search or filter.</p>
+          <Button
+            variant="outline"
+            onClick={() =>
+              changeFilter(() => {
+                setSearch('');
+                setCategory('');
+                setBrand('');
+                setSize('');
+                setState('all');
+              })
+            }
+          >
+            Clear filters
+          </Button>
         </div>
       ) : (
         <div className="stock-grid">
