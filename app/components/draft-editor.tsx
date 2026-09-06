@@ -173,6 +173,20 @@ export function DraftEditor({
       setBusy(false);
     }
   }
+  async function retryPhotoTransfer() {
+    // Photo recovery has its own endpoint and cannot receive stock a second time.
+    setBusy(true);
+    setError('');
+    try {
+      await postPos(`/catalog-workspace/items/${itemId}/photo`, branch, {});
+      detail.refresh();
+      onSaved();
+    } catch (cause) {
+      setError((cause as Error).message);
+    } finally {
+      setBusy(false);
+    }
+  }
   async function extractPhoto() {
     /* Ask the existing POS extraction service to fill empty fields, then reread its saved result. */
 
@@ -220,6 +234,22 @@ export function DraftEditor({
           <div className="draft-layout">
             <div className="draft-evidence">
               <Photo url={item.image_url} name={item.name || 'Photographed merchandise'} />
+              {item.photo_handoff && (
+                <div className="space-y-2" role="status">
+                  <p className="text-sm text-muted-foreground">
+                    {item.photo_handoff.status === 'linked'
+                      ? 'Photo available in POS'
+                      : item.photo_handoff.status === 'preserved'
+                        ? 'Existing POS photo kept'
+                        : 'Stock received. Photo transfer pending.'}
+                  </p>
+                  {session.can_publish && ['pending', 'failed'].includes(item.photo_handoff.status) && (
+                    <Button variant="outline" disabled={busy} onClick={retryPhotoTransfer}>
+                      {busy ? 'Transferring photo…' : 'Retry photo transfer'}
+                    </Button>
+                  )}
+                </div>
+              )}
               {item.image_url && (
                 <a className="text-link" href={item.image_url} target="_blank" rel="noreferrer">
                   View full photo

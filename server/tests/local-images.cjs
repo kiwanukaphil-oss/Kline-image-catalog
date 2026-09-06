@@ -38,6 +38,9 @@ function installLocalImageStore(dependencies) {
       await fs.unlink(imagePath(key));
     },
   };
+  // POS copies use the same private-key signing fixture, including POS-only stock projections.
+  const productImages = dependencies.source('utils/productImageStorage');
+  productImages.createProductImageUrl = dependencies.posRequire(modulePath).createCatalogImageUrl;
   return async function serveLocalImage(req, res) {
     const { key, expires, signature } = req.query;
     if (

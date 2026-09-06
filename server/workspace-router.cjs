@@ -102,6 +102,11 @@ function createWorkspaceRouter(dependencies) {
       });
     }),
   );
+  router.post(
+    '/items/:id/photo',
+    checkPermission('catalog.publish'),
+    reply((req) => service.transferPhoto({ itemId: uuid(req.params.id), branchId: req.branchId, userId: req.user.id })),
+  );
   router.patch(
     '/items/:id',
     checkPermission('catalog.edit'),

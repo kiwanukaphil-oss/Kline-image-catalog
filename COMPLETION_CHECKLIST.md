@@ -4,7 +4,7 @@ Updated: 6 September 2026. This is our working source of truth. Update it after 
 
 **Checked means implemented and verified locally unless explicitly labelled staging/production.** An implemented feature can still await commit, release or staff acceptance. Optional features do not silently become launch requirements.
 
-**Latest completed: R11a–R11c — AI fill selection, suggestion review and recovery, verified locally. Next: I1 photo handoff. Real-provider/staging acceptance remains R11d.**
+**Latest completed: I1–I2 — durable photo handoff and independent recovery, verified locally. Next: R9 complete history navigation. Live bucket and AI staging acceptance remain open. Autonomous implementation and commits authorized on 6 September.**
 
 ## A. Purpose and design
 
@@ -60,8 +60,8 @@ Updated: 6 September 2026. This is our working source of truth. Update it after 
 
 ## I. Remaining POS handoffs
 
-- [ ] I1 Durable catalog-photo handoff into POS product imagery; preserve originals and store object keys, never signed URLs.
-- [ ] I2 Visible image status/retry independent of receipt; protect manual images and prevent duplicate stock after failure.
+- [x] I1 Durable catalog-photo handoff into POS product imagery; preserve originals and store object keys, never signed URLs. Migration 107 and package 0.5.0; local byte-preserving bucket fixture, live bucket acceptance remains G5.
+- [x] I2 Visible image status/retry independent of receipt; protect manual images and prevent duplicate stock after failure. 29 focused POS tests and desktop/mobile recovery verified.
 - [ ] I3 Explicit receive-against-existing-product workflow with deliberate product/variant matching; no implicit merges.
 - [ ] I4 Restock price/cost policy, new/existing sizes, stale matches, branch stock, audit and retry tests.
 - [ ] I5 Reachable, permission-controlled category-mapping administration with actionable receiving blockers.
@@ -89,7 +89,7 @@ Updated: 6 September 2026. This is our working source of truth. Update it after 
 ## G. Source control and release
 
 - [x] G1 Reviewed app committed as `65a4f07`; POS safeguard as `6de2d74`; unrelated POS AI edits excluded.
-- [ ] G2 Review and commit packaged integration and later features when authorized. Both repositories contain further uncommitted work.
+- [x] G2 Packaged integration committed as catalog `3f0af21` and POS `1cc61ba`; subsequent verified slices committed under the user's continuing authorization. Unrelated POS AI edits remain separate.
 - [ ] G3 Authorized push/PR/release commits. No push has occurred.
 - [ ] G4 Select/configure staging POS, frontend origins, branch identities and private bucket.
 - [ ] G5 Deploy reviewed staging migration/backend/frontend; verify actual CORS, login, images, AI if enabled, receipts and POS navigation.

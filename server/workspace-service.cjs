@@ -20,6 +20,7 @@ function createWorkspaceService({ source }) {
   const { listCatalogItems } = source('services/catalogReadService');
   const { createCatalogImageUrl } = source('services/catalogImageStorageService');
   const { createProductImageUrl } = source('utils/productImageStorage');
+  const { readPhotoHandoff, transferCatalogPhoto } = source('services/catalogPhotoHandoffService');
   const { normalizeCatalogStockDistribution, expandCatalogSizeLabel } = source(
     'utils/catalogStockDistribution',
   );
@@ -87,6 +88,7 @@ function createWorkspaceService({ source }) {
           fields,
           blockers: published(context) ? [] : catalogPublicationBlockers(context),
           item: {
+            photo_handoff: await readPhotoHandoff(branchId, itemId, client),
             id: item.id,
             name: item.name,
             brand: item.brand,
@@ -115,7 +117,18 @@ function createWorkspaceService({ source }) {
         };
       });
     },
-    receiveItem: (input) => publishCatalogItem(input),
+    async receiveItem(input) {
+      // Receipt commits first. Even a database outage during image recovery cannot undo its success.
+      const receipt = await publishCatalogItem(input);
+      let photo_handoff = { status: 'pending' };
+      try {
+        photo_handoff = await transferCatalogPhoto(input);
+      } catch (error) {
+        console.error('Received stock; photo handoff needs retry:', error.message);
+      }
+      return { ...receipt, photo_handoff };
+    },
+    transferPhoto: (input) => transferCatalogPhoto(input),
     /** Reject stale or published edits; category-defined values remain sparse and auditable. */
     async updateDetails({ branchId, itemId, userId, payload }) {
       return repository.transaction(async (client) => {

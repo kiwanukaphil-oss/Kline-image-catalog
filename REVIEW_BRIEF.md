@@ -64,3 +64,7 @@ Follow-up capabilities from the approved direction include a durable image hando
 The original image app and POS source checkouts retain their pre-existing changes. This phase adds focused POS controller, publication service/repository and regression-test changes plus ADR-073; the unrelated AI edits remain intact. The prior design brief is preserved as `design/DESIGN_REVIEW.md`, and old concepts remain available. Removal candidates are marked in comments rather than deleted.
 
 The new packaged-integration changes are awaiting review; the earlier app and receiving-safeguard commits are already complete. Review the local workflows and `docs/pos-release.md` before committing this next change or deploying it. The local preview now runs through the installed package and normal POS security middleware.
+
+## Photo handoff — I1/I2
+
+Implemented independent durable photo recovery (POS ADR-076, migration 107, package 0.5.0). Original bytes are preserved; retries cannot repeat stock receiving or overwrite manual POS imagery. Verified 29 focused POS tests, 24 workspace checks, desktop/mobile outage recovery, TypeScript, lint, formatting and build. Live private-bucket acceptance remains staging work. Next: receipt/delivery history navigation.

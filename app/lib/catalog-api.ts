@@ -47,6 +47,7 @@ export type CatalogItem = {
   ai_field_evidence?: Record<string, { source: string; observation: string }>;
   ai_visible_text?: string | null;
   ai_run?: { status: string; updated_at: string } | null;
+  photo_handoff?: { status: 'pending' | 'linked' | 'preserved' | 'failed'; updated_at: string } | null;
 };
 export class ApiError extends Error {
   constructor(

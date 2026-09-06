@@ -511,6 +511,15 @@ export function Receiving({
             </table>
           </div>
           <small>Receipt {receipt.id}</small>
+          <Button
+            variant="outline"
+            onClick={() => {
+              setEditing(receipt.item_id);
+              setReceipt(null);
+            }}
+          >
+            View lot and photo
+          </Button>
         </Modal>
       )}
     </>

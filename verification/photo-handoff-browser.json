@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "checks": [
+    "Receipt opens original lot and image status",
+    "Failed transfer remains retryable",
+    "Mobile retry attaches exact original bytes to POS",
+    "Successful transfer removes retry action"
+  ],
+  "storage": "Local byte-preserving bucket fixture; live private bucket acceptance pending"
+}
