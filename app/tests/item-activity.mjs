@@ -40,7 +40,7 @@ try {
   await page.screenshot({ path: '../verification/item-activity-mobile.png', animations: 'disabled' });
   await dialog.getByRole('button', { name: 'Next', exact: true }).click();
   await dialog.getByText(/25.*26 of 26/).waitFor();
-  await dialog.locator('article').nth(2).waitFor({state:'hidden'});
+  await dialog.locator('article').nth(2).waitFor({ state: 'hidden' });
   assert.equal(await dialog.locator('article').count(), 2);
   await page.keyboard.press('Escape');
   assert.equal(await page.getByLabel('Product name', { exact: true }).inputValue(), 'Unsaved name');

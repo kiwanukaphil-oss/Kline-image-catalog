@@ -108,3 +108,7 @@ Expired authentication now opens same-account sign-in over the mounted workspace
 ## R11d ? abandoned AI attempts
 
 Explicit progress recovery closes stale running jobs after 15 minutes, audits recovery, blocks concurrent attempts and rejects late completion. Usage accounting remains retained. 33 focused POS tests, the complete AI browser flow, TypeScript/lint/build and seven-file installed package comparison pass. Existing unrelated AI service edits were left untouched.
+
+## D2 ? focused administration
+
+Workspace settings owns occasional category/field definition editing, mapping access and branch diagnostics. User administration links to existing POS routes with no token. Schema editing is additive, audited and revision checked; receiving/edit transactions share the schema lock. 23 PostgreSQL tests plus actual mobile category creation, inheritance, diagnostics and mapping checks pass. Fixed dialog intrinsic-width overflow exposed by long category names.

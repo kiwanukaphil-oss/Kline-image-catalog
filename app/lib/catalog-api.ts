@@ -15,6 +15,8 @@ export type Session = {
   can_open_pos_product?: boolean;
   can_manage_categories?: boolean;
   can_cancel_intake?: boolean;
+  can_manage_users?: boolean;
+  can_view_diagnostics?: boolean;
 };
 export type Variant = {
   id: string;

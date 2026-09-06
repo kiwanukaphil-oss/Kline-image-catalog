@@ -74,7 +74,7 @@ Updated: 6 September 2026. This is our working source of truth. Update it after 
 ## D. Administration and parity
 
 - [x] D1 Inventory original capabilities from the active Railway import graph, distinguish masked legacy controls and historical CSV claims, and track outstanding parity explicitly. See `docs/original-capability-inventory.md`; no removal approved.
-- [ ] D2 Authorized paths for categories/inherited fields, mappings, users/permissions and diagnostics, away from daily workflows.
+- [x] D2 Separate settings provides audited, revision-checked category/inherited-field authoring, mappings, authorized POS users/permissions and branch diagnostics. Existing field keys/types and ancestry preserved. Package 0.16.0; 23 focused tests and mobile category/inheritance/navigation checks pass.
 - [x] D3 Older-style imports, ungrouped records, flags, incomplete counts and historical POS links verified. Package 0.11.0 consistently locks older links and rejects duplicate receiving on incomplete sync state. See `docs/older-data-compatibility.md` and `verification/older-data.json`; production data audit remains release work.
 - [ ] D4 Approve and perform removal of superseded code/components only after parity review.
 

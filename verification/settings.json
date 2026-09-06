@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "checks": [
+    "Separate settings area",
+    "POS users URL contains no token",
+    "Create category with required inheritable field",
+    "Existing field identity readonly",
+    "Child category inherited field preview",
+    "Mobile no horizontal overflow",
+    "Branch diagnostics reports installed version"
+  ]
+}

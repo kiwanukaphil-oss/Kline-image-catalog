@@ -8,7 +8,7 @@ import { requestPos, postPos, type Session } from '@/lib/catalog-api';
 import { Receiving } from '@/components/receiving';
 import { Pricing } from '@/components/pricing';
 import { Stock } from '@/components/stock';
-import { CategoryMappings } from '@/components/category-mappings';
+import { WorkspaceSettings } from '@/components/workspace-settings';
 import { InstallApp } from '@/components/install-app';
 import { Modal } from '@/components/workspace-ui';
 type Destination = 'Receiving' | 'Pricing' | 'Stock';
@@ -124,18 +124,19 @@ export default function Workspace() {
       <div className="workspace-main">
         <header className="topbar">
           <InstallApp />
-          {session.can_manage_categories && (
+          {(session.can_manage_categories || session.can_manage_users || session.can_view_diagnostics) && (
             <Button
               variant="ghost"
               size="icon"
-              aria-label="Category mappings"
+              aria-label="Workspace settings"
               onClick={() => setMappingsOpen(true)}
             >
               <Settings size={17} />
             </Button>
           )}
           {mappingsOpen && (
-            <CategoryMappings
+            <WorkspaceSettings
+              session={session}
               key={`${session.id}:${branch}`}
               branch={branch}
               onClose={() => setMappingsOpen(false)}

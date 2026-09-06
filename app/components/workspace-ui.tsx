@@ -122,6 +122,11 @@ export function usePosRead<T>(path: string, branch: string) {
     [version, setVersion] = useState(0);
   const refresh = useCallback(() => setVersion((value) => value + 1), []);
   useEffect(() => {
+    if (path !== '/catalog/reference-data') return;
+    window.addEventListener('kline-reference-data-changed', refresh);
+    return () => window.removeEventListener('kline-reference-data-changed', refresh);
+  }, [path, refresh]);
+  useEffect(() => {
     /* Abort obsolete branch or filter reads before they can replace the current workspace state. */
 
     const controller = new AbortController();

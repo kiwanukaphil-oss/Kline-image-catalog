@@ -40,6 +40,7 @@ try {
   await dialog.waitFor({ state: 'hidden' });
   await page.getByRole('button', { name: 'Connect POS category', exact: true }).waitFor({ state: 'hidden' });
   await page.keyboard.press('Escape');
+  await page.getByRole('button', { name: 'Workspace settings', exact: true }).click();
   await page.getByRole('button', { name: 'Category mappings', exact: true }).click();
   await dialog.getByPlaceholder('Find catalog category').fill(name);
   await dialog.getByRole('button', { name: new RegExp(name) }).waitFor();

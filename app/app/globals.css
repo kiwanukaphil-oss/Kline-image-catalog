@@ -545,6 +545,7 @@ small {
   color: #687071;
 }
 .workspace-dialog {
+  grid-template-columns: minmax(0, 1fr);
   width: calc(100% - 32px) !important;
   max-width: 460px !important;
   max-height: calc(100dvh - 40px);
@@ -553,6 +554,14 @@ small {
   gap: 20px !important;
   overscroll-behavior: contain;
   box-shadow: 0 24px 90px #0f1d2930;
+}
+.workspace-dialog label,
+.workspace-dialog fieldset,
+.workspace-dialog select {
+  min-width: 0;
+}
+.workspace-dialog select {
+  width: 100%;
 }
 .workspace-dialog.wide {
   max-width: 880px !important;

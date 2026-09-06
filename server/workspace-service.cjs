@@ -42,6 +42,39 @@ function createWorkspaceService({ source }) {
     return context;
   }
   return {
+    async catalogSchema() {
+      return repository.transaction(async client=>{
+        await client.query("SELECT pg_advisory_xact_lock_shared(hashtext('catalog-schema'))");
+        const schema=await repository.catalogSchema(client);
+        return {...schema,revision:revisionOf(schema)};
+      });
+    },
+    async saveCatalogSchema({categoryId,name,parentId,fields,expectedRevision,userId}) {
+      // Definition authoring is global, serialized, revision checked and additive: no category/field deletion.
+      return repository.transaction(async client=>{
+        await client.query("SELECT pg_advisory_xact_lock(hashtext('catalog-schema'))");
+        const schema=await repository.catalogSchema(client),existing=schema.categories.find(row=>row.id===categoryId);
+        if(revisionOf(schema)!==expectedRevision)throw DomainError.conflict('Category definitions changed. Reopen settings before saving.');
+        if(existing&&!existing.active)throw DomainError.conflict('This category is archived.');
+        if(existing&&parentId!==existing.parent_id)throw DomainError.validationFailed('Existing category ancestry is preserved.');
+        if(parentId&&!schema.categories.some(row=>row.id===parentId&&row.active))throw DomainError.validationFailed('Choose an active parent category.');
+        if(!Array.isArray(fields)||fields.length>100)throw DomainError.validationFailed('Use at most 100 fields.');
+        const keys=new Set();
+        for(const field of fields){
+          if(!field||!/^[a-z][a-z0-9_]{0,49}$/.test(field.key)||keys.has(field.key)||['constructor','prototype','__proto__'].includes(field.key)||typeof field.label!=='string'||!field.label.trim()||field.label.length>160||
+            !['text','number','select','boolean','size'].includes(field.type)||typeof field.required!=='boolean'||typeof field.inherit!=='boolean'||
+            !Array.isArray(field.options)||field.options.length>100||field.options.some(value=>typeof value!=='string'||!value.trim()||value.length>160))throw DomainError.validationFailed('Check field names, types and choices.');
+          keys.add(field.key);
+        }
+        const priorFields=schema.fields.filter(row=>row.category_id===categoryId);
+        if(priorFields.some(prior=>!fields.some(field=>field.key===prior.key&&field.type===prior.type)))throw DomainError.validationFailed('Existing field keys and types must be retained.');
+        await repository.saveCatalogSchema(client,{categoryId,name,parentId,fields,userId,before:{category:existing||null,fields:priorFields}});
+        return {saved:true};
+      });
+    },
+    async diagnostics(branchId) {
+      return {workspace_version:require('./package.json').version,ai_enabled:process.env.CATALOG_AI_ENABLED==='true',...await repository.diagnostics(branchId)};
+    },
     recoverAi:input=>source('models/CatalogAiRun').recoverAbandoned(input),
     changeIntakeCancellation:input=>source('services/catalogCancellationService').changeIntakeCancellation(input),
     async itemActivity({itemId,branchId,page,canViewCost}) {

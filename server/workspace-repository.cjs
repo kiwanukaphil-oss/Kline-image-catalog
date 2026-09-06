@@ -1,6 +1,26 @@
 /** All new SQL is branch-scoped. Pricing, authentication and receipt writes stay in POS. */
 function createWorkspaceRepository({ pool, publicationRepository }) {
   return {
+    async catalogSchema(client) {
+      const categories=(await client.query('SELECT id,name,parent_id,active,xmin::text AS version FROM inventory.categories ORDER BY id')).rows;
+      const fields=(await client.query('SELECT id,category_id,key,label,type,options,vocab,required,inherit,sort,xmin::text AS version FROM inventory.category_fields ORDER BY category_id,sort,id')).rows;
+      return {categories,fields};
+    },
+    async saveCatalogSchema(client,{categoryId,name,parentId,fields,userId,before}) {
+      // Preserve category identity and all field keys/types; definition changes never rewrite item evidence.
+      await client.query(`INSERT INTO inventory.categories(id,slug,name,parent_id) VALUES($1::uuid,($1::uuid)::text,$2,$3)
+        ON CONFLICT(id) DO UPDATE SET name=$2,updated_at=now()`,[categoryId,name,parentId]);
+      for(const [sort,field] of fields.entries()) await client.query(`INSERT INTO inventory.category_fields(category_id,key,label,type,options,required,inherit,sort)
+        VALUES($1,$2,$3,$4,$5,$6,$7,$8) ON CONFLICT(category_id,key) DO UPDATE SET label=$3,options=$5,required=$6,inherit=$7,sort=$8`,
+        [categoryId,field.key,field.label,field.type,field.options,field.required,field.inherit,sort]);
+      await client.query("INSERT INTO user_audit_logs(user_id,action,module,description) VALUES($1,'catalog.schema.update','catalog',$2)",
+        [userId,JSON.stringify({category_id:categoryId,before,after:{name,parent_id:parentId,fields}})]);
+    },
+    async diagnostics(branchId) {
+      return (await pool.query(`SELECT
+        (SELECT count(*)::int FROM inventory.item_jobs j JOIN inventory.items i ON i.id=j.item_id WHERE i.branch_id=$1 AND j.status='running' AND j.job_type='ai_fill' AND j.updated_at<now()-interval '15 minutes') AS interrupted_ai,
+        (SELECT count(*)::int FROM inventory.items i WHERE i.branch_id=$1 AND i.pos_product_id IS NOT NULL AND coalesce(i.pos_sync_status,'')<>'synced') AS pos_links_to_check`,[branchId])).rows[0];
+    },
     async itemActivity(client,itemId,page) {
       const total=(await client.query('SELECT count(*)::int AS total FROM inventory.item_events WHERE item_id=$1',[itemId])).rows[0].total;
       const items=(await client.query(`SELECT e.id,e.event_type,e.source,e.field_path,e.before_value,e.after_value,e.created_at,u.full_name AS actor
