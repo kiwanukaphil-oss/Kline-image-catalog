@@ -12,6 +12,7 @@ import { PhotoInspector } from './photo-inspector';
 import { CategoryMappings } from './category-mappings';
 import { Restock } from './restock';
 import { ItemActivity } from './item-activity';
+import { IntakeCancellation } from './intake-cancellation';
 import type { Category } from './upload-delivery';
 import type { CategoryField } from './receiving';
 type Detail = { item: CatalogItem; fields: CategoryField[]; revision: string; blockers: string[] };
@@ -70,8 +71,9 @@ export function DraftEditor({
   const [mappingOpen, setMappingOpen] = useState(false);
   const [restockOpen, setRestockOpen] = useState(false);
   const [activityOpen, setActivityOpen] = useState(false);
+  const [cancellationOpen, setCancellationOpen] = useState(false);
   const item = detail.data?.item,
-    editable = session.can_edit && !item?.is_published;
+    editable = session.can_edit && !item?.is_published && !item?.is_cancelled;
   useEffect(() => {
     /* Populate editable fields from the same snapshot that supplied the revision token. */
 
@@ -232,11 +234,13 @@ export function DraftEditor({
     <Modal
       title={item?.name || 'Prepare merchandise'}
       description={
-        item?.requires_pos_reconciliation
-          ? 'Existing POS link · receiving locked'
-          : item?.is_published
-            ? 'Received into POS · historical lot'
-            : undefined
+        item?.is_cancelled
+          ? 'Cancelled intake · photo and history retained'
+          : item?.requires_pos_reconciliation
+            ? 'Existing POS link · receiving locked'
+            : item?.is_published
+              ? 'Received into POS · historical lot'
+              : undefined
       }
       wide
       onClose={closeEditor}
@@ -251,6 +255,25 @@ export function DraftEditor({
         item && (
           <div className="draft-layout">
             <div className="draft-evidence">
+              {session.can_cancel_intake && !item.is_published && (
+                <Button variant="ghost" disabled={busy || dirty} onClick={() => setCancellationOpen(true)}>
+                  {item.is_cancelled ? 'Restore intake' : 'Cancel intake'}
+                </Button>
+              )}
+              {cancellationOpen && (
+                <IntakeCancellation
+                  itemId={itemId}
+                  branch={branch}
+                  name={item.name}
+                  restore={item.is_cancelled}
+                  onClose={() => setCancellationOpen(false)}
+                  onDone={() => {
+                    setCancellationOpen(false);
+                    detail.refresh();
+                    onSaved();
+                  }}
+                />
+              )}
               <Button variant="ghost" disabled={busy} onClick={() => setActivityOpen(true)}>
                 Item activity
               </Button>

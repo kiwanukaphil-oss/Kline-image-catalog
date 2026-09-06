@@ -14,6 +14,7 @@ export type Session = {
   can_ai_extract: boolean;
   can_open_pos_product?: boolean;
   can_manage_categories?: boolean;
+  can_cancel_intake?: boolean;
 };
 export type Variant = {
   id: string;
@@ -37,6 +38,7 @@ export type CatalogItem = {
   updated_at: string;
   created_at: string;
   is_published: boolean;
+  is_cancelled?: boolean;
   requires_pos_reconciliation?: boolean;
   stock_distribution_source: string;
   blockers: string[];

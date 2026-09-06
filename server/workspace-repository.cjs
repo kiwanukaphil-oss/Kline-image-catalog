@@ -40,10 +40,12 @@ function createWorkspaceRepository({ pool, publicationRepository }) {
 
       const { rows } = await pool.query(
         `SELECT b.id,b.title,b.created_at,count(*) OVER()::int AS total_count,
-        count(bi.item_id)::int AS item_count,
+        count(bi.item_id) FILTER(WHERE c.item_id IS NULL)::int AS item_count,
+        count(c.item_id)::int AS cancelled_count,
         count(p.id)::int AS received_count
         FROM catalog_workspace.batches b
         LEFT JOIN catalog_workspace.batch_items bi ON bi.batch_id=b.id
+        LEFT JOIN inventory.intake_cancellations c ON c.item_id=bi.item_id AND c.restored_at IS NULL
         LEFT JOIN inventory.catalog_publications p ON p.item_id=bi.item_id AND p.branch_id=b.branch_id
         WHERE b.branch_id=$1 AND (strpos(lower(b.title),lower($2))>0 OR $2='')
         GROUP BY b.id ORDER BY b.created_at DESC,b.id DESC LIMIT $3 OFFSET $4`,

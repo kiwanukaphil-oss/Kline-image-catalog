@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "checks": [
+    "Mobile cancellation and read-only retained details",
+    "Cancelled task filter",
+    "Reviewed restore",
+    "Queued photo removed only after server tombstone",
+    "No item created for discarded queue"
+  ]
+}

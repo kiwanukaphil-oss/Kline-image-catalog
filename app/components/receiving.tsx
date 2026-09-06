@@ -27,7 +27,14 @@ import { DraftEditor } from './draft-editor';
 import { AiFill } from './ai-fill';
 import { useWorkspaceTool } from '@/lib/webmcp';
 import { readPendingPhotos } from '@/lib/upload-queue';
-type Batch = { id: string; title: string; created_at: string; item_count: number; received_count: number };
+type Batch = {
+  id: string;
+  title: string;
+  created_at: string;
+  item_count: number;
+  cancelled_count?: number;
+  received_count: number;
+};
 export type CategoryField = {
   category_id: string;
   key: string;
@@ -51,21 +58,23 @@ type Receipt = {
   variants: { variant_attributes: Record<string, string>; quantity: number; price: number; sku: string }[];
 };
 const nextTask = (item: CatalogItem) =>
-  /* Give each lot one next task while leaving the complete blocker list in its details. */ item.is_published
-    ? item.requires_pos_reconciliation
-      ? 'Check POS link'
-      : 'Received'
-    : !item.blockers.length
-      ? 'Ready for POS'
-      : item.blockers.some((b) => b.includes('name'))
-        ? 'Name this lot'
-        : item.blockers.some((b) => b.includes('stock breakdown'))
-          ? 'Count sizes'
-          : item.blockers.some((b) => b.includes('retail'))
-            ? 'Set selling price'
-            : item.blockers.some((b) => b.includes('cost'))
-              ? 'Cost needed'
-              : 'Complete details';
+  /* Give each lot one next task while leaving the complete blocker list in its details. */ item.is_cancelled
+    ? 'Cancelled'
+    : item.is_published
+      ? item.requires_pos_reconciliation
+        ? 'Check POS link'
+        : 'Received'
+      : !item.blockers.length
+        ? 'Ready for POS'
+        : item.blockers.some((b) => b.includes('name'))
+          ? 'Name this lot'
+          : item.blockers.some((b) => b.includes('stock breakdown'))
+            ? 'Count sizes'
+            : item.blockers.some((b) => b.includes('retail'))
+              ? 'Set selling price'
+              : item.blockers.some((b) => b.includes('cost'))
+                ? 'Cost needed'
+                : 'Complete details';
 
 /** Keep persistent delivery groups, individual preparation and historical receipts in one receiving workspace. */
 export function Receiving({
@@ -290,7 +299,7 @@ export function Receiving({
                     <h2>{row.title}</h2>
                     <small>
                       {new Date(row.created_at).toLocaleDateString([], { month: 'short', day: 'numeric' })} ·{' '}
-                      {row.item_count} lots
+                      {row.item_count} lots{row.cancelled_count ? ` ? ${row.cancelled_count} cancelled` : ''}
                     </small>
                   </div>
                   <span
@@ -356,6 +365,7 @@ export function Receiving({
                 <option value="flagged">Flagged photos</option>
                 <option value="reconcile">Check POS link</option>
                 <option value="received">Received</option>
+                <option value="cancelled">Cancelled intake</option>
               </select>
             </label>
             <label className="flex-1 min-w-36">
@@ -435,7 +445,7 @@ export function Receiving({
                   key={item.id}
                   className="receiving-row"
                 >
-                  {!item.is_published ? (
+                  {!item.is_published && !item.is_cancelled ? (
                     <Checkbox
                       aria-label={`Select ${item.name || 'unnamed lot'}`}
                       checked={selected.includes(item.id)}
@@ -445,6 +455,8 @@ export function Receiving({
                         )
                       }
                     />
+                  ) : item.is_cancelled ? (
+                    <span className="muted">?</span>
                   ) : (
                     <Check size={16} className="muted" />
                   )}
@@ -585,6 +597,7 @@ export function Receiving({
       )}
       {uploading && refs.data && (
         <UploadDelivery
+          canCancel={!!session.can_cancel_intake}
           branch={branch}
           userId={session.id}
           categories={refs.data.data.categories}

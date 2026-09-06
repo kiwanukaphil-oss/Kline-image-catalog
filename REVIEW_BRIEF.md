@@ -96,3 +96,7 @@ Implemented product/branch/tab handoff, local post-login return paths and produc
 ## S6 completed
 
 User-started POS preview confirmed on Vite port 3000. Corrected development links and helper. Browser verifies independent login, exact product/tab/branch, expired-session recovery and denied branch. Fixed login guard/form redirect race and preserved local destination on 401. Six redirect tests and both frontend TypeScript checks pass; catalog lint/build/format pass. Staging remains separate.
+
+## R16 ? reversible intake cancellation
+
+Package 0.14.0 adds reviewed cancellation/restore and saved-phone cancellation, with retained evidence and membership. POS migration 108 reserves cancelled IDs against late uploads. 41 focused integration tests and actual mobile browser checks pass; lint/typecheck/build and installed source comparison pass. No production migration or deletion occurred.

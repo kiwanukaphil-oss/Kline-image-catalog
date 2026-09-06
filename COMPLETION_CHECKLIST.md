@@ -4,7 +4,7 @@ Updated: 6 September 2026. This is our working source of truth. Update it after 
 
 **Checked means implemented and verified locally unless explicitly labelled staging/production.** An implemented feature can still await commit, release or staff acceptance. Optional features do not silently become launch requirements.
 
-**Latest completed: I4 missing-size POS round trip and D3 older-data compatibility. Current package 0.11.0; 38 focused POS tests and actual browser checks pass. Fixed ambiguous older POS links that could invite duplicate receiving. Next: receiving intake and triage parity. Full prior POS regression: 235 tests / 25 suites passed. Live bucket and AI staging acceptance remain open. Autonomous implementation and commits authorized on 6 September.**
+**Latest completed: R13?R16 phone intake, receiving triage, item activity and reversible cancellation. Package 0.14.0; 41 focused POS tests, mobile cancellation/restore and queued-ID recovery pass. Next: administration access, remaining failure recovery and final release validation. Live bucket, AI and staff acceptance remain open. Autonomous implementation and commits authorized on 6 September.**
 
 ## A. Purpose and design
 
@@ -35,7 +35,7 @@ Updated: 6 September 2026. This is our working source of truth. Update it after 
 - [x] R13 Camera/burst intake, native fallback, large-image preparation, non-destructive duplicate warnings and install/share/offline/update support implemented. Six capture/queue and seven actual service-worker checks pass. See `docs/phone-intake.md`; physical phone quality and OS integration remain R12/G5.
 - [x] R14 Task/category filters and useful ordering run before pagination, preserving branch/delivery context and recoverable empty states. Package 0.12.0; 18 focused POS tests and mobile browser verification. See `verification/receiving-filters.json`.
 - [x] R15 Item activity shows actor/time, source and recorded changes, with full pagination and preservation of unsaved edits. Package 0.13.0; 19 focused tests include nested cost protection and branch scope. See `verification/item-activity.json`.
-- [ ] R16 Audited correction of accidental unreceived uploads, including queued work and delivery membership; protect received stock and avoid silent deletion.
+- [x] R16 Reversible, audited cancellation for accidental intake and saved phone queues. Preserve evidence/membership; durable cancelled IDs block delayed uploads; received/POS-linked stock protected. Package 0.14.0; 41 focused POS tests and mobile cancellation/restore/queue verification. See `docs/intake-cancellation.md`.
 
 ## P. Pricing
 

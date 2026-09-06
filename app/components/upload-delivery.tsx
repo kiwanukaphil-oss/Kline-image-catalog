@@ -2,6 +2,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Upload, Check } from 'lucide-react';
 import { PhotoIntake } from './photo-intake';
+import { IntakeCancellation } from './intake-cancellation';
 import { sharedPhotos } from '@/lib/shared-photos';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -14,12 +15,14 @@ export type Category = { id: string; name: string; parent_id: string | null };
 export function UploadDelivery({
   branch,
   userId,
+  canCancel,
   categories,
   onClose,
   onComplete,
 }: {
   branch: string;
   userId: string;
+  canCancel: boolean;
   categories: Category[];
   onClose: () => void;
   onComplete: (batchId: string, title: string) => void;
@@ -37,6 +40,7 @@ export function UploadDelivery({
     batchId = useRef(crypto.randomUUID());
   const [preparing, setPreparing] = useState(false);
   const [intakeVersion, setIntakeVersion] = useState(0);
+  const [cancelling, setCancelling] = useState<PendingPhoto | null>(null);
   useEffect(() => {
     lifetime.current = new AbortController();
     readPendingPhotos(userId, branch)
@@ -146,11 +150,11 @@ export function UploadDelivery({
     >
       <label>
         Delivery name
-        <Input value={title} maxLength={120} onChange={(e) => setTitle(e.target.value)} />
+        <Input disabled={busy} value={title} maxLength={120} onChange={(e) => setTitle(e.target.value)} />
       </label>
       <label>
         Category
-        <select value={category} onChange={(e) => setCategory(e.target.value)}>
+        <select disabled={busy} value={category} onChange={(e) => setCategory(e.target.value)}>
           {categories.map((entry) => (
             <option value={entry.id} key={entry.id}>
               {entry.name}
@@ -163,10 +167,38 @@ export function UploadDelivery({
         <div className="pending-uploads">
           <strong>{pending.length} saved photos waiting</strong>
           <small>{[...new Set(pending.map((photo) => photo.batchTitle))].join(', ')}</small>
+          {pending.map((photo) => (
+            <div key={photo.id} className="flex items-center justify-between gap-2">
+              <span className="truncate">{photo.file.name}</span>
+              {canCancel && (
+                <Button
+                  variant="ghost"
+                  disabled={busy}
+                  onClick={() => setCancelling(photo)}
+                  aria-label={`Cancel ${photo.file.name}`}
+                >
+                  Cancel
+                </Button>
+              )}
+            </div>
+          ))}
           <Button variant="outline" disabled={busy} onClick={resumeUploads}>
             Resume uploads
           </Button>
         </div>
+      )}
+      {cancelling && (
+        <IntakeCancellation
+          itemId={cancelling.id}
+          branch={branch}
+          name={cancelling.file.name}
+          onClose={() => setCancelling(null)}
+          onDone={async () => {
+            await finishPhoto(cancelling.id);
+            setPending(await readPendingPhotos(userId, branch));
+            setCancelling(null);
+          }}
+        />
       )}
       {progress && <p role="status">{progress}</p>}
       {error && (

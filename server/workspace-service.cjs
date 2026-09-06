@@ -42,17 +42,18 @@ function createWorkspaceService({ source }) {
     return context;
   }
   return {
+    changeIntakeCancellation:input=>source('services/catalogCancellationService').changeIntakeCancellation(input),
     async itemActivity({itemId,branchId,page,canViewCost}) {
       // Authorize the parent first and derive allowed attribute keys from its category, not an audit payload.
       return repository.transaction(async client=>{
         const context=await requireContext(client,itemId,branchId);
         const fields=await repository.categoryFields(client,context.item.category_id);
-        const keys=new Set(['name','brand','status','attributes','entries','variant_attributes','size','color','colour','fit','quantity','total_quantity','price','base_price','price_override','effective_price','selling_price','incoming_price','sku','rows','matches','lines','hold_reason','cost_price','base_cost_price','cost_override',...fields.map(field=>field.key)]);
+        const keys=new Set(['name','brand','status','attributes','entries','variant_attributes','size','color','colour','fit','quantity','total_quantity','price','base_price','price_override','effective_price','selling_price','incoming_price','sku','rows','matches','lines','hold_reason','cost_price','base_cost_price','cost_override','reason','cancelled',...fields.map(field=>field.key)]);
         const result=await repository.itemActivity(client,itemId,page);
         return {...result,items:result.items.map(event=>{
           const field=event.field_path || '',last=field.split('.').pop();
           const isCost=/cost|margin|profit/i.test(field);
-          const known=keys.has(last)||['details','stock_distribution','variant_pricing','variant_cost','restock'].includes(field);
+          const known=keys.has(last)||['details','stock_distribution','variant_pricing','variant_cost','restock','cancellation'].includes(field);
           const visible=known&&(!isCost||canViewCost);
           const labels={details:'Details',stock_distribution:'Size quantities',variant_pricing:'Prices',variant_cost:'Costs',restock:'Restock',pricing_plan:'Pricing plan'};
           const label=fields.find(entry=>entry.key===last)?.label || (Object.hasOwn(labels,field)?labels[field]:keys.has(last)?last.replaceAll('_',' '):'Item');
@@ -135,6 +136,7 @@ function createWorkspaceService({ source }) {
           return {
             revision: revisionOf(context),
             is_published: published(context),
+            is_cancelled:!!context.item.intake_cancelled_at,
             requires_pos_reconciliation: !!context.item.pos_product_id && !context.item.publication_id && context.item.pos_sync_status !== 'synced',
             blockers: published(context) ? [] : catalogPublicationBlockers(context),
           };
@@ -177,6 +179,7 @@ function createWorkspaceService({ source }) {
             status: item.status,
             image_url: await createCatalogImageUrl(item.image_path),
             is_published: published(context),
+            is_cancelled:!!item.intake_cancelled_at,
             requires_pos_reconciliation: !!item.pos_product_id && !item.publication_id && item.pos_sync_status !== 'synced',
             stock_quantity: item.stock_quantity,
             stock_distribution_source: item.stock_distribution_source,
@@ -213,6 +216,7 @@ function createWorkspaceService({ source }) {
 
         const context = await requireContext(client, itemId, branchId);
         if (published(context)) throw DomainError.conflict('Received product details are owned by POS.');
+        if (context.item.intake_cancelled_at)throw DomainError.conflict('Restore cancelled intake before editing.');
         if (revisionOf(context) !== payload.expected_revision)
           throw DomainError.conflict('This item changed. Reopen it before saving.');
         const categoryId = payload.category_id;
@@ -292,6 +296,7 @@ function createWorkspaceService({ source }) {
       return repository.transaction(async (client) => {
         const context = await requireContext(client, input.itemId, input.branchId);
         if (published(context)) throw DomainError.conflict('Received items cannot change delivery.');
+        if (context.item.intake_cancelled_at)throw DomainError.conflict('This intake has been cancelled.');
         const membership = await repository.addBatchItem(client, input);
         if (!membership) throw DomainError.notFound('Delivery not found in this branch.');
         if (membership !== input.batchId)
@@ -306,6 +311,7 @@ function createWorkspaceService({ source }) {
 
         const context = await requireContext(client, itemId, branchId);
         if (published(context)) throw DomainError.conflict('Received stock is owned by POS.');
+        if (context.item.intake_cancelled_at)throw DomainError.conflict('Restore cancelled intake before editing.');
         if (revisionOf(context) !== payload.expected_revision)
           throw DomainError.conflict('This item changed. Reopen it before confirming quantities.');
         if (

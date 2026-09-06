@@ -47,6 +47,11 @@ function createWorkspaceRouter(dependencies) {
     next();
   });
   router.get('/category-mappings', checkPermission('settings.categories'), reply(() => service.categoryMappings()));
+  router.post('/intake/:id/cancellation',checkPermission('catalog.delete'),reply(req=>{
+    const reason=text(req.body.reason,300);if(!reason)throw DomainError.validationFailed('Enter a reason.');
+    return service.changeIntakeCancellation({itemId:uuid(req.params.id),branchId:req.branchId,userId:req.user.id,reason,
+      restore:choice(req.body.action,['cancel','restore'])==='restore',expectedRevision:req.body.expected_revision});
+  }));
   router.get('/items/:id/activity',reply(req=>service.itemActivity({itemId:uuid(req.params.id),branchId:req.branchId,page:page(req.query.page),canViewCost:new Set(req.user.permissions||[]).has('catalog.view_cost')})));
   router.get('/items/:id/restock-options',checkPermission('catalog.publish'),checkPermission('products.view'),reply(req =>
     service.restockOptions({itemId:uuid(req.params.id),branchId:req.branchId,search:text(req.query.search || '',120)})));
@@ -116,7 +121,7 @@ function createWorkspaceRouter(dependencies) {
         search: text(req.query.search || '', 200),
         batchId: req.query.batch_id ? uuid(req.query.batch_id) : null,
         categoryId:req.query.category_id ? uuid(req.query.category_id) : undefined,
-        receivingTask:choice(req.query.task || 'all',['all','incoming','count','price','flagged','received','reconcile']),
+        receivingTask:choice(req.query.task || 'all',['all','incoming','count','price','flagged','received','reconcile','cancelled']),
         sortBy:choice(req.query.sort || 'newest',['newest','oldest','name']),
       }),
     ),
