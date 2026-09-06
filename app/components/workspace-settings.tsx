@@ -7,6 +7,7 @@ import { useWorkspaceProtection } from '@/lib/workspace-protection';
 import { Modal, usePosRead } from './workspace-ui';
 import { CategoryMappings } from './category-mappings';
 type Field = {
+  id?: string;
   key: string;
   label: string;
   type: string;
@@ -297,9 +298,7 @@ function CatalogSchemaEditor({ branch, onClose }: { branch: string; onClose: () 
               )}
               <div className="space-y-4">
                 {fields.map((field, index) => {
-                  const original = read.data?.fields.some(
-                    (row) => row.category_id === selected && row.key === field.key,
-                  );
+                  const original = !!field.id;
                   return (
                     <fieldset key={index} className="rounded-lg border p-3 space-y-3">
                       <legend>Field {index + 1}</legend>
@@ -367,6 +366,19 @@ function CatalogSchemaEditor({ branch, onClose }: { branch: string; onClose: () 
                         />
                         Include in child categories
                       </label>
+                      {!original && (
+                        <Button
+                          variant="ghost"
+                          disabled={busy}
+                          onClick={() => {
+                            // Only an unsaved field can be removed; persisted definitions retain their identity.
+                            setFields((previous) => previous.filter((_, position) => position !== index));
+                            setDirty(true);
+                          }}
+                        >
+                          Remove unsaved field
+                        </Button>
+                      )}
                     </fieldset>
                   );
                 })}
@@ -396,7 +408,7 @@ function CatalogSchemaEditor({ branch, onClose }: { branch: string; onClose: () 
                     read.refresh();
                   }}
                 >
-                  Reload definitions
+                  {dirty ? 'Discard and reload' : 'Reload definitions'}
                 </Button>
               </div>
             </>

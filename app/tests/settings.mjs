@@ -24,6 +24,8 @@ try {
   await schema.getByLabel('Label', { exact: true }).fill('Fabric');
   await schema.getByLabel('Field key', { exact: true }).fill('fabric');
   await schema.getByLabel('Required before receiving').check();
+  await schema.getByRole('button', { name: 'Add field', exact: true }).click();
+  await schema.getByRole('button', { name: 'Remove unsaved field', exact: true }).last().click();
   await schema.getByRole('button', { name: 'Save category', exact: true }).click();
   await schema.getByText('Category saved', { exact: true }).waitFor();
   await schema.getByLabel('Category', { exact: true }).selectOption({ label: name });
