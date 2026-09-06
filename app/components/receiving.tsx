@@ -52,7 +52,9 @@ type Receipt = {
 };
 const nextTask = (item: CatalogItem) =>
   /* Give each lot one next task while leaving the complete blocker list in its details. */ item.is_published
-    ? 'Received'
+    ? item.requires_pos_reconciliation
+      ? 'Check POS link'
+      : 'Received'
     : !item.blockers.length
       ? 'Ready for POS'
       : item.blockers.some((b) => b.includes('name'))

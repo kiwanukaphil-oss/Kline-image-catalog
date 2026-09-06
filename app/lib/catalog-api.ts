@@ -37,6 +37,7 @@ export type CatalogItem = {
   updated_at: string;
   created_at: string;
   is_published: boolean;
+  requires_pos_reconciliation?: boolean;
   stock_distribution_source: string;
   blockers: string[];
   batch_id: string | null;

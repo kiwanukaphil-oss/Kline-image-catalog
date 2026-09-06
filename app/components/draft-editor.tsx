@@ -229,7 +229,13 @@ export function DraftEditor({
   return (
     <Modal
       title={item?.name || 'Prepare merchandise'}
-      description={item?.is_published ? 'Received into POS · historical lot' : undefined}
+      description={
+        item?.requires_pos_reconciliation
+          ? 'Existing POS link · receiving locked'
+          : item?.is_published
+            ? 'Received into POS · historical lot'
+            : undefined
+      }
       wide
       onClose={closeEditor}
     >

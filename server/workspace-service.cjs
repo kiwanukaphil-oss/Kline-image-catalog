@@ -103,6 +103,8 @@ function createWorkspaceService({ source }) {
           const context = await requireContext(client, item.id, branchId);
           return {
             revision: revisionOf(context),
+            is_published: published(context),
+            requires_pos_reconciliation: !!context.item.pos_product_id && !context.item.publication_id && context.item.pos_sync_status !== 'synced',
             blockers: published(context) ? [] : catalogPublicationBlockers(context),
           };
         });
@@ -144,6 +146,7 @@ function createWorkspaceService({ source }) {
             status: item.status,
             image_url: await createCatalogImageUrl(item.image_path),
             is_published: published(context),
+            requires_pos_reconciliation: !!item.pos_product_id && !item.publication_id && item.pos_sync_status !== 'synced',
             stock_quantity: item.stock_quantity,
             stock_distribution_source: item.stock_distribution_source,
             price: item.price === null ? null : Number(item.price),

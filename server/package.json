@@ -1,6 +1,6 @@
 {
   "name": "@kline/pos-workspace",
-  "version": "0.10.0",
+  "version": "0.11.0",
   "private": true,
   "description": "Branch-scoped receiving and stock extension for the existing K-Line POS",
   "main": "index.cjs",

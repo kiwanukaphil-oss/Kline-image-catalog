@@ -1,0 +1,8 @@
+{
+  "passed": true,
+  "checks": [
+    "Older incomplete POS link appears in receiving",
+    "Explicit check-link status",
+    "Read-only details and no restock action"
+  ]
+}

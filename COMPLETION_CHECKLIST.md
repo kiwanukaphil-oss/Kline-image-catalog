@@ -4,7 +4,7 @@ Updated: 6 September 2026. This is our working source of truth. Update it after 
 
 **Checked means implemented and verified locally unless explicitly labelled staging/production.** An implemented feature can still await commit, release or staff acceptance. Optional features do not silently become launch requirements.
 
-**Latest completed: I3 explicit existing-product restock, I5 category mappings and D1 original-capability inventory. Current package 0.10.0; 35 focused POS tests and real desktop/mobile restock verified. Parity review made phone intake, receiving filters, item activity and upload correction explicit below. Next: I4 missing-size round trip and additional restock acceptance. Full prior POS regression: 235 tests / 25 suites passed. Live bucket and AI staging acceptance remain open. Autonomous implementation and commits authorized on 6 September.**
+**Latest completed: I4 missing-size POS round trip and D3 older-data compatibility. Current package 0.11.0; 38 focused POS tests and actual browser checks pass. Fixed ambiguous older POS links that could invite duplicate receiving. Next: receiving intake and triage parity. Full prior POS regression: 235 tests / 25 suites passed. Live bucket and AI staging acceptance remain open. Autonomous implementation and commits authorized on 6 September.**
 
 ## A. Purpose and design
 
@@ -75,7 +75,7 @@ Updated: 6 September 2026. This is our working source of truth. Update it after 
 
 - [x] D1 Inventory original capabilities from the active Railway import graph, distinguish masked legacy controls and historical CSV claims, and track outstanding parity explicitly. See `docs/original-capability-inventory.md`; no removal approved.
 - [ ] D2 Authorized paths for categories/inherited fields, mappings, users/permissions and diagnostics, away from daily workflows.
-- [ ] D3 Existing-data compatibility: older imports, flags, incomplete counts and published evidence.
+- [x] D3 Older-style imports, ungrouped records, flags, incomplete counts and historical POS links verified. Package 0.11.0 consistently locks older links and rejects duplicate receiving on incomplete sync state. See `docs/older-data-compatibility.md` and `verification/older-data.json`; production data audit remains release work.
 - [ ] D4 Approve and perform removal of superseded code/components only after parity review.
 
 ## T. Integration and verification
