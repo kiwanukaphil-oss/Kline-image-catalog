@@ -116,3 +116,5 @@ Workspace settings owns occasional category/field definition editing, mapping ac
 ## Final local validation
 
 250 POS backend tests, 22 POS frontend tests and 24 workspace integration checks pass. Dependency audits report zero advisories. Eight axe views pass after contrast and alt-text corrections. A consistent database snapshot restores with 13 matching table counts and 108 matching migrations. The 1,000-lot/3,000-size benchmark loads in 454 ms and reviews in 370 ms locally. Latest isolated browser run passes 20/21; cross-app navigation awaits the stopped POS preview (earlier same-version test passed). Staging and physical device/provider/bucket/staff acceptance are outstanding.
+
+Clean release confirmation: detached POS 402133c passed npm ci and 249 tests/26 suites; installed package 0.16.0 matches all seven source files. Latest catalog build passes. Source and draft POS PR #1 are pushed. The remaining intervention is the policy-blocked POS preview restart and staging selection; production is unchanged.

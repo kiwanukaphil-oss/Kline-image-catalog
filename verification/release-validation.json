@@ -3,8 +3,11 @@
   "workspace_package": "0.16.0",
   "backend": {
     "suites": 26,
-    "tests": 250,
-    "passed": true
+    "tests": 249,
+    "passed": true,
+    "commit": "402133c",
+    "clean_install": true,
+    "working_tree_comparison_tests": 250
   },
   "pos_frontend": {
     "suites": 5,

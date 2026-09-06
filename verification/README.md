@@ -20,3 +20,5 @@ Screenshots prefixed `receiving-`, `pricing-`, `receipt-`, `stock-` record the i
 `release-validation.json` is the current rollup. `browser-regression.json` retains the latest isolated 20/21 result: the POS preview had stopped for the navigation case. Its earlier same-version run passed; a final repeat awaits the owner restarting port 3000. `accessibility.json` has eight zero-violation axe scans. `backup-restore.json` and `migration-recovery.json` record the local restore exercise. Dependency audits found no known vulnerabilities. `large-delivery.json` records the refreshed 1,000-lot benchmark.
 
 <!-- Removal candidate: app/verification contains duplicate stock screenshots from an earlier runner working-directory mistake. Authoritative latest artifacts are in this root verification directory. Retained until review. -->
+
+Clean POS release at `402133c`: `npm ci` succeeded and all 249 tests/26 suites passed, independently of unrelated local AI edits. The earlier working-tree run had 250 passing tests. Exact installed package files match source.
