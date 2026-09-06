@@ -43,6 +43,17 @@ function createWorkspaceRouter(dependencies) {
     next();
   });
   router.get(
+    '/history/:kind',
+    reply((req) => {
+      if (!['receipts', 'deliveries'].includes(req.params.kind)) throw DomainError.notFound('History unavailable.');
+      return service.history(req.branchId, req.params.kind, {
+        page: page(req.query.page), search: text(req.query.search || '', 200),
+        batchId: req.query.batch_id ? uuid(req.query.batch_id) : null,
+      });
+    }),
+  );
+  // Compatibility routes are removal candidates once older clients no longer depend on array responses.
+  router.get(
     '/batches',
     reply((req) => service.listBatches(req.branchId)),
   );

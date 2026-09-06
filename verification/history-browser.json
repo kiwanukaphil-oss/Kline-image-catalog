@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "checks": [
+    "27 persisted deliveries across two pages without repetition",
+    "Empty search clears to complete history",
+    "Older receipt found by immutable ID on mobile",
+    "Historical receipt opens full lot details"
+  ]
+}

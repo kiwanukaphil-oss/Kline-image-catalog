@@ -86,10 +86,17 @@ export function Receiving({
     [uploading, setUploading] = useState(false),
     [receiving, setReceiving] = useState(false);
   const [receipt, setReceipt] = useState<Receipt | null>(null);
+  const [deliverySearch, setDeliverySearch] = useState(''),
+    [deliveryPage, setDeliveryPage] = useState(1);
+  const [receiptSearch, setReceiptSearch] = useState(''),
+    [receiptPage, setReceiptPage] = useState(1);
   const [aiItems, setAiItems] = useState<CatalogItem[] | null>(null);
   const [pendingCount, setPendingCount] = useState(0);
   const refs = usePosRead<{ data: References }>('/catalog/reference-data', branch);
-  const batches = usePosRead<Batch[]>('/catalog-workspace/batches', branch);
+  const batches = usePosRead<{ items: Batch[]; total: number; limit: number }>(
+    `/catalog-workspace/history/deliveries?page=${deliveryPage}&search=${encodeURIComponent(deliverySearch)}`,
+    branch,
+  );
   const query = new URLSearchParams({
     page: String(page),
     search,
@@ -99,8 +106,8 @@ export function Receiving({
     `/catalog-workspace/items?${query}`,
     branch,
   );
-  const receipts = usePosRead<Receipt[]>(
-    `/catalog-workspace/receipts${batch ? `?batch_id=${batch.id}` : ''}`,
+  const receipts = usePosRead<{ items: Receipt[]; total: number; limit: number }>(
+    `/catalog-workspace/history/receipts?page=${receiptPage}&search=${encodeURIComponent(receiptSearch)}${batch ? `&batch_id=${batch.id}` : ''}`,
     branch,
   );
   const selectedItems = inventory.data?.items.filter((item) => selected.includes(item.id)) || [];
@@ -139,6 +146,7 @@ export function Receiving({
     setSelected([]);
   }
   function openBatch(value: Batch) {
+    setReceiptPage(1);
     setBatch(value);
     setTab('lots');
     setSearch('');
@@ -223,22 +231,42 @@ export function Receiving({
       </Tabs>
       {tab === 'deliveries' && (
         <section className="delivery-section">
+          <SearchField
+            value={deliverySearch}
+            onChange={(value) => {
+              setDeliverySearch(value);
+              setDeliveryPage(1);
+            }}
+            placeholder="Search deliveries"
+          />
           {batches.error ? (
             <p role="alert" className="error">
               {batches.error}
             </p>
           ) : batches.loading ? (
             <p role="status">Loading deliveries…</p>
-          ) : !batches.data?.length ? (
+          ) : !batches.data?.items.length ? (
             <div className="empty-state">
               <PackagePlus size={32} />
-              <h2>Your next delivery starts here.</h2>
-              <p>Add photos, confirm the sizes, then set prices.</p>
+              <h2>{deliverySearch ? 'No matching deliveries.' : 'Your next delivery starts here.'}</h2>
+              {deliverySearch ? (
+                <Button
+                  variant="outline"
+                  onClick={() => {
+                    setDeliverySearch('');
+                    setDeliveryPage(1);
+                  }}
+                >
+                  Clear search
+                </Button>
+              ) : (
+                <p>Add photos, confirm the sizes, then set prices.</p>
+              )}
               {session.can_upload && <Button onClick={() => setUploading(true)}>New delivery</Button>}
             </div>
           ) : (
             <div className="delivery-list">
-              {batches.data.map((row) => (
+              {batches.data.items.map((row) => (
                 /* Present persistent deliveries with unique lot counts and receipt progress. */ <button
                   className="delivery-card"
                   key={row.id}
@@ -272,6 +300,14 @@ export function Receiving({
                 </button>
               ))}
             </div>
+          )}
+          {batches.data && (
+            <Pagination
+              page={deliveryPage}
+              total={batches.data.total}
+              limit={batches.data.limit}
+              onChange={setDeliveryPage}
+            />
           )}
         </section>
       )}
@@ -383,23 +419,43 @@ export function Receiving({
       )}
       {tab === 'receipts' && (
         <div className="receipt-list">
+          <SearchField
+            value={receiptSearch}
+            onChange={(value) => {
+              setReceiptSearch(value);
+              setReceiptPage(1);
+            }}
+            placeholder="Search receipts or deliveries"
+          />
           {receipts.error ? (
             <p className="error" role="alert">
               {receipts.error}
             </p>
           ) : receipts.loading ? (
             <p role="status">Loading receipts…</p>
-          ) : !receipts.data?.length ? (
+          ) : !receipts.data?.items.length ? (
             <div className="empty-state">
-              <h2>No receipts yet.</h2>
-              <p>Completed POS receipts will appear here.</p>
+              <h2>{receiptSearch ? 'No matching receipts.' : 'No receipts yet.'}</h2>
+              {receiptSearch ? (
+                <Button
+                  variant="outline"
+                  onClick={() => {
+                    setReceiptSearch('');
+                    setReceiptPage(1);
+                  }}
+                >
+                  Clear search
+                </Button>
+              ) : (
+                <p>Completed POS receipts will appear here.</p>
+              )}
             </div>
           ) : (
             <>
               <p className="muted mb-4">
                 Historical deliveries · quantities received, before any sales or transfers
               </p>
-              {receipts.data.map((row) => (
+              {receipts.data.items.map((row) => (
                 /* Link each immutable historical receipt to its original delivery and received quantity. */ <button
                   className="receipt-row"
                   key={row.id}
@@ -422,6 +478,14 @@ export function Receiving({
             </>
           )}
         </div>
+      )}
+      {tab === 'receipts' && receipts.data && (
+        <Pagination
+          page={receiptPage}
+          total={receipts.data.total}
+          limit={receipts.data.limit}
+          onChange={setReceiptPage}
+        />
       )}
       {refs.error && (
         <p className="error" role="alert">

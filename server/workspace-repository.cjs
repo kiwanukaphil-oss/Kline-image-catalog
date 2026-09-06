@@ -2,18 +2,19 @@
 function createWorkspaceRepository({ pool, publicationRepository }) {
   return {
     transaction: (work) => publicationRepository.withTransaction(work),
-    async listBatches(branchId) {
+    async listBatches(branchId, options = {}) {
       /* Count each photographed lot and completed publication once within its delivery branch. */
 
       const { rows } = await pool.query(
-        `SELECT b.id,b.title,b.created_at,
+        `SELECT b.id,b.title,b.created_at,count(*) OVER()::int AS total_count,
         count(bi.item_id)::int AS item_count,
         count(p.id)::int AS received_count
         FROM catalog_workspace.batches b
         LEFT JOIN catalog_workspace.batch_items bi ON bi.batch_id=b.id
         LEFT JOIN inventory.catalog_publications p ON p.item_id=bi.item_id AND p.branch_id=b.branch_id
-        WHERE b.branch_id=$1 GROUP BY b.id ORDER BY b.created_at DESC`,
-        [branchId],
+        WHERE b.branch_id=$1 AND (strpos(lower(b.title),lower($2))>0 OR $2='')
+        GROUP BY b.id ORDER BY b.created_at DESC,b.id DESC LIMIT $3 OFFSET $4`,
+        [branchId, options.search || '', options.limit || null, options.offset || 0],
       );
       return rows;
     },
@@ -207,10 +208,10 @@ function createWorkspaceRepository({ pool, publicationRepository }) {
       ).rows;
     },
     /** Historical counts and catalog prices are read independently of changing POS balances. */
-    async receipts(branchId, batchId) {
+    async receipts(branchId, batchId, options = {}) {
       return (
         await pool.query(
-          `SELECT p.id,p.item_id,p.product_id,p.published_at,p.total_quantity AS total_units,
+          `SELECT p.id,p.item_id,p.product_id,p.published_at,p.total_quantity AS total_units,count(*) OVER()::int AS total_count,
         p.variant_count,i.name,b.title AS batch_title,
         (SELECT jsonb_agg(jsonb_build_object('variant_attributes',l.variant_attributes,'quantity',l.published_quantity,
           'price',COALESCE(l.price_override,i.price),'sku',l.sku) ORDER BY l.position)
@@ -218,8 +219,10 @@ function createWorkspaceRepository({ pool, publicationRepository }) {
         FROM inventory.catalog_publications p JOIN inventory.items i ON i.id=p.item_id
         LEFT JOIN catalog_workspace.batch_items bi ON bi.item_id=i.id
         LEFT JOIN catalog_workspace.batches b ON b.id=bi.batch_id AND b.branch_id=p.branch_id
-        WHERE p.branch_id=$1 AND ($2::uuid IS NULL OR b.id=$2) ORDER BY p.published_at DESC LIMIT 200`,
-          [branchId, batchId || null],
+        WHERE p.branch_id=$1 AND ($2::uuid IS NULL OR b.id=$2)
+          AND ($3='' OR strpos(lower(concat_ws(' ',i.name,b.title,p.id::text)),lower($3))>0)
+        ORDER BY p.published_at DESC,p.id DESC LIMIT $4 OFFSET $5`,
+          [branchId, batchId || null, options.search || '', options.limit || 200, options.offset || 0],
         )
       ).rows;
     },

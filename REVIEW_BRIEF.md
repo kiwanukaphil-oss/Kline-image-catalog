@@ -68,3 +68,7 @@ The new packaged-integration changes are awaiting review; the earlier app and re
 ## Photo handoff — I1/I2
 
 Implemented independent durable photo recovery (POS ADR-076, migration 107, package 0.5.0). Original bytes are preserved; retries cannot repeat stock receiving or overwrite manual POS imagery. Verified 29 focused POS tests, 24 workspace checks, desktop/mobile outage recovery, TypeScript, lint, formatting and build. Live private-bucket acceptance remains staging work. Next: receipt/delivery history navigation.
+
+## Complete receipt and delivery history — R9
+
+Package 0.6.0 adds bounded search and pagination across complete branch history. Verified 205 receipts without repeats, 27-delivery browser pagination, older receipt-ID lookup and clear-search recovery. Eleven focused POS tests, 24 workspace checks, build, TypeScript, lint and formatting pass. Previous array routes remain compatibility removal candidates. Next: full photo inspection.

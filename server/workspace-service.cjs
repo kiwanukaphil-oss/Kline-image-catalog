@@ -33,6 +33,16 @@ function createWorkspaceService({ source }) {
     return context;
   }
   return {
+    async history(branchId, kind, { page, search, batchId }) {
+      // Bound response size while preserving stable ordering and search across the complete history.
+      const options = { search, limit: 24, offset: (page - 1) * 24 };
+      const read = (parameters) => kind === 'receipts'
+        ? repository.receipts(branchId, batchId, parameters)
+        : repository.listBatches(branchId, parameters);
+      const rows = await read(options);
+      const total = rows[0]?.total_count ?? (page > 1 ? (await read({ ...options, offset: 0, limit: 1 }))[0]?.total_count || 0 : 0);
+      return { items: rows, total, page, limit: 24 };
+    },
     listBatches: (branchId) => repository.listBatches(branchId),
     async createBatch(input) {
       const result = await repository.createBatch(input);
