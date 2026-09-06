@@ -1,0 +1,59 @@
+{
+  "passed": true,
+  "engine": "axe-core",
+  "results": [
+    {
+      "name": "login",
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "name": "receiving-light",
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "name": "pricing-light",
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "name": "stock-light",
+      "violations": [],
+      "incomplete": [
+        "color-contrast"
+      ]
+    },
+    {
+      "name": "stock-dark",
+      "violations": [],
+      "incomplete": [
+        "color-contrast"
+      ]
+    },
+    {
+      "name": "stock-detail-mobile-dark",
+      "violations": [],
+      "incomplete": [
+        "aria-hidden-focus",
+        "color-contrast"
+      ]
+    },
+    {
+      "name": "draft-mobile-dark",
+      "violations": [],
+      "incomplete": [
+        "aria-hidden-focus",
+        "color-contrast"
+      ]
+    },
+    {
+      "name": "settings-mobile-dark",
+      "violations": [],
+      "incomplete": [
+        "aria-hidden-focus"
+      ]
+    }
+  ],
+  "limitations": "Automated checks supplement keyboard and visual review; physical devices and staff acceptance remain separate."
+}

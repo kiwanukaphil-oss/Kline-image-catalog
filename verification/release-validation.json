@@ -1,0 +1,45 @@
+{
+  "checked_at": "2026-09-06",
+  "workspace_package": "0.16.0",
+  "backend": {
+    "suites": 26,
+    "tests": 250,
+    "passed": true
+  },
+  "pos_frontend": {
+    "suites": 5,
+    "tests": 22,
+    "passed": true,
+    "runner": "Vitest threads, one worker; parallel Windows run stalled"
+  },
+  "workspace_http": {
+    "checks": 24,
+    "passed": true
+  },
+  "browser": {
+    "latest_passed": 20,
+    "latest_total": 21,
+    "blocked": "POS preview on port 3000 stopped; cross-app navigation passed in earlier same-version run, latest repeat awaits restart"
+  },
+  "accessibility": {
+    "views": 8,
+    "violations": 0,
+    "engine": "axe-core",
+    "keyboard": "focus trap, Escape and focus restoration passed"
+  },
+  "dependencies": {
+    "catalog_app": 0,
+    "pos_backend": 0,
+    "pos_frontend": 0
+  },
+  "backup_restore": {
+    "passed": true,
+    "tables": 13,
+    "migrations": 108
+  },
+  "limits": [
+    "Local fixtures only",
+    "Physical-device, real provider/bucket, staff and staging acceptance pending",
+    "No production deployment or schema change"
+  ]
+}

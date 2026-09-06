@@ -156,7 +156,12 @@ export function UploadDelivery({
       </label>
       <label>
         Category
-        <select disabled={busy} value={category} onChange={(e) => setCategory(e.target.value)}>
+        <select
+          aria-label="Delivery category"
+          disabled={busy}
+          value={category}
+          onChange={(e) => setCategory(e.target.value)}
+        >
           {categories.map((entry) => (
             <option value={entry.id} key={entry.id}>
               {entry.name}

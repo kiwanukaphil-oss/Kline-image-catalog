@@ -1,0 +1,25 @@
+{
+  "passed": true,
+  "database": "kline_restore_1788701374459",
+  "backup_bytes": 996144,
+  "snapshot_consistent": true,
+  "tables": {
+    "inventory.items": 1089,
+    "inventory.item_variant_lines": 3118,
+    "inventory.catalog_publications": 41,
+    "inventory.intake_cancellations": 4,
+    "inventory.item_jobs": 11,
+    "inventory.item_events": 508,
+    "catalog_workspace.batches": 89,
+    "catalog_workspace.batch_items": 1052,
+    "products": 43,
+    "product_variants": 97,
+    "branch_inventory": 95,
+    "stock_movements": 119,
+    "user_audit_logs": 145
+  },
+  "migration_ledgers": [
+    "schema_migrations"
+  ],
+  "scope": "Disposable local fixture database only; private object storage requires its own backup and staging restore."
+}

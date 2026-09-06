@@ -4,7 +4,7 @@ Updated: 6 September 2026. This is our working source of truth. Update it after 
 
 **Checked means implemented and verified locally unless explicitly labelled staging/production.** An implemented feature can still await commit, release or staff acceptance. Optional features do not silently become launch requirements.
 
-**Latest completed: R13?R16 phone intake, receiving triage, item activity and reversible cancellation. Package 0.14.0; 41 focused POS tests, mobile cancellation/restore and queued-ID recovery pass. Next: administration access, remaining failure recovery and final release validation. Live bucket, AI and staff acceptance remain open. Autonomous implementation and commits authorized on 6 September.**
+**Release candidate: package 0.16.0. Core workflows and administration are implemented. 250 POS backend tests, 22 POS frontend tests, 24 workspace checks and eight accessibility views pass; audits report zero known vulnerabilities. Latest isolated browser run: 20/21 passed; two-app repeat awaits the stopped POS preview on port 3000. Local backup/restore and all 108 migration checks pass. Staging, real devices/provider/bucket and staff acceptance remain pending.**
 
 ## A. Purpose and design
 
@@ -13,7 +13,7 @@ Updated: 6 September 2026. This is our working source of truth. Update it after 
 - [x] A3 Responsive desktop/mobile navigation, restrained theme and dark appearance.
 - [x] A4 Preserve earlier designs and flag removal candidates.
 - [ ] A5 Staff usability sessions without coaching: record confusion, completion times and errors, then refine.
-- [ ] A6 Final keyboard/focus, contrast, touch-target and mobile accessibility review across the completed app.
+- [x] A6 Local keyboard/focus restoration and mobile sizing verified; axe reports zero violations across eight light/dark/mobile views. Fixed faint inactive tabs, photo-placeholder contrast and unnamed-image alt text. See `verification/accessibility.json`; physical-device/staff checks remain A5/R12.
 
 ## R. Receiving
 
@@ -86,9 +86,9 @@ Updated: 6 September 2026. This is our working source of truth. Update it after 
 - [x] T4 Installed package matches source; clean locked install succeeds; test hosts/fixtures excluded.
 - [x] T5 Baseline: 224 POS tests/24 suites, 24 workspace checks, four pricing-example checks, nine browser checks. See `verification/packaged-workspace.json`.
 - [x] T6 Passing recorded TypeScript, lint/build, syntax and Railway source checks.
-- [ ] T7 Extend tests as features land and rebuild/reinstall the package whenever runtime source changes.
-- [ ] T8 Final release regression, dependency/security review, accessibility and performance validation.
-- [ ] T9 Operational checks: backup/restore, migrations, logs/errors, image recovery and rollback.
+- [x] T7 Feature tests and package verification extended through 0.16.0; all seven installed files match source.
+- [ ] T8 250 backend tests/26 suites, 22 POS frontend tests/5 suites, 24 workspace checks, zero dependency advisories, eight clean accessibility scans and 1,000-lot benchmark pass. Latest isolated browser run passes 20/21; repeat cross-app navigation after the owner restarts POS preview (automation restart was policy-blocked). See `verification/release-validation.json`.
+- [x] T9 Local consistent backup restored into a new database: 13 table counts match; original/restored ledgers both have 108 migrations and no pending/checksum issues. Disabled-mount rollback and image recovery pass existing integration tests. Production backup, object storage, monitoring and rollback acceptance remain G5/G7/G8. See `docs/operations.md`.
 
 ## G. Source control and release
 

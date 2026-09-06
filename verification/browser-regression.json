@@ -1,0 +1,111 @@
+{
+  "passed": false,
+  "isolated_preview_per_case": true,
+  "results": [
+    {
+      "name": "browser",
+      "code": 0,
+      "milliseconds": 14009
+    },
+    {
+      "name": "recovery-keyboard",
+      "code": 0,
+      "milliseconds": 3814
+    },
+    {
+      "name": "pricing-groups",
+      "code": 0,
+      "milliseconds": 102
+    },
+    {
+      "name": "history",
+      "code": 0,
+      "milliseconds": 2642
+    },
+    {
+      "name": "photo-inspection",
+      "code": 0,
+      "milliseconds": 3273
+    },
+    {
+      "name": "photo-handoff",
+      "code": 0,
+      "milliseconds": 2986
+    },
+    {
+      "name": "pricing-history",
+      "code": 0,
+      "milliseconds": 3227
+    },
+    {
+      "name": "stock-discovery",
+      "code": 0,
+      "milliseconds": 3521
+    },
+    {
+      "name": "stock-flows",
+      "code": 0,
+      "milliseconds": 4022
+    },
+    {
+      "name": "pos-navigation",
+      "code": 1,
+      "milliseconds": 34377
+    },
+    {
+      "name": "restock",
+      "code": 0,
+      "milliseconds": 2990
+    },
+    {
+      "name": "older-data",
+      "code": 0,
+      "milliseconds": 2059
+    },
+    {
+      "name": "receiving-filters",
+      "code": 0,
+      "milliseconds": 2222
+    },
+    {
+      "name": "item-activity",
+      "code": 0,
+      "milliseconds": 3049
+    },
+    {
+      "name": "intake-cancellation",
+      "code": 0,
+      "milliseconds": 3544
+    },
+    {
+      "name": "phone-intake",
+      "code": 0,
+      "milliseconds": 3955
+    },
+    {
+      "name": "pwa-share",
+      "code": 0,
+      "milliseconds": 3001
+    },
+    {
+      "name": "session-navigation",
+      "code": 0,
+      "milliseconds": 3141
+    },
+    {
+      "name": "settings",
+      "code": 0,
+      "milliseconds": 2864
+    },
+    {
+      "name": "category-mappings",
+      "code": 0,
+      "milliseconds": 2942
+    },
+    {
+      "name": "ai-fill",
+      "code": 0,
+      "milliseconds": 7867
+    }
+  ]
+}

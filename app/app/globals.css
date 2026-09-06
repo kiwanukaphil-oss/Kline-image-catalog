@@ -538,11 +538,11 @@ small {
   justify-content: center;
   gap: 10px;
   flex-direction: column;
-  color: #687071;
+  color: var(--foreground);
 }
 .photo small {
   font-size: 10px;
-  color: #687071;
+  color: var(--foreground);
 }
 .workspace-dialog {
   grid-template-columns: minmax(0, 1fr);
@@ -1414,7 +1414,7 @@ td small {
   font-weight: 500;
 }
 .size-chip > span {
-  color: var(--muted-foreground);
+  color: inherit;
 }
 .size-chip.low {
   border-color: #c89b51;

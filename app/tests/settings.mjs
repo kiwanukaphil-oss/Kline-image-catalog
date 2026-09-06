@@ -34,7 +34,9 @@ try {
   await schema.getByText('Fabric (required)', { exact: true }).waitFor();
   await schema.getByRole('button', { name: 'Save category', exact: true }).click();
   await schema.getByText('Category saved', { exact: true }).waitFor();
-  await schema.getByLabel('Category', { exact: true }).selectOption({ label: name + ' child \u00b7 ' + name });
+  await schema
+    .getByLabel('Category', { exact: true })
+    .selectOption({ label: name + ' child \u00b7 ' + name });
   await schema.getByText('Fabric (required)', { exact: true }).waitFor();
   assert.equal(await schema.evaluate((element) => element.scrollWidth <= element.clientWidth), true);
   await page.screenshot({ path: '../verification/settings-mobile.png' });

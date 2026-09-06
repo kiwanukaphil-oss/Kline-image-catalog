@@ -24,7 +24,7 @@ try {
   await page.getByRole('button', { name: 'Sign in', exact: true }).click();
   await page.getByRole('tab', { name: 'All merchandise', exact: true }).click();
   await page.getByLabel('Find incoming merchandise').fill(name);
-  await page.getByText('Check POS link', { exact: true }).waitFor();
+  await page.getByRole('button', { name: 'Check POS link', exact: true }).waitFor();
   await page.locator('.receiving-identity').filter({ hasText: name }).click();
   await page.getByText('Existing POS link · receiving locked', { exact: true }).waitFor();
   assert.equal(await page.getByRole('button', { name: 'Save details', exact: true }).count(), 0);

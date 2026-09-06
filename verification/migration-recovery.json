@@ -1,0 +1,19 @@
+{
+  "passed": true,
+  "results": [
+    {
+      "database": "kline_catalog_workspace_test",
+      "total": 108,
+      "applied": 108,
+      "pending": [],
+      "checksum_mismatches": []
+    },
+    {
+      "database": "kline_restore_1788701374459",
+      "total": 108,
+      "applied": 108,
+      "pending": [],
+      "checksum_mismatches": []
+    }
+  ]
+}

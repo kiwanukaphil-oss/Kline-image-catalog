@@ -1,6 +1,6 @@
 {
   "passed": true,
-  "checked_at": "2026-09-06T13:21:47.365Z",
+  "checked_at": "2026-09-06T13:38:13.028Z",
   "provider": "deterministic external-boundary fixture; not real AI accuracy",
   "checks": [
     "Selected photos fill sequentially; a provider failure pauses and only retries after checking saved progress",

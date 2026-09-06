@@ -4,7 +4,7 @@ The reviewed initial implementation is committed as catalog `65a4f07` and POS `6
 
 ## Runtime artifact
 
-The catalog's `server/` directory owns `@kline/pos-workspace@0.8.0`, including stock discovery, AI review and independent photo recovery. `npm pack` produces `kline-pos-workspace-0.8.0.tgz`. POS stores the tarball in `backend/vendor/` and its package-lock pins the file dependency and integrity. No registry or adjacent catalog checkout is needed at runtime. The installed package contains five runtime modules, its manifest and README; it has no test image store, database credentials or automatic migration code. The earlier 0.2.0 and 0.3.0 tarballs are retained as a removal candidate pending review.
+The catalog's `server/` directory owns `@kline/pos-workspace@0.16.0`, including stock discovery, AI review and independent photo recovery. `npm pack` produces `kline-pos-workspace-0.16.0.tgz`. POS stores the tarball in `backend/vendor/` and its package-lock pins the file dependency and integrity. No registry or adjacent catalog checkout is needed at runtime. The installed package contains five runtime modules, its manifest and README; it has no test image store, database credentials or automatic migration code. The earlier 0.2.0 and 0.3.0 tarballs are retained as a removal candidate pending review.
 
 After changing runtime source, increment the package version, pack it into the POS vendor directory, install that exact file dependency, then verify it:
 
@@ -19,7 +19,7 @@ Older tarballs are removal candidates once a newer release is reviewed. Keep the
 
 The normal POS server mounts `/api/catalog-workspace` when `CATALOG_WORKSPACE_ENABLED=true`. Its default is disabled. It uses the existing Helmet, exact CORS origin allowlist, body sanitizer, JWT, permissions and branch checks. Missing package or publication-contract failures stop startup when enabled.
 
-POS migration `106_catalog_workspace_receiving.sql` adds delivery groups and memberships. It changes no stock or commercial data. The regular POS migration manifest and startup preflight track it. The old catalog migration `001_receiving_batches.sql` remains as a local fixture reference; production runs migration 106 and migration 107 for durable photo tasks.
+POS migration `106_catalog_workspace_receiving.sql` adds delivery groups and memberships. It changes no stock or commercial data. The regular POS migration manifest and startup preflight track it. The old catalog migration `001_receiving_batches.sql` remains as a local fixture reference; production runs migrations 106 (deliveries), 107 (photo tasks), and 108 (reversible cancellation).
 
 The preview now uses this normal POS app and installed package. Its local-only guard and filesystem image fixture still confine it to the dedicated local test database. Production uses the POS private Railway storage implementation.
 

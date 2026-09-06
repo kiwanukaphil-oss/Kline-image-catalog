@@ -54,7 +54,7 @@ export function Photo({
   return (
     <div className={`photo ${className}`}>
       {url && !failed ? (
-        <img src={url} alt={name} loading="lazy" onError={() => setFailed(true)} />
+        <img src={url} alt={name || 'Merchandise photo'} loading="lazy" onError={() => setFailed(true)} />
       ) : (
         <span>
           <ImageOff size={24} />

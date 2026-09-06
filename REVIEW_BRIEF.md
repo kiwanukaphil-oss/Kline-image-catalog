@@ -112,3 +112,7 @@ Explicit progress recovery closes stale running jobs after 15 minutes, audits re
 ## D2 ? focused administration
 
 Workspace settings owns occasional category/field definition editing, mapping access and branch diagnostics. User administration links to existing POS routes with no token. Schema editing is additive, audited and revision checked; receiving/edit transactions share the schema lock. 23 PostgreSQL tests plus actual mobile category creation, inheritance, diagnostics and mapping checks pass. Fixed dialog intrinsic-width overflow exposed by long category names.
+
+## Final local validation
+
+250 POS backend tests, 22 POS frontend tests and 24 workspace integration checks pass. Dependency audits report zero advisories. Eight axe views pass after contrast and alt-text corrections. A consistent database snapshot restores with 13 matching table counts and 108 matching migrations. The 1,000-lot/3,000-size benchmark loads in 454 ms and reviews in 370 ms locally. Latest isolated browser run passes 20/21; cross-app navigation awaits the stopped POS preview (earlier same-version test passed). Staging and physical device/provider/bucket/staff acceptance are outstanding.

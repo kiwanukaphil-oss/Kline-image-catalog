@@ -1,6 +1,6 @@
 {
   "passed": true,
-  "checked_at": "2026-09-06T09:04:33.386Z",
+  "checked_at": "2026-09-06T13:36:31.443Z",
   "checks": [
     "Pending images are isolated by account",
     "Receiving exposes unfinished uploads and resumes the same lot after reopening",
