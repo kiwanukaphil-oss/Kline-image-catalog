@@ -4,7 +4,7 @@ Updated: 6 September 2026. This is our working source of truth. Update it after 
 
 **Checked means implemented and verified locally unless explicitly labelled staging/production.** An implemented feature can still await commit, release or staff acceptance. Optional features do not silently become launch requirements.
 
-**Latest completed: R10 — in-app photo inspection and audited holds. Next: P10 durable pricing history. Live bucket and AI staging acceptance remain open. Autonomous implementation and commits authorized on 6 September.**
+**Latest completed: P10 — durable pricing history with protected Undo after reload. Next: P11 large-delivery benchmark. Live bucket and AI staging acceptance remain open. Autonomous implementation and commits authorized on 6 September.**
 
 ## A. Purpose and design
 
@@ -44,7 +44,7 @@ Updated: 6 September 2026. This is our working source of truth. Update it after 
 - [x] P7 Authoritative grouped/exact review, stale-plan rejection, idempotent apply and conditional Undo.
 - [x] P8 Both requested Hugo Boss/XL and shorts/H&M examples verified against real POS services.
 - [x] P9 Matching/proposal compilation exercised for 1,000 lots / 3,000 size lines.
-- [ ] P10 Durable pricing History with actor/date, exact changes and authorized Undo after reload.
+- [x] P10 Durable pricing History with actor/date, exact changes and authorized Undo after reload. Existing account/branch and cost boundaries retained; 27 focused POS tests and mobile reload/Undo verified in package 0.8.0.
 - [ ] P11 Large-delivery browser/database benchmark: load time, requests, selection and pagination. P9 is not this benchmark.
 - [ ] P12 Staff can complete both examples and resolve conflicts without procedural instructions.
 

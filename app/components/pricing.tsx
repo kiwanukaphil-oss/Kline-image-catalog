@@ -23,6 +23,7 @@ import {
   type PricingFilters,
 } from '@/lib/pricing-groups';
 import { PricingChoiceField, PricingExceptionRules } from './pricing-group-controls';
+import { PricingHistory } from './pricing-history';
 
 /** Pricing has one explicit commercial intent per plan; the server owns the exact review and save. */
 export function Pricing({
@@ -53,6 +54,7 @@ export function Pricing({
   const [plan, setPlan] = useState<PricePlan | null>(null),
     [receipt, setReceipt] = useState<PricePlan | null>(null);
   const [version, setVersion] = useState(0);
+  const [historyOpen, setHistoryOpen] = useState(false);
   useEffect(() => {
     /* Reset plans when scope changes and ignore responses from an abandoned workspace. */
 
@@ -223,6 +225,9 @@ export function Pricing({
               : 'One group. A shared price. Exceptions where needed.'}
           </p>
         </div>
+        <Button variant="outline" onClick={() => setHistoryOpen(true)}>
+          History
+        </Button>
         <Button variant="outline" onClick={onDone}>
           <ArrowLeft size={16} />
           Receiving
@@ -559,6 +564,14 @@ export function Pricing({
             </Button>
           </div>
         </Modal>
+      )}
+      {historyOpen && (
+        <PricingHistory
+          branch={branch}
+          session={session}
+          onClose={() => setHistoryOpen(false)}
+          onChanged={() => setVersion((v) => v + 1)}
+        />
       )}
       {receipt && (
         <Modal

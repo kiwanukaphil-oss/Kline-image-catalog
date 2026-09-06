@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "checks": [
+    "Applied POS receipt survives browser reload",
+    "Exact before/after rows visible from history",
+    "Mobile confirmed Undo restores the earlier base price",
+    "Undo status persists in POS ledger"
+  ]
+}

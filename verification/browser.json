@@ -1,6 +1,6 @@
 {
   "passed": true,
-  "checked_at": "2026-09-06T11:39:26.066Z",
+  "checked_at": "2026-09-06T11:42:54.317Z",
   "checks": [
     "Interrupted photo uploads resume into one persistent delivery",
     "Details and multi-size counts save without a separate approval screen",

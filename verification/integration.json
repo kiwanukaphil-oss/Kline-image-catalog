@@ -1,6 +1,6 @@
 {
   "passed": true,
-  "checked_at": "2026-09-06T11:38:49.669Z",
+  "checked_at": "2026-09-06T11:42:42.268Z",
   "database": "kline_catalog_workspace_test",
   "checks": [
     "Existing POS identity and branch capabilities",
@@ -28,5 +28,5 @@
     "Negative balances remain signed and low-stock filters use configured thresholds",
     "Authorized branches have independent balances and cannot read another branch draft"
   ],
-  "receipt_id": "2519a73b-02ae-414e-9fa1-899ec504c472"
+  "receipt_id": "b372b113-35b5-4a43-a92f-d1ae8d87b434"
 }

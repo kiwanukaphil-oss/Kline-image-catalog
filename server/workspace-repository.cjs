@@ -1,6 +1,16 @@
 /** All new SQL is branch-scoped. Pricing, authentication and receipt writes stay in POS. */
 function createWorkspaceRepository({ pool, publicationRepository }) {
   return {
+    async pricingHistory(branchId, userId, page) {
+      // Select public receipt metadata only; exact rows remain behind the POS cost-redacting read endpoint.
+      const values = [branchId, userId];
+      const where = "WHERE p.branch_id=$1 AND p.actor_id=$2 AND p.status IN ('applied','undone')";
+      const count = await pool.query(`SELECT count(*)::int AS total FROM inventory.pricing_plans p ${where}`, values);
+      const rows = await pool.query(`SELECT p.id,p.status,p.applied_at,p.undone_at,u.full_name AS actor,
+        p.review->'summary' AS summary FROM inventory.pricing_plans p JOIN users u ON u.id=p.actor_id
+        ${where} ORDER BY p.applied_at DESC,p.id DESC LIMIT 24 OFFSET $3`, [...values,(page-1)*24]);
+      return { items: rows.rows, total: count.rows[0].total, page, limit: 24 };
+    },
     transaction: (work) => publicationRepository.withTransaction(work),
     async listBatches(branchId, options = {}) {
       /* Count each photographed lot and completed publication once within its delivery branch. */

@@ -76,3 +76,7 @@ Package 0.6.0 adds bounded search and pagination across complete branch history.
 ## Photo inspection — R10
 
 Implemented in-app zoom/fit, fresh-URL reload independent of unsaved form state, and an audited photo/label hold using existing flag publication blockers. Twelve focused POS tests, desktop/mobile browser recovery, 24 workspace checks and frontend checks pass. Package 0.7.0; next P10 durable pricing history.
+
+## Durable pricing history — P10
+
+Added current-account/branch applied and undone receipt history, actor/date metadata, exact original rows, protected cost reads and confirmed Undo after reload. Reuses existing POS plan ledger and transactional safeguards. Verified 27 focused POS tests, desktop/mobile reload and Undo, frontend checks, package 0.8.0. Next P11 full 1,000-lot benchmark.

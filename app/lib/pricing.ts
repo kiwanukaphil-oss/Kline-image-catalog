@@ -22,6 +22,8 @@ export type PriceItem = {
   lines: PriceLine[];
 };
 export type PricePlan = {
+  includes_costs?: boolean;
+  undone_at?: string;
   id: string;
   status: string;
   applied_at: string;

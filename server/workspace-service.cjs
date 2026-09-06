@@ -33,6 +33,7 @@ function createWorkspaceService({ source }) {
     return context;
   }
   return {
+    pricingHistory: (branchId, userId, page) => repository.pricingHistory(branchId, userId, page),
     async history(branchId, kind, { page, search, batchId }) {
       // Bound response size while preserving stable ordering and search across the complete history.
       const options = { search, limit: 24, offset: (page - 1) * 24 };

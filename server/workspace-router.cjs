@@ -43,6 +43,11 @@ function createWorkspaceRouter(dependencies) {
     next();
   });
   router.get(
+    '/pricing-history',
+    checkPermission('catalog.edit'),
+    reply((req) => service.pricingHistory(req.branchId, req.user.id, page(req.query.page))),
+  );
+  router.get(
     '/history/:kind',
     reply((req) => {
       if (!['receipts', 'deliveries'].includes(req.params.kind)) throw DomainError.notFound('History unavailable.');
