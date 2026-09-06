@@ -94,7 +94,7 @@ Updated: 6 September 2026. This is our working source of truth. Update it after 
 
 - [x] G1 Reviewed app committed as `65a4f07`; POS safeguard as `6de2d74`; unrelated POS AI edits excluded.
 - [x] G2 Packaged integration committed as catalog `3f0af21` and POS `1cc61ba`; subsequent verified slices committed under the user's continuing authorization. Unrelated POS AI edits remain separate.
-- [ ] G3 Authorized push/PR/release commits. No push has occurred.
+- [x] G3 Catalog main pushed to the provided repository. POS changes pushed on `catalog/workspace-release`; draft [Inventory_POS PR #1](https://github.com/kiwanukaphil-oss/Inventory_POS/pull/1) awaits staging/acceptance. Production master remains unchanged.
 - [ ] G4 Select/configure staging POS, frontend origins, branch identities and private bucket.
 - [ ] G5 Deploy reviewed staging migration/backend/frontend; verify actual CORS, login, images, AI if enabled, receipts and POS navigation.
 - [ ] G6 Owner/staff acceptance of required checklist items on staging.
@@ -118,3 +118,5 @@ Complete required A–G tasks, decide O items explicitly and obtain owner accept
 | 2026-09-06 | Baseline created from approved design, code and verification. | S1 started immediately; I1 follows. |
 | 2026-09-06 | S1 completed and verified; package rebuilt/installed as 0.3.0. | Nine focused POS tests, three browser checks, 24 workspace checks, build/lint/TypeScript/format pass. Next: I1. |
 | 2026-09-06 | User prioritized the explicit AI fill workflow; R11a–c implemented in package 0.4.0. | 21 focused POS tests, four AI browser checks and 24 workspace checks. Evidence: `verification/ai-fill.json`. Real-provider R11d remains open; next I1. |
+
+| 2026-09-06 | R13?R16, administration, session recovery and local accessibility/operations completed through package 0.16.0; source pushed and POS draft PR opened. | Final POS preview repeat awaits restart; staging target remains undecided. Clean committed-tree verification in progress. |

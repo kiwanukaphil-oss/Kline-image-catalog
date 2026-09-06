@@ -1,6 +1,6 @@
 # Packaged POS integration
 
-The reviewed initial implementation is committed as catalog `65a4f07` and POS `6de2d74`. The next integration changes package the workspace into the ordinary POS backend. They are prepared locally for review; no push or deployment has occurred.
+The release candidate is pushed to the catalog repository. POS integration is isolated in [draft PR #1](https://github.com/kiwanukaphil-oss/Inventory_POS/pull/1), with package 0.16.0. No production deployment has occurred.
 
 ## Runtime artifact
 

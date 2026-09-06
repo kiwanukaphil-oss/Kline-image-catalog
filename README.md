@@ -2,6 +2,8 @@
 
 Receiving, Pricing and Stock in one focused workspace, connected locally to the existing POS services and an isolated PostgreSQL database. The initial implementation is committed; further integration work is tracked in the [completion checklist](COMPLETION_CHECKLIST.md). It has not been deployed.
 
+The live progress record is [COMPLETION_CHECKLIST.md](COMPLETION_CHECKLIST.md). POS integration is in [draft PR #1](https://github.com/kiwanukaphil-oss/Inventory_POS/pull/1); production rollout remains gated on staging and staff acceptance.
+
 ## Review it locally
 
 The running preview is at **http://localhost:5198** (IPv6 equivalent: **http://[::1]:5198**).
