@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "checks": [
+    "Existing merchandise opens without invented delivery groups",
+    "Explicit tab choices are retained",
+    "Historical select value remains visible",
+    "Name-only edits do not rewrite historical attributes"
+  ],
+  "scope": "Frontend HTTP-boundary fixture with real local login; no production mutations."
+}

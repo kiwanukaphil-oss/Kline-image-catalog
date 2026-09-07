@@ -106,6 +106,7 @@ export function Receiving({
     [receiptPage, setReceiptPage] = useState(1);
   const [aiItems, setAiItems] = useState<CatalogItem[] | null>(null);
   const [pendingCount, setPendingCount] = useState(0);
+  const initialViewChosen = useRef(false);
   const refs = usePosRead<{ data: References }>('/catalog/reference-data', branch);
   const batches = usePosRead<{ items: Batch[]; total: number; limit: number }>(
     `/catalog-workspace/history/deliveries?page=${deliveryPage}&search=${encodeURIComponent(deliverySearch)}`,
@@ -127,6 +128,14 @@ export function Receiving({
     `/catalog-workspace/history/receipts?page=${receiptPage}&search=${encodeURIComponent(receiptSearch)}${batch ? `&batch_id=${batch.id}` : ''}`,
     branch,
   );
+  useEffect(() => {
+    // Existing catalogs have real merchandise but no delivery groups; show that stock immediately.
+    if (initialViewChosen.current || !batches.data || !inventory.data) return;
+    initialViewChosen.current = true;
+    if (!batches.data.total && inventory.data.total > 0 && !batch && !deliverySearch && !search) {
+      setTab('lots');
+    }
+  }, [batches.data, inventory.data, batch, deliverySearch, search]);
   const selectedItems = inventory.data?.items.filter((item) => selected.includes(item.id)) || [];
   useEffect(() => {
     if (session.can_upload && new URLSearchParams(location.search).has('share')) setUploading(true);
@@ -174,6 +183,7 @@ export function Receiving({
     setSelected([]);
   }
   function changeTab(value: string) {
+    initialViewChosen.current = true;
     setTab(value);
     setSelected([]);
     setPage(1);

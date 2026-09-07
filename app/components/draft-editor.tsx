@@ -129,9 +129,16 @@ export function DraftEditor({
     setBusy(true);
     setError('');
     try {
+      const savedItem = detail.data.item;
       const values = Object.fromEntries(
         fields
           .filter((field) => field.key !== 'size')
+          // Leave historical values untouched when staff edit an unrelated detail.
+          .filter(
+            (field) =>
+              category !== savedItem.category_id ||
+              !Object.is(attributes[field.key] ?? null, savedItem.attributes[field.key] ?? null),
+          )
           .map((field) => [field.key, attributes[field.key] ?? null]),
       );
       await requestPos(`/catalog-workspace/items/${itemId}`, branch, {
@@ -464,6 +471,14 @@ export function DraftEditor({
                               }
                             >
                               <option value="">Not set</option>
+                              {field.type === 'select' &&
+                                attributes[field.key] != null &&
+                                attributes[field.key] !== '' &&
+                                !(field.options || []).includes(String(attributes[field.key])) && (
+                                  <option value={String(attributes[field.key])}>
+                                    {String(attributes[field.key])} (saved)
+                                  </option>
+                                )}
                               {(field.type === 'boolean' ? ['true', 'false'] : field.options || []).map(
                                 (option) => (
                                   <option key={option} value={option}>
