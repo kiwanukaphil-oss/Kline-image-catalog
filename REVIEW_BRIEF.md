@@ -43,3 +43,5 @@ Remaining: owner sign-in for actual production catalog upload verification,
 category/access decisions, physical-phone/staff acceptance and monitoring
 ownership. These are open in `docs/production-cutover-plan.md` and
 `COMPLETION_CHECKLIST.md`; deployment is not represented as full acceptance.
+
+Production browser update, 7 September 2026: owner sign-in passes; 964 NTINDA and 67 NAMUGONGO lots are visible. An original private photo decodes at 960 x 1280. Current stock, movement history and the correct live POS product/branch/pricing destination pass. Upload verification is blocked before submission by Chrome extension file-URL access (fileChooser.setFiles: Not allowed). No test delivery or stock was created. See `verification/production-browser.json`.

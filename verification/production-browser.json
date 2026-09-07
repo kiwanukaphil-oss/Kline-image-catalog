@@ -1,0 +1,26 @@
+{
+  "checked_date": "2026-09-07",
+  "origin": "https://catalog-production-ed0b.up.railway.app",
+  "method": "Existing Chrome session, owner completed POS-account sign-in; real deployed UI without mocks",
+  "checks": {
+    "administrator_sign_in": true,
+    "ntinda_catalog_lots": 964,
+    "namugongo_catalog_lots": 67,
+    "total_existing_lots": 1031,
+    "original_private_photo_decoded": { "width": 960, "height": 1280 },
+    "saved_historical_attribute_choices_visible": true,
+    "ntinda_pos_products": 213,
+    "stock_detail_price_and_movement_loaded": true,
+    "pos_handoff_correct_product_branch_and_pricing_tab": true,
+    "original_active_branch_restored": "NTINDA"
+  },
+  "upload": {
+    "completed": false,
+    "blocker": "Chrome fileChooser.setFiles returned Not allowed. Extension Allow access to file URLs must be enabled by the owner.",
+    "submitted_to_application": false,
+    "test_delivery_created": false,
+    "stock_received": false,
+    "unsaved_test_dialog_closed": true
+  },
+  "limitations": "Upload/reload/cancellation verification and physical-phone acceptance remain open. Category/access decisions are unchanged. No new AI, receipt or pricing mutation was performed."
+}
