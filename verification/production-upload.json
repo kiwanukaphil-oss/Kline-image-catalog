@@ -1,0 +1,55 @@
+{
+  "checked_at": "2026-09-07T19:57:07.689Z",
+  "passed": true,
+  "read_only": true,
+  "intake_id": "5e28a317-8cee-425a-9da9-96014729a16a",
+  "batches": 1,
+  "members": 1,
+  "source_bytes": 15431,
+  "stored_bytes": 15431,
+  "image_sha256": "30a281edf0ea0108b00d575aa61e8e95c59bcf967edc5d9ce76382a5ce74a072",
+  "cancelled": false,
+  "received": false,
+  "existing_data_checks": [
+    {
+      "table": "\"inventory\".\"catalog_publications\"",
+      "rows": 263,
+      "unchanged": true
+    },
+    {
+      "table": "\"inventory\".\"items\"",
+      "rows": 1031,
+      "unchanged": true
+    },
+    {
+      "table": "\"public\".\"product_images\"",
+      "rows": 213,
+      "unchanged": true
+    },
+    {
+      "table": "\"public\".\"product_variants\"",
+      "rows": 241,
+      "unchanged": true
+    },
+    {
+      "table": "\"public\".\"products\"",
+      "rows": 213,
+      "unchanged": true
+    },
+    {
+      "table": "\"public\".\"sale_items\"",
+      "rows": 1,
+      "unchanged": true
+    },
+    {
+      "table": "\"public\".\"sales\"",
+      "rows": 1,
+      "unchanged": true
+    },
+    {
+      "table": "\"public\".\"stock_movements\"",
+      "rows": 292,
+      "unchanged": true
+    }
+  ]
+}

@@ -7,7 +7,10 @@
     "ntinda_catalog_lots": 964,
     "namugongo_catalog_lots": 67,
     "total_existing_lots": 1031,
-    "original_private_photo_decoded": { "width": 960, "height": 1280 },
+    "original_private_photo_decoded": {
+      "width": 960,
+      "height": 1280
+    },
     "saved_historical_attribute_choices_visible": true,
     "ntinda_pos_products": 213,
     "stock_detail_price_and_movement_loaded": true,
@@ -15,12 +18,26 @@
     "original_active_branch_restored": "NTINDA"
   },
   "upload": {
-    "completed": false,
-    "blocker": "Chrome fileChooser.setFiles returned Not allowed. Extension Allow access to file URLs must be enabled by the owner.",
-    "submitted_to_application": false,
-    "test_delivery_created": false,
+    "completed": true,
+    "submitted_to_application": true,
+    "test_delivery_created": true,
+    "intake_id": "5e28a317-8cee-425a-9da9-96014729a16a",
     "stock_received": false,
-    "unsaved_test_dialog_closed": true
+    "queue_survived_reload": true,
+    "resumed_once": true,
+    "saved_intake_survived_reload": true,
+    "stored_photo_decoded": {
+      "width": 300,
+      "height": 400
+    },
+    "byte_integrity_verified": true,
+    "cancelled_with_audit_history": true,
+    "original_records_unchanged": true,
+    "resolved_blockers": [
+      "Owner enabled Chrome extension file access",
+      "First API upload returned unsigned-header AccessDenied; fresh variable-triggered API deployment with AWS_REQUEST_CHECKSUM_CALCULATION=WHEN_REQUIRED succeeded"
+    ],
+    "backend_deployment": "5afadc04-6e5d-46a7-b26a-85bbc0575244"
   },
-  "limitations": "Upload/reload/cancellation verification and physical-phone acceptance remain open. Category/access decisions are unchanged. No new AI, receipt or pricing mutation was performed."
+  "limitations": "Physical-phone and uncoached staff acceptance remain open. Category/access decisions are unchanged. No new AI, receipt or pricing mutation was performed."
 }

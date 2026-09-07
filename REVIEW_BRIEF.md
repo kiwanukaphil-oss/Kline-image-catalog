@@ -45,3 +45,7 @@ ownership. These are open in `docs/production-cutover-plan.md` and
 `COMPLETION_CHECKLIST.md`; deployment is not represented as full acceptance.
 
 Production browser update, 7 September 2026: owner sign-in passes; 964 NTINDA and 67 NAMUGONGO lots are visible. An original private photo decodes at 960 x 1280. Current stock, movement history and the correct live POS product/branch/pricing destination pass. Upload verification is blocked before submission by Chrome extension file-URL access (fileChooser.setFiles: Not allowed). No test delivery or stock was created. See `verification/production-browser.json`.
+
+## Completed live upload verification
+
+The owner enabled Chrome file access. A real upload exposed an unsigned-header storage rejection. Fresh API deployment 5afadc04-6e5d-46a7-b26a-85bbc0575244 explicitly applied the required checksum compatibility setting; resuming the same browser queue then succeeded. The photo survived failed-upload reload and successful-upload reload, matched its original 15,431 bytes and SHA-256, and was reversibly cancelled. All original catalog items, publications and POS commerce hashes remain unchanged. Eight post-fix public health probes pass in GitHub run 34157581100. A minor frontend follow-up labels all-cancelled deliveries correctly and fixes the cancellation separator/count grammar; TypeScript, lint and Node production build pass. C8/G7 are complete; category mapping, monitoring and staff/device decisions remain open.

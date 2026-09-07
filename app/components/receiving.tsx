@@ -309,7 +309,8 @@ export function Receiving({
                     <h2>{row.title}</h2>
                     <small>
                       {new Date(row.created_at).toLocaleDateString([], { month: 'short', day: 'numeric' })} ·{' '}
-                      {row.item_count} lots{row.cancelled_count ? ` ? ${row.cancelled_count} cancelled` : ''}
+                      {row.item_count} {row.item_count === 1 ? 'lot' : 'lots'}
+                      {row.cancelled_count ? ` · ${row.cancelled_count} cancelled` : ''}
                     </small>
                   </div>
                   <span
@@ -322,6 +323,8 @@ export function Receiving({
                       </>
                     ) : row.received_count ? (
                       `${row.received_count} of ${row.item_count} received`
+                    ) : row.item_count === 0 && row.cancelled_count ? (
+                      'Cancelled'
                     ) : (
                       'Preparing'
                     )}

@@ -4,7 +4,7 @@ Updated: 7 September 2026. This is our working source of truth. Update it after 
 
 **Checked means implemented and verified locally unless explicitly labelled staging/production.** An implemented feature can still await commit, release or staff acceptance. Optional features do not silently become launch requirements.
 
-**Production deployed: package 0.16.0, catalog 6aea4e2 and POS 6038486. The existing live catalog/POS database and private bucket are reused. Full backups, restore rehearsals, migrations and 23 unchanged catalog/commerce table fingerprints pass. Final authenticated catalog upload, category/staff decisions and physical-device acceptance remain open. See the [production cutover checklist](docs/production-cutover-plan.md).**
+**Production deployed: workspace 0.16.0 and POS 6038486. Real sign-in, existing photos, both branches, current stock, POS links and upload/reload/resume/cancellation pass. One labelled test intake is cancelled; all 1,031 original items, 263 receipts and POS commerce records remain unchanged. Category decisions, monitoring ownership and physical-device/staff acceptance remain open. See the [production cutover checklist](docs/production-cutover-plan.md).**
 
 ## A. Purpose and design
 
@@ -99,8 +99,8 @@ Updated: 7 September 2026. This is our working source of truth. Update it after 
 - [x] G4 New private Railway project `kline-catalog-staging`, separate PostgreSQL volume/bucket, secure staging identity, branch and exact frontend origins configured. See `docs/railway-staging.md`.
 - [x] G5 Both frontends and POS API healthy on Railway; all 108 migrations current; actual CORS, login, private byte-preserving images, pricing, partial receipts, stock and POS navigation pass. Live AI integration now passes (R11d); broader staff quality acceptance remains R11e. Evidence: `verification/railway/`.
 - [ ] G6 Owner/staff acceptance of required checklist items on staging.
-- [ ] G7 Production replacement authorized. Full database/image backups and restore rehearsals pass; migrations 106?108 applied through the canonical backup-gated runner. Catalog and POS frontend deployed; backend deployed successfully; authenticated live catalog verification remains. Track exact steps in [production cutover](docs/production-cutover-plan.md).
-- [ ] G8 Monitoring/rollback confirmation, staff handover and closure of launch issues. Read-only staging health probes and an incident/rollback runbook are prepared in `app/tests/railway-health.mjs` and `docs/monitoring-and-rollback.md`; scheduling, alert ownership and production rehearsal remain pending. The proxy/login-rate-limit issue is resolved in staging at POS dbde269: explicit validated edge identity, 25 session reads without consuming login attempts, spoof resistance and all 261 backend tests pass. Monitoring ownership and staff/production approval remain open.
+- [x] G7 Production backup, recovery rehearsal, canonical migrations and deployment complete. Actual private upload, restart recovery, exact-one intake, cancellation and preserved existing records verified. Both websites and eight public health probes pass. See [production cutover](docs/production-cutover-plan.md).
+- [ ] G8 Monitoring ownership/scheduling, staff handover and remaining launch decisions. Production backup/object recovery and rollback targets are recorded; manual GitHub health probes pass. Existing proxy/auth safeguards are live. Category decisions and physical-device/staff acceptance remain open.
 
 ## O. Optional scope — decide explicitly
 
@@ -137,3 +137,5 @@ Complete required A–G tasks, decide O items explicitly and obtain owner accept
 | 2026-09-07 | Owner requested the production replacement. Audited 1,031 existing catalog items and reused their live POS database/bucket. Restored all 81 tables, backed up all 1,237 images and verified object recovery. Two historical-data UI fixes deployed; POS release merged and migrations applied. | C5 category/access decisions and C8 authenticated live verification remain; preserve old browser queues and rollback origin. |
 
 Production browser update, 7 September 2026: owner sign-in passes; 964 NTINDA and 67 NAMUGONGO lots are visible. An original private photo decodes at 960 x 1280. Current stock, movement history and the correct live POS product/branch/pricing destination pass. Upload verification is blocked before submission by Chrome extension file-URL access (fileChooser.setFiles: Not allowed). No test delivery or stock was created. See `verification/production-browser.json`.
+
+| 2026-09-07 | C8/G7 complete: production upload error resolved by fresh checksum-configured API deployment. Same saved photo survived reload, resumed once, matched original bytes and was cancelled without POS receipt. Original catalog and commerce hashes remain unchanged. | Category mapping decisions, staff/device acceptance and monitoring ownership remain. |

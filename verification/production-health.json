@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-09-07T19:40:23.431Z",
+  "checked_at": "2026-09-07T19:58:11.117Z",
   "project_id": "f06ae302-c116-487a-96d6-4a76a387e533",
   "scope": "Live production; unauthenticated, read-only checks",
   "node_options": [],
@@ -9,49 +9,49 @@
       "name": "Catalog HTML",
       "passed": true,
       "status": 200,
-      "elapsed_ms": 326
+      "elapsed_ms": 271
     },
     {
       "name": "POS HTML",
       "passed": true,
       "status": 200,
-      "elapsed_ms": 149
+      "elapsed_ms": 168
     },
     {
       "name": "API process",
       "passed": true,
       "status": 200,
-      "elapsed_ms": 192
+      "elapsed_ms": 253
     },
     {
       "name": "Database connectivity",
       "passed": true,
       "status": 200,
-      "elapsed_ms": 244
+      "elapsed_ms": 267
     },
     {
       "name": "Anonymous workspace denied",
       "passed": true,
       "status": 401,
-      "elapsed_ms": 227
+      "elapsed_ms": 302
     },
     {
       "name": "CORS permits https://catalog-production-ed0b.up.railway.app",
       "passed": true,
       "status": 204,
-      "elapsed_ms": 207
+      "elapsed_ms": 308
     },
     {
       "name": "CORS permits https://inventory-pos.pages.dev",
       "passed": true,
       "status": 204,
-      "elapsed_ms": 238
+      "elapsed_ms": 338
     },
     {
       "name": "CORS denies foreign origin",
       "passed": true,
       "status": 500,
-      "elapsed_ms": 241
+      "elapsed_ms": 338
     }
   ],
   "limitations": "A point-in-time probe, not scheduled monitoring or a browser, login, AI, photo or commerce test."
