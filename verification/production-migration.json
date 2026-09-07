@@ -1,0 +1,13 @@
+{
+  "checked_at": "2026-09-07T19:35:57.369Z",
+  "passed": true,
+  "project_id": "f06ae302-c116-487a-96d6-4a76a387e533",
+  "canonical_runner": "backend/run-migrations.js",
+  "production_backup_gate_enabled": true,
+  "backup_sha256": "84ed7b19d99e24d21d612047d7fea8bfe3acec29dd187adba31b2964146636f4",
+  "applied_migrations": [
+    106,
+    107,
+    108
+  ]
+}

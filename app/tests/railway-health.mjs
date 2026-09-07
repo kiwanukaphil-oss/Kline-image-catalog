@@ -1,9 +1,19 @@
 import fs from 'node:fs/promises';
 
-const catalogOrigin = 'https://catalog-web-production-2d56.up.railway.app';
-const posOrigin = 'https://pos-web-production-fee4.up.railway.app';
-const apiOrigin = 'https://pos-api-production-07c3.up.railway.app';
-const evidencePath = new URL('../../verification/railway/health.json', import.meta.url);
+const production = process.argv.includes('--production');
+const catalogOrigin = production
+  ? 'https://catalog-production-ed0b.up.railway.app'
+  : 'https://catalog-web-production-2d56.up.railway.app';
+const posOrigin = production
+  ? 'https://inventory-pos.pages.dev'
+  : 'https://pos-web-production-fee4.up.railway.app';
+const apiOrigin = production
+  ? 'https://inventorypos-production.up.railway.app'
+  : 'https://pos-api-production-07c3.up.railway.app';
+const evidencePath = new URL(
+  production ? '../../verification/production-health.json' : '../../verification/railway/health.json',
+  import.meta.url,
+);
 
 /** Record bounded, read-only probes without credentials or response bodies in evidence. */
 async function checkEndpoint(name, path, validate, options = {}) {
@@ -84,8 +94,8 @@ const checks = await Promise.all([
 
 const result = {
   checked_at: new Date().toISOString(),
-  project_id: '9ce0cab6-9ab1-4da3-854b-afcf4cfa914b',
-  scope: 'Isolated Railway staging; unauthenticated, read-only checks',
+  project_id: production ? 'f06ae302-c116-487a-96d6-4a76a387e533' : '9ce0cab6-9ab1-4da3-854b-afcf4cfa914b',
+  scope: `${production ? 'Live production' : 'Isolated Railway staging'}; unauthenticated, read-only checks`,
   node_options: process.execArgv,
   passed: checks.every((check) => check.passed === true),
   checks,

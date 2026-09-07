@@ -1,0 +1,65 @@
+{
+  "checked_at": "2026-09-07T19:37:53.619Z",
+  "project_id": "f06ae302-c116-487a-96d6-4a76a387e533",
+  "scope": "Live production; unauthenticated, read-only checks",
+  "node_options": [
+    "--dns-result-order=ipv4first"
+  ],
+  "passed": false,
+  "checks": [
+    {
+      "name": "Catalog HTML",
+      "passed": false,
+      "status": null,
+      "elapsed_ms": 10604,
+      "error": "Request or validation failed"
+    },
+    {
+      "name": "POS HTML",
+      "passed": true,
+      "status": 200,
+      "elapsed_ms": 3883
+    },
+    {
+      "name": "API process",
+      "passed": false,
+      "status": null,
+      "elapsed_ms": 10568,
+      "error": "Request or validation failed"
+    },
+    {
+      "name": "Database connectivity",
+      "passed": false,
+      "status": null,
+      "elapsed_ms": 10567,
+      "error": "Request or validation failed"
+    },
+    {
+      "name": "Anonymous workspace denied",
+      "passed": false,
+      "status": null,
+      "elapsed_ms": 10567,
+      "error": "Request or validation failed"
+    },
+    {
+      "name": "CORS permits https://catalog-production-ed0b.up.railway.app",
+      "passed": false,
+      "status": null,
+      "elapsed_ms": 10566,
+      "error": "Request or validation failed"
+    },
+    {
+      "name": "CORS permits https://inventory-pos.pages.dev",
+      "passed": true,
+      "status": 204,
+      "elapsed_ms": 3705
+    },
+    {
+      "name": "CORS denies foreign origin",
+      "passed": true,
+      "status": 500,
+      "elapsed_ms": 536
+    }
+  ],
+  "limitations": "A point-in-time probe, not scheduled monitoring or a browser, login, AI, photo or commerce test."
+}

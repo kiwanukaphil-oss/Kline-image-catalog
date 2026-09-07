@@ -49,11 +49,11 @@ this transition, using the same data, rather than becoming a second stock ledger
 
 - [x] C1 Inspect the live source, record counts, identify reference/mapping/access gaps.
 - [x] C2 Capture a fresh consistent logical backup; restore into a separate PostgreSQL 18 rehearsal database. All 81 table row fingerprints match. Apply the three migrations there; all pre-existing rows remain unchanged and 108 migrations are current.
-- [ ] C3 Back up and hash-verify all 1,237 distinct referenced catalog/POS image objects. Private evidence lives outside Git.
+- [x] C3 All 1,237 referenced objects (287,614,070 bytes) are backed up and hash-verified. One backup image was restored to the isolated staging bucket and matched byte-for-byte; the rehearsal object was then removed. Private source manifests and bytes stay outside Git; see `verification/production-photo-recovery.json`.
 - [x] C4 Validate the two migration-specific interface fixes: focused browser checks, TypeScript, lint and production build pass. Source is included in the production release.
 - [ ] C5 Resolve the three category mappings and intended staff access using the owner's decisions.
-- [ ] C6 Release the compatible POS backend/frontend, enable the workspace, permit the exact new frontend origin and verify migration status.
-- [ ] C7 Deploy the production catalog frontend with the real POS API and POS UI origins. The staging sample database stays isolated.
+- [x] C6 POS backend and frontend released as `6038486`. Railway deployment `e9460629-cd5e-44c7-8be6-794adb78aba2` is healthy; workspace and exact-origin CORS enabled. All 108 migrations are current with zero checksum drift; all 23 catalog/commerce table fingerprints remain unchanged. See `verification/production-continuity.json`.
+- [x] C7 Production catalog frontend deployed successfully at commit `6aea4e2`, deployment `0fea13c7-f707-46bf-a9d9-8415b8cc404a`, using the real POS API and UI. Staging stays isolated.
 - [ ] C8 Verify real catalog/stock reads, private photos, login/branch permissions, reviewed upload recovery and no duplicated historic receipts.
 - [ ] C9 Confirm the replacement URL, preserve rollback targets and settle old-origin/browser-queue retirement and monitoring ownership.
 
@@ -77,3 +77,7 @@ mount or restore the prior compatible deployment if necessary; do not restore an
 older database over new sales/receipts. Database disaster recovery is separate.
 Private backup locations, object manifests, hashes and rehearsal credentials are
 kept in ignored local evidence and the user's migration-evidence directory.
+
+## Release execution
+
+POS PR #1 merged as `6038486` on 7 September 2026. Cloudflare Pages production deployment `929bbed4-0d8c-4f23-882e-a79a8d851434` passed. The first Railway deployment stopped at the production backup gate before applying migrations because the container could not access the local dump. The canonical production runner was then executed from this workstation with the verified dump and its backup guard enabled; only 106?108 applied. See `verification/production-migration.json`. Backend redeployment `e9460629-cd5e-44c7-8be6-794adb78aba2` succeeded; no guard was disabled. The temporary staging database proxy was deleted after rehearsal and its absence verified. The pre-existing production proxy remains unchanged.

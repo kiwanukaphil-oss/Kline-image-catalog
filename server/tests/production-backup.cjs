@@ -16,7 +16,10 @@ const staging = readPrivate('railway-staging-private.json').database;
 const proxy = readPrivate('production-rehearsal-proxy.json').proxy;
 assert.equal(source.RAILWAY_PROJECT_ID, 'f06ae302-c116-487a-96d6-4a76a387e533');
 assert.equal(source.RAILWAY_SERVICE_ID, '26829259-55d6-447c-89bf-0474e71edc1f');
+assert.equal(source.RAILWAY_ENVIRONMENT_ID, '87667cac-e089-45e8-b67d-2c5d0d25b9a8');
 assert.equal(staging.RAILWAY_PROJECT_ID, '9ce0cab6-9ab1-4da3-854b-afcf4cfa914b');
+assert.equal(staging.RAILWAY_ENVIRONMENT_ID, 'f5099338-7b6a-425b-8a78-fea771ff5809');
+assert.equal(staging.RAILWAY_SERVICE_ID, '2ffc064d-f2ec-4431-88b4-8866bd6f1784');
 const quoteIdentifier = (name) => '"' + name.replaceAll('"', '""') + '"';
 const sourceConfig = { host: 'autorack.proxy.rlwy.net', port: 10669,
   database: source.PGDATABASE, user: source.PGUSER, password: source.PGPASSWORD,

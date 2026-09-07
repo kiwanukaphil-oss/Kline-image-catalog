@@ -1,6 +1,6 @@
 # Packaged POS integration
 
-The release candidate is pushed to the catalog repository. POS integration is isolated in [draft PR #1](https://github.com/kiwanukaphil-oss/Inventory_POS/pull/1), with package 0.16.0. No production deployment has occurred.
+Package 0.16.0 is live. [POS PR #1](https://github.com/kiwanukaphil-oss/Inventory_POS/pull/1) merged as `6038486`; Railway backend and Cloudflare POS frontend deployed on 7 September 2026. Migrations 106?108 passed the canonical production backup guard. See [production continuity and remaining acceptance](production-cutover-plan.md).
 
 ## Runtime artifact
 
@@ -32,4 +32,4 @@ The preview now uses this normal POS app and installed package. Its local-only g
 5. With staging identities, verify login, branch restrictions, private image upload/read, delivery/count edits, group price and exception review, receiving, safe retry and current POS availability. Verify a disallowed origin receives no CORS access. Live AI extraction and cross-app navigation need their own staging checks.
 6. Promote only after staging review. Disabling the flag hides workspace routes while preserving delivery records and receipts. It does not reverse received stock; stock corrections continue through the POS's audited workflow.
 
-Actual staging identity, CORS, both frontends, original private photos and POS navigation now pass on the isolated Railway deployment. See `railway-staging.md` and `verification/railway/`. Provider AI, physical-device/staff acceptance and production release remain open.
+Actual staging identity, CORS, both frontends, original private photos and POS navigation now pass on the isolated Railway deployment. See `railway-staging.md` and `verification/railway/`. Provider AI passes in staging; physical-device/staff acceptance and the final production catalog sign-in/upload check remain open.

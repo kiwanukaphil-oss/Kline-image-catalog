@@ -1,7 +1,7 @@
 # Monitoring and rollback handover
 
 Status: operating procedure prepared; scheduling, alert delivery, named ownership
-and production rehearsal are not yet accepted. This document supports G8 and does
+remain pending. Database and private-photo recovery rehearsals passed on 7 September 2026. This document supports G8 and does
 not authorize a production release.
 
 ## Check staging now
@@ -12,7 +12,7 @@ From the catalog repository root, run:
 node app/tests/railway-health.mjs
 ```
 
-The script uses only the three fixed staging origins. It requires no credentials,
+The script defaults to the three fixed staging origins. Add `--production` to probe the fixed live origins and save `verification/production-health.json`. It requires no credentials,
 does not log in or consume the login-attempt allowance, and makes no stock,
 upload or AI changes. Eight bounded probes check both HTML applications, API
 process health, actual database connectivity, anonymous workspace rejection,
@@ -129,3 +129,7 @@ database and bucket recovery acceptance remains G7.
 
 No alert messages, scheduled jobs, production changes or automatic rollbacks are
 created by this handover.
+
+## Production rollout, 7 September 2026
+
+See [production cutover](production-cutover-plan.md) for live service IDs, backup evidence and rollback versions. The production process/database, workspace authentication rejection and both allowed CORS origins have returned expected responses. Local transport failures occurred intermittently across different endpoints; preserve `verification/production-health-first-run.json` and `production-health-second-run.json`. A passing response on retry does not establish their cause. The existing POS Administrator browser session still shows 270 units across 213 products after deployment.

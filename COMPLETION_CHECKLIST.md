@@ -1,10 +1,10 @@
 # K-Line completion checklist
 
-Updated: 6 September 2026. This is our working source of truth. Update it after each step; retain historical design documents as history.
+Updated: 7 September 2026. This is our working source of truth. Update it after each step; retain historical design documents as history.
 
 **Checked means implemented and verified locally unless explicitly labelled staging/production.** An implemented feature can still await commit, release or staff acceptance. Optional features do not silently become launch requirements.
 
-**Release candidate: package 0.16.0. Core workflows and administration are implemented. 261 clean committed POS backend tests, 22 POS frontend tests, 24 workspace checks and eight accessibility views pass; audits report zero known vulnerabilities. All 21 browser cases pass, including the targeted two-app repeat after preview restart. Local backup/restore and all 108 migration checks pass. The isolated Railway deployment, real private bucket and cross-app acceptance pass. Live AI integration passes on two real photos; broader staff accuracy, physical devices and production release remain pending.**
+**Production deployed: package 0.16.0, catalog 6aea4e2 and POS 6038486. The existing live catalog/POS database and private bucket are reused. Full backups, restore rehearsals, migrations and 23 unchanged catalog/commerce table fingerprints pass. Final authenticated catalog upload, category/staff decisions and physical-device acceptance remain open. See the [production cutover checklist](docs/production-cutover-plan.md).**
 
 ## A. Purpose and design
 
@@ -95,11 +95,11 @@ Updated: 6 September 2026. This is our working source of truth. Update it after 
 
 - [x] G1 Reviewed app committed as `65a4f07`; POS safeguard as `6de2d74`; unrelated POS AI edits excluded.
 - [x] G2 Packaged integration committed as catalog `3f0af21` and POS `1cc61ba`; subsequent verified slices committed under the user's continuing authorization. Unrelated POS AI edits remain separate.
-- [x] G3 Catalog main pushed to the provided repository. POS changes pushed on `catalog/workspace-release`; draft [Inventory_POS PR #1](https://github.com/kiwanukaphil-oss/Inventory_POS/pull/1) awaits staging/acceptance. Production master remains unchanged.
+- [x] G3 Catalog main pushed to the provided repository. POS changes pushed on `catalog/workspace-release`; [Inventory_POS PR #1](https://github.com/kiwanukaphil-oss/Inventory_POS/pull/1) merged as `6038486` under the owner?s production replacement request on 7 September 2026.
 - [x] G4 New private Railway project `kline-catalog-staging`, separate PostgreSQL volume/bucket, secure staging identity, branch and exact frontend origins configured. See `docs/railway-staging.md`.
 - [x] G5 Both frontends and POS API healthy on Railway; all 108 migrations current; actual CORS, login, private byte-preserving images, pricing, partial receipts, stock and POS navigation pass. Live AI integration now passes (R11d); broader staff quality acceptance remains R11e. Evidence: `verification/railway/`.
 - [ ] G6 Owner/staff acceptance of required checklist items on staging.
-- [ ] G7 Approve production backup/migration/deployment, release, then verify production behavior.
+- [ ] G7 Production replacement authorized. Full database/image backups and restore rehearsals pass; migrations 106?108 applied through the canonical backup-gated runner. Catalog and POS frontend deployed; backend deployed successfully; authenticated live catalog verification remains. Track exact steps in [production cutover](docs/production-cutover-plan.md).
 - [ ] G8 Monitoring/rollback confirmation, staff handover and closure of launch issues. Read-only staging health probes and an incident/rollback runbook are prepared in `app/tests/railway-health.mjs` and `docs/monitoring-and-rollback.md`; scheduling, alert ownership and production rehearsal remain pending. The proxy/login-rate-limit issue is resolved in staging at POS dbde269: explicit validated edge identity, 25 session reads without consuming login attempts, spoof resistance and all 261 backend tests pass. Monitoring ownership and staff/production approval remain open.
 
 ## O. Optional scope — decide explicitly
@@ -133,3 +133,5 @@ Complete required A–G tasks, decide O items explicitly and obtain owner accept
 | 2026-09-06 | G8 preparation: eight read-only live health probes pass on repeat; first-run POS connection failure retained with exit code 1, passing repeat returns 0. Added monitoring/rollback procedure and tracked the proxy/login-limiter launch issue. | Committed and pushed as ca48eb6. Scheduled monitoring, named ownership, proxy verification and G6/G7 acceptance remain pending. See `verification/railway/health.json`, `health-first-run.json` and `docs/monitoring-and-rollback.md`. |
 
 | 2026-09-06 | G8 technical follow-up complete: POS dbde269 uses validated Railway client identity for IP limits and audits; session reads no longer spend the login allowance. All 261 backend tests / 27 suites and actual Railway header-spoof/session checks pass. | Owner/staff acceptance, physical phones, monitoring ownership and production rollout approval remain required. Evidence: `verification/railway/auth-proxy.json`; no production changes. |
+
+| 2026-09-07 | Owner requested the production replacement. Audited 1,031 existing catalog items and reused their live POS database/bucket. Restored all 81 tables, backed up all 1,237 images and verified object recovery. Two historical-data UI fixes deployed; POS release merged and migrations applied. | C5 category/access decisions and C8 authenticated live verification remain; preserve old browser queues and rollback origin. |

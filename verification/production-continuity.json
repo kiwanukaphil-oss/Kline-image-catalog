@@ -1,0 +1,133 @@
+{
+  "checked_at": "2026-09-07T19:36:20.009Z",
+  "read_only": true,
+  "checks": [
+    {
+      "table": "\"inventory\".\"ai_usage\"",
+      "rows": 266,
+      "unchanged": true
+    },
+    {
+      "table": "\"inventory\".\"app_settings\"",
+      "rows": 1,
+      "unchanged": true
+    },
+    {
+      "table": "\"inventory\".\"audit_log\"",
+      "rows": 7560,
+      "unchanged": true
+    },
+    {
+      "table": "\"inventory\".\"calibration_marks\"",
+      "rows": 63,
+      "unchanged": true
+    },
+    {
+      "table": "\"inventory\".\"catalog_publications\"",
+      "rows": 263,
+      "unchanged": true
+    },
+    {
+      "table": "\"inventory\".\"categories\"",
+      "rows": 25,
+      "unchanged": true
+    },
+    {
+      "table": "\"inventory\".\"category_fields\"",
+      "rows": 35,
+      "unchanged": true
+    },
+    {
+      "table": "\"inventory\".\"client_errors\"",
+      "rows": 6,
+      "unchanged": true
+    },
+    {
+      "table": "\"inventory\".\"item_costs\"",
+      "rows": 621,
+      "unchanged": true
+    },
+    {
+      "table": "\"inventory\".\"item_events\"",
+      "rows": 2973,
+      "unchanged": true
+    },
+    {
+      "table": "\"inventory\".\"item_jobs\"",
+      "rows": 109,
+      "unchanged": true
+    },
+    {
+      "table": "\"inventory\".\"item_variant_lines\"",
+      "rows": 1082,
+      "unchanged": true
+    },
+    {
+      "table": "\"inventory\".\"items\"",
+      "rows": 1031,
+      "unchanged": true
+    },
+    {
+      "table": "\"inventory\".\"pos_category_map\"",
+      "rows": 22,
+      "unchanged": true
+    },
+    {
+      "table": "\"inventory\".\"pricing_plans\"",
+      "rows": 0,
+      "unchanged": true
+    },
+    {
+      "table": "\"inventory\".\"saved_views\"",
+      "rows": 0,
+      "unchanged": true
+    },
+    {
+      "table": "\"inventory\".\"vocabularies\"",
+      "rows": 127,
+      "unchanged": true
+    },
+    {
+      "table": "\"public\".\"product_images\"",
+      "rows": 213,
+      "unchanged": true
+    },
+    {
+      "table": "\"public\".\"product_variants\"",
+      "rows": 241,
+      "unchanged": true
+    },
+    {
+      "table": "\"public\".\"products\"",
+      "rows": 213,
+      "unchanged": true
+    },
+    {
+      "table": "\"public\".\"sale_items\"",
+      "rows": 1,
+      "unchanged": true
+    },
+    {
+      "table": "\"public\".\"sales\"",
+      "rows": 1,
+      "unchanged": true
+    },
+    {
+      "table": "\"public\".\"stock_movements\"",
+      "rows": 292,
+      "unchanged": true
+    }
+  ],
+  "migrations": {
+    "hasMigrationsTable": true,
+    "totalCount": 108,
+    "appliedCount": 108,
+    "pending": [],
+    "checksumMismatches": [],
+    "unknownApplied": [],
+    "bootstrapPlan": null,
+    "hasUntrackedSchema": false,
+    "isUpToDate": true
+  },
+  "passed": true
+}

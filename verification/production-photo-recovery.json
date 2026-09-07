@@ -1,0 +1,8 @@
+{
+  "checked_at": "2026-09-07T19:33:17.563Z",
+  "passed": true,
+  "bytes": 33138,
+  "sha256": "8a7548e88b27da9d1748240badda5b9649cbcc60c346692adf6cf758b0f92776",
+  "destination": "isolated staging bucket",
+  "production_objects_unchanged": true
+}

@@ -1,8 +1,8 @@
 # K-Line merchandise workspace
 
-Receiving, Pricing and Stock in one focused workspace, connected locally to the existing POS services and an isolated PostgreSQL database. The initial implementation is committed; further integration work is tracked in the [completion checklist](COMPLETION_CHECKLIST.md). It has not been deployed.
+Receiving, Pricing and current Stock, connected to the live POS. The production app is **https://catalog-production-ed0b.up.railway.app**; use your existing POS account. Only accounts with catalog permissions can enter.
 
-The live progress record is [COMPLETION_CHECKLIST.md](COMPLETION_CHECKLIST.md). POS integration is in [draft PR #1](https://github.com/kiwanukaphil-oss/Inventory_POS/pull/1); production rollout remains gated on staging and staff acceptance.
+The app reuses the original catalog's live database and private images. No duplicate import or stock receipt is needed. The [production cutover plan](docs/production-cutover-plan.md) records the gap assessment, verified database/image backups, deployments and remaining sign-in/category/access checks. [POS PR #1](https://github.com/kiwanukaphil-oss/Inventory_POS/pull/1) is merged; [COMPLETION_CHECKLIST.md](COMPLETION_CHECKLIST.md) tracks completion and staff acceptance.
 
 ## Review it locally
 
@@ -10,7 +10,7 @@ The running preview is at **http://localhost:5198** (IPv6 equivalent: **http://[
 
 Use **testadmin / testpass123**. These are disposable local fixture credentials. The branch selector says **Test Store**. **New arrivals** contains editable drafts for exploring Pricing; **September delivery** contains completed receipts. Stock includes POS-only products and the merchandise received during verification.
 
-The preview uses real HTTP requests, the real POS authentication/pricing/publication/sales services and a dedicated `kline_catalog_workspace_test` database. Test images use a local filesystem adapter with expiring signed URLs. No production stock, production account or production bucket was changed.
+The preview uses real HTTP requests, the real POS authentication/pricing/publication/sales services and a dedicated `kline_catalog_workspace_test` database. Test images use a local filesystem adapter with expiring signed URLs. These local fixtures do not write production stock, accounts or images.
 
 ## Workflows
 
@@ -89,7 +89,7 @@ Generated shadcn primitives are retained and excluded from application lint rath
 
 ## Connecting the actual POS deployment
 
-The runtime wiring is now implemented locally for review. The local test host deliberately refuses production/remote databases. See the [packaged integration and release sequence](docs/pos-release.md).
+The runtime wiring is deployed in the live POS backend. The local test host deliberately refuses production/remote databases. See the [packaged integration and release sequence](docs/pos-release.md).
 
 1. Apply POS migration 106 through the POS's normal, reviewed migration process.
 2. Deploy the POS backend with its locked `@kline/pos-workspace` tarball dependency and enable `CATALOG_WORKSPACE_ENABLED=true`. The normal server mounts the package after its security middleware and before the final not-found handler.

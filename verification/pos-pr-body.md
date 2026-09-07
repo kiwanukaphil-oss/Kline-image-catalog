@@ -1,18 +1,20 @@
-The catalog workspace separates new-stock Receiving, flexible shared Pricing and current POS Stock. Staff can set a common price with brand/size exceptions, review exact changes and undo saved plans. Receiving requires confirmed size counts and a current review; retries cannot duplicate stock. Existing-product restock uses explicit size matching, and photo recovery runs independently of receipts.
+﻿The catalog workspace adds separate Receiving, flexible shared Pricing and current POS Stock workflows. Staff can set a common price with brand/size exceptions, preview changes and undo saved plans. Confirmed size counts and current reviews are required before receiving; retry recovery prevents duplicate stock. Existing-product restock and photo recovery preserve POS ownership.
 
-The normal POS server mounts `@kline/pos-workspace` 0.16.0 behind `CATALOG_WORKSPACE_ENABLED`. Migrations 106-108 add deliveries, photo-transfer tasks and reversible cancellation. Administration, AI fill/review, item history and POS deep links preserve permissions, branch context, audit records and stale-edit protection.
+The POS server mounts @kline/pos-workspace 0.16.0 behind CATALOG_WORKSPACE_ENABLED. Additive migrations 106–108 introduce delivery organization, photo-transfer recovery and reversible cancellation. Catalog administration, AI review, history and POS deep links enforce existing permissions and branch context. Explicit Railway client-address handling protects login rate limits without trusting arbitrary forwarded headers.
 
-Railway authentication now uses an explicit validated edge-address policy (`CLIENT_IP_SOURCE=railway`) for IP rate keys and audit records. Direct deployments retain socket identity. Routine session reads no longer consume the existing 20-attempt login allowance. Global Express proxy trust stays disabled; authenticated upload/AI limits remain user-based. ADR-087 records the provider contract, configuration boundary and process-local limiter limitation.
+Production continuity:
+- The old catalog already uses the live POS database and private bucket. Reuse all 1,031 catalog records and existing image keys; no second import or stock receipt.
+- A fresh production dump was restored into a separate PostgreSQL 18 rehearsal database: all 81 table fingerprints match. Applying 106–108 preserves every pre-existing row and brings the ledger to 108 current migrations.
+- All 1,237 referenced private images have local byte/hash-verified backups. One backup image was restored to the isolated staging bucket and its hash verified.
+- Preserve the old frontend for pending browser queues and rollback. Three category mappings and staff access decisions remain owner-controlled; no accounts or archived categories are reactivated by this release.
 
 Validation:
+- Backend: 261 tests / 27 suites pass on dbde269, including real-database auth/proxy/audit checks. POS frontend: 22 tests pass. GitHub backend and frontend CI and Cloudflare Pages preview pass.
+- Separate Railway staging verifies actual receiving, interrupted uploads, receipt recovery, exactly eight received units, private photo integrity, AI review and cross-app branch/session handling.
+- Both requested pricing examples pass live Save and Undo on 1,000 lots / 3,000 size lines each. The 2,000-draft pricing load improved from 12.6s to 6.0s in the recorded comparison; unique-photo/concurrent-user throughput is not established by that fixture.
+- Companion catalog production build, TypeScript, lint and migration-interface browser checks pass, including displaying existing merchandise and preserving historical field values during unrelated edits.
+- The secondary Vercel preview status is failed and its logs require separate authentication. Vercel is not the live POS destination; Railway staging and the actual Cloudflare Pages preview passed. No check is bypassed or represented as passing.
 
-- All 261 backend tests / 27 suites pass on isolated release commit `dbde269`, including 12 real Express/PostgreSQL proxy, audit and auth-limit checks. Unrelated local AI edits are excluded. POS frontend has 22 passing tests.
-- Catalog verification includes 24 HTTP/database cases, all 21 browser cases and eight clean accessibility scans. Local database backup/restore preserves 13 checked table counts and all 108 migrations.
-- Separate Railway staging has both frontends, the API, PostgreSQL and a private image bucket. Actual receiving, interrupted uploads, partial receipt recovery, exactly eight stock units, byte-preserving private photos and cross-app session/branch handling pass.
-- Both requested pricing examples pass live Save and Undo for 1,000 lots / 3,000 size lines each. Complete pricing load with 2,000 drafts improved from 12.6s to 6.0s in the recorded comparison. Synthetic lots reuse a photo; this does not measure unique-image or concurrent-user throughput.
-- Live Railway auth checks confirm 25 session reads do not spend the login allowance and forged forwarding headers cannot create a fresh allowance. The staging API has no public TCP bypass.
-- Two real private-photo AI runs preserve staff edits and uncertainty evidence; reopening saved results issues no new extraction request. Actual staging PWA share/offline/private-cache checks pass.
+Deployment: existing Railway production predeploy applies only the pending migrations; enable the workspace, exact catalog CORS origin and Railway client-address mode. Verify live reads/upload with the owner's account. Physical-phone acceptance and monitoring ownership remain handover items.
 
-This remains a draft release candidate. Staff usability, broader merchandise AI accuracy, physical-phone acceptance, monitoring ownership and production backup/deployment approval remain open. Existing production master is unchanged. Superseded code is retained pending an explicit removal decision.
-
-Companion app, checklist and detailed evidence: https://github.com/kiwanukaphil-oss/Kline-image-catalog
+Companion app, checklist and evidence: https://github.com/kiwanukaphil-oss/Kline-image-catalog

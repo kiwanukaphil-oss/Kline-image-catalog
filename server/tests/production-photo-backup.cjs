@@ -8,6 +8,8 @@ const root = path.resolve(__dirname, '../..');
 const requirePos = createRequire('C:/Projects/Inventory POS release check/backend/package.json');
 const config = JSON.parse(fs.readFileSync(path.join(root,'.test-data/production-api-private.json'),'utf8').replace(/^\uFEFF/,''));
 assert.equal(config.RAILWAY_PROJECT_ID, 'f06ae302-c116-487a-96d6-4a76a387e533');
+assert.equal(config.RAILWAY_ENVIRONMENT_ID, '87667cac-e089-45e8-b67d-2c5d0d25b9a8');
+assert.equal(config.RAILWAY_SERVICE_ID, '16a1ac8a-2114-4107-8066-26fb699c1641');
 for (const [key,value] of Object.entries(config)) if (key.startsWith('CATALOG_BUCKET')) process.env[key] = value;
 const { downloadPrivateObject } = requirePos('./src/services/railwayObjectStorageService');
 const evidenceRoot = path.join(process.env.LOCALAPPDATA,'KLineMigrationEvidence','catalog-redesign');
