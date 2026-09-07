@@ -30,7 +30,7 @@ lint and the Node production build. The release baseline passes 261 backend and
 22 POS frontend tests; Cloudflare deployment passed. A secondary Vercel preview
 failed and requires separate authentication to inspect; it is not the live POS
 destination. Local network failures are retained in health evidence. A manual,
-credential-free GitHub health workflow provides a separate network check.
+credential-free GitHub health workflow passed all eight public production checks in run 34156463030. Failure samples remain preserved.
 
 Applied POS decisions include ADR-006/059 permissions/branch boundaries,
 ADR-009 real database verification, ADR-069/071/073 safe publication and locked
