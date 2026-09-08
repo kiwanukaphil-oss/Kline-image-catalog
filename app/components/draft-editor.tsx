@@ -314,7 +314,11 @@ export function DraftEditor({
                   }}
                 />
               )}
-              <Photo url={item.image_url} name={item.name || 'Photographed merchandise'} />
+              <Photo
+                url={item.image_url}
+                name={item.name || 'Photographed merchandise'}
+                onInspect={() => setInspecting(true)}
+              />
               {item.photo_handoff && (
                 <div className="space-y-2" role="status">
                   <p className="text-sm text-muted-foreground">

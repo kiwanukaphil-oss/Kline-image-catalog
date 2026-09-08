@@ -42,17 +42,19 @@ export function Photo({
   url,
   name,
   className = '',
+  onInspect,
 }: {
   url: string | null;
   name: string;
   className?: string;
+  onInspect?: () => void;
 }) {
   /* Display the original evidence image with an honest unavailable or missing-photo state. */
 
   const [failed, setFailed] = useState(false);
   useEffect(() => setFailed(false), [url]);
-  return (
-    <div className={`photo ${className}`}>
+  const photoContent = (
+    <>
       {url && !failed ? (
         <img src={url} alt={name || 'Merchandise photo'} loading="lazy" onError={() => setFailed(true)} />
       ) : (
@@ -61,7 +63,19 @@ export function Photo({
           <small>{failed ? 'Photo unavailable' : 'No photo'}</small>
         </span>
       )}
-    </div>
+    </>
+  );
+  return onInspect && url ? (
+    <button
+      type="button"
+      className={`photo cursor-zoom-in focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring ${className}`}
+      aria-label={`Enlarge photo of ${name || 'merchandise'}`}
+      onClick={onInspect}
+    >
+      {photoContent}
+    </button>
+  ) : (
+    <div className={`photo ${className}`}>{photoContent}</div>
   );
 }
 export function SearchField({
