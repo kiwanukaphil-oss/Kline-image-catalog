@@ -221,3 +221,16 @@ No production sleeve values were changed. Existing Long values are preserved; un
 - [x] Add local stage/error-code diagnostics without logging signed URLs or storage error messages. Focused diagnostic test and grouped gallery/retry/stock regression pass. The original production error was suppressed, and the successful retries do not establish its original cause.
 - [x] Prepare the POS gallery display correction: expose every thumbnail instead of only the first five, so the six-photo grouped product is fully browseable.
 - [x] Owner approved commit/deploy. POS `4ed996f` deployed successfully to Railway (`93ddd8ba-5e10-42d2-8e38-6a7d3dfad49a`) and Cloudflare Pages (`ea5642b8-ad1e-46b4-992a-108fb0ac94e5`). Live Mack Weldon 26201A-6 shows all six thumbnails; selecting photo 6 renders its 960px image. TypeScript/build and diagnostic/grouped-photo tests passed. Seven POS/API/auth/CORS health probes passed; the catalog Node probe timed out twice, while a separate IPv4 curl check returned HTTP 200. The read-only audit still confirms all 67 photos, 38 valid primary images, 124 variants and 126 units.
+
+## Reviewed brand-name alignment
+
+- [x] Owner requested alignment in catalog and POS. Label photos 20/21 establish the same Manschett branding; use Manschett and Mack Weldon as canonical names.
+- [x] Applied backed-up, audited production transaction: standardized 42 catalog records and 9 POS products, including Formal Shirt capitalization; reassigned the duplicate Manschett brand to the existing canonical brand and archived its old record. No duplicate-brand discount/promotion rules existed. Existing matching plans already used the canonical names.
+- [x] Protected-state hashes confirm no changes to variants, branch balances, source variant lines, product photos, model SKUs, prices or categories. Post-change Namugongo audit: 38 products / 124 variants / 126 units, all 67 photos linked, zero mismatches. Evidence: `verification/brand-name-alignment.json`. This is a live data cleanup; automatic normalization of future AI or manual input was not changed.
+
+## POS product-list navigation state
+
+- [x] Persist search, category, brand, stock status, publication status, tag, price range, sort, view, page and page size for the current browser-tab session, isolated by user and branch.
+- [x] Preserve state through product detail and return navigation; initialize the applied search from the saved search and wait for loaded results before clamping pagination.
+- [x] Four focused tests pass: browser Back, Products breadcrumb, user/branch isolation, clearing filters and corrupt/unavailable storage. TypeScript validation and production build pass.
+- [x] Owner approved commit/deploy. POS `ed7156e` is live on Cloudflare Pages; frontend CI passed. Live Namugongo verification preserves the Hugo search and Hugo & Victor brand filter after opening a product and returning through the Products breadcrumb. No production data was changed.

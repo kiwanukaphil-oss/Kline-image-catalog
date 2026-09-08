@@ -1,0 +1,582 @@
+{
+  "checked_at": "2026-09-08T15:19:55.606Z",
+  "applied": true,
+  "canonical_brands": [
+    "Manschett",
+    "Mack Weldon"
+  ],
+  "catalog_updated": 42,
+  "pos_updated": 9,
+  "matching_plans_updated": 0,
+  "archived_brand_id": "6fe71590-be38-409c-8cda-884d1fbb660a",
+  "backup": ".test-data/brand-alignment-before-1788880765588.json",
+  "protected_state_unchanged": true,
+  "changes": {
+    "items": [
+      {
+        "id": "027a1c49-ce74-4fb7-91c3-e29b2bf8aca4",
+        "before": {
+          "name": "MACK WELDON Formal shirt",
+          "brand": "MACK WELDON"
+        },
+        "after": {
+          "name": "Mack Weldon Formal Shirt",
+          "brand": "Mack Weldon"
+        }
+      },
+      {
+        "id": "0490ff90-a022-4b71-a5d5-c1dcf76060d4",
+        "before": {
+          "name": "MACK WELDON Formal Shirt",
+          "brand": "MACK WELDON"
+        },
+        "after": {
+          "name": "Mack Weldon Formal Shirt",
+          "brand": "Mack Weldon"
+        }
+      },
+      {
+        "id": "20af8e09-a9f1-48ef-90a5-a5845ab94ce9",
+        "before": {
+          "name": "MACK WELDON Formal shirt",
+          "brand": "MACK WELDON"
+        },
+        "after": {
+          "name": "Mack Weldon Formal Shirt",
+          "brand": "Mack Weldon"
+        }
+      },
+      {
+        "id": "20d7e99b-445f-405c-9aa8-90017a628587",
+        "before": {
+          "name": "MACK WELDON Formal Shirt",
+          "brand": "MACK WELDON"
+        },
+        "after": {
+          "name": "Mack Weldon Formal Shirt",
+          "brand": "Mack Weldon"
+        }
+      },
+      {
+        "id": "2973f19a-5bde-48a4-856f-62684cec4dc3",
+        "before": {
+          "name": "MACK WELDON Formal Shirt",
+          "brand": "MACK WELDON"
+        },
+        "after": {
+          "name": "Mack Weldon Formal Shirt",
+          "brand": "Mack Weldon"
+        }
+      },
+      {
+        "id": "2a53fb41-9b5a-4313-a0c9-94495b4b3df0",
+        "before": {
+          "name": "MACK WELDON Formal shirt",
+          "brand": "MACK WELDON"
+        },
+        "after": {
+          "name": "Mack Weldon Formal Shirt",
+          "brand": "Mack Weldon"
+        }
+      },
+      {
+        "id": "303ec48f-af23-4a26-991b-f9bdccb88d03",
+        "before": {
+          "name": "MACK WELDON Formal Shirt",
+          "brand": "MACK WELDON"
+        },
+        "after": {
+          "name": "Mack Weldon Formal Shirt",
+          "brand": "Mack Weldon"
+        }
+      },
+      {
+        "id": "3150592d-06e1-4e4c-a48b-85eea5f55a7d",
+        "before": {
+          "name": "MACK WELDON Formal Shirt",
+          "brand": "MACK WELDON"
+        },
+        "after": {
+          "name": "Mack Weldon Formal Shirt",
+          "brand": "Mack Weldon"
+        }
+      },
+      {
+        "id": "340721c2-92cb-4b61-94f8-432d3392175d",
+        "before": {
+          "name": "MACK WELDON Formal shirt",
+          "brand": "MACK WELDON"
+        },
+        "after": {
+          "name": "Mack Weldon Formal Shirt",
+          "brand": "Mack Weldon"
+        }
+      },
+      {
+        "id": "36c267ad-136e-4a06-8a3a-203fc173650b",
+        "before": {
+          "name": "MACK WELDON Formal shirt",
+          "brand": "MACK WELDON"
+        },
+        "after": {
+          "name": "Mack Weldon Formal Shirt",
+          "brand": "Mack Weldon"
+        }
+      },
+      {
+        "id": "3e1f836c-ca73-4c8f-957e-205ffe7b80fa",
+        "before": {
+          "name": "MACK WELDON Formal shirt",
+          "brand": "MACK WELDON"
+        },
+        "after": {
+          "name": "Mack Weldon Formal Shirt",
+          "brand": "Mack Weldon"
+        }
+      },
+      {
+        "id": "3e60ce89-a8a7-48e2-9b68-611b3122d15f",
+        "before": {
+          "name": "MACK WELDON Formal shirt",
+          "brand": "MACK WELDON"
+        },
+        "after": {
+          "name": "Mack Weldon Formal Shirt",
+          "brand": "Mack Weldon"
+        }
+      },
+      {
+        "id": "3ee81c72-cff8-4f6e-91ad-c312148a26f2",
+        "before": {
+          "name": "MACK WELDON Formal Shirt",
+          "brand": "MACK WELDON"
+        },
+        "after": {
+          "name": "Mack Weldon Formal Shirt",
+          "brand": "Mack Weldon"
+        }
+      },
+      {
+        "id": "5090d83a-81d9-476d-86ca-1389f7504e2d",
+        "before": {
+          "name": "Manschett Formal shirt",
+          "brand": "Manschett"
+        },
+        "after": {
+          "name": "Manschett Formal Shirt",
+          "brand": "Manschett"
+        }
+      },
+      {
+        "id": "59e86538-4808-443f-a3b6-257150d8f977",
+        "before": {
+          "name": "MACK WELDON Formal shirt",
+          "brand": "MACK WELDON"
+        },
+        "after": {
+          "name": "Mack Weldon Formal Shirt",
+          "brand": "Mack Weldon"
+        }
+      },
+      {
+        "id": "6576c07d-e06a-43ee-bd82-e770f99b05c4",
+        "before": {
+          "name": "MACK WELDON Formal Shirt",
+          "brand": "MACK WELDON"
+        },
+        "after": {
+          "name": "Mack Weldon Formal Shirt",
+          "brand": "Mack Weldon"
+        }
+      },
+      {
+        "id": "667f4041-0be6-4d37-9626-9c9917db0774",
+        "before": {
+          "name": "MACK WELDON Formal Shirt",
+          "brand": "MACK WELDON"
+        },
+        "after": {
+          "name": "Mack Weldon Formal Shirt",
+          "brand": "Mack Weldon"
+        }
+      },
+      {
+        "id": "67dd47e4-20a5-49c7-b617-0f0c51a1dd06",
+        "before": {
+          "name": "Mack Weldon Formal Shirt",
+          "brand": "MACK WELDON"
+        },
+        "after": {
+          "name": "Mack Weldon Formal Shirt",
+          "brand": "Mack Weldon"
+        }
+      },
+      {
+        "id": "6f8d069b-e423-4bc9-ad85-0c1d582ffe26",
+        "before": {
+          "name": "MACK WELDON Formal shirt",
+          "brand": "MACK WELDON"
+        },
+        "after": {
+          "name": "Mack Weldon Formal Shirt",
+          "brand": "Mack Weldon"
+        }
+      },
+      {
+        "id": "7337b545-1ac7-41b9-b0af-31cb5b22ce69",
+        "before": {
+          "name": "MACK WELDON Formal Shirt",
+          "brand": "MACK WELDON"
+        },
+        "after": {
+          "name": "Mack Weldon Formal Shirt",
+          "brand": "Mack Weldon"
+        }
+      },
+      {
+        "id": "799a0496-ef0d-4070-b8b0-84fe4ce1ba53",
+        "before": {
+          "name": "Manschett By QUESSTE Formal shirt",
+          "brand": "Manschett By QUESSTE"
+        },
+        "after": {
+          "name": "Manschett Formal Shirt",
+          "brand": "Manschett"
+        }
+      },
+      {
+        "id": "7e11f156-8528-463b-a8b1-05feaeeb7d3f",
+        "before": {
+          "name": "Manschett By Quesste Formal Shirt",
+          "brand": "Manschett By Quesste"
+        },
+        "after": {
+          "name": "Manschett Formal Shirt",
+          "brand": "Manschett"
+        }
+      },
+      {
+        "id": "818f4aea-45b5-434e-a1af-231ebcc3191e",
+        "before": {
+          "name": "Mack Weldon Formal Shirt",
+          "brand": "MACK WELDON"
+        },
+        "after": {
+          "name": "Mack Weldon Formal Shirt",
+          "brand": "Mack Weldon"
+        }
+      },
+      {
+        "id": "8899fa1c-dd0c-406f-ad80-ebb94b3ada3c",
+        "before": {
+          "name": "MACK WELDON Formal Shirt",
+          "brand": "MACK WELDON"
+        },
+        "after": {
+          "name": "Mack Weldon Formal Shirt",
+          "brand": "Mack Weldon"
+        }
+      },
+      {
+        "id": "8dee3cc4-ff93-4e4a-acb6-950debb27799",
+        "before": {
+          "name": "MACK WELDON Formal Shirt",
+          "brand": "MACK WELDON"
+        },
+        "after": {
+          "name": "Mack Weldon Formal Shirt",
+          "brand": "Mack Weldon"
+        }
+      },
+      {
+        "id": "9489892e-e414-4597-9ecd-44a84c995b6c",
+        "before": {
+          "name": "MACK WELDON Formal Shirt",
+          "brand": "MACK WELDON"
+        },
+        "after": {
+          "name": "Mack Weldon Formal Shirt",
+          "brand": "Mack Weldon"
+        }
+      },
+      {
+        "id": "96466ba3-e80d-4841-978f-f1e65008c75d",
+        "before": {
+          "name": "Manschett by Quesste Formal Shirt",
+          "brand": "Manschett by Quesste"
+        },
+        "after": {
+          "name": "Manschett Formal Shirt",
+          "brand": "Manschett"
+        }
+      },
+      {
+        "id": "a6197571-3c90-45cf-abe2-eafccf78953a",
+        "before": {
+          "name": "MACK WELDON Formal shirt",
+          "brand": "MACK WELDON"
+        },
+        "after": {
+          "name": "Mack Weldon Formal Shirt",
+          "brand": "Mack Weldon"
+        }
+      },
+      {
+        "id": "a6700709-42ad-4ffa-b0c1-41345e2de33f",
+        "before": {
+          "name": "MACK WELDON Formal Shirt",
+          "brand": "MACK WELDON"
+        },
+        "after": {
+          "name": "Mack Weldon Formal Shirt",
+          "brand": "Mack Weldon"
+        }
+      },
+      {
+        "id": "a685334e-2ecf-4a11-90e7-7a01a08f09d7",
+        "before": {
+          "name": "Mack Weldon Formal Shirt",
+          "brand": "MACK WELDON"
+        },
+        "after": {
+          "name": "Mack Weldon Formal Shirt",
+          "brand": "Mack Weldon"
+        }
+      },
+      {
+        "id": "a763ba9e-0d4a-40f8-8a04-67f49a186212",
+        "before": {
+          "name": "MACK WELDON Formal Shirt",
+          "brand": "MACK WELDON"
+        },
+        "after": {
+          "name": "Mack Weldon Formal Shirt",
+          "brand": "Mack Weldon"
+        }
+      },
+      {
+        "id": "b63337cf-cc69-4c93-b5a7-fbd1f2f29cd2",
+        "before": {
+          "name": "Manschett Formal shirt",
+          "brand": "Manschett"
+        },
+        "after": {
+          "name": "Manschett Formal Shirt",
+          "brand": "Manschett"
+        }
+      },
+      {
+        "id": "c999dbb6-325d-43b9-852e-b1862e9e059f",
+        "before": {
+          "name": "MACK WELDON Formal shirt",
+          "brand": "MACK WELDON"
+        },
+        "after": {
+          "name": "Mack Weldon Formal Shirt",
+          "brand": "Mack Weldon"
+        }
+      },
+      {
+        "id": "d0f75c32-f285-4266-9067-0873329d054d",
+        "before": {
+          "name": "MACK WELDON Formal shirt",
+          "brand": "MACK WELDON"
+        },
+        "after": {
+          "name": "Mack Weldon Formal Shirt",
+          "brand": "Mack Weldon"
+        }
+      },
+      {
+        "id": "d93b7eb3-d5fd-4d36-857d-c5d2b3b86a50",
+        "before": {
+          "name": "MACK WELDON Formal Shirt",
+          "brand": "MACK WELDON"
+        },
+        "after": {
+          "name": "Mack Weldon Formal Shirt",
+          "brand": "Mack Weldon"
+        }
+      },
+      {
+        "id": "d9f3df50-ac28-43fa-afe3-b3846706eb6e",
+        "before": {
+          "name": "MACK WELDON Slim Fit Formal Shirt",
+          "brand": "MACK WELDON"
+        },
+        "after": {
+          "name": "Mack Weldon Slim Fit Formal Shirt",
+          "brand": "Mack Weldon"
+        }
+      },
+      {
+        "id": "dc433b44-ec19-4951-b841-1b4aade01f74",
+        "before": {
+          "name": "MACK WELDON Formal Shirt",
+          "brand": "MACK WELDON"
+        },
+        "after": {
+          "name": "Mack Weldon Formal Shirt",
+          "brand": "Mack Weldon"
+        }
+      },
+      {
+        "id": "ee20b447-d1d2-4067-9f4d-7a5edea452b6",
+        "before": {
+          "name": "MACK WELDON Formal Shirt",
+          "brand": "MACK WELDON"
+        },
+        "after": {
+          "name": "Mack Weldon Formal Shirt",
+          "brand": "Mack Weldon"
+        }
+      },
+      {
+        "id": "ee42bfa0-5a1d-4ccd-a2ea-60761747c6f5",
+        "before": {
+          "name": "MACK WELDON Formal Shirt",
+          "brand": "MACK WELDON"
+        },
+        "after": {
+          "name": "Mack Weldon Formal Shirt",
+          "brand": "Mack Weldon"
+        }
+      },
+      {
+        "id": "f45b5695-4368-4db7-be0a-2b441484bdaa",
+        "before": {
+          "name": "MACK WELDON Formal Shirt",
+          "brand": "MACK WELDON"
+        },
+        "after": {
+          "name": "Mack Weldon Formal Shirt",
+          "brand": "Mack Weldon"
+        }
+      },
+      {
+        "id": "f95c40f6-2c4a-4ee5-a34e-b76fb4f0d9df",
+        "before": {
+          "name": "MACK WELDON Formal shirt",
+          "brand": "MACK WELDON"
+        },
+        "after": {
+          "name": "Mack Weldon Formal Shirt",
+          "brand": "Mack Weldon"
+        }
+      },
+      {
+        "id": "f9d7629f-aa2f-46b4-a391-84d287d5079e",
+        "before": {
+          "name": "Manschett by Quesste Formal Shirt",
+          "brand": "Manschett by Quesste"
+        },
+        "after": {
+          "name": "Manschett Formal Shirt",
+          "brand": "Manschett"
+        }
+      }
+    ],
+    "products": [
+      {
+        "id": "2365584d-b0a1-43d2-bd1a-9b717db72510",
+        "before": {
+          "name": "MACK WELDON Formal shirt",
+          "brand_id": "cdcfd499-a7f5-41c3-ab88-c1c35fd184c2"
+        },
+        "after": {
+          "name": "Mack Weldon Formal Shirt",
+          "brand_id": "cdcfd499-a7f5-41c3-ab88-c1c35fd184c2"
+        }
+      },
+      {
+        "id": "380c28f1-0399-4d38-a056-b7ca276e712c",
+        "before": {
+          "name": "MACK WELDON Formal shirt",
+          "brand_id": "cdcfd499-a7f5-41c3-ab88-c1c35fd184c2"
+        },
+        "after": {
+          "name": "Mack Weldon Formal Shirt",
+          "brand_id": "cdcfd499-a7f5-41c3-ab88-c1c35fd184c2"
+        }
+      },
+      {
+        "id": "42728df7-8df3-451e-b795-42754d09d38c",
+        "before": {
+          "name": "Manschett By QUESSTE Formal shirt",
+          "brand_id": "6fe71590-be38-409c-8cda-884d1fbb660a"
+        },
+        "after": {
+          "name": "Manschett Formal Shirt",
+          "brand_id": "1c0014f4-0501-4be1-9252-47fde3c0f31d"
+        }
+      },
+      {
+        "id": "904d5d18-a637-4c60-aae1-f3037917d586",
+        "before": {
+          "name": "MACK WELDON Formal shirt",
+          "brand_id": "cdcfd499-a7f5-41c3-ab88-c1c35fd184c2"
+        },
+        "after": {
+          "name": "Mack Weldon Formal Shirt",
+          "brand_id": "cdcfd499-a7f5-41c3-ab88-c1c35fd184c2"
+        }
+      },
+      {
+        "id": "96da3b51-d988-4f2a-bd9c-974c3cb05eac",
+        "before": {
+          "name": "MACK WELDON Formal Shirt",
+          "brand_id": "cdcfd499-a7f5-41c3-ab88-c1c35fd184c2"
+        },
+        "after": {
+          "name": "Mack Weldon Formal Shirt",
+          "brand_id": "cdcfd499-a7f5-41c3-ab88-c1c35fd184c2"
+        }
+      },
+      {
+        "id": "a6797e45-faba-4028-a63e-cba7eb4a3bae",
+        "before": {
+          "name": "Manschett Formal shirt",
+          "brand_id": "1c0014f4-0501-4be1-9252-47fde3c0f31d"
+        },
+        "after": {
+          "name": "Manschett Formal Shirt",
+          "brand_id": "1c0014f4-0501-4be1-9252-47fde3c0f31d"
+        }
+      },
+      {
+        "id": "ba5d9468-8445-4356-ad9e-e62f5c0729bf",
+        "before": {
+          "name": "MACK WELDON Formal shirt",
+          "brand_id": "cdcfd499-a7f5-41c3-ab88-c1c35fd184c2"
+        },
+        "after": {
+          "name": "Mack Weldon Formal Shirt",
+          "brand_id": "cdcfd499-a7f5-41c3-ab88-c1c35fd184c2"
+        }
+      },
+      {
+        "id": "e51ab64f-e2e2-4498-992c-241a3548bd6a",
+        "before": {
+          "name": "Manschett Formal shirt",
+          "brand_id": "1c0014f4-0501-4be1-9252-47fde3c0f31d"
+        },
+        "after": {
+          "name": "Manschett Formal Shirt",
+          "brand_id": "1c0014f4-0501-4be1-9252-47fde3c0f31d"
+        }
+      },
+      {
+        "id": "eef1f44a-455b-43d7-9d48-9114d11bfa5b",
+        "before": {
+          "name": "MACK WELDON Formal Shirt",
+          "brand_id": "cdcfd499-a7f5-41c3-ab88-c1c35fd184c2"
+        },
+        "after": {
+          "name": "Mack Weldon Formal Shirt",
+          "brand_id": "cdcfd499-a7f5-41c3-ab88-c1c35fd184c2"
+        }
+      }
+    ],
+    "matches": []
+  }
+}
