@@ -11,7 +11,7 @@ Updated: 8 September 2026. This is our working source of truth. Update it after 
 - [x] U1 Remove the owner-identified cancelled production verification delivery; preserve its intake/photo audit evidence and stock.
 - [x] U2 Count units across the complete filtered lot result, per delivery and in pricing/selection counters.
 - [x] U3 Verify filtered/paginated totals, catalog-read tests, typecheck, lint and build.
-- [ ] U4 Owner confirmation to commit and deploy runtime 0.18.0 and the matching Catalog frontend; then verify live counters.
+- [x] U4 Owner approved; POS `4ad4cae` and Catalog `c2e33cc` committed, pushed and deployed. Live Ntinda 964 lots / 965 units, Namugongo 67 / 118, filtered HUGO 6 / 36 and pricing 63 / 104 verified. CI and eight health checks pass.
 
 ## B. Branch assortment ? approved 8 September 2026
 

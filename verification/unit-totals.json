@@ -1,6 +1,6 @@
 {
   "date": "2026-09-08",
-  "status": "Implemented and locally validated; commit/deployment approval pending",
+  "status": "Committed, deployed and verified live",
   "runtime_version": "0.18.0",
   "scope": "Receiving lists, delivery cards, selected lots and pricing matches",
   "pagination": "Database totals apply to all matching lots, including pages beyond the last result",
@@ -14,5 +14,20 @@
     "delivery_card_browser": "One lot / six units and two lots / four units rendered"
   },
   "production_cleanup": "production-verification-delivery-removal.json",
-  "live_unit_totals_deployed": false
+  "live_unit_totals_deployed": true,
+  "pos_commit": "4ad4cae04945e06069017097910a714ceb5e02fb",
+  "catalog_commit": "c2e33ccec62ef320996cd65371b67a907b8502a9",
+  "api_deployment": "cde10b2c-2307-4bf0-9bc0-d2c5dd52b752",
+  "catalog_deployment": "49af90d4-7140-430a-be4f-c2957e67c6ad",
+  "deployments_status": "SUCCESS",
+  "ci_run": 34193587342,
+  "ci_status": "success",
+  "public_health_checks_passed": 8,
+  "live_browser": {
+    "ntinda_merchandise": { "lots": 964, "units": 965 },
+    "namugongo_merchandise": { "lots": 67, "units": 118 },
+    "namugongo_hugo_search": { "lots": 6, "units": 36 },
+    "namugongo_missing_retail_prices": { "lots": 63, "units": 104 },
+    "production_stock_or_price_writes": false
+  }
 }
