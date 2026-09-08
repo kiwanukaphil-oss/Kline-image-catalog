@@ -211,4 +211,4 @@ No production sleeve values were changed. Existing Long values are preserved; un
 - [x] Add units beside the product count on Stock, using the entire filtered branch result rather than only the current page.
 - [x] Keep product and unit totals for an empty page after pagination; return zero for a genuinely empty result. Expose the same totals to the read-only workspace tool.
 - [x] Local PostgreSQL verification: 50 products / 150 units over two pages, empty third page, size/category filters, empty results and isolated branch quantities. TypeScript, lint and production build pass; rendered browser summary verified.
-- [ ] Owner confirmation to commit/deploy workspace 0.21.0 and the stock summary change, followed by live verification. No database migration is required.
+- [x] Owner approved commit/deploy. Workspace 0.21.0 deployed in POS `37f6f45`; catalog `67d6201` deployed successfully. Live Namugongo shows 38 products / 126 units; searching 26201A-6 shows 1 product / 6 units. All eight production health probes pass. No database migration was required.
