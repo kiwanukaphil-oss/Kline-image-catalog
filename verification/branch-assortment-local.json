@@ -1,0 +1,40 @@
+﻿{
+  "date": "2026-09-08",
+  "status": "Local verification complete; owner release confirmation pending",
+  "production_changed": false,
+  "commit_created": false,
+  "pos_worktree": "C:/Projects/Inventory POS release check",
+  "runtime_version": "0.17.0",
+  "migration": "109_branch_product_assortments.sql",
+  "stock_quantities_migrated": false,
+  "backend_full": { "suites": 27, "tests": 265, "passed": true },
+  "backend_final_focused": { "suites": 2, "tests": 19, "passed": true },
+  "frontend_tests": { "vitest": 22, "config": 1, "passed": true },
+  "typescript": "Passed",
+  "production_build": "Passed; existing large-chunk warning",
+  "catalog_integration": "Passed",
+  "installed_package_integrity": "All seven files match source",
+  "browser_verified": true,
+  "blocker": null,
+  "local_api": "http://127.0.0.1:5110/api",
+  "local_preview_database": "kline_catalog_workspace_test",
+  "preview_branch": "Namugongo preview",
+  "browser_checks": [
+    "Never-received branch: zero products/categories/units/value/low/out alerts",
+    "Branch survives full browser reload",
+    "Mobile branch label and switching; temporary viewport reset",
+    "First receipt by product name: local GRN NAM-PREVIEW-GRN-20260908-001, two units, one product/SKU",
+    "Depletion to zero retains product with one out-of-stock SKU",
+    "Branch-only retirement restores empty list and records product.branch_retired audit",
+    "Re-receipt by SKU restores product with one unit; retirement audit preserved",
+    "Original Test Store unchanged at 52 products, 103 SKUs, 252 units",
+    "Checkout in receiving branch shows one product and one relevant category",
+    "Receiving wizard and transfer notes reset when switching branches",
+    "Price editor now displays decimal database price 90000.00 as 90,000"
+  ],
+  "remaining": [
+    "Owner confirmation to commit/push POS changes and matching Catalog package source",
+    "Fresh guarded backup, migration 109, coordinated API/frontend release",
+    "Read-only live branch assortment checks"
+  ]
+}

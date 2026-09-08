@@ -322,12 +322,10 @@ async function verifyWorkspaceIntegration() {
       ],
     );
     const unknownThreshold = await call('/catalog-workspace/stock?size=OS');
-    assert.equal(
-      unknownThreshold.products
-        .flatMap((product) => product.variants)
-        .find((line) => line.id === unknownThresholdId).reorder_level,
-      null,
-    );
+    assert(!unknownThreshold.products.flatMap((product) => product.variants)
+      .some((line) => line.id === unknownThresholdId));
+    assert(!unknownThreshold.sizes.includes('OS'));
+    pass('Never-received variants are absent from branch stock and filter choices');
     pass('Negative balances remain signed and low-stock filters use configured thresholds');
     const secondBranch = randomUUID();
     await pool.query(

@@ -194,7 +194,7 @@ function createWorkspaceRepository({ pool, publicationRepository }) {
             WHEN COALESCE(bi.stock_quantity,0)<=COALESCE(bi.reorder_level,pv.reorder_level) THEN 'low'
             ELSE 'in' END AS stock_state
         FROM products p JOIN product_variants pv ON pv.product_id=p.id AND pv.is_active=true
-        LEFT JOIN branch_inventory bi ON bi.variant_id=pv.id AND bi.branch_id=$1
+        JOIN branch_inventory bi ON bi.variant_id=pv.id AND bi.branch_id=$1 AND bi.is_assorted
         LEFT JOIN brands b ON b.id=p.brand_id LEFT JOIN categories c ON c.id=p.category_id
         WHERE p.is_active=true
           AND ($2='' OR concat_ws(' ',p.name,p.master_sku,b.name,pv.sku,pv.barcode,pv.variant_attributes::text) ILIKE '%'||$2||'%')
@@ -212,15 +212,17 @@ function createWorkspaceRepository({ pool, publicationRepository }) {
       );
       return result.rows;
     },
-    async stockSizes() {
+    async stockSizes(branchId) {
       return (
         await pool.query(`SELECT DISTINCT variant_attributes->>'size' AS size FROM product_variants pv
-        JOIN products p ON p.id=pv.product_id WHERE p.is_active=true AND pv.is_active=true
-        AND nullif(variant_attributes->>'size','') IS NOT NULL ORDER BY size`)
+        JOIN products p ON p.id=pv.product_id
+        JOIN branch_inventory bi ON bi.variant_id=pv.id AND bi.branch_id=$1 AND bi.is_assorted
+        WHERE p.is_active=true AND pv.is_active=true
+        AND nullif(variant_attributes->>'size','') IS NOT NULL ORDER BY size`, [branchId])
       ).rows.map((row) => row.size);
     },
     /** Keep exact POS identities and full category paths available even when the current filters match nothing. */
-    async stockFilterChoices() {
+    async stockFilterChoices(branchId) {
       const [categories, brands] = await Promise.all([
         pool.query(`WITH RECURSIVE category_paths AS (
           SELECT id,name,name::text AS label,0 AS depth FROM categories WHERE parent_id IS NULL
@@ -228,12 +230,14 @@ function createWorkspaceRepository({ pool, publicationRepository }) {
           FROM categories c JOIN category_paths cp ON c.parent_id=cp.id WHERE cp.depth<20
         ) SELECT cp.id,cp.label FROM category_paths cp WHERE EXISTS (
           SELECT 1 FROM products p JOIN product_variants pv ON pv.product_id=p.id
+          JOIN branch_inventory bi ON bi.variant_id=pv.id AND bi.branch_id=$1 AND bi.is_assorted
           WHERE p.category_id=cp.id AND p.is_active=true AND pv.is_active=true
-        ) ORDER BY cp.label,cp.id`),
+        ) ORDER BY cp.label,cp.id`, [branchId]),
         pool.query(`SELECT b.id,b.name AS label FROM brands b WHERE EXISTS (
           SELECT 1 FROM products p JOIN product_variants pv ON pv.product_id=p.id
+          JOIN branch_inventory bi ON bi.variant_id=pv.id AND bi.branch_id=$1 AND bi.is_assorted
           WHERE p.brand_id=b.id AND p.is_active=true AND pv.is_active=true
-        ) ORDER BY b.name,b.id`),
+        ) ORDER BY b.name,b.id`, [branchId]),
       ]);
       return { categories: categories.rows, brands: brands.rows };
     },

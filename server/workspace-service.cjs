@@ -403,8 +403,8 @@ function createWorkspaceService({ source }) {
         page: filters.page,
         limit: 48,
         updated_at: new Date().toISOString(),
-        sizes: await repository.stockSizes(),
-        ...(await repository.stockFilterChoices()),
+        sizes: await repository.stockSizes(branchId),
+        ...(await repository.stockFilterChoices(branchId)),
       };
     },
     movements: (branchId, productId) => repository.stockMovements(branchId, productId),
