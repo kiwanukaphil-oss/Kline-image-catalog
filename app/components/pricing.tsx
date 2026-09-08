@@ -281,7 +281,20 @@ export function Pricing({
         />
       </div>
       <div className="toolbar pricing-group-selection">
-        <span className="muted">{visible.length} matching lots</span>
+        <span className="muted">
+          {visible.length.toLocaleString()} matching lots /{' '}
+          {visible
+            .reduce(
+              (sum, item) =>
+                sum +
+                item.lines
+                  .filter((line) => eligiblePriceLine(line, filters.size, field, intent))
+                  .reduce((units, line) => units + Number(line.quantity || 0), 0),
+              0,
+            )
+            .toLocaleString()}{' '}
+          units
+        </span>
         <Button
           variant="outline"
           disabled={loading || !visible.length}

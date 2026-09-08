@@ -1,6 +1,6 @@
 {
   "passed": true,
-  "checked_at": "2026-09-06T13:38:47.020Z",
+  "checked_at": "2026-09-08T06:03:49.915Z",
   "database": "kline_catalog_workspace_test",
   "checks": [
     "Existing POS identity and branch capabilities",
@@ -10,6 +10,7 @@
     "Interrupted upload and membership retries do not duplicate the lot",
     "Stale details cannot overwrite later edits",
     "Six units across three sizes are confirmed with stale-count protection",
+    "Unit totals cover the complete filtered result and delivery, independently of pagination",
     "Draft stock never adds to current POS stock",
     "Shared retail price and one size exception apply once",
     "Cost-only pricing preserves retail values",
@@ -25,8 +26,9 @@
     "Movement history includes the real POS sale",
     "Price undo cannot rewrite received stock",
     "Multiple linked photos never multiply POS inventory",
+    "Never-received variants are absent from branch stock and filter choices",
     "Negative balances remain signed and low-stock filters use configured thresholds",
     "Authorized branches have independent balances and cannot read another branch draft"
   ],
-  "receipt_id": "80539712-0605-4e18-a1d1-170576b8d4f3"
+  "receipt_id": "b20b4ad7-a4d5-4a18-884a-160f7772c4af"
 }

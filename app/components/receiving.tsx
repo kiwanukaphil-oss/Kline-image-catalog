@@ -32,6 +32,7 @@ type Batch = {
   title: string;
   created_at: string;
   item_count: number;
+  total_units: number;
   cancelled_count?: number;
   received_count: number;
 };
@@ -120,10 +121,13 @@ export function Receiving({
     ...(categoryFilter ? { category_id: categoryFilter } : {}),
     ...(batch ? { batch_id: batch.id } : {}),
   }).toString();
-  const inventory = usePosRead<{ items: CatalogItem[]; total: number; page: number; limit: number }>(
-    `/catalog-workspace/items?${query}`,
-    branch,
-  );
+  const inventory = usePosRead<{
+    items: CatalogItem[];
+    total: number;
+    total_units: number;
+    page: number;
+    limit: number;
+  }>(`/catalog-workspace/items?${query}`, branch);
   const receipts = usePosRead<{ items: Receipt[]; total: number; limit: number }>(
     `/catalog-workspace/history/receipts?page=${receiptPage}&search=${encodeURIComponent(receiptSearch)}${batch ? `&batch_id=${batch.id}` : ''}`,
     branch,
@@ -310,6 +314,8 @@ export function Receiving({
                     <small>
                       {new Date(row.created_at).toLocaleDateString([], { month: 'short', day: 'numeric' })} ·{' '}
                       {row.item_count} {row.item_count === 1 ? 'lot' : 'lots'}
+                      {' / '}
+                      {row.total_units?.toLocaleString() ?? '—'} units
                       {row.cancelled_count ? ` · ${row.cancelled_count} cancelled` : ''}
                     </small>
                   </div>
@@ -356,7 +362,10 @@ export function Receiving({
               }}
               placeholder="Find incoming merchandise"
             />
-            <span className="muted">{inventory.data?.total ?? '—'} lots</span>
+            <span className="muted">
+              {inventory.data?.total?.toLocaleString() ?? '—'} lots /{' '}
+              {inventory.data?.total_units?.toLocaleString() ?? '—'} units
+            </span>
           </div>
           <div className="flex flex-wrap gap-3 mb-4">
             <label className="flex-1 min-w-36">
@@ -507,7 +516,13 @@ export function Receiving({
           )}
           {selectedItems.length > 0 && (
             <div className="selection-bar">
-              <span>{selectedItems.length} lots selected</span>
+              <span>
+                {selectedItems.length} lots /{' '}
+                {selectedItems
+                  .reduce((sum, item) => sum + Number(item.stock_quantity || 0), 0)
+                  .toLocaleString()}{' '}
+                units selected
+              </span>
               <Button variant="ghost" onClick={() => setSelected([])}>
                 Clear
               </Button>
@@ -618,7 +633,14 @@ export function Receiving({
           onComplete={(id, title) => {
             setUploading(false);
             setTab('lots');
-            setBatch({ id, title, created_at: new Date().toISOString(), item_count: 0, received_count: 0 });
+            setBatch({
+              id,
+              title,
+              created_at: new Date().toISOString(),
+              item_count: 0,
+              total_units: 0,
+              received_count: 0,
+            });
             refreshReceiving();
           }}
         />

@@ -102,6 +102,17 @@ async function verifyWorkspaceIntegration() {
     await call(`/catalog-workspace/items/${itemId}/count`, count, 'PATCH');
     await call(`/catalog-workspace/items/${itemId}/count`, count, 'PATCH', 409);
     pass('Six units across three sizes are confirmed with stale-count protection');
+    const lotTotals = await call(`/catalog-workspace/items?batch_id=${batchId}`);
+    assert.equal(lotTotals.total, 1);
+    assert.equal(lotTotals.total_units, 6);
+    const beyondPage = await call(`/catalog-workspace/items?batch_id=${batchId}&page=2`);
+    assert.equal(beyondPage.items.length, 0);
+    assert.equal(beyondPage.total_units, 6);
+    const unmatched = await call(`/catalog-workspace/items?batch_id=${batchId}&search=no-such-lot`);
+    assert.equal(unmatched.total_units, 0);
+    const deliveryTotals = await call('/catalog-workspace/batches');
+    assert.equal(deliveryTotals.find(row => row.id === batchId).total_units, 6);
+    pass('Unit totals cover the complete filtered result and delivery, independently of pagination');
     const beforeReceive = await call('/catalog-workspace/stock');
     assert.equal(beforeReceive.total, baseline.total);
     pass('Draft stock never adds to current POS stock');

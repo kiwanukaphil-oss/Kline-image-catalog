@@ -2,7 +2,8 @@
 const OFFLINE_CACHE='kline-offline-v1';
 self.addEventListener('install',event=>event.waitUntil(caches.open(OFFLINE_CACHE).then(cache=>cache.add('/offline.html'))));
 self.addEventListener('activate',event=>event.waitUntil(self.clients.claim()));
-self.addEventListener('message',event=>{if(event.data?.type==='ACTIVATE_UPDATE')self.skipWaiting();});
+// Accept the old Workbox restart button as well as the current app's update action during domain cutover.
+self.addEventListener('message',event=>{if(['ACTIVATE_UPDATE','SKIP_WAITING'].includes(event.data?.type))self.skipWaiting();});
 /** Save explicitly shared images locally; authenticated receiving must review them before any upload. */
 async function receiveSharedPhotos(request){
   const form=await request.formData(),files=form.getAll('photos');
