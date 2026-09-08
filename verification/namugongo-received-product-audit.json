@@ -1,0 +1,23 @@
+{
+  "checked_at": "2026-09-08T14:54:26.900Z",
+  "branch": "a0fc0889-235b-4467-977b-733cb4354739",
+  "items": 67,
+  "products": 38,
+  "variants": 124,
+  "received_units": 126,
+  "current_units": 126,
+  "issues": [],
+  "balanceMismatches": [],
+  "photoStatus": [
+    {
+      "status": "linked",
+      "photos": 67
+    }
+  ],
+  "gallerySummary": {
+    "products": 38,
+    "photos": 67,
+    "invalidPrimary": [],
+    "unlinkedCopies": 0
+  }
+}

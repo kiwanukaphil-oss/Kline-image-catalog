@@ -1,0 +1,14 @@
+{
+  "checked_at": "2026-09-08T14:56:01Z",
+  "commit": "4ed996f92e6c1580126df006be3ec758119ea1cc",
+  "railway_deployment": "93ddd8ba-5e10-42d2-8e38-6a7d3dfad49a",
+  "cloudflare_deployment": "ea5642b8-ad1e-46b4-992a-108fb0ac94e5",
+  "deployments_succeeded": true,
+  "live_product_id": "db034de3-f3a0-45d3-97bb-769909ac83b9",
+  "visible_thumbnails": 6,
+  "sixth_photo_selected_and_loaded": true,
+  "image_natural_width": 960,
+  "pos_api_health_probes_passed": 7,
+  "catalog_node_probe": "Timed out twice; independent curl IPv4 HEAD returned HTTP 200",
+  "original_transfer_failure_cause": "Not established: original handler suppressed error details. Retries succeeded; safe stage diagnostics are now deployed."
+}
