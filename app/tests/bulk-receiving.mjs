@@ -108,7 +108,7 @@ async function verifyBulkReceiving() {
   await page.getByRole('dialog').waitFor({ state: 'hidden' });
   await button('Receive all ready').click();
   await text('1 lot needs attention');
-  assert.equal(await page.locator('.receiving-review-group[open]').count(), 1);
+  assert.equal(await page.getByRole('dialog').locator('.receiving-review-group[open]').count(), 1);
   await page.waitForTimeout(300);
   await page.screenshot({ path: `${evidence}/bulk-confirmation.png`, animations: 'disabled' });
   await button('Receive 7 lots into Test Store').click();

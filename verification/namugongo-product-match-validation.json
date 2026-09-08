@@ -1,0 +1,16 @@
+{
+  "checked_at": "2026-09-08T10:42:31.712Z",
+  "passed": true,
+  "lots": 67,
+  "units": 126,
+  "proposed_products": 38,
+  "groups": 12,
+  "checks": [
+    "No overlapping or omitted lots",
+    "Original photo hashes match",
+    "Source timestamps and branch match",
+    "Line quantities equal saved counts",
+    "Combining identical sizes preserves prices and costs"
+  ],
+  "live_changes": false
+}

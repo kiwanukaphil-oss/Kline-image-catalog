@@ -46,6 +46,29 @@ function createWorkspaceRouter(dependencies) {
     res.set('Cache-Control', 'no-store');
     next();
   });
+  const matching = require('./product-matching.cjs').createProductMatchingService(dependencies);
+  const canMatch = [checkPermission('catalog.publish'), checkPermission('products.view')];
+  router.get('/product-matches', reply(req => matching.list(req.branchId,req.user.id)));
+  router.post('/product-matches', ...canMatch, reply(req => {
+    // Validate a deliberate grouping plan; names and colours never silently establish identity.
+    const body=req.body;
+    if (!Array.isArray(body.item_ids) || !body.item_ids.length || body.item_ids.length>1000 || new Set(body.item_ids).size!==body.item_ids.length)
+      throw DomainError.validationFailed('Choose distinct incoming lots.');
+    const defaults=body.variant_defaults || {};
+    if (typeof defaults!=='object' || Array.isArray(defaults) || Object.keys(defaults).some(key=>!['color','fit'].includes(key))) throw DomainError.validationFailed('Only shared colour and fit can be specified.');
+    const variantDefaults=Object.fromEntries(Object.entries(defaults).map(([key,value])=>[key,text(value,120)]));
+    const productName=text(body.product_name,200), brandName=text(body.brand_name,120), note=text(body.review_note,1000);
+    if (!productName || !brandName || !note) throw DomainError.validationFailed('Enter product name, brand and the evidence for this match.');
+    return matching.save({branchId:req.branchId,userId:req.user.id,expectedRevision:body.expected_revision,
+      plan:{id:body.id?uuid(body.id):undefined,item_ids:body.item_ids.map(uuid),target_product_id:body.target_product_id?uuid(body.target_product_id):null,
+        product_name:productName,brand_name:brandName,variant_defaults:variantDefaults,review_note:note,confirm_differences:body.confirm_differences===true}});
+  }));
+  router.post('/product-matches/:id/:action', ...canMatch, reply(req => {
+    const input={id:uuid(req.params.id),branchId:req.branchId,userId:req.user.id,expectedRevision:req.body.expected_revision};
+    if(req.params.action==='unmatch')return matching.retire(input);
+    if(!['review','receive'].includes(req.params.action))throw DomainError.notFound('Matching action unavailable.');
+    return matching.receive({...input,apply:req.params.action==='receive'});
+  }));
   router.get('/category-mappings', checkPermission('settings.categories'), reply(() => service.categoryMappings()));
   router.get('/schema',checkPermission('settings.categories'),reply(()=>service.catalogSchema()));
   router.put('/schema/:id',checkPermission('settings.categories'),reply(req=>{

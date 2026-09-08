@@ -1,0 +1,765 @@
+{
+  "review_date": "2026-09-08",
+  "branch_id": "a0fc0889-235b-4467-977b-733cb4354739",
+  "status": "reviewed_plan_not_applied",
+  "lots": 67,
+  "units": 126,
+  "grouped_lots": 41,
+  "groups": [
+    {
+      "photo_numbers": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "model": "26201A-6",
+      "size_quantities": {
+        "L": 1,
+        "XL": 1,
+        "M": 1,
+        "3XL": 1,
+        "2XL": 1,
+        "4XL": 1
+      },
+      "source_fingerprints": [
+        {
+          "id": "3e1f836c-ca73-4c8f-957e-205ffe7b80fa",
+          "updated_at": "2026-09-08T08:07:30.977Z",
+          "photo_sha256": "57e6aab1dc85d4a1ab729e2f30c7b9b77239755f59ca913e374987bb65b733bf"
+        },
+        {
+          "id": "3ee81c72-cff8-4f6e-91ad-c312148a26f2",
+          "updated_at": "2026-09-08T08:07:30.977Z",
+          "photo_sha256": "705c92e09e2c4c28ad25425d03d046c1331356e71b55a9462ac5070bbeda2c5a"
+        },
+        {
+          "id": "027a1c49-ce74-4fb7-91c3-e29b2bf8aca4",
+          "updated_at": "2026-09-08T08:07:30.977Z",
+          "photo_sha256": "fcabd06e11d3fb3c9a239a29ae81faa3d51f36d896694e52dafa6a54b59680b7"
+        },
+        {
+          "id": "3150592d-06e1-4e4c-a48b-85eea5f55a7d",
+          "updated_at": "2026-09-08T08:07:30.977Z",
+          "photo_sha256": "801c95bd67813fcbfe7ec763a15c6291c7d94ea9ed9f2f0dfd4dfec6b6916201"
+        },
+        {
+          "id": "ee20b447-d1d2-4067-9f4d-7a5edea452b6",
+          "updated_at": "2026-09-08T08:07:30.977Z",
+          "photo_sha256": "e70fc87a730f930ee208bea7ea7c68d2542e30ff4567283c3197b992063a3439"
+        },
+        {
+          "id": "ee42bfa0-5a1d-4ccd-a2ea-60761747c6f5",
+          "updated_at": "2026-09-08T08:07:30.977Z",
+          "photo_sha256": "4fbb200e36092eba97c21be91228b705e3bac1bfc0dc6abc7f7a6de703fd572c"
+        }
+      ],
+      "plan": {
+        "item_ids": [
+          "3e1f836c-ca73-4c8f-957e-205ffe7b80fa",
+          "3ee81c72-cff8-4f6e-91ad-c312148a26f2",
+          "027a1c49-ce74-4fb7-91c3-e29b2bf8aca4",
+          "3150592d-06e1-4e4c-a48b-85eea5f55a7d",
+          "ee20b447-d1d2-4067-9f4d-7a5edea452b6",
+          "ee42bfa0-5a1d-4ccd-a2ea-60761747c6f5"
+        ],
+        "product_name": "Mack Weldon Formal Shirt - 26201A-6",
+        "brand_name": "Mack Weldon",
+        "target_product_id": null,
+        "variant_defaults": {
+          "color": "Light beige",
+          "fit": "Slim"
+        },
+        "review_note": "Owner-requested photo review: same printed model 26201A-6, matching fabric pattern, collar, buttons and fit. Photos 8, 9, 10, 11, 12, 13. Shared colour normalizes inconsistent AI wording; original evidence and quantities preserved.",
+        "confirm_differences": true
+      }
+    },
+    {
+      "photo_numbers": [
+        14,
+        34
+      ],
+      "model": "26201B-26",
+      "size_quantities": {
+        "M": 1,
+        "4XL": 1
+      },
+      "source_fingerprints": [
+        {
+          "id": "0490ff90-a022-4b71-a5d5-c1dcf76060d4",
+          "updated_at": "2026-09-08T08:07:30.977Z",
+          "photo_sha256": "5784ff631255d0bad8f4bd276b28dcc2829be7dfd70dd1e7c33b94fb2cbe034b"
+        },
+        {
+          "id": "20d7e99b-445f-405c-9aa8-90017a628587",
+          "updated_at": "2026-09-08T08:07:30.977Z",
+          "photo_sha256": "8e85744237e26d54865ad5eff3c0396be30845c8132f904775164163c5384dbd"
+        }
+      ],
+      "plan": {
+        "item_ids": [
+          "0490ff90-a022-4b71-a5d5-c1dcf76060d4",
+          "20d7e99b-445f-405c-9aa8-90017a628587"
+        ],
+        "product_name": "Mack Weldon Formal Shirt - 26201B-26",
+        "brand_name": "Mack Weldon",
+        "target_product_id": null,
+        "variant_defaults": {
+          "color": "Light blue",
+          "fit": "Slim"
+        },
+        "review_note": "Owner-requested photo review: same printed model 26201B-26, matching fabric pattern, collar, buttons and fit. Photos 14, 34. Shared colour normalizes inconsistent AI wording; original evidence and quantities preserved.",
+        "confirm_differences": true
+      }
+    },
+    {
+      "photo_numbers": [
+        18,
+        30,
+        31,
+        32
+      ],
+      "model": "26201A-11",
+      "size_quantities": {
+        "2XL": 1,
+        "M": 1,
+        "L": 1,
+        "XL": 1
+      },
+      "source_fingerprints": [
+        {
+          "id": "340721c2-92cb-4b61-94f8-432d3392175d",
+          "updated_at": "2026-09-08T08:07:30.977Z",
+          "photo_sha256": "da8948afe0c5754e6f09a523e85d9bf53afa9f982c23acbb4962c118a4b8e078"
+        },
+        {
+          "id": "59e86538-4808-443f-a3b6-257150d8f977",
+          "updated_at": "2026-09-08T08:07:30.977Z",
+          "photo_sha256": "4aaa0484b8588608434d08df6bb69b86c14bd7acf4d84b8e0d1170772e07d057"
+        },
+        {
+          "id": "f95c40f6-2c4a-4ee5-a34e-b76fb4f0d9df",
+          "updated_at": "2026-09-08T08:07:30.977Z",
+          "photo_sha256": "2ebaae6516d08a62d1de3925c840e1fc9a81f557829754ca6f18235f0f299cc5"
+        },
+        {
+          "id": "d0f75c32-f285-4266-9067-0873329d054d",
+          "updated_at": "2026-09-08T08:07:30.977Z",
+          "photo_sha256": "5ddfe7a21c6939292525546261e4ce2971efc5dd17be7152ead589e3c0840f12"
+        }
+      ],
+      "plan": {
+        "item_ids": [
+          "340721c2-92cb-4b61-94f8-432d3392175d",
+          "59e86538-4808-443f-a3b6-257150d8f977",
+          "f95c40f6-2c4a-4ee5-a34e-b76fb4f0d9df",
+          "d0f75c32-f285-4266-9067-0873329d054d"
+        ],
+        "product_name": "Mack Weldon Formal Shirt - 26201A-11",
+        "brand_name": "Mack Weldon",
+        "target_product_id": null,
+        "variant_defaults": {
+          "color": "Navy blue and white",
+          "fit": "Slim"
+        },
+        "review_note": "Owner-requested photo review: same printed model 26201A-11, matching fabric pattern, collar, buttons and fit. Photos 18, 30, 31, 32. Shared colour normalizes inconsistent AI wording; original evidence and quantities preserved.",
+        "confirm_differences": true
+      }
+    },
+    {
+      "photo_numbers": [
+        23,
+        24,
+        25,
+        37
+      ],
+      "model": "26201B-25",
+      "size_quantities": {
+        "M": 1,
+        "L": 1,
+        "XL": 2
+      },
+      "source_fingerprints": [
+        {
+          "id": "a6197571-3c90-45cf-abe2-eafccf78953a",
+          "updated_at": "2026-09-08T08:07:30.977Z",
+          "photo_sha256": "3c79b882bdfdac1ff5be7c5f6e740a272b4e8b12ba4206acd7bb2e0215dac08b"
+        },
+        {
+          "id": "2a53fb41-9b5a-4313-a0c9-94495b4b3df0",
+          "updated_at": "2026-09-08T08:07:30.977Z",
+          "photo_sha256": "4ebe51ea46c44d124bb6b742350614e0aa958efd033ca5aa0cbad7e58c883c86"
+        },
+        {
+          "id": "d93b7eb3-d5fd-4d36-857d-c5d2b3b86a50",
+          "updated_at": "2026-09-08T08:07:30.977Z",
+          "photo_sha256": "2ef75c1227d08f8f53a96a6476de0b83df118e497fa1a388d25ea47e98b130f7"
+        },
+        {
+          "id": "f45b5695-4368-4db7-be0a-2b441484bdaa",
+          "updated_at": "2026-09-08T08:07:30.977Z",
+          "photo_sha256": "52c04d00c0912ec91c6b6d2b2a888eb5cda039802aeb0b83609b282126a57051"
+        }
+      ],
+      "plan": {
+        "item_ids": [
+          "a6197571-3c90-45cf-abe2-eafccf78953a",
+          "2a53fb41-9b5a-4313-a0c9-94495b4b3df0",
+          "d93b7eb3-d5fd-4d36-857d-c5d2b3b86a50",
+          "f45b5695-4368-4db7-be0a-2b441484bdaa"
+        ],
+        "product_name": "Mack Weldon Formal Shirt - 26201B-25",
+        "brand_name": "Mack Weldon",
+        "target_product_id": null,
+        "variant_defaults": {
+          "color": "White",
+          "fit": "Slim"
+        },
+        "review_note": "Owner-requested photo review: same printed model 26201B-25, matching fabric pattern, collar, buttons and fit. Photos 23, 24, 25, 37. Shared colour normalizes inconsistent AI wording; original evidence and quantities preserved.",
+        "confirm_differences": true
+      }
+    },
+    {
+      "photo_numbers": [
+        27,
+        28
+      ],
+      "model": "26201A-7",
+      "size_quantities": {
+        "2XL": 1,
+        "XL": 1
+      },
+      "source_fingerprints": [
+        {
+          "id": "36c267ad-136e-4a06-8a3a-203fc173650b",
+          "updated_at": "2026-09-08T08:07:30.977Z",
+          "photo_sha256": "aeed09e712791e42e75db5af884b5c5c3648a30788e51658f321ef06c60aa089"
+        },
+        {
+          "id": "2973f19a-5bde-48a4-856f-62684cec4dc3",
+          "updated_at": "2026-09-08T08:07:30.977Z",
+          "photo_sha256": "9a0e8f3c26b056995bca6e48bf35b7e9571601c9dea03b97b9b7d3ed31cae977"
+        }
+      ],
+      "plan": {
+        "item_ids": [
+          "36c267ad-136e-4a06-8a3a-203fc173650b",
+          "2973f19a-5bde-48a4-856f-62684cec4dc3"
+        ],
+        "product_name": "Mack Weldon Formal Shirt - 26201A-7",
+        "brand_name": "Mack Weldon",
+        "target_product_id": null,
+        "variant_defaults": {
+          "color": "Black",
+          "fit": "Slim"
+        },
+        "review_note": "Owner-requested photo review: same printed model 26201A-7, matching fabric pattern, collar, buttons and fit. Photos 27, 28. Shared colour normalizes inconsistent AI wording; original evidence and quantities preserved.",
+        "confirm_differences": true
+      }
+    },
+    {
+      "photo_numbers": [
+        29,
+        36
+      ],
+      "model": "26201A-13",
+      "size_quantities": {
+        "M": 1,
+        "XL": 1
+      },
+      "source_fingerprints": [
+        {
+          "id": "9489892e-e414-4597-9ecd-44a84c995b6c",
+          "updated_at": "2026-09-08T08:07:30.977Z",
+          "photo_sha256": "b9d600adbc0d5c1f8e72dc6a8ae7612bd80fb76795d838885afb266488f5aa57"
+        },
+        {
+          "id": "6576c07d-e06a-43ee-bd82-e770f99b05c4",
+          "updated_at": "2026-09-08T08:07:30.977Z",
+          "photo_sha256": "6a9cf23e1ef57b197f15b9848eb17086cc2321413ff2692df07c5ea1b69256ce"
+        }
+      ],
+      "plan": {
+        "item_ids": [
+          "9489892e-e414-4597-9ecd-44a84c995b6c",
+          "6576c07d-e06a-43ee-bd82-e770f99b05c4"
+        ],
+        "product_name": "Mack Weldon Formal Shirt - 26201A-13",
+        "brand_name": "Mack Weldon",
+        "target_product_id": null,
+        "variant_defaults": {
+          "color": "Light blue",
+          "fit": "Slim"
+        },
+        "review_note": "Owner-requested photo review: same printed model 26201A-13, matching fabric pattern, collar, buttons and fit. Photos 29, 36. Shared colour normalizes inconsistent AI wording; original evidence and quantities preserved.",
+        "confirm_differences": true
+      }
+    },
+    {
+      "photo_numbers": [
+        38,
+        39
+      ],
+      "model": "26201A-1",
+      "size_quantities": {
+        "S": 1,
+        "M": 1
+      },
+      "source_fingerprints": [
+        {
+          "id": "dc433b44-ec19-4951-b841-1b4aade01f74",
+          "updated_at": "2026-09-08T08:07:30.977Z",
+          "photo_sha256": "8f92606b97fda86ab52c33dc91b5eb03c0b161a1e350e63cb15fe3536de08c6b"
+        },
+        {
+          "id": "8899fa1c-dd0c-406f-ad80-ebb94b3ada3c",
+          "updated_at": "2026-09-08T08:07:30.977Z",
+          "photo_sha256": "49eff07318cc3b974b18066dadcaf4057250e073c925d2bc7de9ada4190b9e92"
+        }
+      ],
+      "plan": {
+        "item_ids": [
+          "dc433b44-ec19-4951-b841-1b4aade01f74",
+          "8899fa1c-dd0c-406f-ad80-ebb94b3ada3c"
+        ],
+        "product_name": "Mack Weldon Formal Shirt - 26201A-1",
+        "brand_name": "Mack Weldon",
+        "target_product_id": null,
+        "variant_defaults": {
+          "color": "White",
+          "fit": "Slim"
+        },
+        "review_note": "Owner-requested photo review: same printed model 26201A-1, matching fabric pattern, collar, buttons and fit. Photos 38, 39. Shared colour normalizes inconsistent AI wording; original evidence and quantities preserved.",
+        "confirm_differences": true
+      }
+    },
+    {
+      "photo_numbers": [
+        41,
+        42,
+        43,
+        44,
+        45
+      ],
+      "model": "0663-11",
+      "size_quantities": {
+        "S": 1,
+        "M": 1,
+        "XL": 1,
+        "L": 1,
+        "2XL": 1
+      },
+      "source_fingerprints": [
+        {
+          "id": "fc7e66f5-3ba2-4e70-9421-4fe25f87fe50",
+          "updated_at": "2026-09-08T08:07:30.977Z",
+          "photo_sha256": "d30222718252d2fa92148ff9c79e60144daef3ca71f2a0dcfa590ee67222c437"
+        },
+        {
+          "id": "c398ca7d-cc74-44e7-8ea0-41f903419bd5",
+          "updated_at": "2026-09-08T08:07:30.977Z",
+          "photo_sha256": "bcff627c930222360662209474f4d620ac4ee71b9e6bddae7597ab00b5485b7b"
+        },
+        {
+          "id": "f3ea3689-5d4a-44a0-b4d1-66f71ed0f949",
+          "updated_at": "2026-09-08T08:07:30.977Z",
+          "photo_sha256": "9f729c8598216f11d11e7912fc12cce1c31231602e620b769ae44923c623f13c"
+        },
+        {
+          "id": "e7484d3f-1ce4-4d53-a0be-ae3db7b969d2",
+          "updated_at": "2026-09-08T08:07:30.977Z",
+          "photo_sha256": "14feaf5f883c853e0bbd020895cbb1ea64e77fc23ba67ad8b428059c66babb49"
+        },
+        {
+          "id": "8cc992aa-7485-4f33-8b46-daacc64dc562",
+          "updated_at": "2026-09-08T08:07:30.977Z",
+          "photo_sha256": "9c069d79ca63eb775fc68a5bfd1d8c7c51a0fb9e04a589d37fce35b5ab2e5f9f"
+        }
+      ],
+      "plan": {
+        "item_ids": [
+          "fc7e66f5-3ba2-4e70-9421-4fe25f87fe50",
+          "c398ca7d-cc74-44e7-8ea0-41f903419bd5",
+          "f3ea3689-5d4a-44a0-b4d1-66f71ed0f949",
+          "e7484d3f-1ce4-4d53-a0be-ae3db7b969d2",
+          "8cc992aa-7485-4f33-8b46-daacc64dc562"
+        ],
+        "product_name": "Tommy Dolby Formal Shirt - 0663-11",
+        "brand_name": "Tommy Dolby",
+        "target_product_id": null,
+        "variant_defaults": {
+          "color": "Light blue",
+          "fit": "Slim"
+        },
+        "review_note": "Owner-requested photo review: same printed model 0663-11, matching fabric pattern, collar, buttons and fit. Photos 41, 42, 43, 44, 45. Shared colour normalizes inconsistent AI wording; original evidence and quantities preserved.",
+        "confirm_differences": true
+      }
+    },
+    {
+      "photo_numbers": [
+        48,
+        49,
+        57
+      ],
+      "model": "3651-1",
+      "size_quantities": {
+        "2XL": 1,
+        "3XL": 1,
+        "XL": 1
+      },
+      "source_fingerprints": [
+        {
+          "id": "286f44c2-db2e-4406-9c83-e87709b479a7",
+          "updated_at": "2026-09-08T08:07:30.977Z",
+          "photo_sha256": "c09b952c6fb511da2ea35a6f470d0a87404926eee41d71527d0c5b65f7d6ab44"
+        },
+        {
+          "id": "c1e5cb74-585d-440c-abf1-2fb62998b596",
+          "updated_at": "2026-09-08T08:07:30.977Z",
+          "photo_sha256": "6e7c49d8c62f8efec0ae9c7de26fb2d16afa29f4fb6299f2ab4a3eaee76f0054"
+        },
+        {
+          "id": "9e07b61b-b83f-4279-8a10-4fdada594350",
+          "updated_at": "2026-09-08T08:07:30.977Z",
+          "photo_sha256": "5db789dfe474cc9a5a5c446a0bf1a79a55709d4bebdce70bfa9d4c48b6f3893b"
+        }
+      ],
+      "plan": {
+        "item_ids": [
+          "286f44c2-db2e-4406-9c83-e87709b479a7",
+          "c1e5cb74-585d-440c-abf1-2fb62998b596",
+          "9e07b61b-b83f-4279-8a10-4fdada594350"
+        ],
+        "product_name": "Gauche UOMO Formal Shirt - 3651-1",
+        "brand_name": "Gauche UOMO",
+        "target_product_id": null,
+        "variant_defaults": {
+          "color": "Light grey",
+          "fit": "Slim"
+        },
+        "review_note": "Owner-requested photo review: same printed model 3651-1, matching fabric pattern, collar, buttons and fit. Photos 48, 49, 57. Shared colour normalizes inconsistent AI wording; original evidence and quantities preserved.",
+        "confirm_differences": true
+      }
+    },
+    {
+      "photo_numbers": [
+        50,
+        51,
+        52,
+        53,
+        54
+      ],
+      "model": "5017-4",
+      "size_quantities": {
+        "2XL": 1,
+        "L": 1,
+        "XL": 1,
+        "M": 1,
+        "S": 1
+      },
+      "source_fingerprints": [
+        {
+          "id": "8fab7357-4c41-4cf1-8376-674c0191069a",
+          "updated_at": "2026-09-08T08:07:30.977Z",
+          "photo_sha256": "d1f615f3e8cc44f6013dca4bdccb2142b527aee61199ea5fece3563142e2d80c"
+        },
+        {
+          "id": "bd6e6b58-0c56-41bf-9a9c-6632c9622f7a",
+          "updated_at": "2026-09-08T08:07:30.977Z",
+          "photo_sha256": "7b851763330a1b364d4a2ad5f621429aa8d89049d3c121fd3c9634e56b7346c4"
+        },
+        {
+          "id": "7d885748-c619-4c54-aa51-682c5a5420ef",
+          "updated_at": "2026-09-08T08:07:30.977Z",
+          "photo_sha256": "893a553d506677416fe7cdb207919266c607af6579a8ae0e29fe3848d792b83b"
+        },
+        {
+          "id": "ec603319-e612-4e47-9875-f1be3922cf9f",
+          "updated_at": "2026-09-08T08:07:30.977Z",
+          "photo_sha256": "d039321e4c65112123c1548f4b213cd222ead11d96c0a7fcf39e1da4bbeade11"
+        },
+        {
+          "id": "5644b05d-3e95-43fe-885a-417085d3ffc3",
+          "updated_at": "2026-09-08T08:07:30.977Z",
+          "photo_sha256": "70429aac7ab2c8e246811e31ac9208b5f372c3f8d76ff6504df6ccf185f52252"
+        }
+      ],
+      "plan": {
+        "item_ids": [
+          "8fab7357-4c41-4cf1-8376-674c0191069a",
+          "bd6e6b58-0c56-41bf-9a9c-6632c9622f7a",
+          "7d885748-c619-4c54-aa51-682c5a5420ef",
+          "ec603319-e612-4e47-9875-f1be3922cf9f",
+          "5644b05d-3e95-43fe-885a-417085d3ffc3"
+        ],
+        "product_name": "Gauche UOMO Formal Shirt - 5017-4",
+        "brand_name": "Gauche UOMO",
+        "target_product_id": null,
+        "variant_defaults": {
+          "color": "Blue",
+          "fit": "Slim"
+        },
+        "review_note": "Owner-requested photo review: same printed model 5017-4, matching fabric pattern, collar, buttons and fit. Photos 50, 51, 52, 53, 54. Shared colour normalizes inconsistent AI wording; original evidence and quantities preserved.",
+        "confirm_differences": true
+      }
+    },
+    {
+      "photo_numbers": [
+        55,
+        56,
+        58
+      ],
+      "model": "D9663-2A",
+      "size_quantities": {
+        "XL": 2,
+        "L": 1
+      },
+      "source_fingerprints": [
+        {
+          "id": "7eea95f4-2157-4289-9b06-abd50f68aadd",
+          "updated_at": "2026-09-08T08:07:30.977Z",
+          "photo_sha256": "62cdd34a97cc5d484327897cf98f3f0a42894a055c0633fc19554a6e67fa0bcf"
+        },
+        {
+          "id": "66ce3cf1-ba13-4ef9-be3f-92d5be26e32b",
+          "updated_at": "2026-09-08T08:07:30.977Z",
+          "photo_sha256": "5b20183ba6a904bc62541f30c6a8fd080a2a827e9840f4790b03cf9f0758fa1a"
+        },
+        {
+          "id": "087747f7-4858-4853-a3fe-0057b7a599c3",
+          "updated_at": "2026-09-08T08:07:30.977Z",
+          "photo_sha256": "5b5432dc8ef18cfffb769f73593a149214053d94044ffcc79bd0b972701ed1c8"
+        }
+      ],
+      "plan": {
+        "item_ids": [
+          "7eea95f4-2157-4289-9b06-abd50f68aadd",
+          "66ce3cf1-ba13-4ef9-be3f-92d5be26e32b",
+          "087747f7-4858-4853-a3fe-0057b7a599c3"
+        ],
+        "product_name": "Gauche UOMO Formal Shirt - D9663-2A",
+        "brand_name": "Gauche UOMO",
+        "target_product_id": null,
+        "variant_defaults": {
+          "color": "Light grey",
+          "fit": "Slim"
+        },
+        "review_note": "Owner-requested photo review: same printed model D9663-2A, matching fabric pattern, collar, buttons and fit. Photos 55, 56, 58. Shared colour normalizes inconsistent AI wording; original evidence and quantities preserved.",
+        "confirm_differences": true
+      }
+    },
+    {
+      "photo_numbers": [
+        59,
+        60,
+        61
+      ],
+      "model": "738-352",
+      "size_quantities": {
+        "XL": 1,
+        "L": 1,
+        "2XL": 1
+      },
+      "source_fingerprints": [
+        {
+          "id": "17e04616-aa64-421b-9ceb-9cc0bf7f59df",
+          "updated_at": "2026-09-08T08:07:30.977Z",
+          "photo_sha256": "1852a9bb4f4d9aa7547b746c484412e53b815203123ff37dec35781655e7459d"
+        },
+        {
+          "id": "0a053e2e-aa9f-40b4-9a07-6c3ac7cc896e",
+          "updated_at": "2026-09-08T08:07:30.977Z",
+          "photo_sha256": "6b67f248c34d4023a3f3b304f2b05df66772c071c7446d4fda8bfa328f7a897e"
+        },
+        {
+          "id": "1fb2d46c-e1da-42dc-be9c-dfe8066dfe65",
+          "updated_at": "2026-09-08T08:07:30.977Z",
+          "photo_sha256": "09efeab6e311d92ac2d65b8a66f2a719ad940c27486dae5ce0772cacaa70a3b8"
+        }
+      ],
+      "plan": {
+        "item_ids": [
+          "17e04616-aa64-421b-9ceb-9cc0bf7f59df",
+          "0a053e2e-aa9f-40b4-9a07-6c3ac7cc896e",
+          "1fb2d46c-e1da-42dc-be9c-dfe8066dfe65"
+        ],
+        "product_name": "Gioiello Formal Shirt - 738-352",
+        "brand_name": "Gioiello",
+        "target_product_id": null,
+        "variant_defaults": {
+          "color": "White",
+          "fit": "Slim"
+        },
+        "review_note": "Owner-requested photo review: same printed model 738-352, matching fabric pattern, collar, buttons and fit. Photos 59, 60, 61. Shared colour normalizes inconsistent AI wording; original evidence and quantities preserved.",
+        "confirm_differences": true
+      }
+    }
+  ],
+  "separate_lots": [
+    {
+      "photo_number": 1,
+      "item_id": "9e2f0659-0338-41d4-a8c5-8cc8c2f40a59",
+      "name": "Bianco Cortini Formal Shirt",
+      "reason": "Distinct design/colour/pattern/collar or insufficient exact-model evidence; existing sizes preserved."
+    },
+    {
+      "photo_number": 2,
+      "item_id": "eb5d8181-d988-4c40-90c5-d970a1c0e115",
+      "name": "Bianco Cortini Formal Shirt",
+      "reason": "Distinct design/colour/pattern/collar or insufficient exact-model evidence; existing sizes preserved."
+    },
+    {
+      "photo_number": 3,
+      "item_id": "41bede8c-a2e8-42af-b7d9-ebe12e47016e",
+      "name": "Bianco Cortini Formal Shirt",
+      "reason": "Distinct design/colour/pattern/collar or insufficient exact-model evidence; existing sizes preserved."
+    },
+    {
+      "photo_number": 4,
+      "item_id": "18bf4c3a-f9e8-4389-a2d3-c2d91ea682cc",
+      "name": "Bianco Cortini Formal shirt",
+      "reason": "Distinct design/colour/pattern/collar or insufficient exact-model evidence; existing sizes preserved."
+    },
+    {
+      "photo_number": 5,
+      "item_id": "4fe6b958-dce5-4190-9adc-d0e5859faf02",
+      "name": "Bianco Cortini Formal shirt",
+      "reason": "Distinct design/colour/pattern/collar or insufficient exact-model evidence; existing sizes preserved."
+    },
+    {
+      "photo_number": 6,
+      "item_id": "ab10311c-a858-4040-a1ea-ccc27b5c7693",
+      "name": "Bianco Cortini Formal Shirt",
+      "reason": "Distinct design/colour/pattern/collar or insufficient exact-model evidence; existing sizes preserved."
+    },
+    {
+      "photo_number": 7,
+      "item_id": "534ccb57-8c2a-47a6-936f-899a1aaae75b",
+      "name": "Bianco Cortini Formal shirt",
+      "reason": "Distinct design/colour/pattern/collar or insufficient exact-model evidence; existing sizes preserved."
+    },
+    {
+      "photo_number": 15,
+      "item_id": "303ec48f-af23-4a26-991b-f9bdccb88d03",
+      "name": "MACK WELDON Formal Shirt",
+      "reason": "Model suffix obscured. Keep separate from B-26 and B-16."
+    },
+    {
+      "photo_number": 16,
+      "item_id": "3e60ce89-a8a7-48e2-9b68-611b3122d15f",
+      "name": "MACK WELDON Formal shirt",
+      "reason": "Label says 26201B-16; distinct from B-26."
+    },
+    {
+      "photo_number": 17,
+      "item_id": "20af8e09-a9f1-48ef-90a5-a5845ab94ce9",
+      "name": "MACK WELDON Formal shirt",
+      "reason": "Label says 26201A-14; distinct from B-14 photo 35."
+    },
+    {
+      "photo_number": 19,
+      "item_id": "ddc52c50-bf90-4095-9ad0-79ca397ff2fd",
+      "name": "Manschett Formal Shirt",
+      "reason": "Blurred Manschett photo; no exact style identity established."
+    },
+    {
+      "photo_number": 20,
+      "item_id": "799a0496-ef0d-4070-b8b0-84fe4ce1ba53",
+      "name": "Manschett By QUESSTE Formal shirt",
+      "reason": "Manschett visual candidate with 21/22; no model identifier."
+    },
+    {
+      "photo_number": 21,
+      "item_id": "b63337cf-cc69-4c93-b5a7-fbd1f2f29cd2",
+      "name": "Manschett Formal shirt",
+      "reason": "Manschett visual candidate with 20/22; no model identifier."
+    },
+    {
+      "photo_number": 22,
+      "item_id": "5090d83a-81d9-476d-86ca-1389f7504e2d",
+      "name": "Manschett Formal shirt",
+      "reason": "Manschett visual candidate with 20/21; no model identifier."
+    },
+    {
+      "photo_number": 26,
+      "item_id": "c999dbb6-325d-43b9-852e-b1862e9e059f",
+      "name": "MACK WELDON Formal shirt",
+      "reason": "26201A-12 differs from black 26201A-7."
+    },
+    {
+      "photo_number": 33,
+      "item_id": "6f8d069b-e423-4bc9-ad85-0c1d582ffe26",
+      "name": "MACK WELDON Formal shirt",
+      "reason": "26201A-10 differs from navy patterned 26201A-11."
+    },
+    {
+      "photo_number": 35,
+      "item_id": "8dee3cc4-ff93-4e4a-acb6-950debb27799",
+      "name": "MACK WELDON Formal Shirt",
+      "reason": "Label says 26201B-14; A/B difference from photo 17 preserved."
+    },
+    {
+      "photo_number": 40,
+      "item_id": "c41bf5a1-4bad-436a-ba0f-bbb03ba0ae0d",
+      "name": "TOMMY DOLBY Formal shirt",
+      "reason": "Tommy Dolby 0663-29 differs from 0663-11."
+    },
+    {
+      "photo_number": 46,
+      "item_id": "9d88d8db-1136-4cf0-a66e-e23f6ed15529",
+      "name": "TOMMY DOLBY® Formal shirt",
+      "reason": "Possible Tommy Dolby match; model label faces away."
+    },
+    {
+      "photo_number": 47,
+      "item_id": "eba56fae-d44a-4e40-9bd0-0c2f1f16f9be",
+      "name": "TOMMY DOLBY Formal Shirt",
+      "reason": "Possible Tommy Dolby match; model label faces away."
+    },
+    {
+      "photo_number": 62,
+      "item_id": "a6c999b5-ee28-4469-9867-2e25819d5e86",
+      "name": "HUGO & VICTOR Formal Shirt",
+      "reason": "Distinct design/colour/pattern/collar or insufficient exact-model evidence; existing sizes preserved."
+    },
+    {
+      "photo_number": 63,
+      "item_id": "db4661c9-b793-4a1b-88a0-728441559a64",
+      "name": "HUGO & VICTOR Formal Shirt",
+      "reason": "Distinct design/colour/pattern/collar or insufficient exact-model evidence; existing sizes preserved."
+    },
+    {
+      "photo_number": 64,
+      "item_id": "93de04cb-f2ab-446e-a653-8903c0ad4517",
+      "name": "HUGO & VICTOR Formal shirt",
+      "reason": "Distinct design/colour/pattern/collar or insufficient exact-model evidence; existing sizes preserved."
+    },
+    {
+      "photo_number": 65,
+      "item_id": "e0d4b131-5a76-4aab-8b54-e7c0e7f2f879",
+      "name": "HUGO & VICTOR Formal shirt",
+      "reason": "Distinct design/colour/pattern/collar or insufficient exact-model evidence; existing sizes preserved."
+    },
+    {
+      "photo_number": 66,
+      "item_id": "3594ad01-eca0-47d3-8054-22e99b1de8a0",
+      "name": "HUGO & VICTOR Formal Shirt",
+      "reason": "Distinct design/colour/pattern/collar or insufficient exact-model evidence; existing sizes preserved."
+    },
+    {
+      "photo_number": 67,
+      "item_id": "986887c7-f439-44fa-83b0-df16cb04563f",
+      "name": "HUGO & VICTOR Formal Shirt",
+      "reason": "Distinct design/colour/pattern/collar or insufficient exact-model evidence; existing sizes preserved."
+    }
+  ],
+  "projected_products": 38,
+  "notes": [
+    "No source lots/photos deleted and no POS receipt created.",
+    "Photos 25/37 each record one XL for B-25: retain quantity 2 in one variant. Photos 55/58 likewise record two XL units. Photos cannot establish whether separate images depict the same physical shirt; quantities follow the previously confirmed source records.",
+    "Existing Hugo & Victor POS: one light-blue product lacks a photo; a blue product has an image but no matching model number. Visual similarity alone is insufficient. Existing Gauche black design is different. No existing-product merge selected.",
+    "Tommy photo 42 has a conflicting AI material value (Synthetic blend); peers say Cotton. A new shared product takes the first source material. Photo review does not establish composition."
+  ]
+}

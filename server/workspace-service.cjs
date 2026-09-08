@@ -101,7 +101,8 @@ function createWorkspaceService({ source }) {
     async restockOptions({itemId,branchId,search}) {
       return repository.transaction(async client => {
         const context = await requireContext(client,itemId,branchId);
-        return publicationRepository.restockOptions(client,context.item.pos_category_id,search);
+        const rows=await publicationRepository.restockOptions(client,context.item.pos_category_id,search);
+        return Promise.all(rows.map(async row=>({...row,image_url:row.image_path?await createProductImageUrl(row.image_path):null,image_path:undefined})));
       });
     },
     async restockItem(input) {
@@ -172,7 +173,7 @@ function createWorkspaceService({ source }) {
             is_published: published(context),
             is_cancelled:!!context.item.intake_cancelled_at,
             requires_pos_reconciliation: !!context.item.pos_product_id && !context.item.publication_id && context.item.pos_sync_status !== 'synced',
-            blockers: published(context) ? [] : catalogPublicationBlockers(context),
+            blockers: published(context) ? [] : catalogPublicationBlockers(context).filter(message => message !== 'Receive this lot through its matched product group.'),
           };
         });
         const membership = memberships.find((entry) => entry.item_id === item.id);
@@ -198,7 +199,7 @@ function createWorkspaceService({ source }) {
           revision: revisionOf(context),
           publication_revision: createPublicationRevision(context, { branchId, userId }),
           fields,
-          blockers: published(context) ? [] : catalogPublicationBlockers(context),
+          blockers: published(context) ? [] : catalogPublicationBlockers(context).filter(message => message !== 'Receive this lot through its matched product group.'),
           item: {
             photo_handoff: await readPhotoHandoff(branchId, itemId, client),
             id: item.id,

@@ -27,6 +27,7 @@ import { UploadDelivery, type Category } from './upload-delivery';
 import { DraftEditor } from './draft-editor';
 import { AiFill } from './ai-fill';
 import { useWorkspaceTool } from '@/lib/webmcp';
+import { ProductMatching, type ProductMatch, type ProductMatchReview } from './product-matching';
 import { useReceivingScope } from '@/lib/receiving-inventory';
 import { readPendingPhotos } from '@/lib/upload-queue';
 type Batch = {
@@ -102,6 +103,9 @@ export function Receiving({
     [editing, setEditing] = useState<string | null>(null),
     [uploading, setUploading] = useState(false),
     [receiving, setReceiving] = useState<string[] | null>(null);
+  const [matchEditorItems, setMatchEditorItems] = useState<CatalogItem[] | null>(null);
+  const [editingMatch, setEditingMatch] = useState<ProductMatch | undefined>();
+  const productMatches = usePosRead<ProductMatch[]>('/catalog-workspace/product-matches', branch);
   const [receipt, setReceipt] = useState<Receipt | null>(null);
   const [task, setTask] = useState('all'),
     [categoryFilter, setCategoryFilter] = useState(''),
@@ -137,6 +141,10 @@ export function Receiving({
       (!deliveryFilter ||
         (deliveryFilter === 'ungrouped' ? !item.batch_id : item.batch_id === deliveryFilter)),
   );
+  const visibleMatches =
+    productMatches.data?.filter((plan) =>
+      plan.item_ids.some((id) => matchingItems.some((item) => item.id === id)),
+    ) || [];
   const selectableItems = matchingItems.filter((item) => !item.is_published && !item.is_cancelled);
   const pageItems = matchingItems.slice((page - 1) * 48, page * 48);
   const selectablePage = pageItems.filter((item) => !item.is_published && !item.is_cancelled);
@@ -198,6 +206,7 @@ export function Receiving({
   function refreshReceiving() {
     setPage(1);
     inventory.refresh();
+    productMatches.refresh();
     batches.refresh();
     receipts.refresh();
     setSelectedItems([]);
@@ -380,6 +389,46 @@ export function Receiving({
             />
           )}
         </section>
+      )}
+      {tab === 'ready' && !!visibleMatches.length && (
+        <details className="receiving-review-group" open>
+          <summary>
+            <strong>{visibleMatches.length} matched products</strong>
+          </summary>
+          {visibleMatches.map((plan) => (
+            <div className="receipt-outcome" key={plan.id}>
+              <div>
+                <strong>{plan.product_name}</strong>
+                <small className="block">
+                  {plan.item_ids.length} lots /{' '}
+                  {plan.target_product_id ? 'Existing POS product' : 'One new product'}
+                </small>
+              </div>
+              {session.can_publish && session.can_open_pos_product && (
+                <Button
+                  variant="outline"
+                  onClick={() => {
+                    const members = scope.items.filter((item) => plan.item_ids.includes(item.id));
+                    if (members.length !== plan.item_ids.length) {
+                      setSearch('');
+                      setCategoryFilter('');
+                      setBrandFilter('');
+                      setDeliveryFilter('');
+                      setBatch(null);
+                      return;
+                    }
+                    setEditingMatch(plan);
+                    setMatchEditorItems(members);
+                  }}
+                >
+                  {plan.item_ids.every((id) => scope.items.some((item) => item.id === id))
+                    ? 'Review match'
+                    : 'Show all members'}
+                </Button>
+              )}
+            </div>
+          ))}
+        </details>
       )}
       {['lots', 'ready', 'preparing'].includes(tab) && (
         <>
@@ -636,7 +685,10 @@ export function Receiving({
                   <button
                     onClick={() =>
                       session.can_publish && nextTask(item) === 'Ready for POS'
-                        ? setReceiving([item.id])
+                        ? setReceiving(
+                            productMatches.data?.find((plan) => plan.item_ids.includes(item.id))
+                              ?.item_ids || [item.id],
+                          )
                         : setEditing(item.id)
                     }
                     className={`task-status ${item.is_published ? 'received' : item.blockers.length ? 'preparing' : 'ready'}`}
@@ -678,6 +730,17 @@ export function Receiving({
                 <Button variant="outline" onClick={() => setAiItems([...selectedItems])}>
                   <Sparkles size={16} />
                   AI fill
+                </Button>
+              )}
+              {session.can_publish && session.can_open_pos_product && (
+                <Button
+                  variant="outline"
+                  onClick={() => {
+                    setEditingMatch(undefined);
+                    setMatchEditorItems([...selectedItems]);
+                  }}
+                >
+                  Match product
                 </Button>
               )}
               {session.can_publish && (
@@ -816,6 +879,18 @@ export function Receiving({
           }}
         />
       )}
+      {matchEditorItems && (
+        <ProductMatching
+          items={matchEditorItems}
+          branch={branch}
+          plan={editingMatch}
+          onClose={() => setMatchEditorItems(null)}
+          onSaved={() => {
+            setMatchEditorItems(null);
+            refreshReceiving();
+          }}
+        />
+      )}
       {receiving && (
         <ReceiveReview
           ids={receiving}
@@ -911,6 +986,7 @@ function ReceiveReview({
   const [busy, setBusy] = useState(false);
   const [loading, setLoading] = useState(true);
   const [results, setResults] = useState<Record<string, string>>({});
+  const [matchReviews, setMatchReviews] = useState<(ProductMatchReview & { item_ids: string[] })[]>([]);
   const [reviewVersion, setReviewVersion] = useState(0);
   const [needsReview, setNeedsReview] = useState(false);
   const active = useRef(true);
@@ -924,6 +1000,7 @@ function ReceiveReview({
     rows.reduce((sum, item) => sum + Number(item.stock_quantity || 0), 0);
   const groups = new Map<string, CatalogItem[]>();
   for (const item of eligible) {
+    if (matchReviews.some((match) => match.item_ids.includes(item.id))) continue;
     const title = item.batch_title || 'Ungrouped merchandise';
     groups.set(title, [...(groups.get(title) || []), item]);
   }
@@ -947,8 +1024,30 @@ function ReceiveReview({
       }
     }
     Promise.all(Array.from({ length: Math.min(4, ids.length) }, readReviewWorker))
-      .then(() => {
+      .then(async () => {
+        const plans = await requestPos<ProductMatch[]>('/catalog-workspace/product-matches', branch, {
+          signal: controller.signal,
+        });
+        const reviews: (ProductMatchReview & { item_ids: string[] })[] = [];
+        for (const plan of plans.filter((plan) => plan.item_ids.some((id) => ids.includes(id)))) {
+          if (!plan.item_ids.every((id) => ids.includes(id)))
+            throw new Error(
+              `Select all ${plan.item_ids.length} lots for matched product ${plan.product_name}.`,
+            );
+          try {
+            const reviewed = await postPos<ProductMatchReview>(
+              `/catalog-workspace/product-matches/${plan.id}/review`,
+              branch,
+              {},
+            );
+            if (!reviewed.already_received) reviews.push({ ...reviewed, item_ids: plan.item_ids });
+          } catch (cause) {
+            for (const row of rows.filter((item) => plan.item_ids.includes(item.id)))
+              row.blockers = [(cause as Error).message];
+          }
+        }
         if (!controller.signal.aborted) {
+          setMatchReviews(reviews);
           setItems(rows);
           setNeedsReview(false);
           setResults((previous) =>
@@ -977,13 +1076,28 @@ function ReceiveReview({
     try {
       for (const item of eligible) {
         if (!active.current || sessionStorage.getItem('kline.session') !== token) break;
+        if (outcomes[item.id] === 'Received') continue;
+        const match = matchReviews.find((review) => review.item_ids.includes(item.id));
+        if (
+          match &&
+          match.item_ids.some((id) => outcomes[id] && outcomes[id] !== 'Received') &&
+          item.id !== eligible.find((row) => match.item_ids.includes(row.id))?.id
+        )
+          continue;
         try {
-          await postPos(`/catalog-workspace/items/${item.id}/receive`, branch, {
-            expected_revision: item.publication_revision,
-          });
-          outcomes[item.id] = 'Received';
+          if (match) {
+            await postPos(`/catalog-workspace/product-matches/${match.id}/receive`, branch, {
+              expected_revision: match.revision,
+            });
+            for (const id of match.item_ids) outcomes[id] = 'Received';
+          } else {
+            await postPos(`/catalog-workspace/items/${item.id}/receive`, branch, {
+              expected_revision: item.publication_revision,
+            });
+            outcomes[item.id] = 'Received';
+          }
         } catch (cause) {
-          outcomes[item.id] = (cause as Error).message;
+          for (const id of match?.item_ids || [item.id]) outcomes[id] = (cause as Error).message;
           if (cause instanceof ApiError && cause.status === 409) setNeedsReview(true);
           if (cause instanceof ApiError && [401, 403].includes(cause.status)) {
             setError(cause.message);
@@ -1024,6 +1138,40 @@ function ReceiveReview({
               {(finished ? received : eligible).length} lots / {branchName}
             </span>
           </div>
+          {!finished && !!matchReviews.length && (
+            <section aria-label="Matched products in receipt">
+              <p>
+                <strong>{matchReviews.length} matched products</strong> /{' '}
+                {
+                  eligible.filter((item) => !matchReviews.some((match) => match.item_ids.includes(item.id)))
+                    .length
+                }{' '}
+                separate products
+              </p>
+              {matchReviews.map((match) => (
+                <details key={match.id} className="receiving-review-group">
+                  <summary>
+                    <strong>{match.product_name}</strong>
+                    <span>
+                      {match.lot_count} lots / {match.total_units} units / {match.new_variants} new variants /{' '}
+                      {match.existing_variants} restocked variants
+                    </span>
+                  </summary>
+                  {match.warnings.map((warning) => (
+                    <p key={warning}>{warning}</p>
+                  ))}
+                  {match.rows.map((row, index) => (
+                    <div key={index} className="receipt-outcome">
+                      <span>{Object.values(row.attributes).join(' / ')}</span>
+                      <span>
+                        {row.quantity} units / {formatMoney(row.price)} / {row.action}
+                      </span>
+                    </div>
+                  ))}
+                </details>
+              ))}
+            </section>
+          )}
           {!!received.length && !finished && (
             <p role="status">
               {received.length} lots / {units(received)} units received

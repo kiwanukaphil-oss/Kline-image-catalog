@@ -178,3 +178,19 @@ Production browser update, 7 September 2026: owner sign-in passes; 964 NTINDA an
 - [x] Owner-approved workflow committed and pushed as `a2e7e8c`; Railway deployment `699139f8-f37f-4fa8-a112-8d424e9a0838` succeeded on 8 September 2026. Live Ready for POS and bulk confirmation verified for NAMUGONGO: 67 lots / 126 units. Closed review without receiving stock; all eight public production health checks passed.
 
 Implementation note: selection reads the complete filtered set through existing permission-scoped API pages with at most four concurrent reads. Confirmation also bounds detail reads to four; receiving retains sequential per-lot POS transactions. The 1,000-lot browser test validates behavior with intercepted responses, not production load capacity.
+
+## Product identity and Namugongo matching - 8 September 2026
+
+- [x] Inspect all 67 original photos and saved size quantities; identify 12 supported model groups covering 41 lots. Keep 26 lots separate where designs differ or model evidence is insufficient. Proposed result: 38 products / 126 units.
+- [x] Record each matching decision, model, source IDs, photo hashes and timestamps in `docs/namugongo-product-matching-review.md` and `verification/namugongo-product-matches.json`. Validate no omitted/overlapping lots and no conflicting prices or costs for combined sizes.
+- [x] Add explicit product matching from selected ready lots, retaining original evidence and an audited option to return lots to separate products.
+- [x] Support one new product, additional variants on an existing product, and stock added to existing variants. Normalize size aliases; block incomplete native attribute matches instead of creating accidental duplicate variants.
+- [x] Revalidate all members and target variants at receipt; commit each matched group atomically through native POS stock services. Prevent individual receipt bypass and duplicate stock on concurrent retries.
+- [x] Preserve every source photo in the shared product gallery, keeping the first/manual primary image and retrying photo transfer independently of stock.
+- [x] Local grouped-receipt tests pass for size reuse/new sizes, exact quantities, prices, permissions, stale reviews, overlapping membership, rollback and photo preservation. All 25 existing native publication/restock/photo tests pass.
+- [x] Browser checks pass for saving an evidence-backed group and receiving it once through bulk confirmation; existing 1,000-lot receiving regression, TypeScript, lint and production build pass.
+- [ ] Obtain owner confirmation to commit and deploy the concrete matching release, as required by the current AGENTS instructions.
+- [ ] Deploy POS migration 110 and workspace package 0.19.0 before the catalog frontend; verify live matching UI and normal receiving.
+- [ ] Revalidate the recorded source timestamps/quantities and save the 12 reviewed Namugongo matching plans through the authenticated workspace. No stock receipt is authorized by this task.
+
+Local verification note: C: ran out of space during the first native regression run. Generated `.test-data` artifacts were preserved on D: and linked at their original path. The subsequent 25-test run and build passed. No source files or original inventory images were deleted.
