@@ -1,0 +1,32 @@
+{
+  "checked_at": "2026-09-08T17:13:41.666Z",
+  "product_id": "84a2d5c9-e0ab-40a6-b47e-386502138959",
+  "retired_variant_ids": [
+    "4151220d-578b-4990-af98-f585b591b345",
+    "35c2ef52-b0ad-463a-801d-9a04ed0c9736"
+  ],
+  "stock_unchanged": true,
+  "identities_preserved": true,
+  "remaining": [
+    {
+      "id": "48ab94a3-34e6-4b33-bfbe-07ce3afa14d2",
+      "attributes": {
+        "fit": "slim",
+        "size": "L",
+        "color": "White",
+        "sleeve": "long"
+      },
+      "units": 1
+    },
+    {
+      "id": "c8f50578-5062-4816-9ec7-1a819cf831a5",
+      "attributes": {
+        "fit": "slim",
+        "size": "XL",
+        "color": "White",
+        "sleeve": "long"
+      },
+      "units": 2
+    }
+  ]
+}
