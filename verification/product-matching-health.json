@@ -1,0 +1,61 @@
+{
+  "checked_at": "2026-09-08T11:02:00.825Z",
+  "project_id": "f06ae302-c116-487a-96d6-4a76a387e533",
+  "scope": "Live production; unauthenticated, read-only checks",
+  "node_options": [
+    "--dns-result-order=ipv4first"
+  ],
+  "passed": true,
+  "checks": [
+    {
+      "name": "Catalog workspace HTML",
+      "passed": true,
+      "status": 200,
+      "elapsed_ms": 1837
+    },
+    {
+      "name": "POS HTML",
+      "passed": true,
+      "status": 200,
+      "elapsed_ms": 1526
+    },
+    {
+      "name": "API process",
+      "passed": true,
+      "status": 200,
+      "elapsed_ms": 558
+    },
+    {
+      "name": "Database connectivity",
+      "passed": true,
+      "status": 200,
+      "elapsed_ms": 560
+    },
+    {
+      "name": "Anonymous workspace denied",
+      "passed": true,
+      "status": 401,
+      "elapsed_ms": 559
+    },
+    {
+      "name": "CORS permits https://klinemen-catalog.com",
+      "passed": true,
+      "status": 204,
+      "elapsed_ms": 554
+    },
+    {
+      "name": "CORS permits https://inventory-pos.pages.dev",
+      "passed": true,
+      "status": 204,
+      "elapsed_ms": 559
+    },
+    {
+      "name": "CORS denies foreign origin",
+      "passed": true,
+      "status": 500,
+      "elapsed_ms": 2561
+    }
+  ],
+  "limitations": "A point-in-time probe, not scheduled monitoring or a browser, login, AI, photo or commerce test.",
+  "note": "Two earlier probes had individual local connection failures; the IPv4-first repeat passed all eight checks. Initial failed probe records are preserved in local verification artifacts."
+}

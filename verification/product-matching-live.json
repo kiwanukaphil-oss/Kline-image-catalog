@@ -1,0 +1,153 @@
+{
+  "checked_at": "2026-09-08T11:05:23.385Z",
+  "passed": true,
+  "branch_id": "a0fc0889-235b-4467-977b-733cb4354739",
+  "lots": 67,
+  "units": 126,
+  "matched_groups": 12,
+  "matched_lots": 41,
+  "separate_lots": 26,
+  "projected_products": 38,
+  "source_timestamps_unchanged": true,
+  "pos_publications": 0,
+  "pos_stock": 0,
+  "matches": [
+    {
+      "id": "5abf24a0-5ad6-4fb6-8ab5-fcf793753f38",
+      "name": "Mack Weldon Formal Shirt - 26201A-6",
+      "item_ids": [
+        "3e1f836c-ca73-4c8f-957e-205ffe7b80fa",
+        "3ee81c72-cff8-4f6e-91ad-c312148a26f2",
+        "027a1c49-ce74-4fb7-91c3-e29b2bf8aca4",
+        "3150592d-06e1-4e4c-a48b-85eea5f55a7d",
+        "ee20b447-d1d2-4067-9f4d-7a5edea452b6",
+        "ee42bfa0-5a1d-4ccd-a2ea-60761747c6f5"
+      ],
+      "created_by": "8691f46d-0109-4042-ac1b-45654320e269"
+    },
+    {
+      "id": "bd08fed1-fbe3-4bc4-a261-5f8d0e12c1f6",
+      "name": "Mack Weldon Formal Shirt - 26201B-26",
+      "item_ids": [
+        "0490ff90-a022-4b71-a5d5-c1dcf76060d4",
+        "20d7e99b-445f-405c-9aa8-90017a628587"
+      ],
+      "created_by": "8691f46d-0109-4042-ac1b-45654320e269"
+    },
+    {
+      "id": "f4aaf843-7009-4381-84f4-ccacd29a1aca",
+      "name": "Mack Weldon Formal Shirt - 26201A-11",
+      "item_ids": [
+        "340721c2-92cb-4b61-94f8-432d3392175d",
+        "59e86538-4808-443f-a3b6-257150d8f977",
+        "f95c40f6-2c4a-4ee5-a34e-b76fb4f0d9df",
+        "d0f75c32-f285-4266-9067-0873329d054d"
+      ],
+      "created_by": "8691f46d-0109-4042-ac1b-45654320e269"
+    },
+    {
+      "id": "fedd597f-0be6-4fb6-bace-952f4a0596dc",
+      "name": "Mack Weldon Formal Shirt - 26201B-25",
+      "item_ids": [
+        "a6197571-3c90-45cf-abe2-eafccf78953a",
+        "2a53fb41-9b5a-4313-a0c9-94495b4b3df0",
+        "d93b7eb3-d5fd-4d36-857d-c5d2b3b86a50",
+        "f45b5695-4368-4db7-be0a-2b441484bdaa"
+      ],
+      "created_by": "8691f46d-0109-4042-ac1b-45654320e269"
+    },
+    {
+      "id": "61fad629-f650-4094-b37e-8163a1d07e82",
+      "name": "Mack Weldon Formal Shirt - 26201A-7",
+      "item_ids": [
+        "36c267ad-136e-4a06-8a3a-203fc173650b",
+        "2973f19a-5bde-48a4-856f-62684cec4dc3"
+      ],
+      "created_by": "8691f46d-0109-4042-ac1b-45654320e269"
+    },
+    {
+      "id": "c3ff6147-4509-48fd-a24e-ff1315365968",
+      "name": "Mack Weldon Formal Shirt - 26201A-13",
+      "item_ids": [
+        "9489892e-e414-4597-9ecd-44a84c995b6c",
+        "6576c07d-e06a-43ee-bd82-e770f99b05c4"
+      ],
+      "created_by": "8691f46d-0109-4042-ac1b-45654320e269"
+    },
+    {
+      "id": "fdd5468e-751b-4601-8921-c7149c7742db",
+      "name": "Mack Weldon Formal Shirt - 26201A-1",
+      "item_ids": [
+        "dc433b44-ec19-4951-b841-1b4aade01f74",
+        "8899fa1c-dd0c-406f-ad80-ebb94b3ada3c"
+      ],
+      "created_by": "8691f46d-0109-4042-ac1b-45654320e269"
+    },
+    {
+      "id": "536b7b03-2b60-403a-a0cc-eddc6e486c96",
+      "name": "Tommy Dolby Formal Shirt - 0663-11",
+      "item_ids": [
+        "fc7e66f5-3ba2-4e70-9421-4fe25f87fe50",
+        "c398ca7d-cc74-44e7-8ea0-41f903419bd5",
+        "f3ea3689-5d4a-44a0-b4d1-66f71ed0f949",
+        "e7484d3f-1ce4-4d53-a0be-ae3db7b969d2",
+        "8cc992aa-7485-4f33-8b46-daacc64dc562"
+      ],
+      "created_by": "8691f46d-0109-4042-ac1b-45654320e269"
+    },
+    {
+      "id": "ff2f6c51-5e2d-4cc9-bbda-c677a8ce9896",
+      "name": "Gauche UOMO Formal Shirt - 3651-1",
+      "item_ids": [
+        "286f44c2-db2e-4406-9c83-e87709b479a7",
+        "c1e5cb74-585d-440c-abf1-2fb62998b596",
+        "9e07b61b-b83f-4279-8a10-4fdada594350"
+      ],
+      "created_by": "8691f46d-0109-4042-ac1b-45654320e269"
+    },
+    {
+      "id": "2e5a204a-75dd-4982-97ac-d31789150f07",
+      "name": "Gauche UOMO Formal Shirt - 5017-4",
+      "item_ids": [
+        "8fab7357-4c41-4cf1-8376-674c0191069a",
+        "bd6e6b58-0c56-41bf-9a9c-6632c9622f7a",
+        "7d885748-c619-4c54-aa51-682c5a5420ef",
+        "ec603319-e612-4e47-9875-f1be3922cf9f",
+        "5644b05d-3e95-43fe-885a-417085d3ffc3"
+      ],
+      "created_by": "8691f46d-0109-4042-ac1b-45654320e269"
+    },
+    {
+      "id": "f0370d3c-53bf-43d7-ab0e-d31892eb8447",
+      "name": "Gauche UOMO Formal Shirt - D9663-2A",
+      "item_ids": [
+        "7eea95f4-2157-4289-9b06-abd50f68aadd",
+        "66ce3cf1-ba13-4ef9-be3f-92d5be26e32b",
+        "087747f7-4858-4853-a3fe-0057b7a599c3"
+      ],
+      "created_by": "8691f46d-0109-4042-ac1b-45654320e269"
+    },
+    {
+      "id": "86e17bc3-d042-43bf-a507-5cfc0b7068e4",
+      "name": "Gioiello Formal Shirt - 738-352",
+      "item_ids": [
+        "17e04616-aa64-421b-9ceb-9cc0bf7f59df",
+        "0a053e2e-aa9f-40b4-9a07-6c3ac7cc896e",
+        "1fb2d46c-e1da-42dc-be9c-dfe8066dfe65"
+      ],
+      "created_by": "8691f46d-0109-4042-ac1b-45654320e269"
+    }
+  ],
+  "deployments": {
+    "pos": {
+      "commit": "aa94caa",
+      "id": "0e7009b3-e17d-4e97-a5ba-5f9843f1d7f2",
+      "status": "SUCCESS"
+    },
+    "catalog": {
+      "commit": "7d8f8cf",
+      "id": "bcbe5d53-8b41-420e-a2b7-1a49424ce258",
+      "status": "SUCCESS"
+    }
+  }
+}
