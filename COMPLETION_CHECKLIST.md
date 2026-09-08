@@ -202,6 +202,6 @@ Local verification note: C: ran out of space during the first native regression 
 - [x] Prepare migration 111: label the existing field Sleeve length, preserve custom choices and stored values, add Three-quarter/Sleeveless and AI vocabulary aliases, and provide the inherited field for jackets. Gender remains optional.
 - [x] Include sleeve in the photo evidence shown while matching. AI extraction uses the configured field and stores its value, confidence and evidence independently of the item name.
 - [x] Verify 24 native tests (sleeve, publication and restock), real local grouped receiving including Long-XL restock versus a separate Short-XL variant, TypeScript, lint and production build. Repeat the final migration/AI tests after checking the live schema: 3/3 pass.
-- [ ] Owner confirmation to commit/deploy the sleeve release (workspace 0.20.0 / migration 111), followed by a fresh backup, migration and live verification.
+- [x] Owner approved commit/deploy. POS `8956c7e` and catalog `5083488` deployed successfully after a fresh PostgreSQL 18 backup and migration 111. Live detail shows Sleeve length = Long and all five choices; matching evidence displays sleeve: Long. All eight health probes pass. Evidence: `verification/sleeve-live.json`, `sleeve-migration.json` and `sleeve-health.json`.
 
 No production sleeve values were changed. Existing Long values are preserved; unset values are not inferred from item names or category. The 12 saved matching plans and all 126 units remain unchanged.

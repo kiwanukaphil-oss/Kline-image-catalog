@@ -1,0 +1,9 @@
+{
+  "checked_at": "2026-09-08T11:42:22.674Z",
+  "migration": "111_catalog_sleeve_length.sql",
+  "backup_path": "D:/CodexBuildCache/Kline Image Catalog/production-before-sleeve-1788867677483.dump",
+  "backup_bytes": 2125393,
+  "backup_sha256": "b11000c96237ca9bbce8a386d5e3acc57a0645a8c0139100424d4522d8ea07c3",
+  "archive_readable": true,
+  "applied": true
+}

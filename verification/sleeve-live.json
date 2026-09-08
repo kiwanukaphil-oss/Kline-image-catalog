@@ -1,0 +1,77 @@
+{
+  "checked_at": "2026-09-08T11:42:52.606Z",
+  "passed": true,
+  "fields": [
+    {
+      "slug": "jackets",
+      "key": "sleeve",
+      "label": "Sleeve length",
+      "type": "select",
+      "options": [
+        "Short",
+        "Long",
+        "Three-quarter",
+        "Sleeveless"
+      ],
+      "required": false,
+      "inherit": true,
+      "vocab": "sleeve"
+    },
+    {
+      "slug": "shirts",
+      "key": "sleeve",
+      "label": "Sleeve length",
+      "type": "select",
+      "options": [
+        "Short",
+        "Long",
+        "Three-quarter",
+        "Sleeveless"
+      ],
+      "required": false,
+      "inherit": true,
+      "vocab": "sleeve"
+    }
+  ],
+  "sleeves": [
+    {
+      "value": null,
+      "lots": 13
+    },
+    {
+      "value": "Long",
+      "lots": 54
+    }
+  ],
+  "inventory": {
+    "lots": 67,
+    "units": 126
+  },
+  "matched_groups": 12,
+  "production_inventory_changes": false,
+  "deployments": {
+    "pos": {
+      "commit": "8956c7e",
+      "id": "e74b29d8-db79-4b7c-a2ec-967615b115db",
+      "status": "SUCCESS"
+    },
+    "catalog": {
+      "commit": "5083488",
+      "id": "d60b4312-b2df-4d62-a7b4-43bcc97147fb",
+      "status": "SUCCESS"
+    }
+  },
+  "browser": {
+    "sleeve_label": "Sleeve length",
+    "saved_value": "Long",
+    "choices": [
+      "Not set",
+      "Short",
+      "Long",
+      "Three-quarter",
+      "Sleeveless"
+    ],
+    "item_saved": false,
+    "matching_evidence_shows_sleeve": true
+  }
+}
