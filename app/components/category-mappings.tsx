@@ -1,4 +1,5 @@
 'use client';
+import { WorkspaceSelect } from '@/components/workspace-select';
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { requestPos } from '@/lib/catalog-api';
@@ -80,11 +81,11 @@ export function CategoryMappings({
           <h2>{categoryPath(editing, categories)}</h2>
           <label>
             POS category
-            <select
+            <WorkspaceSelect
               aria-label="POS category"
               value={target}
               disabled={busy}
-              onChange={(event) => setTarget(event.target.value)}
+              onValueChange={(event) => setTarget(event)}
             >
               <option value="">Choose category</option>
               {posCategories.map((category) => (
@@ -92,7 +93,7 @@ export function CategoryMappings({
                   {categoryPath(category, posCategories)}
                 </option>
               ))}
-            </select>
+            </WorkspaceSelect>
           </label>
           <div className="dialog-actions">
             <Button

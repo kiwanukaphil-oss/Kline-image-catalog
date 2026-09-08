@@ -1,4 +1,5 @@
 'use client';
+import { WorkspaceSelect } from '@/components/workspace-select';
 import { useEffect, useState } from 'react';
 import { ArrowLeft, ArrowRight, Check, ChevronDown, Tag } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -243,14 +244,14 @@ export function Pricing({
             {session.can_view_cost && <TabsTrigger value="cost">Costs</TabsTrigger>}
           </TabsList>
         </Tabs>
-        <select
+        <WorkspaceSelect
           aria-label="Pricing task"
           value={intent}
-          onChange={(e) => changeTask(field, e.target.value as 'fill' | 'revise')}
+          onValueChange={(e) => changeTask(field, e as 'fill' | 'revise')}
         >
           <option value="fill">Fill missing {field === 'retail' ? 'prices' : 'costs'}</option>
           <option value="revise">Change existing {field === 'retail' ? 'prices' : 'costs'}</option>
-        </select>
+        </WorkspaceSelect>
       </div>
       <div className="pricing-group-filters">
         <SearchField

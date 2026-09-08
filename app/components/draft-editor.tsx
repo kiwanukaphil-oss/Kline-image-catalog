@@ -1,4 +1,5 @@
 'use client';
+import { WorkspaceSelect } from '@/components/workspace-select';
 import { useEffect, useState } from 'react';
 import { Plus, Sparkles, Tag, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -431,17 +432,17 @@ export function DraftEditor({
                     </label>
                     <label>
                       Category
-                      <select
+                      <WorkspaceSelect
                         value={category}
                         disabled={!editable || busy}
-                        onChange={(e) => edit(() => setCategory(e.target.value))}
+                        onValueChange={(e) => edit(() => setCategory(e))}
                       >
                         {references.categories.map((category) => (
                           <option key={category.id} value={category.id}>
                             {category.name}
                           </option>
                         ))}
-                      </select>
+                      </WorkspaceSelect>
                     </label>
                   </div>
                   <AiFieldHint item={item} field="brand" value={brand} />
@@ -455,21 +456,17 @@ export function DraftEditor({
                           {field.label}
                           {field.required ? ' *' : ''}
                           {field.type === 'select' || field.type === 'boolean' ? (
-                            <select
+                            <WorkspaceSelect
                               aria-label={field.label}
                               disabled={!editable || busy}
                               value={String(attributes[field.key] ?? '')}
-                              onChange={(e) =>
+                              onValueChange={(e) =>
                                 /* Preserve unknown booleans as null instead of silently turning them into false. */ edit(
                                   () =>
                                     setAttributes((prior) => ({
                                       ...prior,
                                       [field.key]:
-                                        field.type === 'boolean'
-                                          ? e.target.value === ''
-                                            ? null
-                                            : e.target.value === 'true'
-                                          : e.target.value,
+                                        field.type === 'boolean' ? (e === '' ? null : e === 'true') : e,
                                     })),
                                 )
                               }
@@ -490,7 +487,7 @@ export function DraftEditor({
                                   </option>
                                 ),
                               )}
-                            </select>
+                            </WorkspaceSelect>
                           ) : (
                             <Input
                               aria-label={field.label}

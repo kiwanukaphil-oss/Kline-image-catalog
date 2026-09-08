@@ -1,4 +1,5 @@
 'use client';
+import { WorkspaceSelect } from '@/components/workspace-select';
 import { useEffect, useRef, useState } from 'react';
 import { Upload, Check } from 'lucide-react';
 import { PhotoIntake } from './photo-intake';
@@ -156,18 +157,18 @@ export function UploadDelivery({
       </label>
       <label>
         Category
-        <select
+        <WorkspaceSelect
           aria-label="Delivery category"
           disabled={busy}
           value={category}
-          onChange={(e) => setCategory(e.target.value)}
+          onValueChange={(e) => setCategory(e)}
         >
           {categories.map((entry) => (
             <option value={entry.id} key={entry.id}>
               {entry.name}
             </option>
           ))}
-        </select>
+        </WorkspaceSelect>
       </label>
       <PhotoIntake key={intakeVersion} onChange={setFiles} disabled={busy} onWorkingChange={setPreparing} />
       {pending.length > 0 && (

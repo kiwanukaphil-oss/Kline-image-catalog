@@ -1,4 +1,5 @@
 ﻿'use client';
+import { WorkspaceSelect } from '@/components/workspace-select';
 import { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -222,11 +223,11 @@ function CatalogSchemaEditor({ branch, onClose }: { branch: string; onClose: () 
         <>
           <label>
             Category
-            <select
+            <WorkspaceSelect
               aria-label="Category"
               disabled={dirty || busy}
               value={selected}
-              onChange={(event) => chooseCategory(event.target.value)}
+              onValueChange={(event) => chooseCategory(event)}
             >
               <option value="">Choose category</option>
               {read.data?.categories
@@ -239,7 +240,7 @@ function CatalogSchemaEditor({ branch, onClose }: { branch: string; onClose: () 
                       : ''}
                   </option>
                 ))}
-            </select>
+            </WorkspaceSelect>
           </label>
           <Button
             variant="outline"
@@ -267,12 +268,12 @@ function CatalogSchemaEditor({ branch, onClose }: { branch: string; onClose: () 
               </label>
               <label>
                 Parent category
-                <select
+                <WorkspaceSelect
                   aria-label="Parent category"
                   value={parent}
                   disabled={!!existing || busy}
-                  onChange={(event) => {
-                    setParent(event.target.value);
+                  onValueChange={(event) => {
+                    setParent(event);
                     setDirty(true);
                   }}
                 >
@@ -284,7 +285,7 @@ function CatalogSchemaEditor({ branch, onClose }: { branch: string; onClose: () 
                         {category.name}
                       </option>
                     ))}
-                </select>
+                </WorkspaceSelect>
               </label>
               {inherited.length > 0 && (
                 <div>
@@ -322,18 +323,18 @@ function CatalogSchemaEditor({ branch, onClose }: { branch: string; onClose: () 
                       </div>
                       <label>
                         Type
-                        <select
+                        <WorkspaceSelect
                           aria-label="Type"
                           disabled={busy || original}
                           value={field.type}
-                          onChange={(event) => changeField(index, { type: event.target.value })}
+                          onValueChange={(event) => changeField(index, { type: event })}
                         >
                           {['text', 'number', 'select', 'boolean', 'size'].map((type) => (
                             <option key={type} value={type}>
                               {type}
                             </option>
                           ))}
-                        </select>
+                        </WorkspaceSelect>
                       </label>
                       {['select', 'size'].includes(field.type) && (
                         <label>

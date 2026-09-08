@@ -1,4 +1,5 @@
 'use client';
+import { WorkspaceSelect } from '@/components/workspace-select';
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { postPos, requestPos, formatMoney, type CatalogItem } from '@/lib/catalog-api';
@@ -155,11 +156,11 @@ export function Restock({
           {item.variant_lines.map((line) => (
             <label key={line.id}>
               {Object.values(line.variant_attributes).join(' / ') || 'One size'} · {line.quantity} units
-              <select
+              <WorkspaceSelect
                 aria-label={`POS variant for ${Object.values(line.variant_attributes).join(' / ') || 'One size'}`}
                 disabled={busy}
                 value={matches[line.id] || ''}
-                onChange={(event) => setMatches({ ...matches, [line.id]: event.target.value })}
+                onValueChange={(event) => setMatches({ ...matches, [line.id]: event })}
               >
                 <option value="">Choose matching POS variant</option>
                 {(product.variants || []).map((variant) => (
@@ -167,7 +168,7 @@ export function Restock({
                     {Object.values(variant.attributes).join(' / ')} · {variant.sku}
                   </option>
                 ))}
-              </select>
+              </WorkspaceSelect>
             </label>
           ))}
           {link && (

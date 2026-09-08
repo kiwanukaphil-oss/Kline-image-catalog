@@ -1,4 +1,5 @@
 'use client';
+import { WorkspaceSelect } from '@/components/workspace-select';
 import { useEffect, useRef, useState } from 'react';
 import {
   ArrowDownToLine,
@@ -368,14 +369,15 @@ export function Receiving({
             </span>
           </div>
           <div className="flex flex-wrap gap-3 mb-4">
-            <label className="flex-1 min-w-36">
+            <label htmlFor="receiving-task" className="flex-1 min-w-36">
               Task
-              <select
+              <WorkspaceSelect
+                id="receiving-task"
                 aria-label="Receiving task"
                 className="w-full min-w-0"
                 value={task}
-                onChange={(event) => {
-                  setTask(event.target.value);
+                onValueChange={(event) => {
+                  setTask(event);
                   setPage(1);
                   setSelected([]);
                 }}
@@ -388,16 +390,17 @@ export function Receiving({
                 <option value="reconcile">Check POS link</option>
                 <option value="received">Received</option>
                 <option value="cancelled">Cancelled intake</option>
-              </select>
+              </WorkspaceSelect>
             </label>
-            <label className="flex-1 min-w-36">
+            <label htmlFor="receiving-category" className="flex-1 min-w-36">
               Category
-              <select
+              <WorkspaceSelect
+                id="receiving-category"
                 aria-label="Receiving category"
                 className="w-full min-w-0"
                 value={categoryFilter}
-                onChange={(event) => {
-                  setCategoryFilter(event.target.value);
+                onValueChange={(event) => {
+                  setCategoryFilter(event);
                   setPage(1);
                   setSelected([]);
                 }}
@@ -408,16 +411,17 @@ export function Receiving({
                     {category.name}
                   </option>
                 ))}
-              </select>
+              </WorkspaceSelect>
             </label>
-            <label className="flex-1 min-w-36">
+            <label htmlFor="receiving-sort" className="flex-1 min-w-36">
               Sort
-              <select
+              <WorkspaceSelect
+                id="receiving-sort"
                 aria-label="Receiving sort"
                 className="w-full min-w-0"
                 value={sort}
-                onChange={(event) => {
-                  setSort(event.target.value);
+                onValueChange={(event) => {
+                  setSort(event);
                   setPage(1);
                   setSelected([]);
                 }}
@@ -425,7 +429,7 @@ export function Receiving({
                 <option value="newest">Newest first</option>
                 <option value="oldest">Oldest first</option>
                 <option value="name">Name A–Z</option>
-              </select>
+              </WorkspaceSelect>
             </label>
           </div>
           {inventory.error ? (

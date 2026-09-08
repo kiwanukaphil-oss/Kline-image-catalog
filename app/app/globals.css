@@ -170,18 +170,18 @@ body {
 }
 button,
 input,
-select {
+:is(select, [data-slot='select-trigger']) {
   font: inherit;
 }
 button,
-select {
+:is(select, [data-slot='select-trigger']) {
   cursor: pointer;
 }
 input,
-select {
+:is(select, [data-slot='select-trigger']) {
   min-height: 44px;
 }
-select {
+:is(select, [data-slot='select-trigger']) {
   background: var(--card);
   color: var(--foreground);
   border: 1px solid var(--border);
@@ -302,7 +302,7 @@ small {
   align-items: center;
   gap: 9px;
 }
-.branch-control select {
+.branch-control :is(select, [data-slot='select-trigger']) {
   border: 0;
   padding-left: 0;
   font-size: 12px;
@@ -557,10 +557,10 @@ small {
 }
 .workspace-dialog label,
 .workspace-dialog fieldset,
-.workspace-dialog select {
+.workspace-dialog :is(select, [data-slot='select-trigger']) {
   min-width: 0;
 }
-.workspace-dialog select {
+.workspace-dialog :is(select, [data-slot='select-trigger']) {
   width: 100%;
 }
 .workspace-dialog.wide {
@@ -1097,7 +1097,7 @@ td small {
   padding-bottom: 20px;
   border-bottom: 1px solid var(--border);
 }
-.pricing-tasks > select {
+.pricing-tasks > :is(select, [data-slot='select-trigger']) {
   font-size: 12px;
 }
 .pricing-layout {
@@ -1302,7 +1302,7 @@ td small {
 .stock-toolbar {
   flex-wrap: wrap;
 }
-.stock-toolbar > select {
+.stock-toolbar > :is(select, [data-slot='select-trigger']) {
   margin-left: 0;
   min-width: 135px;
   max-width: 230px;
@@ -1675,7 +1675,7 @@ td small {
     flex-basis: 100%;
     max-width: none;
   }
-  .stock-toolbar > select {
+  .stock-toolbar > :is(select, [data-slot='select-trigger']) {
     margin-left: 0;
     min-width: 100%;
     max-width: none;
@@ -1860,7 +1860,7 @@ td small {
     flex-wrap: wrap;
     gap: 20px;
   }
-  .pricing-tasks > select {
+  .pricing-tasks > :is(select, [data-slot='select-trigger']) {
     width: 100%;
     font-size: 12px;
   }
@@ -2034,4 +2034,96 @@ td small {
 .photo-inspector img {
   display: block;
   margin: auto;
+}
+
+/* Shared picker finish: quiet surfaces, a distinct disclosure area, and readable touch targets. */
+[data-slot='select-trigger'] {
+  min-height: 44px;
+  width: 100%;
+  gap: 12px;
+  padding: 6px 8px 6px 14px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--card);
+  color: var(--foreground);
+  box-shadow: 0 1px 2px color-mix(in srgb, var(--foreground) 5%, transparent);
+  transition:
+    border-color 160ms ease,
+    box-shadow 160ms ease,
+    background-color 160ms ease;
+}
+[data-slot='select-trigger']:hover:not(:disabled) {
+  border-color: color-mix(in srgb, var(--foreground) 30%, var(--border));
+  background: color-mix(in srgb, var(--card) 94%, var(--accent));
+}
+[data-slot='select-trigger']:focus-visible,
+[data-slot='select-trigger'][data-popup-open] {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 14%, transparent);
+  outline: none;
+}
+[data-slot='select-trigger'] > svg {
+  width: 28px;
+  height: 28px;
+  padding: 6px;
+  border-radius: 7px;
+  background: var(--muted);
+  color: var(--muted-foreground);
+  stroke-width: 1.7;
+  transition: transform 160ms ease;
+}
+[data-slot='select-trigger'][data-popup-open] > svg {
+  transform: rotate(180deg);
+}
+[data-slot='select-value'] {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+[data-slot='select-content'] {
+  min-width: min(240px, calc(100vw - 24px));
+  max-width: calc(100vw - 24px);
+  max-height: min(360px, var(--available-height));
+  padding: 6px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow:
+    0 12px 36px color-mix(in srgb, var(--foreground) 14%, transparent),
+    0 2px 6px color-mix(in srgb, var(--foreground) 5%, transparent);
+}
+[data-slot='select-item'] {
+  min-height: 40px;
+  padding: 9px 34px 9px 12px;
+  border-radius: 7px;
+  line-height: 1.4;
+  cursor: pointer;
+}
+[data-slot='select-item'][data-selected] {
+  background: color-mix(in srgb, var(--accent) 55%, var(--card));
+  font-weight: 600;
+}
+[data-slot='select-item'][data-highlighted] {
+  background: var(--accent);
+  color: var(--accent-foreground);
+}
+[data-slot='select-item'] > :first-child {
+  min-width: 0;
+  flex-shrink: 1;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-slot='select-trigger'],
+  [data-slot='select-trigger'] > svg {
+    transition: none;
+  }
+}
+
+.branch-control [data-slot='select-trigger'] {
+  width: auto;
+  min-width: 142px;
+  border: 1px solid var(--border);
+  padding: 6px 8px 6px 12px;
+  font-size: 13px;
+  font-weight: 600;
 }

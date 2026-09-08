@@ -1,4 +1,5 @@
 'use client';
+import { WorkspaceSelect } from '@/components/workspace-select';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { ArrowDownToLine, Boxes, LogOut, Moon, Sun, Tag, Settings } from 'lucide-react';
@@ -147,11 +148,11 @@ export default function Workspace() {
           </span>
           <label className="branch-control">
             <span className="status-dot" /> <span className="sr-only">Active branch</span>
-            <select
+            <WorkspaceSelect
               aria-label="Active branch"
               value={branch}
-              onChange={(e) => {
-                const nextBranch = e.target.value;
+              onValueChange={(e) => {
+                const nextBranch = e;
                 navigateSafely(() => {
                   setBranch(nextBranch);
                   sessionStorage.setItem('kline.branch', nextBranch);
@@ -166,7 +167,7 @@ export default function Workspace() {
                     {b.name}
                   </option>
                 ))}
-            </select>
+            </WorkspaceSelect>
           </label>
           <Button
             variant="ghost"

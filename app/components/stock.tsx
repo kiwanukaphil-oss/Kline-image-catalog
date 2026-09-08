@@ -1,4 +1,5 @@
 'use client';
+import { WorkspaceSelect } from '@/components/workspace-select';
 import { useEffect, useState } from 'react';
 import { ArrowUpRight, RefreshCw } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -166,10 +167,10 @@ export function Stock({ branch, canOpenPos }: { branch: string; canOpenPos: bool
           onChange={(value) => changeFilter(() => setSearch(value))}
           placeholder="Search product, brand, SKU or barcode"
         />
-        <select
+        <WorkspaceSelect
           aria-label="Filter by category"
           value={category}
-          onChange={(e) => changeFilter(() => setCategory(e.target.value))}
+          onValueChange={(e) => changeFilter(() => setCategory(e))}
         >
           <option value="">All categories</option>
           {choices.categories.map((choice) => (
@@ -177,11 +178,11 @@ export function Stock({ branch, canOpenPos }: { branch: string; canOpenPos: bool
               {choice.label}
             </option>
           ))}
-        </select>
-        <select
+        </WorkspaceSelect>
+        <WorkspaceSelect
           aria-label="Filter by brand"
           value={brand}
-          onChange={(e) => changeFilter(() => setBrand(e.target.value))}
+          onValueChange={(e) => changeFilter(() => setBrand(e))}
         >
           <option value="">All brands</option>
           {choices.brands.map((choice) => (
@@ -189,17 +190,17 @@ export function Stock({ branch, canOpenPos }: { branch: string; canOpenPos: bool
               {choice.label}
             </option>
           ))}
-        </select>
-        <select
+        </WorkspaceSelect>
+        <WorkspaceSelect
           aria-label="Filter by size"
           value={size}
-          onChange={(e) => changeFilter(() => setSize(e.target.value))}
+          onValueChange={(e) => changeFilter(() => setSize(e))}
         >
           <option value="">All sizes</option>
           {choices.sizes.map((value) => (
             <option key={value}>{value}</option>
           ))}
-        </select>
+        </WorkspaceSelect>
       </div>
       <div className="stock-filters">
         {states.map(([value, label]) => (
