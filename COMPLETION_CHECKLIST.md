@@ -175,6 +175,6 @@ Production browser update, 7 September 2026: owner sign-in passes; 964 NTINDA an
 - [x] Completion summary links to current stock and historical receipts.
 - [x] Local browser regression: 1,000 ready lots, selection across pages, brand filtering, direct receipt, changed-count exclusion, partial failure/retry, changed-price re-review, stock navigation, preparation queue and mobile bounds. All receipt writes intercepted; no live stock changed. Test: `app/tests/bulk-receiving.mjs`.
 - [x] Existing picker/branch checks, TypeScript, lint and production build pass. Desktop/mobile screenshots reviewed under ignored `.test-data/bulk-receiving/`.
-- [ ] Commit, push and deploy this workflow after owner confirmation; verify the live queue without receiving stock.
+- [x] Owner-approved workflow committed and pushed as `a2e7e8c`; Railway deployment `699139f8-f37f-4fa8-a112-8d424e9a0838` succeeded on 8 September 2026. Live Ready for POS and bulk confirmation verified for NAMUGONGO: 67 lots / 126 units. Closed review without receiving stock; all eight public production health checks passed.
 
 Implementation note: selection reads the complete filtered set through existing permission-scoped API pages with at most four concurrent reads. Confirmation also bounds detail reads to four; receiving retains sequential per-lot POS transactions. The 1,000-lot browser test validates behavior with intercepted responses, not production load capacity.
