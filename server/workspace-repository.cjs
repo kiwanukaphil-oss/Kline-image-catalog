@@ -209,7 +209,8 @@ function createWorkspaceRepository({ pool, publicationRepository }) {
             'effective_price',price,'reorder_level',reorder_level,'stock_state',stock_state) ORDER BY sku) AS variants
         FROM scoped GROUP BY product_id,name,master_sku,brand,category_name
         HAVING $4='all' OR bool_or(stock_state=$4)
-      ) SELECT *,count(*) OVER()::int AS total FROM grouped ORDER BY name,product_id LIMIT 48 OFFSET $5`,
+      ) SELECT *,count(*) OVER()::int AS total,sum(quantity) OVER()::float8 AS total_units
+        FROM grouped ORDER BY name,product_id LIMIT 48 OFFSET $5`,
         [branchId, search, size, state, (page - 1) * 48, categoryId, brandId],
       );
       return result.rows;

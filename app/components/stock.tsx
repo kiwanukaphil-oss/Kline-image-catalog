@@ -22,6 +22,7 @@ type Product = {
 type StockResult = {
   products: Product[];
   total: number;
+  total_units: number;
   page: number;
   limit: number;
   updated_at: string;
@@ -92,6 +93,7 @@ export function Stock({ branch, canOpenPos }: { branch: string; canOpenPos: bool
         updated_at: data.updated_at,
         stale: !!error,
         total: data.total,
+        total_units: data.total_units,
         products: data.products.map(({ image_url: _imageUrl, ...product }) => product),
       };
     },
@@ -216,7 +218,7 @@ export function Stock({ branch, canOpenPos }: { branch: string; canOpenPos: bool
       <div className="result-line">
         <span>
           {data
-            ? `${data.total} products${size ? ` · size ${size}` : ''}`
+            ? `${data.total.toLocaleString()} products / ${data.total_units.toLocaleString()} units${size ? ` · size ${size}` : ''}`
             : loading
               ? 'Loading stock…'
               : 'Stock unavailable'}

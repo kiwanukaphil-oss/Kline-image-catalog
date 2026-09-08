@@ -373,6 +373,10 @@ function createWorkspaceService({ source }) {
     /** Missing responses stay errors; a successful stock read is timestamped after its query completes. */
     async stock(branchId, filters) {
       const rows = await repository.readStock(branchId, filters);
+      // Totals cover the entire filtered branch assortment, including an empty page after stock changes.
+      const summary = rows[0] || (filters.page > 1
+        ? (await repository.readStock(branchId, { ...filters, page: 1 }))[0]
+        : null);
       const images = await repository.stockImages(
         branchId,
         rows.map((row) => row.product_id),
@@ -387,7 +391,7 @@ function createWorkspaceService({ source }) {
             : photo?.pos_image_path
               ? await createProductImageUrl(photo.pos_image_path)
               : null;
-          const { total, ...product } = row;
+          const { total, total_units, ...product } = row;
           return {
             ...product,
             image_url,
@@ -400,7 +404,8 @@ function createWorkspaceService({ source }) {
       );
       return {
         products,
-        total: rows[0]?.total || 0,
+        total: summary?.total || 0,
+        total_units: summary?.total_units || 0,
         page: filters.page,
         limit: 48,
         updated_at: new Date().toISOString(),

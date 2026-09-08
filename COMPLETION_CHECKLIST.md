@@ -205,3 +205,10 @@ Local verification note: C: ran out of space during the first native regression 
 - [x] Owner approved commit/deploy. POS `8956c7e` and catalog `5083488` deployed successfully after a fresh PostgreSQL 18 backup and migration 111. Live detail shows Sleeve length = Long and all five choices; matching evidence displays sleeve: Long. All eight health probes pass. Evidence: `verification/sleeve-live.json`, `sleeve-migration.json` and `sleeve-health.json`.
 
 No production sleeve values were changed. Existing Long values are preserved; unset values are not inferred from item names or category. The 12 saved matching plans and all 126 units remain unchanged.
+
+## Stock product and unit totals
+
+- [x] Add units beside the product count on Stock, using the entire filtered branch result rather than only the current page.
+- [x] Keep product and unit totals for an empty page after pagination; return zero for a genuinely empty result. Expose the same totals to the read-only workspace tool.
+- [x] Local PostgreSQL verification: 50 products / 150 units over two pages, empty third page, size/category filters, empty results and isolated branch quantities. TypeScript, lint and production build pass; rendered browser summary verified.
+- [ ] Owner confirmation to commit/deploy workspace 0.21.0 and the stock summary change, followed by live verification. No database migration is required.
