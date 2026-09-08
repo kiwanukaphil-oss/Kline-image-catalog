@@ -190,6 +190,7 @@ export default function Workspace() {
         <main key={`${session.id}:${branch}`} className="content">
           <div hidden={destination !== 'Receiving'}>
             <Receiving
+              onStock={() => setDestination('Stock')}
               active={destination === 'Receiving'}
               branch={branch}
               session={session}

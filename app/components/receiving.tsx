@@ -1,6 +1,6 @@
 'use client';
 import { WorkspaceSelect } from '@/components/workspace-select';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import {
   ArrowDownToLine,
   ArrowLeft,
@@ -27,6 +27,7 @@ import { UploadDelivery, type Category } from './upload-delivery';
 import { DraftEditor } from './draft-editor';
 import { AiFill } from './ai-fill';
 import { useWorkspaceTool } from '@/lib/webmcp';
+import { useReceivingScope } from '@/lib/receiving-inventory';
 import { readPendingPhotos } from '@/lib/upload-queue';
 type Batch = {
   id: string;
@@ -59,6 +60,7 @@ type Receipt = {
   variant_count: number;
   variants: { variant_attributes: Record<string, string>; quantity: number; price: number; sku: string }[];
 };
+const lotCount = (count: number) => `${count} ${count === 1 ? 'lot' : 'lots'}`;
 const nextTask = (item: CatalogItem) =>
   /* Give each lot one next task while leaving the complete blocker list in its details. */ item.is_cancelled
     ? 'Cancelled'
@@ -83,21 +85,23 @@ export function Receiving({
   branch,
   session,
   onPrice,
+  onStock,
   active = true,
 }: {
   branch: string;
   session: Session;
   onPrice: (ids: string[]) => void;
+  onStock: () => void;
   active?: boolean;
 }) {
   const [tab, setTab] = useState('deliveries'),
     [batch, setBatch] = useState<Batch | null>(null),
     [search, setSearch] = useState(''),
     [page, setPage] = useState(1);
-  const [selected, setSelected] = useState<string[]>([]),
+  const [selectedItems, setSelectedItems] = useState<CatalogItem[]>([]),
     [editing, setEditing] = useState<string | null>(null),
     [uploading, setUploading] = useState(false),
-    [receiving, setReceiving] = useState(false);
+    [receiving, setReceiving] = useState<string[] | null>(null);
   const [receipt, setReceipt] = useState<Receipt | null>(null);
   const [task, setTask] = useState('all'),
     [categoryFilter, setCategoryFilter] = useState(''),
@@ -114,21 +118,40 @@ export function Receiving({
     `/catalog-workspace/history/deliveries?page=${deliveryPage}&search=${encodeURIComponent(deliverySearch)}`,
     branch,
   );
+  const [brandFilter, setBrandFilter] = useState('');
+  const [deliveryFilter, setDeliveryFilter] = useState('');
+  const selected = useMemo(() => selectedItems.map((item) => item.id), [selectedItems]);
   const query = new URLSearchParams({
-    page: String(page),
     search,
-    task,
+    task: tab === 'ready' || tab === 'preparing' ? 'incoming' : task,
     sort,
     ...(categoryFilter ? { category_id: categoryFilter } : {}),
     ...(batch ? { batch_id: batch.id } : {}),
   }).toString();
-  const inventory = usePosRead<{
-    items: CatalogItem[];
-    total: number;
-    total_units: number;
-    page: number;
-    limit: number;
-  }>(`/catalog-workspace/items?${query}`, branch);
+  const scope = useReceivingScope(query, branch);
+  const matchingItems = scope.items.filter(
+    (item) =>
+      (tab !== 'ready' || (!item.is_published && !item.is_cancelled && !item.blockers.length)) &&
+      (tab !== 'preparing' || (!item.is_published && !item.is_cancelled && item.blockers.length > 0)) &&
+      (!brandFilter || item.brand === brandFilter) &&
+      (!deliveryFilter ||
+        (deliveryFilter === 'ungrouped' ? !item.batch_id : item.batch_id === deliveryFilter)),
+  );
+  const selectableItems = matchingItems.filter((item) => !item.is_published && !item.is_cancelled);
+  const pageItems = matchingItems.slice((page - 1) * 48, page * 48);
+  const selectablePage = pageItems.filter((item) => !item.is_published && !item.is_cancelled);
+  const inventory = {
+    ...scope,
+    data:
+      scope.loading || scope.error
+        ? null
+        : {
+            items: pageItems,
+            total: matchingItems.length,
+            total_units: matchingItems.reduce((sum, item) => sum + Number(item.stock_quantity || 0), 0),
+            limit: 48,
+          },
+  };
   const receipts = usePosRead<{ items: Receipt[]; total: number; limit: number }>(
     `/catalog-workspace/history/receipts?page=${receiptPage}&search=${encodeURIComponent(receiptSearch)}${batch ? `&batch_id=${batch.id}` : ''}`,
     branch,
@@ -141,7 +164,6 @@ export function Receiving({
       setTab('lots');
     }
   }, [batches.data, inventory.data, batch, deliverySearch, search]);
-  const selectedItems = inventory.data?.items.filter((item) => selected.includes(item.id)) || [];
   useEffect(() => {
     if (session.can_upload && new URLSearchParams(location.search).has('share')) setUploading(true);
   }, [session.can_upload]);
@@ -174,26 +196,32 @@ export function Receiving({
     },
   });
   function refreshReceiving() {
+    setPage(1);
     inventory.refresh();
     batches.refresh();
     receipts.refresh();
-    setSelected([]);
+    setSelectedItems([]);
   }
   function openBatch(value: Batch) {
     setReceiptPage(1);
     setBatch(value);
-    setTab('lots');
+    setTab('preparing');
+    setBrandFilter('');
+    setDeliveryFilter('');
     setSearch('');
     setPage(1);
-    setSelected([]);
+    setSelectedItems([]);
   }
   function changeTab(value: string) {
     initialViewChosen.current = true;
     setTab(value);
-    setSelected([]);
+    setSelectedItems([]);
     setPage(1);
   }
-  useEffect(() => setSelected([]), [query]);
+  useEffect(() => {
+    setSelectedItems([]);
+    setPage(1);
+  }, [query, brandFilter, deliveryFilter, tab]);
   useEffect(() => {
     let current = true;
     if (active)
@@ -211,7 +239,7 @@ export function Receiving({
       refreshInventory();
       refreshBatches();
       refreshReceipts();
-      setSelected([]);
+      setSelectedItems([]);
     }
   }, [active, refreshInventory, refreshBatches, refreshReceipts]);
   return (
@@ -257,9 +285,11 @@ export function Receiving({
           All deliveries
         </Button>
       )}
-      <Tabs value={tab} onValueChange={(value) => changeTab(String(value))}>
+      <Tabs className="receiving-tabs" value={tab} onValueChange={(value) => changeTab(String(value))}>
         <TabsList variant="line">
           {!batch && <TabsTrigger value="deliveries">Deliveries</TabsTrigger>}
+          <TabsTrigger value="preparing">Preparation</TabsTrigger>
+          <TabsTrigger value="ready">Ready for POS</TabsTrigger>
           <TabsTrigger value="lots">{batch ? 'Merchandise' : 'All merchandise'}</TabsTrigger>
           <TabsTrigger value="receipts">Receipts</TabsTrigger>
         </TabsList>
@@ -351,7 +381,7 @@ export function Receiving({
           )}
         </section>
       )}
-      {tab === 'lots' && (
+      {['lots', 'ready', 'preparing'].includes(tab) && (
         <>
           <div className="toolbar mt-6">
             <SearchField
@@ -359,7 +389,7 @@ export function Receiving({
               onChange={(value) => {
                 setSearch(value);
                 setPage(1);
-                setSelected([]);
+                setSelectedItems([]);
               }}
               placeholder="Find incoming merchandise"
             />
@@ -369,29 +399,31 @@ export function Receiving({
             </span>
           </div>
           <div className="flex flex-wrap gap-3 mb-4">
-            <label htmlFor="receiving-task" className="flex-1 min-w-36">
-              Task
-              <WorkspaceSelect
-                id="receiving-task"
-                aria-label="Receiving task"
-                className="w-full min-w-0"
-                value={task}
-                onValueChange={(event) => {
-                  setTask(event);
-                  setPage(1);
-                  setSelected([]);
-                }}
-              >
-                <option value="all">All merchandise</option>
-                <option value="incoming">Not received</option>
-                <option value="count">Confirm counts</option>
-                <option value="price">Retail price needed</option>
-                <option value="flagged">Flagged photos</option>
-                <option value="reconcile">Check POS link</option>
-                <option value="received">Received</option>
-                <option value="cancelled">Cancelled intake</option>
-              </WorkspaceSelect>
-            </label>
+            {tab === 'lots' && (
+              <label htmlFor="receiving-task" className="flex-1 min-w-36">
+                Task
+                <WorkspaceSelect
+                  id="receiving-task"
+                  aria-label="Receiving task"
+                  className="w-full min-w-0"
+                  value={task}
+                  onValueChange={(event) => {
+                    setTask(event);
+                    setPage(1);
+                    setSelectedItems([]);
+                  }}
+                >
+                  <option value="all">All merchandise</option>
+                  <option value="incoming">Not received</option>
+                  <option value="count">Confirm counts</option>
+                  <option value="price">Retail price needed</option>
+                  <option value="flagged">Flagged photos</option>
+                  <option value="reconcile">Check POS link</option>
+                  <option value="received">Received</option>
+                  <option value="cancelled">Cancelled intake</option>
+                </WorkspaceSelect>
+              </label>
+            )}
             <label htmlFor="receiving-category" className="flex-1 min-w-36">
               Category
               <WorkspaceSelect
@@ -402,7 +434,7 @@ export function Receiving({
                 onValueChange={(event) => {
                   setCategoryFilter(event);
                   setPage(1);
-                  setSelected([]);
+                  setSelectedItems([]);
                 }}
               >
                 <option value="">All categories</option>
@@ -423,7 +455,7 @@ export function Receiving({
                 onValueChange={(event) => {
                   setSort(event);
                   setPage(1);
-                  setSelected([]);
+                  setSelectedItems([]);
                 }}
               >
                 <option value="newest">Newest first</option>
@@ -432,9 +464,97 @@ export function Receiving({
               </WorkspaceSelect>
             </label>
           </div>
+          <div className="receiving-scope-filters">
+            <label>
+              Brand
+              <WorkspaceSelect
+                aria-label="Receiving brand"
+                value={brandFilter}
+                onValueChange={setBrandFilter}
+              >
+                <option value="">All brands</option>
+                {[...new Set(scope.items.map((item) => item.brand).filter(Boolean))].sort().map((brand) => (
+                  <option key={brand} value={brand}>
+                    {brand}
+                  </option>
+                ))}
+              </WorkspaceSelect>
+            </label>
+            {!batch && (
+              <label>
+                Delivery
+                <WorkspaceSelect
+                  aria-label="Receiving delivery"
+                  value={deliveryFilter}
+                  onValueChange={setDeliveryFilter}
+                >
+                  <option value="">All deliveries</option>
+                  <option value="ungrouped">Ungrouped</option>
+                  {[
+                    ...new Map(
+                      scope.items
+                        .filter((item) => item.batch_id)
+                        .map((item) => [item.batch_id!, item.batch_title || 'Delivery']),
+                    ).entries(),
+                  ].map(([id, title]) => (
+                    <option key={id} value={id}>
+                      {title}
+                    </option>
+                  ))}
+                </WorkspaceSelect>
+              </label>
+            )}
+          </div>
+          {!inventory.loading && !inventory.error && (
+            <div className="receiving-bulk-toolbar" aria-label="Bulk receiving actions">
+              <div className="receiving-page-selection">
+                <Checkbox
+                  id="receiving-select-page"
+                  aria-label="Select this page"
+                  disabled={!selectablePage.length}
+                  checked={
+                    !!selectablePage.length && selectablePage.every((item) => selected.includes(item.id))
+                  }
+                  indeterminate={
+                    selectablePage.some((item) => selected.includes(item.id)) &&
+                    !selectablePage.every((item) => selected.includes(item.id))
+                  }
+                  onCheckedChange={(checked) =>
+                    setSelectedItems((previous) =>
+                      checked
+                        ? [
+                            ...new Map(
+                              [...previous, ...selectablePage].map((item) => [item.id, item]),
+                            ).values(),
+                          ]
+                        : previous.filter((item) => !selectablePage.some((row) => row.id === item.id)),
+                    )
+                  }
+                />
+                <label htmlFor="receiving-select-page">Select this page</label>
+              </div>
+              {!!selectableItems.length && (
+                <Button variant="ghost" onClick={() => setSelectedItems(selectableItems)}>
+                  Select all {selectableItems.length} matching lots
+                </Button>
+              )}
+              {tab === 'ready' && session.can_publish && (
+                <Button
+                  disabled={!selectableItems.length}
+                  onClick={() => setReceiving(selectableItems.map((item) => item.id))}
+                >
+                  <ArrowDownToLine size={16} />
+                  Receive all ready
+                </Button>
+              )}
+            </div>
+          )}
           {inventory.error ? (
             <p role="alert" className="error">
               {inventory.error}
+              <Button variant="outline" onClick={inventory.refresh}>
+                Reload merchandise
+              </Button>
             </p>
           ) : inventory.loading ? (
             <p role="status" className="loading">
@@ -443,22 +563,36 @@ export function Receiving({
           ) : !inventory.data?.items.length ? (
             <div className="empty-state">
               <h2>
-                {search || task !== 'all' || categoryFilter
+                {search || categoryFilter || brandFilter || deliveryFilter
                   ? 'No merchandise matches.'
-                  : 'No merchandise here yet.'}
+                  : tab === 'ready'
+                    ? 'Nothing ready for POS yet.'
+                    : tab === 'preparing'
+                      ? 'No lots need preparation.'
+                      : 'No merchandise here yet.'}
               </h2>
-              {search || task !== 'all' || categoryFilter ? (
+              {search || task !== 'all' || categoryFilter || brandFilter || deliveryFilter ? (
                 <Button
                   variant="outline"
                   onClick={() => {
                     setSearch('');
                     setTask('all');
                     setCategoryFilter('');
+                    setBrandFilter('');
+                    setDeliveryFilter('');
                     setPage(1);
-                    setSelected([]);
+                    setSelectedItems([]);
                   }}
                 >
                   Clear filters
+                </Button>
+              ) : tab === 'ready' ? (
+                <Button variant="outline" onClick={() => changeTab('preparing')}>
+                  View preparation
+                </Button>
+              ) : tab === 'preparing' ? (
+                <Button variant="outline" onClick={() => changeTab('ready')}>
+                  View ready lots
                 </Button>
               ) : (
                 <p>Add photos to start this delivery.</p>
@@ -476,8 +610,8 @@ export function Receiving({
                       aria-label={`Select ${item.name || 'unnamed lot'}`}
                       checked={selected.includes(item.id)}
                       onCheckedChange={(checked) =>
-                        setSelected((prior) =>
-                          checked ? [...prior, item.id] : prior.filter((id) => id !== item.id),
+                        setSelectedItems((prior) =>
+                          checked ? [...prior, item] : prior.filter((row) => row.id !== item.id),
                         )
                       }
                     />
@@ -500,7 +634,11 @@ export function Receiving({
                     <small>{item.variant_lines.length} sizes</small>
                   </div>
                   <button
-                    onClick={() => setEditing(item.id)}
+                    onClick={() =>
+                      session.can_publish && nextTask(item) === 'Ready for POS'
+                        ? setReceiving([item.id])
+                        : setEditing(item.id)
+                    }
                     className={`task-status ${item.is_published ? 'received' : item.blockers.length ? 'preparing' : 'ready'}`}
                   >
                     {nextTask(item)}
@@ -527,7 +665,7 @@ export function Receiving({
                   .toLocaleString()}{' '}
                 units selected
               </span>
-              <Button variant="ghost" onClick={() => setSelected([])}>
+              <Button variant="ghost" onClick={() => setSelectedItems([])}>
                 Clear
               </Button>
               {session.can_edit && (
@@ -543,9 +681,9 @@ export function Receiving({
                 </Button>
               )}
               {session.can_publish && (
-                <Button onClick={() => setReceiving(true)}>
+                <Button onClick={() => setReceiving(selected)}>
                   <ArrowDownToLine size={16} />
-                  Review receipt
+                  Receive selected into POS
                 </Button>
               )}
             </div>
@@ -680,11 +818,26 @@ export function Receiving({
       )}
       {receiving && (
         <ReceiveReview
-          ids={selected}
+          ids={receiving}
           branch={branch}
           branchName={session.branches.find((b) => b.id === branch)?.name || ''}
-          onClose={() => setReceiving(false)}
+          onClose={() => setReceiving(null)}
           onComplete={refreshReceiving}
+          onReviewLot={(id) => {
+            refreshReceiving();
+            setReceiving(null);
+            setEditing(id);
+          }}
+          onStock={() => {
+            refreshReceiving();
+            setReceiving(null);
+            onStock();
+          }}
+          onReceipts={() => {
+            refreshReceiving();
+            setReceiving(null);
+            changeTab('receipts');
+          }}
         />
       )}
       {receipt && (
@@ -733,53 +886,70 @@ export function Receiving({
   );
 }
 
-/** Reconcile per-lot outcomes and retry stable publication IDs after partial or uncertain responses. */
+/** Revalidate a whole selection, show grouped quantities, and receive only eligible lots with safe retries. */
 function ReceiveReview({
   ids,
   branch,
   branchName,
   onClose,
   onComplete,
+  onStock,
+  onReceipts,
+  onReviewLot,
 }: {
   ids: string[];
   branch: string;
   branchName: string;
   onClose: () => void;
   onComplete: () => void;
+  onStock: () => void;
+  onReceipts: () => void;
+  onReviewLot: (id: string) => void;
 }) {
-  const [items, setItems] = useState<(CatalogItem & { publication_revision: string })[]>([]),
-    [error, setError] = useState(''),
-    [busy, setBusy] = useState(false),
-    [loading, setLoading] = useState(true);
-  const [results, setResults] = useState<Record<string, string>>({}),
-    [finished, setFinished] = useState(false);
-  const [reviewVersion, setReviewVersion] = useState(0),
-    [needsReview, setNeedsReview] = useState(false);
+  const [items, setItems] = useState<(CatalogItem & { publication_revision: string })[]>([]);
+  const [error, setError] = useState('');
+  const [busy, setBusy] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [results, setResults] = useState<Record<string, string>>({});
+  const [reviewVersion, setReviewVersion] = useState(0);
+  const [needsReview, setNeedsReview] = useState(false);
   const active = useRef(true);
+  const done = (item: CatalogItem) => item.is_published || results[item.id] === 'Received';
+  const eligible = items.filter((item) => !done(item) && !item.is_cancelled && !item.blockers.length);
+  const exceptions = items.filter((item) => !done(item) && (item.is_cancelled || item.blockers.length));
+  const received = items.filter(done);
+  const failed = eligible.filter((item) => results[item.id]);
+  const finished = !loading && !error && !!received.length && !eligible.length;
+  const units = (rows: CatalogItem[]) =>
+    rows.reduce((sum, item) => sum + Number(item.stock_quantity || 0), 0);
+  const groups = new Map<string, CatalogItem[]>();
+  for (const item of eligible) {
+    const title = item.batch_title || 'Ungrouped merchandise';
+    groups.set(title, [...(groups.get(title) || []), item]);
+  }
   useEffect(() => {
-    /* Reread all selected lots before showing the receipt summary and readiness blockers. */
-
-    let cancelled = false;
+    // Bound concurrent review requests so a thousand-lot selection does not flood the POS.
+    const controller = new AbortController();
     active.current = true;
     setLoading(true);
     setError('');
-    Promise.all(
-      ids.map((id) =>
-        requestPos<{ item: CatalogItem; blockers: string[]; publication_revision: string }>(
-          `/catalog-workspace/items/${id}`,
+    let cursor = 0;
+    const rows: (CatalogItem & { publication_revision: string })[] = [];
+    async function readReviewWorker() {
+      while (cursor < ids.length && !controller.signal.aborted) {
+        const index = cursor++;
+        const row = await requestPos<{ item: CatalogItem; blockers: string[]; publication_revision: string }>(
+          `/catalog-workspace/items/${ids[index]}`,
           branch,
-        ),
-      ),
-    )
-      .then((rows) => {
-        if (!cancelled && active.current) {
-          setItems(
-            rows.map((row) => ({
-              ...row.item,
-              blockers: row.blockers,
-              publication_revision: row.publication_revision,
-            })),
-          );
+          { signal: controller.signal },
+        );
+        rows[index] = { ...row.item, blockers: row.blockers, publication_revision: row.publication_revision };
+      }
+    }
+    Promise.all(Array.from({ length: Math.min(4, ids.length) }, readReviewWorker))
+      .then(() => {
+        if (!controller.signal.aborted) {
+          setItems(rows);
           setNeedsReview(false);
           setResults((previous) =>
             Object.fromEntries(Object.entries(previous).filter(([, outcome]) => outcome === 'Received')),
@@ -787,114 +957,149 @@ function ReceiveReview({
         }
       })
       .catch((cause) => {
-        if (!cancelled && active.current) setError(cause.message);
+        if (!controller.signal.aborted) setError(cause.message);
       })
       .finally(() => {
-        if (!cancelled && active.current) setLoading(false);
+        if (!controller.signal.aborted) setLoading(false);
       });
     return () => {
-      cancelled = true;
+      controller.abort();
       active.current = false;
     };
   }, [ids, branch, reviewVersion]);
-  async function receiveSelected() {
-    /* Publish stable lot IDs individually so partial success can be reconciled and retried. */
 
+  /** Keep publication revisions and stable IDs pinned; only retry lots without a successful receipt. */
+  async function receiveEligible() {
     setBusy(true);
     setError('');
     const token = sessionStorage.getItem('kline.session');
     const outcomes = { ...results };
-    for (const item of items) {
-      if (!active.current || sessionStorage.getItem('kline.session') !== token) break;
-      if (outcomes[item.id] === 'Received' || item.is_published) continue;
-      try {
-        await postPos(`/catalog-workspace/items/${item.id}/receive`, branch, {
-          expected_revision: item.publication_revision,
-        });
-        outcomes[item.id] = 'Received';
-      } catch (cause) {
-        outcomes[item.id] = (cause as Error).message;
-        if (cause instanceof ApiError && cause.status === 409) setNeedsReview(true);
+    try {
+      for (const item of eligible) {
+        if (!active.current || sessionStorage.getItem('kline.session') !== token) break;
+        try {
+          await postPos(`/catalog-workspace/items/${item.id}/receive`, branch, {
+            expected_revision: item.publication_revision,
+          });
+          outcomes[item.id] = 'Received';
+        } catch (cause) {
+          outcomes[item.id] = (cause as Error).message;
+          if (cause instanceof ApiError && cause.status === 409) setNeedsReview(true);
+          if (cause instanceof ApiError && [401, 403].includes(cause.status)) {
+            setError(cause.message);
+            break;
+          }
+        }
+        if (active.current) setResults({ ...outcomes });
       }
-      if (active.current) setResults({ ...outcomes });
+    } finally {
+      if (active.current) {
+        setResults({ ...outcomes });
+        setBusy(false);
+      }
     }
-    if (active.current) {
-      setBusy(false);
-      setFinished(items.every((item) => item.is_published || outcomes[item.id] === 'Received'));
-    }
+  }
+  function closeReview() {
+    if (busy) return;
+    if (Object.values(results).includes('Received')) onComplete();
+    onClose();
   }
   return (
     <Modal
-      title={finished ? 'Delivery received' : 'Receive into POS'}
+      title={finished ? 'Stock received' : 'Receive into POS'}
       description={branchName}
       wide
-      onClose={() => {
-        if (!busy) {
-          if (Object.values(results).includes('Received')) onComplete();
-          onClose();
-        }
-      }}
+      onClose={closeReview}
     >
       {loading ? (
-        <p role="status">Checking saved merchandise…</p>
+        <p role="status">Checking {ids.length} selected lots...</p>
       ) : (
         <>
-          <div className="receipt-summary">
+          <div className="receipt-summary" aria-live="polite">
             <strong>
-              {items.reduce((sum, item) => sum + Number(item.stock_quantity), 0)} <small>units</small>
+              {units(finished ? received : eligible).toLocaleString()}{' '}
+              <small>units {finished ? 'received' : 'to receive'}</small>
             </strong>
             <span>
-              {items.length} lots · {items.reduce((sum, item) => sum + item.variant_lines.length, 0)} sizes
+              {(finished ? received : eligible).length} lots / {branchName}
             </span>
           </div>
-          <div className="table-scroll">
-            <table>
-              <thead>
-                <tr>
-                  <th>Merchandise / size</th>
-                  <th>Units</th>
-                  <th>Price / UGX</th>
-                </tr>
-              </thead>
-              <tbody>
-                {items.flatMap((item) =>
-                  /* Expand photographed lots into the exact sellable sizes shown in the receiving review. */ item.variant_lines.map(
-                    (line) => (
-                      /* Label each receiving line with its product, size, unit count and current saved price. */ <tr
-                        key={line.id}
-                      >
-                        <td>
-                          <strong>{item.name || 'Unnamed lot'}</strong>
-                          <small className="block">
-                            {Object.values(line.variant_attributes).join(' / ') || 'Standard'}
-                          </small>
-                        </td>
-                        <td>{line.quantity}</td>
-                        <td>{formatMoney(line.effective_price)}</td>
+          {!!received.length && !finished && (
+            <p role="status">
+              {received.length} lots / {units(received)} units received
+            </p>
+          )}
+          {!finished &&
+            [...groups.entries()].map(([title, rows]) => (
+              <details className="receiving-review-group" key={title}>
+                <summary>
+                  <strong>{title}</strong>
+                  <span>
+                    {rows.length} lots / {units(rows)} units
+                  </span>
+                </summary>
+                <div className="table-scroll">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Merchandise / size</th>
+                        <th>Units</th>
+                        <th>Price / UGX</th>
                       </tr>
-                    ),
-                  ),
-                )}
-              </tbody>
-            </table>
-          </div>
-          {items.map((item) => (
-            /* Display completed, blocked and failed lots independently after a partial batch attempt. */ <div
-              key={item.id}
-              className="receipt-outcome"
-            >
-              <strong>{item.name || 'Unnamed lot'}</strong>
-              {item.is_published || results[item.id] === 'Received' ? (
-                <span className="ready">Received</span>
-              ) : results[item.id] ? (
-                <span className="error">{results[item.id]}</span>
-              ) : item.blockers.length ? (
-                <span>{item.blockers.join(' ')}</span>
-              ) : (
-                <span className="muted">Ready</span>
-              )}
+                    </thead>
+                    <tbody>
+                      {rows.flatMap((item) =>
+                        item.variant_lines.map((line) => (
+                          <tr key={`${item.id}:${line.id}`}>
+                            <td>
+                              <strong>{item.name || 'Unnamed lot'}</strong>
+                              <small className="block">
+                                {Object.values(line.variant_attributes).join(' / ') || 'Standard'}
+                              </small>
+                            </td>
+                            <td>{line.quantity}</td>
+                            <td>{formatMoney(line.effective_price)}</td>
+                          </tr>
+                        )),
+                      )}
+                    </tbody>
+                  </table>
+                </div>
+              </details>
+            ))}
+          {!!exceptions.length && (
+            <details className="receiving-review-group" open>
+              <summary>
+                <strong>
+                  {exceptions.length} {exceptions.length === 1 ? 'lot needs' : 'lots need'} attention
+                </strong>
+                <span>{units(exceptions)} units excluded</span>
+              </summary>
+              {exceptions.map((item) => (
+                <div className="receipt-outcome" key={item.id}>
+                  <div>
+                    <strong>{item.name || 'Unnamed lot'}</strong>
+                    <p>{item.is_cancelled ? 'Cancelled intake' : item.blockers.join(' ')}</p>
+                  </div>
+                  <Button variant="outline" disabled={busy} onClick={() => onReviewLot(item.id)}>
+                    Resolve
+                  </Button>
+                </div>
+              ))}
+            </details>
+          )}
+          {!!failed.length && (
+            <div role="alert">
+              {failed.map((item) => (
+                <p className="error" key={item.id}>
+                  {item.name}: {results[item.id]}
+                </p>
+              ))}
             </div>
-          ))}
+          )}
+          {!eligible.length && !received.length && !exceptions.length && !error && (
+            <p>No incoming lots remain in this selection.</p>
+          )}
         </>
       )}
       {error && (
@@ -902,36 +1107,29 @@ function ReceiveReview({
           {error}
         </p>
       )}
-      <div className="dialog-actions">
-        <Button
-          variant="outline"
-          disabled={busy}
-          onClick={() => {
-            if (Object.values(results).includes('Received')) onComplete();
-            onClose();
-          }}
-        >
+      <div className="dialog-actions receiving-confirm-actions">
+        <Button variant="outline" disabled={busy} onClick={closeReview}>
           {finished ? 'Done' : 'Back'}
         </Button>
-        {!finished && needsReview ? (
-          <Button disabled={busy || loading} onClick={() => setReviewVersion((version) => version + 1)}>
+        {finished ? (
+          <>
+            <Button variant="outline" onClick={onReceipts}>
+              View receipts
+            </Button>
+            <Button onClick={onStock}>View stock</Button>
+          </>
+        ) : needsReview || error ? (
+          <Button disabled={busy || loading} onClick={() => setReviewVersion((value) => value + 1)}>
             Review changed lots
           </Button>
         ) : (
-          !finished && (
-            <Button
-              disabled={
-                busy || loading || !!error || !items.length || items.some((item) => item.blockers.length > 0)
-              }
-              onClick={receiveSelected}
-            >
-              {busy
-                ? 'Receiving…'
-                : Object.keys(results).length
-                  ? 'Retry unresolved lots'
-                  : 'Receive into POS'}
-            </Button>
-          )
+          <Button disabled={busy || loading || !eligible.length} onClick={receiveEligible}>
+            {busy
+              ? `Receiving... ${received.length} of ${items.length - exceptions.length}`
+              : failed.length
+                ? 'Retry unresolved lots'
+                : `Receive ${lotCount(eligible.length)} into ${branchName}`}
+          </Button>
         )}
       </div>
     </Modal>

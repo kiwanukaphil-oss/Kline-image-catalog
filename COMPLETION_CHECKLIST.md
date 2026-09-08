@@ -164,3 +164,17 @@ Production browser update, 7 September 2026: owner sign-in passes; 964 NTINDA an
 | 2026-09-07 | C9a complete: klinemen-catalog.com moved from GitHub Pages to Railway; domain ownership, certificate, new app HTML, service worker and www redirect verified. Eight public health probes pass. | Cached-browser/device handover and additional staff/monitoring decisions remain. DNS rollback records and old deployment are preserved. |
 
 | 2026-09-08 | Fixed POS Products table leaking Ntinda quantities into Namugongo: pricing variants feed now authorizes and reads the selected branch. 263 backend tests, TypeScript and eight live probes pass. | Live API deployment 7c5270a9-346d-412e-9caa-7306e707c26e; browser confirms Namugongo rows are zero, Ntinda unchanged. Owner-approved fix committed and pushed to POS master as 665f83d. |
+
+
+## Receiving workflow follow-up - 8 September 2026
+
+- [x] Dedicated Preparation and Ready for POS queues, with authoritative blockers and lot/unit totals.
+- [x] Receive all ready or selected lots; page selection and all matching selection persist across pagination. Category, brand, delivery and search narrow the scope.
+- [x] Direct receiving action from a ready lot; one grouped confirmation shows destination branch, lots and units, with expandable size/pricing details.
+- [x] Revalidate selected lots before confirmation; exclude blocked/cancelled lots, retain stable publication IDs and signed revisions, and retry only unresolved lots.
+- [x] Completion summary links to current stock and historical receipts.
+- [x] Local browser regression: 1,000 ready lots, selection across pages, brand filtering, direct receipt, changed-count exclusion, partial failure/retry, changed-price re-review, stock navigation, preparation queue and mobile bounds. All receipt writes intercepted; no live stock changed. Test: `app/tests/bulk-receiving.mjs`.
+- [x] Existing picker/branch checks, TypeScript, lint and production build pass. Desktop/mobile screenshots reviewed under ignored `.test-data/bulk-receiving/`.
+- [ ] Commit, push and deploy this workflow after owner confirmation; verify the live queue without receiving stock.
+
+Implementation note: selection reads the complete filtered set through existing permission-scoped API pages with at most four concurrent reads. Confirmation also bounds detail reads to four; receiving retains sequential per-lot POS transactions. The 1,000-lot browser test validates behavior with intercepted responses, not production load capacity.

@@ -2127,3 +2127,60 @@ td small {
   font-size: 13px;
   font-weight: 600;
 }
+.receiving-scope-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.receiving-scope-filters > label {
+  flex: 1;
+  min-width: 160px;
+}
+.receiving-bulk-toolbar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 12px 0;
+  margin-bottom: 12px;
+}
+.receiving-page-selection {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.receiving-bulk-toolbar > button:last-child {
+  margin-left: auto;
+}
+.receiving-review-group {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  margin: 12px 0;
+  padding: 16px;
+}
+.receiving-review-group > summary {
+  cursor: pointer;
+}
+.receiving-review-group > summary > span {
+  display: block;
+  margin: 6px 0 0 20px;
+  color: var(--muted-foreground);
+  font-size: 13px;
+}
+.receiving-confirm-actions {
+  position: sticky;
+  bottom: 0;
+  background: var(--card);
+  padding: 16px 0 0;
+  flex-wrap: wrap;
+}
+
+.receiving-tabs {
+  max-width: 100%;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+.receiving-tabs [data-slot='tabs-list'] {
+  min-width: max-content;
+}
