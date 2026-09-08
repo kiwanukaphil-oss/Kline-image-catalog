@@ -1,10 +1,22 @@
 # K-Line completion checklist
 
-Updated: 7 September 2026. This is our working source of truth. Update it after each step; retain historical design documents as history.
+Updated: 8 September 2026. This is our working source of truth. Update it after each step; retain historical design documents as history.
 
 **Checked means implemented and verified locally unless explicitly labelled staging/production.** An implemented feature can still await commit, release or staff acceptance. Optional features do not silently become launch requirements.
 
 **Production deployed: workspace 0.16.0 and POS 6038486. Real sign-in, existing photos, both branches, current stock, POS links and upload/reload/resume/cancellation pass. One labelled test intake is cancelled; all 1,031 original items, 263 receipts and POS commerce records remain unchanged. Category decisions, monitoring ownership and physical-device/staff acceptance remain open. See the [production cutover checklist](docs/production-cutover-plan.md).**
+
+## B. Branch assortment ? approved 8 September 2026
+
+- [x] B1 Separate branch membership from quantity; backfill stock history without changing balances.
+- [x] B2 Exclude never-received products from POS browsing, searches, scans and alerts; preserve depleted sizes.
+- [x] B3 Implement branch-only retirement at zero, with audit; receiving and transfers restore membership.
+- [x] B4 Scope image app Stock and its filters; runtime package 0.17.0 matches installed source.
+- [x] B5 Preserve permission-checked first-time receiving discovery by name and SKU.
+- [x] B6 Implement persistent branch identity, reload preservation, scoped counts and stock-unit totals.
+- [x] B7 Authenticated local browser verification: desktop/mobile branch switching, reload, first receipt by name, depletion, retirement, re-receipt by SKU and receipt/transfer form isolation. User-started preview resolved the launch blocker. Evidence: `verification/branch-assortment-local.json`.
+- [x] B8 Owner authorized commit/deployment. POS `d11e1d5` and Catalog runtime source `1cb235a` committed and pushed.
+- [x] B9 Fresh production dump verified; canonical migration 109 passed with backup guard enabled and identical stock fingerprints. Railway API and Cloudflare POS frontend released. Live Namugongo Products and Catalog Stock are empty; Ntinda retains 270 units / 241 SKUs / 213 products. Evidence: `verification/production-branch-migration.json` and `verification/production-branch-release.json`.
 
 ## A. Purpose and design
 
@@ -100,7 +112,7 @@ Updated: 7 September 2026. This is our working source of truth. Update it after 
 - [x] G5 Both frontends and POS API healthy on Railway; all 108 migrations current; actual CORS, login, private byte-preserving images, pricing, partial receipts, stock and POS navigation pass. Live AI integration now passes (R11d); broader staff quality acceptance remains R11e. Evidence: `verification/railway/`.
 - [ ] G6 Owner/staff acceptance of required checklist items on staging.
 - [x] G7 Production backup, recovery rehearsal, canonical migrations and deployment complete. Actual private upload, restart recovery, exact-one intake, cancellation and preserved existing records verified. Both websites and eight public health probes pass. See [production cutover](docs/production-cutover-plan.md).
-- [ ] G8 Monitoring ownership/scheduling, staff handover and remaining launch decisions. Production backup/object recovery and rollback targets are recorded; manual GitHub health probes pass. Existing proxy/auth safeguards are live. Category decisions and physical-device/staff acceptance remain open.
+- [ ] G8 Monitoring ownership/scheduling, staff handover and remaining launch decisions. Production backup/object recovery and rollback targets are recorded; manual GitHub health probes pass. Existing proxy/auth safeguards are live. Approved category creation and mappings are complete. Physical-device/staff acceptance remains open.
 
 ## O. Optional scope — decide explicitly
 
@@ -139,3 +151,9 @@ Complete required A–G tasks, decide O items explicitly and obtain owner accept
 Production browser update, 7 September 2026: owner sign-in passes; 964 NTINDA and 67 NAMUGONGO lots are visible. An original private photo decodes at 960 x 1280. Current stock, movement history and the correct live POS product/branch/pricing destination pass. Upload verification is blocked before submission by Chrome extension file-URL access (fileChooser.setFiles: Not allowed). No test delivery or stock was created. See `verification/production-browser.json`.
 
 | 2026-09-07 | C8/G7 complete: production upload error resolved by fresh checksum-configured API deployment. Same saved photo survived reload, resumed once, matched original bytes and was cancelled without POS receipt. Original catalog and commerce hashes remain unchanged. | Category mapping decisions, staff/device acceptance and monitoring ownership remain. |
+
+| 2026-09-07 | C5a complete: created active Jeans and Sweat pants under active POS Pants; connected both and existing Shorts through the administrator UI. All 25 active catalog categories are connected. | Staff access, physical-device acceptance and monitoring ownership remain open. |
+
+| 2026-09-07 | C9a complete: klinemen-catalog.com moved from GitHub Pages to Railway; domain ownership, certificate, new app HTML, service worker and www redirect verified. Eight public health probes pass. | Cached-browser/device handover and additional staff/monitoring decisions remain. DNS rollback records and old deployment are preserved. |
+
+| 2026-09-08 | Fixed POS Products table leaking Ntinda quantities into Namugongo: pricing variants feed now authorizes and reads the selected branch. 263 backend tests, TypeScript and eight live probes pass. | Live API deployment 7c5270a9-346d-412e-9caa-7306e707c26e; browser confirms Namugongo rows are zero, Ntinda unchanged. Owner-approved fix committed and pushed to POS master as 665f83d. |

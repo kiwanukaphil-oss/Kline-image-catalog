@@ -1,0 +1,28 @@
+{
+  "date": "2026-09-08",
+  "passed": true,
+  "pos_commit": "d11e1d571ddcf2acebe23d847a747527529a2b2a",
+  "catalog_runtime_commit": "1cb235a",
+  "runtime_version": "0.17.0",
+  "migration": 109,
+  "migration_evidence": "production-branch-migration.json",
+  "railway_deployment": "0b12946e-2c31-4f43-9f40-7e755c38528b",
+  "railway_status": "SUCCESS",
+  "cloudflare_deployment": "dc43a594-7bba-4b21-b1e4-402a5bbdc3a0",
+  "cloudflare_git_deployment": "6bde002b-da37-462f-aa98-63ce3fc6b98e",
+  "github_ci_run": 34192150479,
+  "github_ci_conclusion": "success",
+  "public_health_checks_passed": 8,
+  "authenticated_browser": {
+    "ntinda": { "products": 213, "skus": 241, "units": 270, "categories": 9 },
+    "namugongo": { "products": 0, "skus": 0, "units": 0, "categories": 0, "low_stock": 0, "out_of_stock": 0, "value": 0 },
+    "namugongo_reload_preserves_branch": true,
+    "namugongo_checkout_empty": true,
+    "checkout_branch_heading_visible": true,
+    "namugongo_dashboard_empty_without_low_stock_alerts": true,
+    "namugongo_catalog_stock_empty_with_empty_filter_choices": true,
+    "existing_namugongo_receiving_lots_visible": 67
+  },
+  "production_commerce_writes_during_verification": false,
+  "rollback": "Restore previous compatible application deployment; retain additive migration 109 and current business data."
+}

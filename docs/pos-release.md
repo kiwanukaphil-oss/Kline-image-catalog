@@ -1,10 +1,12 @@
 # Packaged POS integration
 
-Package 0.16.0 is live. [POS PR #1](https://github.com/kiwanukaphil-oss/Inventory_POS/pull/1) merged as `6038486`; Railway backend and Cloudflare POS frontend deployed on 7 September 2026. Migrations 106?108 passed the canonical production backup guard. See [production continuity and remaining acceptance](production-cutover-plan.md).
+Released 8 September 2026: package 0.17.0 scopes current stock and filter choices to branch assortment membership. Production migration 109 passed with a fresh verified dump and unchanged stock balances. POS `d11e1d5` is deployed on Railway and Cloudflare Pages; Catalog runtime source is `1cb235a`. See `verification/production-branch-release.json`.
+
+The initial package 0.16.0 release came through [POS PR #1](https://github.com/kiwanukaphil-oss/Inventory_POS/pull/1), merged as `6038486` on 7 September 2026. Migrations 106 through 108 passed the canonical production backup guard. See [production continuity and remaining acceptance](production-cutover-plan.md).
 
 ## Runtime artifact
 
-The catalog's `server/` directory owns `@kline/pos-workspace@0.16.0`, including stock discovery, AI review and independent photo recovery. `npm pack` produces `kline-pos-workspace-0.16.0.tgz`. POS stores the tarball in `backend/vendor/` and its package-lock pins the file dependency and integrity. No registry or adjacent catalog checkout is needed at runtime. The installed package contains five runtime modules, its manifest and README; it has no test image store, database credentials or automatic migration code. The earlier 0.2.0 and 0.3.0 tarballs are retained as a removal candidate pending review.
+The catalog's `server/` directory owns `@kline/pos-workspace@0.17.0`, including stock discovery, AI review and independent photo recovery. `npm pack` produces `kline-pos-workspace-0.17.0.tgz`. POS stores the tarball in `backend/vendor/` and its package-lock pins the file dependency and integrity. No registry or adjacent catalog checkout is needed at runtime. The installed package contains five runtime modules, its manifest and README; it has no test image store, database credentials or automatic migration code. Earlier tarballs are retained as removal candidates pending review.
 
 After changing runtime source, increment the package version, pack it into the POS vendor directory, install that exact file dependency, then verify it:
 

@@ -1,0 +1,25 @@
+{
+  "checked_at": "2026-09-08T05:49:53.937Z",
+  "passed": true,
+  "migration": 109,
+  "backup_bytes": 2046344,
+  "backup_sha256": "e27e8c6ec3b3f3268c3d0dc655a59cca17efacf09b835744e5ace324f8ccf3b8",
+  "dump_archive_verified": true,
+  "production_backup_gate_enabled": true,
+  "stock_balances_unchanged": true,
+  "migrations_applied": 109,
+  "branches": [
+    {
+      "name": "NAMUGONGO",
+      "inventory_rows": 0,
+      "assortment_skus": 0,
+      "units": 0
+    },
+    {
+      "name": "NTINDA",
+      "inventory_rows": 241,
+      "assortment_skus": 241,
+      "units": 270
+    }
+  ]
+}
