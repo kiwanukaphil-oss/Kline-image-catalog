@@ -194,3 +194,14 @@ Implementation note: selection reads the complete filtered set through existing 
 - [x] Revalidated unchanged source timestamps and saved all 12 reviewed matches through the authenticated Namugongo workspace. Read-only database comparison confirms exact memberships: 41 grouped lots + 26 separate lots = 38 proposed products / 126 units. Zero POS publications and zero Namugongo stock. Evidence: `verification/product-matching-live.json`. The live full receipt preview confirms 126 units / 67 lots and 12 matched + 26 separate products, with no excluded blockers. Closed without submitting. Preview: `verification/product-matching-live-preview.json`. Receiving remains a separate owner action.
 
 Local verification note: C: ran out of space during the first native regression run. Generated `.test-data` artifacts were preserved on D: and linked at their original path. The subsequent 25-test run and build passed. No source files or original inventory images were deleted.
+
+## Structured sleeve length - 8 September 2026
+
+- [x] Confirm the actual gap: Shirts already has an optional inherited `sleeve` field, but native catalog publication omitted it from POS variant attributes. Namugongo currently has 54 lots marked Long and 13 unset.
+- [x] Carry the existing sleeve value through normal publication and matched receiving; retain line-level sleeve overrides. Matching distinguishes Short from Long and recognizes common sleeve wording aliases.
+- [x] Prepare migration 111: label the existing field Sleeve length, preserve custom choices and stored values, add Three-quarter/Sleeveless and AI vocabulary aliases, and provide the inherited field for jackets. Gender remains optional.
+- [x] Include sleeve in the photo evidence shown while matching. AI extraction uses the configured field and stores its value, confidence and evidence independently of the item name.
+- [x] Verify 24 native tests (sleeve, publication and restock), real local grouped receiving including Long-XL restock versus a separate Short-XL variant, TypeScript, lint and production build. Repeat the final migration/AI tests after checking the live schema: 3/3 pass.
+- [ ] Owner confirmation to commit/deploy the sleeve release (workspace 0.20.0 / migration 111), followed by a fresh backup, migration and live verification.
+
+No production sleeve values were changed. Existing Long values are preserved; unset values are not inferred from item names or category. The 12 saved matching plans and all 126 units remain unchanged.

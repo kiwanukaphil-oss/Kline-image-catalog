@@ -225,6 +225,41 @@ async function verifyMatching() {
       { ...planBody([g]), target_product_id: productId },
       400,
     );
+    // A complete sleeve dimension reuses the native size; a different sleeve gets its own variant.
+    const longSleeve = await seedLot("XL"),
+      shortSleeve = await seedLot("XL");
+    await pool.query(
+      `UPDATE inventory.items SET attributes=attributes || jsonb_build_object('sleeve',$2::text) WHERE id=$1`,
+      [longSleeve, "Long sleeves"],
+    );
+    await pool.query(
+      `UPDATE inventory.items SET attributes=attributes || jsonb_build_object('sleeve',$2::text) WHERE id=$1`,
+      [shortSleeve, "Short"],
+    );
+    const sleevedPlan = await call("/catalog-workspace/product-matches", {
+      ...planBody([longSleeve, shortSleeve]),
+      target_product_id: productId,
+    });
+    const sleevedReview = await call(
+      `/catalog-workspace/product-matches/${sleevedPlan.id}/review`,
+      {},
+    );
+    assert.equal(sleevedReview.existing_variants, 1);
+    assert.equal(sleevedReview.new_variants, 1);
+    await call(`/catalog-workspace/product-matches/${sleevedPlan.id}/receive`, {
+      expected_revision: sleevedReview.revision,
+    });
+    const sleeveRows = (
+      await pool.query(
+        "SELECT variant_attributes FROM product_variants WHERE product_id=$1 AND lower(variant_attributes->>'size')='xl'",
+        [productId],
+      )
+    ).rows;
+    assert.equal(sleeveRows.length, 2);
+    assert.deepEqual(sleeveRows.map((row) => row.variant_attributes.sleeve.toLowerCase()).sort(), [
+      "long",
+      "short",
+    ]);
     const rollbackIds = [await seedLot("M"), await seedLot("L")];
     const rollbackPlan = await call("/catalog-workspace/product-matches", planBody(rollbackIds));
     const rollbackReview = await call(

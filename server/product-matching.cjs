@@ -14,6 +14,17 @@ function variantIdentity(attributes) {
     let value = normalized(rawValue);
     if (!value) continue;
     if (key === "size") value = { xxl: "2xl", xxxl: "3xl", xxxxl: "4xl" }[value] || value;
+    if (key === "sleeve") {
+      value = value.replace(/[- ]sleeves?d?$/, "");
+      value =
+        {
+          full: "long",
+          "3/4": "three-quarter",
+          "three quarter": "three-quarter",
+          no: "sleeveless",
+          "sleeve-less": "sleeveless",
+        }[value] || value;
+    }
     result[key] = value;
   }
   return JSON.stringify(

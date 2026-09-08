@@ -132,7 +132,7 @@ export function ProductMatching({
             <small>{item.brand}</small>
             <small>
               {Object.entries(item.attributes || {})
-                .filter(([key]) => ['color', 'fit', 'pattern', 'material', 'style'].includes(key))
+                .filter(([key]) => ['color', 'fit', 'sleeve', 'pattern', 'material', 'style'].includes(key))
                 .map(([key, value]) => `${key}: ${value}`)
                 .join(' / ')}
             </small>
