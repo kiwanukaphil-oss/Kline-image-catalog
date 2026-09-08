@@ -234,3 +234,11 @@ No production sleeve values were changed. Existing Long values are preserved; un
 - [x] Preserve state through product detail and return navigation; initialize the applied search from the saved search and wait for loaded results before clamping pagination.
 - [x] Four focused tests pass: browser Back, Products breadcrumb, user/branch isolation, clearing filters and corrupt/unavailable storage. TypeScript validation and production build pass.
 - [x] Owner approved commit/deploy. POS `ed7156e` is live on Cloudflare Pages; frontend CI passed. Live Namugongo verification preserves the Hugo search and Hugo & Victor brand filter after opening a product and returning through the Products breadcrumb. No production data was changed.
+
+## POS product-list photos
+
+- [x] Include authorized primary product photos in the branch variant listing, reusing one signed URL per product across its sizes and colours. Legacy external references remain excluded.
+- [x] Connect the default table rows to those photos and increase thumbnails to 64px; retain the existing placeholder for products without a photo and the existing grid photo behaviour.
+- [x] Seven product-image integration tests pass, including variant-list photo presentation and legacy-reference handling. TypeScript and production build pass.
+- [x] Owner approved deployment and requested expandable photos. Added an accessible photo dialog with a blurred backdrop, uncropped image, product title and close button; Escape/backdrop also dismiss it. Photo clicks do not navigate the product row/card. Two focused preview interaction tests pass.
+- [x] POS `ff9eede` deployed successfully to Railway (`7460680f-6824-4f42-ac1d-ce35eeed3092`) and Cloudflare Pages. Live verification: all ten first-page thumbnails load; table and grid photo clicks open a loaded, contain-fitted image and keep the `/products` route. Closing preserves the list. Frontend CI passed.
