@@ -1,57 +1,58 @@
 {
-  "checked_at": "2026-09-09T15:14:34.758Z",
+  "checked_at": "2026-09-07T20:37:59.665Z",
   "project_id": "f06ae302-c116-487a-96d6-4a76a387e533",
   "scope": "Live production; unauthenticated, read-only checks",
   "node_options": [],
-  "passed": true,
+  "passed": false,
   "checks": [
     {
       "name": "Catalog workspace HTML",
-      "passed": true,
-      "status": 200,
-      "elapsed_ms": 962
+      "passed": false,
+      "status": null,
+      "elapsed_ms": 189,
+      "error": "Request or validation failed"
     },
     {
       "name": "POS HTML",
       "passed": true,
       "status": 200,
-      "elapsed_ms": 430
+      "elapsed_ms": 254
     },
     {
       "name": "API process",
       "passed": true,
       "status": 200,
-      "elapsed_ms": 935
+      "elapsed_ms": 520
     },
     {
       "name": "Database connectivity",
       "passed": true,
       "status": 200,
-      "elapsed_ms": 954
+      "elapsed_ms": 558
     },
     {
       "name": "Anonymous workspace denied",
       "passed": true,
       "status": 401,
-      "elapsed_ms": 881
+      "elapsed_ms": 511
     },
     {
       "name": "CORS permits https://klinemen-catalog.com",
       "passed": true,
       "status": 204,
-      "elapsed_ms": 916
+      "elapsed_ms": 520
     },
     {
       "name": "CORS permits https://inventory-pos.pages.dev",
       "passed": true,
       "status": 204,
-      "elapsed_ms": 890
+      "elapsed_ms": 520
     },
     {
       "name": "CORS denies foreign origin",
       "passed": true,
       "status": 500,
-      "elapsed_ms": 905
+      "elapsed_ms": 511
     }
   ],
   "limitations": "A point-in-time probe, not scheduled monitoring or a browser, login, AI, photo or commerce test."

@@ -1,0 +1,7 @@
+{
+  "passed": true,
+  "group_writes": 1,
+  "single_writes": 1,
+  "stopped_after_disconnect": true,
+  "committed_group_not_replayed": true
+}

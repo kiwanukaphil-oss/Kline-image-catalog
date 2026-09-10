@@ -1,0 +1,36 @@
+{
+  "baseline_lots": 67,
+  "units": 126,
+  "ideal": {
+    "groups": 12,
+    "grouped_lots": 41,
+    "separate_lots": 26,
+    "precision": 1,
+    "recall": 1
+  },
+  "saved_extraction": {
+    "evidence_lots": 40,
+    "candidates": 5,
+    "exact_reference_groups": 0,
+    "recall": 0,
+    "correct_partial_groups": 5,
+    "candidate_member_precision": 1,
+    "candidate_members": 12,
+    "standard_false_candidates": 0,
+    "missing_reference_groups": [
+      "26201A-6",
+      "26201B-26",
+      "26201A-11",
+      "26201B-25",
+      "26201A-7",
+      "26201A-13",
+      "26201A-1",
+      "0663-11",
+      "3651-1",
+      "5017-4",
+      "D9663-2A",
+      "738-352"
+    ]
+  },
+  "model_calls": 0
+}

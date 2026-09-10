@@ -1,0 +1,9 @@
+# Resume already received uploads
+
+The storage fix allowed the first queued phone photo (`928e2dda-e0b8-421d-8de9-f4ba05dfb34d`) to upload and join delivery `5d48bce2-e5e6-42ae-ba7d-84a5fb1e4ed5`. Resume then encountered Oxford shirt `9587ee14-5a96-41a0-848e-ef3154769643`, already received as one unit in POS product `16cde31a-4d7d-4875-87a0-2aa02257cc76`, with no delivery membership. The backend correctly refused a delivery change, but the frontend could not finish that stale queue entry.
+
+The frontend now examines the idempotent upload response. A confirmed POS product means the photo is already received: clear the local pending upload and continue, without assigning a delivery or receiving stock. If receipt occurs between that response and delivery linking, a 409 triggers a fresh item read; the queue entry is cleared only when receipt is confirmed. Other conflicts and failed readbacks retain the saved photo and stop the queue.
+
+Validation: typecheck, lint, Node production build, and isolated execution of the actual queue function. Scenarios cover an eight-entry mixed queue, an all-received queue, concurrent receipt, unrelated delivery conflict, upload failure, and failed readback. No production API writes or stock mutations were performed during this correction.
+
+Prepared release: `.test-data/upload-resume-catalog`, based on the previously deployed `.test-data/receiving-recovery-catalog`, with only `app/components/upload-delivery.tsx` changed. Deploy to frontend project `7df5ac43-bc99-4cd8-9605-b17fb1cbadfd`, service `e848d8df-cf36-4c6b-ab3d-11d7120a4950`, environment `bfae25a3-032c-415b-a451-4e35da0d85f0`. Owner-approved deployment `824e59ed-3155-4784-8415-22c3980f04d1` completed successfully on 10 September 2026. Live page and backend health returned HTTP 200, and served client assets contain the new upload-resume code. After publication, the phone must reload or update the app before resuming its existing saved queue.

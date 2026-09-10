@@ -1,0 +1,310 @@
+{
+  "status": "confirmed",
+  "confirmed_at": "2026-09-09T17:25:08.107Z",
+  "lots": 27,
+  "units": 45,
+  "shirts": 9,
+  "shoe_pairs": 11,
+  "boxers": 25,
+  "prices_preserved": true,
+  "pos_stock_received": false,
+  "changes": [
+    {
+      "item_id": "02ff215c-b83d-47b1-bac4-6874a8ad00e2",
+      "entries": [
+        {
+          "variant_attributes": {
+            "size": "40"
+          },
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "item_id": "0880f6f0-147a-4c97-ac2e-ed6fc388fc69",
+      "entries": [
+        {
+          "variant_attributes": {
+            "size": "XL"
+          },
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "item_id": "08bf0583-2bf9-4f78-a9ae-d19cbd95cf8f",
+      "entries": [
+        {
+          "variant_attributes": {
+            "size": "2XL"
+          },
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "item_id": "19f1c7ab-ccbb-4416-baa8-e00403c7d3e0",
+      "entries": [
+        {
+          "variant_attributes": {
+            "size": "42"
+          },
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "item_id": "1b028ea6-615f-4456-90e5-06fcbaa5e435",
+      "entries": [
+        {
+          "variant_attributes": {
+            "size": "L"
+          },
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "item_id": "1b0b3610-4281-42f7-b79d-23ca6f6067f5",
+      "entries": [
+        {
+          "variant_attributes": {
+            "size": "XL"
+          },
+          "quantity": 3
+        }
+      ]
+    },
+    {
+      "item_id": "24c42a78-5fba-411f-8894-6e38a44d2e1f",
+      "entries": [
+        {
+          "variant_attributes": {
+            "size": "XL"
+          },
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "item_id": "326f7d95-c442-492f-bf9d-a4832e926e23",
+      "entries": [
+        {
+          "variant_attributes": {
+            "size": "3XL"
+          },
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "item_id": "40e1a352-ef6d-4ab8-a752-a7fc14aa282c",
+      "entries": [
+        {
+          "variant_attributes": {
+            "size": "L"
+          },
+          "quantity": 4
+        }
+      ]
+    },
+    {
+      "item_id": "440f216e-19d3-4c72-9365-f0a39e305327",
+      "entries": [
+        {
+          "variant_attributes": {
+            "size": "M"
+          },
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "item_id": "49448a6f-54e1-4a37-96c9-ef8782be63bf",
+      "entries": [
+        {
+          "variant_attributes": {
+            "size": "2XL"
+          },
+          "quantity": 3
+        }
+      ]
+    },
+    {
+      "item_id": "6a15ff20-a5f9-47ed-b9aa-bf1f936e5f29",
+      "entries": [
+        {
+          "variant_attributes": {
+            "size": "XL"
+          },
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "item_id": "71348ed2-18b2-457c-b839-7611b5d4d909",
+      "entries": [
+        {
+          "variant_attributes": {
+            "size": "41"
+          },
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "item_id": "737efd90-c39f-4505-b85d-9f8a511f928b",
+      "entries": [
+        {
+          "variant_attributes": {
+            "size": "L"
+          },
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "item_id": "783323c8-df6e-4ffe-9d50-37610a73e75d",
+      "entries": [
+        {
+          "variant_attributes": {
+            "size": "42"
+          },
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "item_id": "82b042b3-d8df-410b-9e75-265a977b6c46",
+      "entries": [
+        {
+          "variant_attributes": {
+            "size": "M"
+          },
+          "quantity": 3
+        }
+      ]
+    },
+    {
+      "item_id": "87e02ccc-3dbb-4b76-9765-6b53d5e501e3",
+      "entries": [
+        {
+          "variant_attributes": {
+            "size": "3XL"
+          },
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "item_id": "918334f4-2aa8-4b17-92e1-1eb14c3b4b86",
+      "entries": [
+        {
+          "variant_attributes": {
+            "size": "41"
+          },
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "item_id": "94110dd5-62cf-4dc5-8fb9-57076c1a611a",
+      "entries": [
+        {
+          "variant_attributes": {
+            "size": "40"
+          },
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "item_id": "9587ee14-5a96-41a0-848e-ef3154769643",
+      "entries": [
+        {
+          "variant_attributes": {
+            "size": "L"
+          },
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "item_id": "be83d601-8bdb-4217-8431-2cdcad6e277e",
+      "entries": [
+        {
+          "variant_attributes": {
+            "size": "45"
+          },
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "item_id": "c03a0a9a-c341-4cd0-9c0e-4a003616832b",
+      "entries": [
+        {
+          "variant_attributes": {
+            "size": "L"
+          },
+          "quantity": 5
+        }
+      ]
+    },
+    {
+      "item_id": "c5bc4c28-46fa-40d9-b72c-e97de02e2209",
+      "entries": [
+        {
+          "variant_attributes": {
+            "size": "XL"
+          },
+          "quantity": 6
+        }
+      ]
+    },
+    {
+      "item_id": "f004995f-90f7-4f81-abab-d3724d79bc26",
+      "entries": [
+        {
+          "variant_attributes": {
+            "size": "44"
+          },
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "item_id": "f235c222-858c-487c-a3fc-9a98734a3c65",
+      "entries": [
+        {
+          "variant_attributes": {
+            "size": "41"
+          },
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "item_id": "f26a8bf5-20ce-4736-a472-f0ff73937f61",
+      "entries": [
+        {
+          "variant_attributes": {
+            "size": "42"
+          },
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "item_id": "f752344f-15c8-4682-97d2-804383e41f13",
+      "entries": [
+        {
+          "variant_attributes": {
+            "size": "44"
+          },
+          "quantity": 1
+        }
+      ]
+    }
+  ]
+}

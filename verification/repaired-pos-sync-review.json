@@ -1,0 +1,4424 @@
+{
+  "checked_at": "2026-09-09T18:09:37.044Z",
+  "scope": "Latest 27 Namugongo intake lots",
+  "source_lots": 27,
+  "received_lots": 27,
+  "received_products": 12,
+  "received_variants": 27,
+  "received_units": 45,
+  "pending": [],
+  "stock_units": 45,
+  "issues": [],
+  "photoIssues": [],
+  "duplicateBarcodes": [],
+  "stockMismatches": [],
+  "galleryIssues": [],
+  "branchStatus": [
+    {
+      "pos_sync_status": "synced",
+      "lots": 94
+    }
+  ],
+  "items": [
+    {
+      "id": "9587ee14-5a96-41a0-848e-ef3154769643",
+      "name": "OXFORD business casual shirt",
+      "brand": "OXFORD",
+      "attributes": {
+        "fit": "Slim",
+        "size": "L",
+        "color": "Dark navy and blue",
+        "sleeve": "Short",
+        "pattern": "Floral paisley",
+        "material": "Likely synthetic jacquard weave"
+      },
+      "stock_quantity": 1,
+      "stock_distribution_source": "human_confirmed",
+      "pos_product_id": "16cde31a-4d7d-4875-87a0-2aa02257cc76",
+      "pos_sync_status": "synced",
+      "price": "90000.00",
+      "source_cost": "35000.00",
+      "receipt_product_id": "16cde31a-4d7d-4875-87a0-2aa02257cc76",
+      "received_quantity": 1,
+      "published_at": "2026-09-09T17:39:09.238Z",
+      "product_name": "Oxford Short Sleeve Shirt - Navy Floral Paisley",
+      "product_status": "published",
+      "product_active": true,
+      "material": null,
+      "image_path": "pos-products/catalog/6a15ff20-a5f9-47ed-b9aa-bf1f936e5f29/a6930ea4264476bd8b6db317c1842bebf9cc9dbf378a8eec351479dcd93f023c",
+      "product_brand": "Oxford",
+      "product_category": "01220431-51c3-4af9-877d-f21afb422b7e",
+      "pos_category_id": "01220431-51c3-4af9-877d-f21afb422b7e",
+      "match_id": "4544ea52-6141-4914-a1fb-ea6793b56646",
+      "matched_name": "Oxford Short Sleeve Shirt - Navy Floral Paisley",
+      "matched_brand": "Oxford",
+      "variant_defaults": {
+        "fit": "Slim",
+        "color": "Navy and blue"
+      },
+      "identity_review": {
+        "issues": [],
+        "material": null,
+        "resolution": "Owner-requested Codex visual matching. Matching floral/paisley motif, woven appearance, button-down collar, white buttons, packaging and Slim Fit labels. Short sleeves confirmed by owner. Visual identity review, not an automatic model-code match. No stock received. Composition unconfirmed; shared material left unset.",
+        "fingerprint": "8ad3071138b5fea87f31fe266571cd8a681a4b3c6a6e7ded371aa89d31641d0d",
+        "confirmed_by": "8691f46d-0109-4042-ac1b-45654320e269",
+        "review_method": "owner_requested_codex_visual_comparison",
+        "photo_evidence": [
+          {
+            "sha256": "0f57ddeabb4809eb439d4a7cb7fd706ffe7fd0e9e3391c39688927c0825301fa",
+            "item_id": "9587ee14-5a96-41a0-848e-ef3154769643",
+            "photo_number": 1
+          },
+          {
+            "sha256": "a6930ea4264476bd8b6db317c1842bebf9cc9dbf378a8eec351479dcd93f023c",
+            "item_id": "6a15ff20-a5f9-47ed-b9aa-bf1f936e5f29",
+            "photo_number": 4
+          },
+          {
+            "sha256": "da1bff6c15f61fdb82d2ce2b0173691259dae3e4beb4fb59f51387080d38bcb0",
+            "item_id": "08bf0583-2bf9-4f78-a9ae-d19cbd95cf8f",
+            "photo_number": 5
+          },
+          {
+            "sha256": "07e1480dddf5131317b9afdba3aab78767e6fff0161f1c77663e8bec1f19b22e",
+            "item_id": "87e02ccc-3dbb-4b76-9765-6b53d5e501e3",
+            "photo_number": 6
+          }
+        ],
+        "member_identity": [
+          {
+            "id": "08bf0583-2bf9-4f78-a9ae-d19cbd95cf8f",
+            "brand": "oxford",
+            "model": "",
+            "design": [
+              "navy blue and black",
+              "floral",
+              "slim",
+              "short",
+              "likely synthetic blend"
+            ],
+            "evidence": null,
+            "category_id": "ede7260a-0626-4ac9-b4c1-04123f36059a",
+            "pos_category_id": "01220431-51c3-4af9-877d-f21afb422b7e"
+          },
+          {
+            "id": "6a15ff20-a5f9-47ed-b9aa-bf1f936e5f29",
+            "brand": "oxford",
+            "model": "",
+            "design": [
+              "navy blue and black",
+              "floral",
+              "slim",
+              "short",
+              "likely cotton or cotton blend"
+            ],
+            "evidence": null,
+            "category_id": "ede7260a-0626-4ac9-b4c1-04123f36059a",
+            "pos_category_id": "01220431-51c3-4af9-877d-f21afb422b7e"
+          },
+          {
+            "id": "87e02ccc-3dbb-4b76-9765-6b53d5e501e3",
+            "brand": "oxford",
+            "model": "",
+            "design": [
+              "dark navy blue and gray",
+              "floral paisley",
+              "slim",
+              "short",
+              "likely cotton or cotton blend"
+            ],
+            "evidence": null,
+            "category_id": "ede7260a-0626-4ac9-b4c1-04123f36059a",
+            "pos_category_id": "01220431-51c3-4af9-877d-f21afb422b7e"
+          },
+          {
+            "id": "9587ee14-5a96-41a0-848e-ef3154769643",
+            "brand": "oxford",
+            "model": "",
+            "design": [
+              "dark navy and blue",
+              "floral paisley",
+              "slim",
+              "short",
+              "likely synthetic jacquard weave"
+            ],
+            "evidence": null,
+            "category_id": "ede7260a-0626-4ac9-b4c1-04123f36059a",
+            "pos_category_id": "01220431-51c3-4af9-877d-f21afb422b7e"
+          }
+        ],
+        "target_identity": null
+      },
+      "matched_result": "16cde31a-4d7d-4875-87a0-2aa02257cc76",
+      "photo_status": "linked",
+      "image_key": "pos-products/catalog/9587ee14-5a96-41a0-848e-ef3154769643/0f57ddeabb4809eb439d4a7cb7fd706ffe7fd0e9e3391c39688927c0825301fa",
+      "linked_photo_count": 1
+    },
+    {
+      "id": "0880f6f0-147a-4c97-ac2e-ed6fc388fc69",
+      "name": "OXFORD shirt",
+      "brand": "OXFORD",
+      "attributes": {
+        "fit": "Slim",
+        "size": "XL",
+        "color": "Navy",
+        "sleeve": "Short",
+        "pattern": "Solid",
+        "material": "Likely cotton or cotton blend"
+      },
+      "stock_quantity": 1,
+      "stock_distribution_source": "human_confirmed",
+      "pos_product_id": "52e0c436-c24d-48b2-aa44-6bb03ebae3b2",
+      "pos_sync_status": "synced",
+      "price": "90000.00",
+      "source_cost": "35000.00",
+      "receipt_product_id": "52e0c436-c24d-48b2-aa44-6bb03ebae3b2",
+      "received_quantity": 1,
+      "published_at": "2026-09-09T17:52:59.778Z",
+      "product_name": "Oxford Short Sleeve Shirt - Navy",
+      "product_status": "published",
+      "product_active": true,
+      "material": null,
+      "image_path": "pos-products/catalog/0880f6f0-147a-4c97-ac2e-ed6fc388fc69/75afe8e0214d51cd860d74d61e2af082ac3a029bfd85a6c5381bbf56449ca7ac",
+      "product_brand": "Oxford",
+      "product_category": "01220431-51c3-4af9-877d-f21afb422b7e",
+      "pos_category_id": "01220431-51c3-4af9-877d-f21afb422b7e",
+      "match_id": "f690f2c1-6065-4b32-9177-75fbb57f9467",
+      "matched_name": "Oxford Short Sleeve Shirt - Navy",
+      "matched_brand": "Oxford",
+      "variant_defaults": {
+        "fit": "Slim",
+        "color": "Navy"
+      },
+      "identity_review": {
+        "issues": [],
+        "material": null,
+        "resolution": "Owner-requested Codex visual matching. Matching plain navy textured fabric, button-down collar, white buttons, packaging and Slim Fit labels. Short sleeves confirmed by owner. Visual identity review, not an automatic model-code match. No stock received. Composition unconfirmed; shared material left unset.",
+        "fingerprint": "c5abc8b99696faa7c7925f19cade287576eb40c29732340077e93ff369c362e5",
+        "confirmed_by": "8691f46d-0109-4042-ac1b-45654320e269",
+        "review_method": "owner_requested_codex_visual_comparison",
+        "photo_evidence": [
+          {
+            "sha256": "75afe8e0214d51cd860d74d61e2af082ac3a029bfd85a6c5381bbf56449ca7ac",
+            "item_id": "0880f6f0-147a-4c97-ac2e-ed6fc388fc69",
+            "photo_number": 2
+          },
+          {
+            "sha256": "101037b67cb5255b249218a8ec4f8122ef62e0f901074f4f8870c3bf93525e91",
+            "item_id": "1b028ea6-615f-4456-90e5-06fcbaa5e435",
+            "photo_number": 3
+          }
+        ],
+        "member_identity": [
+          {
+            "id": "0880f6f0-147a-4c97-ac2e-ed6fc388fc69",
+            "brand": "oxford",
+            "model": "",
+            "design": [
+              "navy",
+              "solid",
+              "slim",
+              "short",
+              "likely cotton or cotton blend"
+            ],
+            "evidence": null,
+            "category_id": "ede7260a-0626-4ac9-b4c1-04123f36059a",
+            "pos_category_id": "01220431-51c3-4af9-877d-f21afb422b7e"
+          },
+          {
+            "id": "1b028ea6-615f-4456-90e5-06fcbaa5e435",
+            "brand": "oxford",
+            "model": "",
+            "design": [
+              "navy",
+              "solid",
+              "slim",
+              "short",
+              "likely cotton or cotton blend"
+            ],
+            "evidence": null,
+            "category_id": "ede7260a-0626-4ac9-b4c1-04123f36059a",
+            "pos_category_id": "01220431-51c3-4af9-877d-f21afb422b7e"
+          }
+        ],
+        "target_identity": null
+      },
+      "matched_result": "52e0c436-c24d-48b2-aa44-6bb03ebae3b2",
+      "photo_status": "linked",
+      "image_key": "pos-products/catalog/0880f6f0-147a-4c97-ac2e-ed6fc388fc69/75afe8e0214d51cd860d74d61e2af082ac3a029bfd85a6c5381bbf56449ca7ac",
+      "linked_photo_count": 1
+    },
+    {
+      "id": "1b028ea6-615f-4456-90e5-06fcbaa5e435",
+      "name": "OXFORD Business Casual Shirt",
+      "brand": "OXFORD",
+      "attributes": {
+        "fit": "Slim",
+        "size": "L",
+        "color": "Navy",
+        "sleeve": "Short",
+        "pattern": "Solid",
+        "material": "Likely cotton or cotton blend"
+      },
+      "stock_quantity": 1,
+      "stock_distribution_source": "human_confirmed",
+      "pos_product_id": "52e0c436-c24d-48b2-aa44-6bb03ebae3b2",
+      "pos_sync_status": "synced",
+      "price": "90000.00",
+      "source_cost": "35000.00",
+      "receipt_product_id": "52e0c436-c24d-48b2-aa44-6bb03ebae3b2",
+      "received_quantity": 1,
+      "published_at": "2026-09-09T17:52:59.778Z",
+      "product_name": "Oxford Short Sleeve Shirt - Navy",
+      "product_status": "published",
+      "product_active": true,
+      "material": null,
+      "image_path": "pos-products/catalog/0880f6f0-147a-4c97-ac2e-ed6fc388fc69/75afe8e0214d51cd860d74d61e2af082ac3a029bfd85a6c5381bbf56449ca7ac",
+      "product_brand": "Oxford",
+      "product_category": "01220431-51c3-4af9-877d-f21afb422b7e",
+      "pos_category_id": "01220431-51c3-4af9-877d-f21afb422b7e",
+      "match_id": "f690f2c1-6065-4b32-9177-75fbb57f9467",
+      "matched_name": "Oxford Short Sleeve Shirt - Navy",
+      "matched_brand": "Oxford",
+      "variant_defaults": {
+        "fit": "Slim",
+        "color": "Navy"
+      },
+      "identity_review": {
+        "issues": [],
+        "material": null,
+        "resolution": "Owner-requested Codex visual matching. Matching plain navy textured fabric, button-down collar, white buttons, packaging and Slim Fit labels. Short sleeves confirmed by owner. Visual identity review, not an automatic model-code match. No stock received. Composition unconfirmed; shared material left unset.",
+        "fingerprint": "c5abc8b99696faa7c7925f19cade287576eb40c29732340077e93ff369c362e5",
+        "confirmed_by": "8691f46d-0109-4042-ac1b-45654320e269",
+        "review_method": "owner_requested_codex_visual_comparison",
+        "photo_evidence": [
+          {
+            "sha256": "75afe8e0214d51cd860d74d61e2af082ac3a029bfd85a6c5381bbf56449ca7ac",
+            "item_id": "0880f6f0-147a-4c97-ac2e-ed6fc388fc69",
+            "photo_number": 2
+          },
+          {
+            "sha256": "101037b67cb5255b249218a8ec4f8122ef62e0f901074f4f8870c3bf93525e91",
+            "item_id": "1b028ea6-615f-4456-90e5-06fcbaa5e435",
+            "photo_number": 3
+          }
+        ],
+        "member_identity": [
+          {
+            "id": "0880f6f0-147a-4c97-ac2e-ed6fc388fc69",
+            "brand": "oxford",
+            "model": "",
+            "design": [
+              "navy",
+              "solid",
+              "slim",
+              "short",
+              "likely cotton or cotton blend"
+            ],
+            "evidence": null,
+            "category_id": "ede7260a-0626-4ac9-b4c1-04123f36059a",
+            "pos_category_id": "01220431-51c3-4af9-877d-f21afb422b7e"
+          },
+          {
+            "id": "1b028ea6-615f-4456-90e5-06fcbaa5e435",
+            "brand": "oxford",
+            "model": "",
+            "design": [
+              "navy",
+              "solid",
+              "slim",
+              "short",
+              "likely cotton or cotton blend"
+            ],
+            "evidence": null,
+            "category_id": "ede7260a-0626-4ac9-b4c1-04123f36059a",
+            "pos_category_id": "01220431-51c3-4af9-877d-f21afb422b7e"
+          }
+        ],
+        "target_identity": null
+      },
+      "matched_result": "52e0c436-c24d-48b2-aa44-6bb03ebae3b2",
+      "photo_status": "linked",
+      "image_key": "pos-products/catalog/1b028ea6-615f-4456-90e5-06fcbaa5e435/101037b67cb5255b249218a8ec4f8122ef62e0f901074f4f8870c3bf93525e91",
+      "linked_photo_count": 1
+    },
+    {
+      "id": "6a15ff20-a5f9-47ed-b9aa-bf1f936e5f29",
+      "name": "OXFORD shirt",
+      "brand": "OXFORD",
+      "attributes": {
+        "fit": "Slim",
+        "size": "XL",
+        "color": "Navy blue and black",
+        "sleeve": "Short",
+        "pattern": "Floral",
+        "material": "Likely cotton or cotton blend"
+      },
+      "stock_quantity": 1,
+      "stock_distribution_source": "human_confirmed",
+      "pos_product_id": "16cde31a-4d7d-4875-87a0-2aa02257cc76",
+      "pos_sync_status": "synced",
+      "price": "90000.00",
+      "source_cost": "35000.00",
+      "receipt_product_id": "16cde31a-4d7d-4875-87a0-2aa02257cc76",
+      "received_quantity": 1,
+      "published_at": "2026-09-09T17:39:09.238Z",
+      "product_name": "Oxford Short Sleeve Shirt - Navy Floral Paisley",
+      "product_status": "published",
+      "product_active": true,
+      "material": null,
+      "image_path": "pos-products/catalog/6a15ff20-a5f9-47ed-b9aa-bf1f936e5f29/a6930ea4264476bd8b6db317c1842bebf9cc9dbf378a8eec351479dcd93f023c",
+      "product_brand": "Oxford",
+      "product_category": "01220431-51c3-4af9-877d-f21afb422b7e",
+      "pos_category_id": "01220431-51c3-4af9-877d-f21afb422b7e",
+      "match_id": "4544ea52-6141-4914-a1fb-ea6793b56646",
+      "matched_name": "Oxford Short Sleeve Shirt - Navy Floral Paisley",
+      "matched_brand": "Oxford",
+      "variant_defaults": {
+        "fit": "Slim",
+        "color": "Navy and blue"
+      },
+      "identity_review": {
+        "issues": [],
+        "material": null,
+        "resolution": "Owner-requested Codex visual matching. Matching floral/paisley motif, woven appearance, button-down collar, white buttons, packaging and Slim Fit labels. Short sleeves confirmed by owner. Visual identity review, not an automatic model-code match. No stock received. Composition unconfirmed; shared material left unset.",
+        "fingerprint": "8ad3071138b5fea87f31fe266571cd8a681a4b3c6a6e7ded371aa89d31641d0d",
+        "confirmed_by": "8691f46d-0109-4042-ac1b-45654320e269",
+        "review_method": "owner_requested_codex_visual_comparison",
+        "photo_evidence": [
+          {
+            "sha256": "0f57ddeabb4809eb439d4a7cb7fd706ffe7fd0e9e3391c39688927c0825301fa",
+            "item_id": "9587ee14-5a96-41a0-848e-ef3154769643",
+            "photo_number": 1
+          },
+          {
+            "sha256": "a6930ea4264476bd8b6db317c1842bebf9cc9dbf378a8eec351479dcd93f023c",
+            "item_id": "6a15ff20-a5f9-47ed-b9aa-bf1f936e5f29",
+            "photo_number": 4
+          },
+          {
+            "sha256": "da1bff6c15f61fdb82d2ce2b0173691259dae3e4beb4fb59f51387080d38bcb0",
+            "item_id": "08bf0583-2bf9-4f78-a9ae-d19cbd95cf8f",
+            "photo_number": 5
+          },
+          {
+            "sha256": "07e1480dddf5131317b9afdba3aab78767e6fff0161f1c77663e8bec1f19b22e",
+            "item_id": "87e02ccc-3dbb-4b76-9765-6b53d5e501e3",
+            "photo_number": 6
+          }
+        ],
+        "member_identity": [
+          {
+            "id": "08bf0583-2bf9-4f78-a9ae-d19cbd95cf8f",
+            "brand": "oxford",
+            "model": "",
+            "design": [
+              "navy blue and black",
+              "floral",
+              "slim",
+              "short",
+              "likely synthetic blend"
+            ],
+            "evidence": null,
+            "category_id": "ede7260a-0626-4ac9-b4c1-04123f36059a",
+            "pos_category_id": "01220431-51c3-4af9-877d-f21afb422b7e"
+          },
+          {
+            "id": "6a15ff20-a5f9-47ed-b9aa-bf1f936e5f29",
+            "brand": "oxford",
+            "model": "",
+            "design": [
+              "navy blue and black",
+              "floral",
+              "slim",
+              "short",
+              "likely cotton or cotton blend"
+            ],
+            "evidence": null,
+            "category_id": "ede7260a-0626-4ac9-b4c1-04123f36059a",
+            "pos_category_id": "01220431-51c3-4af9-877d-f21afb422b7e"
+          },
+          {
+            "id": "87e02ccc-3dbb-4b76-9765-6b53d5e501e3",
+            "brand": "oxford",
+            "model": "",
+            "design": [
+              "dark navy blue and gray",
+              "floral paisley",
+              "slim",
+              "short",
+              "likely cotton or cotton blend"
+            ],
+            "evidence": null,
+            "category_id": "ede7260a-0626-4ac9-b4c1-04123f36059a",
+            "pos_category_id": "01220431-51c3-4af9-877d-f21afb422b7e"
+          },
+          {
+            "id": "9587ee14-5a96-41a0-848e-ef3154769643",
+            "brand": "oxford",
+            "model": "",
+            "design": [
+              "dark navy and blue",
+              "floral paisley",
+              "slim",
+              "short",
+              "likely synthetic jacquard weave"
+            ],
+            "evidence": null,
+            "category_id": "ede7260a-0626-4ac9-b4c1-04123f36059a",
+            "pos_category_id": "01220431-51c3-4af9-877d-f21afb422b7e"
+          }
+        ],
+        "target_identity": null
+      },
+      "matched_result": "16cde31a-4d7d-4875-87a0-2aa02257cc76",
+      "photo_status": "linked",
+      "image_key": "pos-products/catalog/6a15ff20-a5f9-47ed-b9aa-bf1f936e5f29/a6930ea4264476bd8b6db317c1842bebf9cc9dbf378a8eec351479dcd93f023c",
+      "linked_photo_count": 1
+    },
+    {
+      "id": "08bf0583-2bf9-4f78-a9ae-d19cbd95cf8f",
+      "name": "OXFORD shirt",
+      "brand": "OXFORD",
+      "attributes": {
+        "fit": "Slim",
+        "size": "2XL",
+        "color": "Navy blue and black",
+        "sleeve": "Short",
+        "pattern": "Floral",
+        "material": "Likely synthetic blend"
+      },
+      "stock_quantity": 1,
+      "stock_distribution_source": "human_confirmed",
+      "pos_product_id": "16cde31a-4d7d-4875-87a0-2aa02257cc76",
+      "pos_sync_status": "synced",
+      "price": "90000.00",
+      "source_cost": "35000.00",
+      "receipt_product_id": "16cde31a-4d7d-4875-87a0-2aa02257cc76",
+      "received_quantity": 1,
+      "published_at": "2026-09-09T17:39:09.238Z",
+      "product_name": "Oxford Short Sleeve Shirt - Navy Floral Paisley",
+      "product_status": "published",
+      "product_active": true,
+      "material": null,
+      "image_path": "pos-products/catalog/6a15ff20-a5f9-47ed-b9aa-bf1f936e5f29/a6930ea4264476bd8b6db317c1842bebf9cc9dbf378a8eec351479dcd93f023c",
+      "product_brand": "Oxford",
+      "product_category": "01220431-51c3-4af9-877d-f21afb422b7e",
+      "pos_category_id": "01220431-51c3-4af9-877d-f21afb422b7e",
+      "match_id": "4544ea52-6141-4914-a1fb-ea6793b56646",
+      "matched_name": "Oxford Short Sleeve Shirt - Navy Floral Paisley",
+      "matched_brand": "Oxford",
+      "variant_defaults": {
+        "fit": "Slim",
+        "color": "Navy and blue"
+      },
+      "identity_review": {
+        "issues": [],
+        "material": null,
+        "resolution": "Owner-requested Codex visual matching. Matching floral/paisley motif, woven appearance, button-down collar, white buttons, packaging and Slim Fit labels. Short sleeves confirmed by owner. Visual identity review, not an automatic model-code match. No stock received. Composition unconfirmed; shared material left unset.",
+        "fingerprint": "8ad3071138b5fea87f31fe266571cd8a681a4b3c6a6e7ded371aa89d31641d0d",
+        "confirmed_by": "8691f46d-0109-4042-ac1b-45654320e269",
+        "review_method": "owner_requested_codex_visual_comparison",
+        "photo_evidence": [
+          {
+            "sha256": "0f57ddeabb4809eb439d4a7cb7fd706ffe7fd0e9e3391c39688927c0825301fa",
+            "item_id": "9587ee14-5a96-41a0-848e-ef3154769643",
+            "photo_number": 1
+          },
+          {
+            "sha256": "a6930ea4264476bd8b6db317c1842bebf9cc9dbf378a8eec351479dcd93f023c",
+            "item_id": "6a15ff20-a5f9-47ed-b9aa-bf1f936e5f29",
+            "photo_number": 4
+          },
+          {
+            "sha256": "da1bff6c15f61fdb82d2ce2b0173691259dae3e4beb4fb59f51387080d38bcb0",
+            "item_id": "08bf0583-2bf9-4f78-a9ae-d19cbd95cf8f",
+            "photo_number": 5
+          },
+          {
+            "sha256": "07e1480dddf5131317b9afdba3aab78767e6fff0161f1c77663e8bec1f19b22e",
+            "item_id": "87e02ccc-3dbb-4b76-9765-6b53d5e501e3",
+            "photo_number": 6
+          }
+        ],
+        "member_identity": [
+          {
+            "id": "08bf0583-2bf9-4f78-a9ae-d19cbd95cf8f",
+            "brand": "oxford",
+            "model": "",
+            "design": [
+              "navy blue and black",
+              "floral",
+              "slim",
+              "short",
+              "likely synthetic blend"
+            ],
+            "evidence": null,
+            "category_id": "ede7260a-0626-4ac9-b4c1-04123f36059a",
+            "pos_category_id": "01220431-51c3-4af9-877d-f21afb422b7e"
+          },
+          {
+            "id": "6a15ff20-a5f9-47ed-b9aa-bf1f936e5f29",
+            "brand": "oxford",
+            "model": "",
+            "design": [
+              "navy blue and black",
+              "floral",
+              "slim",
+              "short",
+              "likely cotton or cotton blend"
+            ],
+            "evidence": null,
+            "category_id": "ede7260a-0626-4ac9-b4c1-04123f36059a",
+            "pos_category_id": "01220431-51c3-4af9-877d-f21afb422b7e"
+          },
+          {
+            "id": "87e02ccc-3dbb-4b76-9765-6b53d5e501e3",
+            "brand": "oxford",
+            "model": "",
+            "design": [
+              "dark navy blue and gray",
+              "floral paisley",
+              "slim",
+              "short",
+              "likely cotton or cotton blend"
+            ],
+            "evidence": null,
+            "category_id": "ede7260a-0626-4ac9-b4c1-04123f36059a",
+            "pos_category_id": "01220431-51c3-4af9-877d-f21afb422b7e"
+          },
+          {
+            "id": "9587ee14-5a96-41a0-848e-ef3154769643",
+            "brand": "oxford",
+            "model": "",
+            "design": [
+              "dark navy and blue",
+              "floral paisley",
+              "slim",
+              "short",
+              "likely synthetic jacquard weave"
+            ],
+            "evidence": null,
+            "category_id": "ede7260a-0626-4ac9-b4c1-04123f36059a",
+            "pos_category_id": "01220431-51c3-4af9-877d-f21afb422b7e"
+          }
+        ],
+        "target_identity": null
+      },
+      "matched_result": "16cde31a-4d7d-4875-87a0-2aa02257cc76",
+      "photo_status": "linked",
+      "image_key": "pos-products/catalog/08bf0583-2bf9-4f78-a9ae-d19cbd95cf8f/da1bff6c15f61fdb82d2ce2b0173691259dae3e4beb4fb59f51387080d38bcb0",
+      "linked_photo_count": 1
+    },
+    {
+      "id": "87e02ccc-3dbb-4b76-9765-6b53d5e501e3",
+      "name": "OXFORD Business Casual Shirt",
+      "brand": "OXFORD",
+      "attributes": {
+        "fit": "Slim",
+        "size": "3XL",
+        "color": "Dark navy blue and gray",
+        "sleeve": "Short",
+        "pattern": "Floral paisley",
+        "material": "Likely cotton or cotton blend"
+      },
+      "stock_quantity": 1,
+      "stock_distribution_source": "human_confirmed",
+      "pos_product_id": "16cde31a-4d7d-4875-87a0-2aa02257cc76",
+      "pos_sync_status": "synced",
+      "price": "90000.00",
+      "source_cost": "35000.00",
+      "receipt_product_id": "16cde31a-4d7d-4875-87a0-2aa02257cc76",
+      "received_quantity": 1,
+      "published_at": "2026-09-09T17:39:09.238Z",
+      "product_name": "Oxford Short Sleeve Shirt - Navy Floral Paisley",
+      "product_status": "published",
+      "product_active": true,
+      "material": null,
+      "image_path": "pos-products/catalog/6a15ff20-a5f9-47ed-b9aa-bf1f936e5f29/a6930ea4264476bd8b6db317c1842bebf9cc9dbf378a8eec351479dcd93f023c",
+      "product_brand": "Oxford",
+      "product_category": "01220431-51c3-4af9-877d-f21afb422b7e",
+      "pos_category_id": "01220431-51c3-4af9-877d-f21afb422b7e",
+      "match_id": "4544ea52-6141-4914-a1fb-ea6793b56646",
+      "matched_name": "Oxford Short Sleeve Shirt - Navy Floral Paisley",
+      "matched_brand": "Oxford",
+      "variant_defaults": {
+        "fit": "Slim",
+        "color": "Navy and blue"
+      },
+      "identity_review": {
+        "issues": [],
+        "material": null,
+        "resolution": "Owner-requested Codex visual matching. Matching floral/paisley motif, woven appearance, button-down collar, white buttons, packaging and Slim Fit labels. Short sleeves confirmed by owner. Visual identity review, not an automatic model-code match. No stock received. Composition unconfirmed; shared material left unset.",
+        "fingerprint": "8ad3071138b5fea87f31fe266571cd8a681a4b3c6a6e7ded371aa89d31641d0d",
+        "confirmed_by": "8691f46d-0109-4042-ac1b-45654320e269",
+        "review_method": "owner_requested_codex_visual_comparison",
+        "photo_evidence": [
+          {
+            "sha256": "0f57ddeabb4809eb439d4a7cb7fd706ffe7fd0e9e3391c39688927c0825301fa",
+            "item_id": "9587ee14-5a96-41a0-848e-ef3154769643",
+            "photo_number": 1
+          },
+          {
+            "sha256": "a6930ea4264476bd8b6db317c1842bebf9cc9dbf378a8eec351479dcd93f023c",
+            "item_id": "6a15ff20-a5f9-47ed-b9aa-bf1f936e5f29",
+            "photo_number": 4
+          },
+          {
+            "sha256": "da1bff6c15f61fdb82d2ce2b0173691259dae3e4beb4fb59f51387080d38bcb0",
+            "item_id": "08bf0583-2bf9-4f78-a9ae-d19cbd95cf8f",
+            "photo_number": 5
+          },
+          {
+            "sha256": "07e1480dddf5131317b9afdba3aab78767e6fff0161f1c77663e8bec1f19b22e",
+            "item_id": "87e02ccc-3dbb-4b76-9765-6b53d5e501e3",
+            "photo_number": 6
+          }
+        ],
+        "member_identity": [
+          {
+            "id": "08bf0583-2bf9-4f78-a9ae-d19cbd95cf8f",
+            "brand": "oxford",
+            "model": "",
+            "design": [
+              "navy blue and black",
+              "floral",
+              "slim",
+              "short",
+              "likely synthetic blend"
+            ],
+            "evidence": null,
+            "category_id": "ede7260a-0626-4ac9-b4c1-04123f36059a",
+            "pos_category_id": "01220431-51c3-4af9-877d-f21afb422b7e"
+          },
+          {
+            "id": "6a15ff20-a5f9-47ed-b9aa-bf1f936e5f29",
+            "brand": "oxford",
+            "model": "",
+            "design": [
+              "navy blue and black",
+              "floral",
+              "slim",
+              "short",
+              "likely cotton or cotton blend"
+            ],
+            "evidence": null,
+            "category_id": "ede7260a-0626-4ac9-b4c1-04123f36059a",
+            "pos_category_id": "01220431-51c3-4af9-877d-f21afb422b7e"
+          },
+          {
+            "id": "87e02ccc-3dbb-4b76-9765-6b53d5e501e3",
+            "brand": "oxford",
+            "model": "",
+            "design": [
+              "dark navy blue and gray",
+              "floral paisley",
+              "slim",
+              "short",
+              "likely cotton or cotton blend"
+            ],
+            "evidence": null,
+            "category_id": "ede7260a-0626-4ac9-b4c1-04123f36059a",
+            "pos_category_id": "01220431-51c3-4af9-877d-f21afb422b7e"
+          },
+          {
+            "id": "9587ee14-5a96-41a0-848e-ef3154769643",
+            "brand": "oxford",
+            "model": "",
+            "design": [
+              "dark navy and blue",
+              "floral paisley",
+              "slim",
+              "short",
+              "likely synthetic jacquard weave"
+            ],
+            "evidence": null,
+            "category_id": "ede7260a-0626-4ac9-b4c1-04123f36059a",
+            "pos_category_id": "01220431-51c3-4af9-877d-f21afb422b7e"
+          }
+        ],
+        "target_identity": null
+      },
+      "matched_result": "16cde31a-4d7d-4875-87a0-2aa02257cc76",
+      "photo_status": "linked",
+      "image_key": "pos-products/catalog/87e02ccc-3dbb-4b76-9765-6b53d5e501e3/07e1480dddf5131317b9afdba3aab78767e6fff0161f1c77663e8bec1f19b22e",
+      "linked_photo_count": 1
+    },
+    {
+      "id": "326f7d95-c442-492f-bf9d-a4832e926e23",
+      "name": "OXFORD Shirt",
+      "brand": "OXFORD",
+      "attributes": {
+        "fit": "Slim",
+        "size": "3XL",
+        "color": "White",
+        "sleeve": "Short",
+        "pattern": "Solid",
+        "material": "Likely cotton"
+      },
+      "stock_quantity": 1,
+      "stock_distribution_source": "human_confirmed",
+      "pos_product_id": "644fc1b0-d837-474a-bd3c-dad41bff0e20",
+      "pos_sync_status": "synced",
+      "price": "90000.00",
+      "source_cost": "35000.00",
+      "receipt_product_id": "644fc1b0-d837-474a-bd3c-dad41bff0e20",
+      "received_quantity": 1,
+      "published_at": "2026-09-09T17:53:24.727Z",
+      "product_name": "Oxford Short Sleeve Shirt - White",
+      "product_status": "published",
+      "product_active": true,
+      "material": null,
+      "image_path": "pos-products/catalog/326f7d95-c442-492f-bf9d-a4832e926e23/e07957acd9edae4a48875766bd9498cf252f32a9e9d313ce0036f590ec1117ac",
+      "product_brand": "Oxford",
+      "product_category": "01220431-51c3-4af9-877d-f21afb422b7e",
+      "pos_category_id": "01220431-51c3-4af9-877d-f21afb422b7e",
+      "match_id": "64b1fb72-f80a-407a-9d0e-81665776878e",
+      "matched_name": "Oxford Short Sleeve Shirt - White",
+      "matched_brand": "Oxford",
+      "variant_defaults": {
+        "fit": "Slim",
+        "color": "White"
+      },
+      "identity_review": {
+        "issues": [],
+        "material": null,
+        "resolution": "Owner-requested Codex visual matching. Matching white fabric, button-down collar, white buttons, packaging and Slim Fit labels. Short sleeves confirmed by owner. Visual identity review, not an automatic model-code match. No stock received. Composition unconfirmed; shared material left unset.",
+        "fingerprint": "e720720fd1a267052aa6eb4a68e23deb0549bc52a196d5be30a62d1fcff8ebdb",
+        "confirmed_by": "8691f46d-0109-4042-ac1b-45654320e269",
+        "review_method": "owner_requested_codex_visual_comparison",
+        "photo_evidence": [
+          {
+            "sha256": "e07957acd9edae4a48875766bd9498cf252f32a9e9d313ce0036f590ec1117ac",
+            "item_id": "326f7d95-c442-492f-bf9d-a4832e926e23",
+            "photo_number": 7
+          },
+          {
+            "sha256": "7551bdcd6eb236c0aa519d9b674b5ada8eee10269911e7c4acc51120dac7eb7b",
+            "item_id": "737efd90-c39f-4505-b85d-9f8a511f928b",
+            "photo_number": 8
+          },
+          {
+            "sha256": "fad3441aaeb99470790c6090068420fdadf6e56bb5972898e87f5d0bda5fa2a2",
+            "item_id": "24c42a78-5fba-411f-8894-6e38a44d2e1f",
+            "photo_number": 9
+          }
+        ],
+        "member_identity": [
+          {
+            "id": "24c42a78-5fba-411f-8894-6e38a44d2e1f",
+            "brand": "oxford",
+            "model": "",
+            "design": [
+              "white",
+              "solid",
+              "slim",
+              "short",
+              "likely cotton"
+            ],
+            "evidence": null,
+            "category_id": "ede7260a-0626-4ac9-b4c1-04123f36059a",
+            "pos_category_id": "01220431-51c3-4af9-877d-f21afb422b7e"
+          },
+          {
+            "id": "326f7d95-c442-492f-bf9d-a4832e926e23",
+            "brand": "oxford",
+            "model": "",
+            "design": [
+              "white",
+              "solid",
+              "slim",
+              "short",
+              "likely cotton"
+            ],
+            "evidence": null,
+            "category_id": "ede7260a-0626-4ac9-b4c1-04123f36059a",
+            "pos_category_id": "01220431-51c3-4af9-877d-f21afb422b7e"
+          },
+          {
+            "id": "737efd90-c39f-4505-b85d-9f8a511f928b",
+            "brand": "oxford",
+            "model": "",
+            "design": [
+              "white",
+              "solid",
+              "slim",
+              "short",
+              "likely cotton"
+            ],
+            "evidence": null,
+            "category_id": "ede7260a-0626-4ac9-b4c1-04123f36059a",
+            "pos_category_id": "01220431-51c3-4af9-877d-f21afb422b7e"
+          }
+        ],
+        "target_identity": null
+      },
+      "matched_result": "644fc1b0-d837-474a-bd3c-dad41bff0e20",
+      "photo_status": "linked",
+      "image_key": "pos-products/catalog/326f7d95-c442-492f-bf9d-a4832e926e23/e07957acd9edae4a48875766bd9498cf252f32a9e9d313ce0036f590ec1117ac",
+      "linked_photo_count": 1
+    },
+    {
+      "id": "737efd90-c39f-4505-b85d-9f8a511f928b",
+      "name": "OXFORD Shirt",
+      "brand": "OXFORD",
+      "attributes": {
+        "fit": "Slim",
+        "size": "L",
+        "color": "White",
+        "sleeve": "Short",
+        "pattern": "Solid",
+        "material": "Likely cotton"
+      },
+      "stock_quantity": 1,
+      "stock_distribution_source": "human_confirmed",
+      "pos_product_id": "644fc1b0-d837-474a-bd3c-dad41bff0e20",
+      "pos_sync_status": "synced",
+      "price": "90000.00",
+      "source_cost": "35000.00",
+      "receipt_product_id": "644fc1b0-d837-474a-bd3c-dad41bff0e20",
+      "received_quantity": 1,
+      "published_at": "2026-09-09T17:53:24.727Z",
+      "product_name": "Oxford Short Sleeve Shirt - White",
+      "product_status": "published",
+      "product_active": true,
+      "material": null,
+      "image_path": "pos-products/catalog/326f7d95-c442-492f-bf9d-a4832e926e23/e07957acd9edae4a48875766bd9498cf252f32a9e9d313ce0036f590ec1117ac",
+      "product_brand": "Oxford",
+      "product_category": "01220431-51c3-4af9-877d-f21afb422b7e",
+      "pos_category_id": "01220431-51c3-4af9-877d-f21afb422b7e",
+      "match_id": "64b1fb72-f80a-407a-9d0e-81665776878e",
+      "matched_name": "Oxford Short Sleeve Shirt - White",
+      "matched_brand": "Oxford",
+      "variant_defaults": {
+        "fit": "Slim",
+        "color": "White"
+      },
+      "identity_review": {
+        "issues": [],
+        "material": null,
+        "resolution": "Owner-requested Codex visual matching. Matching white fabric, button-down collar, white buttons, packaging and Slim Fit labels. Short sleeves confirmed by owner. Visual identity review, not an automatic model-code match. No stock received. Composition unconfirmed; shared material left unset.",
+        "fingerprint": "e720720fd1a267052aa6eb4a68e23deb0549bc52a196d5be30a62d1fcff8ebdb",
+        "confirmed_by": "8691f46d-0109-4042-ac1b-45654320e269",
+        "review_method": "owner_requested_codex_visual_comparison",
+        "photo_evidence": [
+          {
+            "sha256": "e07957acd9edae4a48875766bd9498cf252f32a9e9d313ce0036f590ec1117ac",
+            "item_id": "326f7d95-c442-492f-bf9d-a4832e926e23",
+            "photo_number": 7
+          },
+          {
+            "sha256": "7551bdcd6eb236c0aa519d9b674b5ada8eee10269911e7c4acc51120dac7eb7b",
+            "item_id": "737efd90-c39f-4505-b85d-9f8a511f928b",
+            "photo_number": 8
+          },
+          {
+            "sha256": "fad3441aaeb99470790c6090068420fdadf6e56bb5972898e87f5d0bda5fa2a2",
+            "item_id": "24c42a78-5fba-411f-8894-6e38a44d2e1f",
+            "photo_number": 9
+          }
+        ],
+        "member_identity": [
+          {
+            "id": "24c42a78-5fba-411f-8894-6e38a44d2e1f",
+            "brand": "oxford",
+            "model": "",
+            "design": [
+              "white",
+              "solid",
+              "slim",
+              "short",
+              "likely cotton"
+            ],
+            "evidence": null,
+            "category_id": "ede7260a-0626-4ac9-b4c1-04123f36059a",
+            "pos_category_id": "01220431-51c3-4af9-877d-f21afb422b7e"
+          },
+          {
+            "id": "326f7d95-c442-492f-bf9d-a4832e926e23",
+            "brand": "oxford",
+            "model": "",
+            "design": [
+              "white",
+              "solid",
+              "slim",
+              "short",
+              "likely cotton"
+            ],
+            "evidence": null,
+            "category_id": "ede7260a-0626-4ac9-b4c1-04123f36059a",
+            "pos_category_id": "01220431-51c3-4af9-877d-f21afb422b7e"
+          },
+          {
+            "id": "737efd90-c39f-4505-b85d-9f8a511f928b",
+            "brand": "oxford",
+            "model": "",
+            "design": [
+              "white",
+              "solid",
+              "slim",
+              "short",
+              "likely cotton"
+            ],
+            "evidence": null,
+            "category_id": "ede7260a-0626-4ac9-b4c1-04123f36059a",
+            "pos_category_id": "01220431-51c3-4af9-877d-f21afb422b7e"
+          }
+        ],
+        "target_identity": null
+      },
+      "matched_result": "644fc1b0-d837-474a-bd3c-dad41bff0e20",
+      "photo_status": "linked",
+      "image_key": "pos-products/catalog/737efd90-c39f-4505-b85d-9f8a511f928b/7551bdcd6eb236c0aa519d9b674b5ada8eee10269911e7c4acc51120dac7eb7b",
+      "linked_photo_count": 1
+    },
+    {
+      "id": "24c42a78-5fba-411f-8894-6e38a44d2e1f",
+      "name": "OXFORD shirt",
+      "brand": "OXFORD",
+      "attributes": {
+        "fit": "Slim",
+        "size": "XL",
+        "color": "White",
+        "sleeve": "Short",
+        "pattern": "Solid",
+        "material": "Likely cotton"
+      },
+      "stock_quantity": 1,
+      "stock_distribution_source": "human_confirmed",
+      "pos_product_id": "644fc1b0-d837-474a-bd3c-dad41bff0e20",
+      "pos_sync_status": "synced",
+      "price": "90000.00",
+      "source_cost": "35000.00",
+      "receipt_product_id": "644fc1b0-d837-474a-bd3c-dad41bff0e20",
+      "received_quantity": 1,
+      "published_at": "2026-09-09T17:53:24.727Z",
+      "product_name": "Oxford Short Sleeve Shirt - White",
+      "product_status": "published",
+      "product_active": true,
+      "material": null,
+      "image_path": "pos-products/catalog/326f7d95-c442-492f-bf9d-a4832e926e23/e07957acd9edae4a48875766bd9498cf252f32a9e9d313ce0036f590ec1117ac",
+      "product_brand": "Oxford",
+      "product_category": "01220431-51c3-4af9-877d-f21afb422b7e",
+      "pos_category_id": "01220431-51c3-4af9-877d-f21afb422b7e",
+      "match_id": "64b1fb72-f80a-407a-9d0e-81665776878e",
+      "matched_name": "Oxford Short Sleeve Shirt - White",
+      "matched_brand": "Oxford",
+      "variant_defaults": {
+        "fit": "Slim",
+        "color": "White"
+      },
+      "identity_review": {
+        "issues": [],
+        "material": null,
+        "resolution": "Owner-requested Codex visual matching. Matching white fabric, button-down collar, white buttons, packaging and Slim Fit labels. Short sleeves confirmed by owner. Visual identity review, not an automatic model-code match. No stock received. Composition unconfirmed; shared material left unset.",
+        "fingerprint": "e720720fd1a267052aa6eb4a68e23deb0549bc52a196d5be30a62d1fcff8ebdb",
+        "confirmed_by": "8691f46d-0109-4042-ac1b-45654320e269",
+        "review_method": "owner_requested_codex_visual_comparison",
+        "photo_evidence": [
+          {
+            "sha256": "e07957acd9edae4a48875766bd9498cf252f32a9e9d313ce0036f590ec1117ac",
+            "item_id": "326f7d95-c442-492f-bf9d-a4832e926e23",
+            "photo_number": 7
+          },
+          {
+            "sha256": "7551bdcd6eb236c0aa519d9b674b5ada8eee10269911e7c4acc51120dac7eb7b",
+            "item_id": "737efd90-c39f-4505-b85d-9f8a511f928b",
+            "photo_number": 8
+          },
+          {
+            "sha256": "fad3441aaeb99470790c6090068420fdadf6e56bb5972898e87f5d0bda5fa2a2",
+            "item_id": "24c42a78-5fba-411f-8894-6e38a44d2e1f",
+            "photo_number": 9
+          }
+        ],
+        "member_identity": [
+          {
+            "id": "24c42a78-5fba-411f-8894-6e38a44d2e1f",
+            "brand": "oxford",
+            "model": "",
+            "design": [
+              "white",
+              "solid",
+              "slim",
+              "short",
+              "likely cotton"
+            ],
+            "evidence": null,
+            "category_id": "ede7260a-0626-4ac9-b4c1-04123f36059a",
+            "pos_category_id": "01220431-51c3-4af9-877d-f21afb422b7e"
+          },
+          {
+            "id": "326f7d95-c442-492f-bf9d-a4832e926e23",
+            "brand": "oxford",
+            "model": "",
+            "design": [
+              "white",
+              "solid",
+              "slim",
+              "short",
+              "likely cotton"
+            ],
+            "evidence": null,
+            "category_id": "ede7260a-0626-4ac9-b4c1-04123f36059a",
+            "pos_category_id": "01220431-51c3-4af9-877d-f21afb422b7e"
+          },
+          {
+            "id": "737efd90-c39f-4505-b85d-9f8a511f928b",
+            "brand": "oxford",
+            "model": "",
+            "design": [
+              "white",
+              "solid",
+              "slim",
+              "short",
+              "likely cotton"
+            ],
+            "evidence": null,
+            "category_id": "ede7260a-0626-4ac9-b4c1-04123f36059a",
+            "pos_category_id": "01220431-51c3-4af9-877d-f21afb422b7e"
+          }
+        ],
+        "target_identity": null
+      },
+      "matched_result": "644fc1b0-d837-474a-bd3c-dad41bff0e20",
+      "photo_status": "linked",
+      "image_key": "pos-products/catalog/24c42a78-5fba-411f-8894-6e38a44d2e1f/fad3441aaeb99470790c6090068420fdadf6e56bb5972898e87f5d0bda5fa2a2",
+      "linked_photo_count": 1
+    },
+    {
+      "id": "c5bc4c28-46fa-40d9-b72c-e97de02e2209",
+      "name": "FABO Men’s Cotton Boxer",
+      "brand": "FABO",
+      "attributes": {
+        "size": "XL",
+        "color": "Navy",
+        "pattern": "Solid",
+        "material": "Natural cotton"
+      },
+      "stock_quantity": 6,
+      "stock_distribution_source": "human_confirmed",
+      "pos_product_id": "2bf3698b-905c-41e8-9136-251e347d3f27",
+      "pos_sync_status": "synced",
+      "price": "25000.00",
+      "source_cost": "11000.00",
+      "receipt_product_id": "2bf3698b-905c-41e8-9136-251e347d3f27",
+      "received_quantity": 6,
+      "published_at": "2026-09-09T17:53:42.943Z",
+      "product_name": "FABO Cotton Boxers - Navy",
+      "product_status": "published",
+      "product_active": true,
+      "material": "Cotton",
+      "image_path": "pos-products/catalog/c5bc4c28-46fa-40d9-b72c-e97de02e2209/3a38274978ada83edefe5dffb7cd8817a784c54edd460f8c903c24e515143577",
+      "product_brand": "FABO",
+      "product_category": "f9809bbe-fe89-4ec4-b1e4-b0648d3082de",
+      "pos_category_id": "f9809bbe-fe89-4ec4-b1e4-b0648d3082de",
+      "match_id": "45c257d3-112f-43d5-ad11-dc7c83cb5987",
+      "matched_name": "FABO Cotton Boxers - Navy",
+      "matched_brand": "FABO",
+      "variant_defaults": {
+        "color": "Navy"
+      },
+      "identity_review": {
+        "issues": [],
+        "material": "Cotton",
+        "resolution": "Owner-requested Codex visual matching. Matching solid navy boxer construction, elastic waistband, FABO tag and Natural Cotton packaging. Caption quantities preserved. Visual identity review, not an automatic model-code match. No stock received. Composition supported by packaging.",
+        "fingerprint": "7f498179c609411d17c0fbb61b57a520c424496d710fd5ff4eaf2d1737fd774c",
+        "confirmed_by": "8691f46d-0109-4042-ac1b-45654320e269",
+        "review_method": "owner_requested_codex_visual_comparison",
+        "photo_evidence": [
+          {
+            "sha256": "3a38274978ada83edefe5dffb7cd8817a784c54edd460f8c903c24e515143577",
+            "item_id": "c5bc4c28-46fa-40d9-b72c-e97de02e2209",
+            "photo_number": 10
+          },
+          {
+            "sha256": "a70e515da6b3c92fc8c5ae471515635f42c706696c0356e56f6410ff89b03028",
+            "item_id": "c03a0a9a-c341-4cd0-9c0e-4a003616832b",
+            "photo_number": 12
+          },
+          {
+            "sha256": "672df2a2b96482675a2ae8de37b09db778ac3cb9c733aec7649cc25016299caa",
+            "item_id": "440f216e-19d3-4c72-9365-f0a39e305327",
+            "photo_number": 15
+          }
+        ],
+        "member_identity": [
+          {
+            "id": "440f216e-19d3-4c72-9365-f0a39e305327",
+            "brand": "fabo",
+            "model": "",
+            "design": [
+              "dark navy blue",
+              "solid",
+              "",
+              "",
+              "cotton"
+            ],
+            "evidence": null,
+            "category_id": "1b657902-3bee-4bcb-85c9-1cac1d4a2f7a",
+            "pos_category_id": "f9809bbe-fe89-4ec4-b1e4-b0648d3082de"
+          },
+          {
+            "id": "c03a0a9a-c341-4cd0-9c0e-4a003616832b",
+            "brand": "fabo",
+            "model": "",
+            "design": [
+              "navy",
+              "solid",
+              "",
+              "",
+              "cotton"
+            ],
+            "evidence": null,
+            "category_id": "1b657902-3bee-4bcb-85c9-1cac1d4a2f7a",
+            "pos_category_id": "f9809bbe-fe89-4ec4-b1e4-b0648d3082de"
+          },
+          {
+            "id": "c5bc4c28-46fa-40d9-b72c-e97de02e2209",
+            "brand": "fabo",
+            "model": "",
+            "design": [
+              "navy",
+              "solid",
+              "",
+              "",
+              "natural cotton"
+            ],
+            "evidence": null,
+            "category_id": "1b657902-3bee-4bcb-85c9-1cac1d4a2f7a",
+            "pos_category_id": "f9809bbe-fe89-4ec4-b1e4-b0648d3082de"
+          }
+        ],
+        "target_identity": null
+      },
+      "matched_result": "2bf3698b-905c-41e8-9136-251e347d3f27",
+      "photo_status": "linked",
+      "image_key": "pos-products/catalog/c5bc4c28-46fa-40d9-b72c-e97de02e2209/3a38274978ada83edefe5dffb7cd8817a784c54edd460f8c903c24e515143577",
+      "linked_photo_count": 1
+    },
+    {
+      "id": "40e1a352-ef6d-4ab8-a752-a7fc14aa282c",
+      "name": "FABO Men’s Cotton Boxer",
+      "brand": "FABO",
+      "attributes": {
+        "size": "L",
+        "color": "White, light blue and navy",
+        "pattern": "Vertical stripe",
+        "material": "Cotton"
+      },
+      "stock_quantity": 4,
+      "stock_distribution_source": "human_confirmed",
+      "pos_product_id": "1ffd361c-8f1d-4518-9542-8607f83f01b6",
+      "pos_sync_status": "synced",
+      "price": "25000.00",
+      "source_cost": "11000.00",
+      "receipt_product_id": "1ffd361c-8f1d-4518-9542-8607f83f01b6",
+      "received_quantity": 4,
+      "published_at": "2026-09-09T17:54:11.954Z",
+      "product_name": "FABO Cotton Boxers - Blue and White Stripes",
+      "product_status": "published",
+      "product_active": true,
+      "material": "Cotton",
+      "image_path": "pos-products/catalog/40e1a352-ef6d-4ab8-a752-a7fc14aa282c/2b4dc88d99f08cfae180d5db33a18b6491f60f82cebc92f72ff6de90faf3dc65",
+      "product_brand": "FABO",
+      "product_category": "f9809bbe-fe89-4ec4-b1e4-b0648d3082de",
+      "pos_category_id": "f9809bbe-fe89-4ec4-b1e4-b0648d3082de",
+      "match_id": "f2ea8682-b8b7-4e71-9fb9-ff6a2d9989fc",
+      "matched_name": "FABO Cotton Boxers - Blue and White Stripes",
+      "matched_brand": "FABO",
+      "variant_defaults": {
+        "color": "Blue and white"
+      },
+      "identity_review": {
+        "issues": [],
+        "material": "Cotton",
+        "resolution": "Owner-requested Codex visual matching. Matching repeated narrow blue/white stripe arrangement, waistband, FABO tag and Natural Cotton packaging. Caption quantities preserved. Visual identity review, not an automatic model-code match. No stock received. Composition supported by packaging.",
+        "fingerprint": "d2ea37e723f7c16dc6a7e268b397876dbaf5977783dfd38a8743052c97f92cf0",
+        "confirmed_by": "8691f46d-0109-4042-ac1b-45654320e269",
+        "review_method": "owner_requested_codex_visual_comparison",
+        "photo_evidence": [
+          {
+            "sha256": "2b4dc88d99f08cfae180d5db33a18b6491f60f82cebc92f72ff6de90faf3dc65",
+            "item_id": "40e1a352-ef6d-4ab8-a752-a7fc14aa282c",
+            "photo_number": 11
+          },
+          {
+            "sha256": "7830121d675c0d92306d66efbd09cdbd08dc7af300e4798552daec4e9cd9d47f",
+            "item_id": "1b0b3610-4281-42f7-b79d-23ca6f6067f5",
+            "photo_number": 13
+          },
+          {
+            "sha256": "ba9f00df10c7c29ba5bd580b33d36bd3d6f69494e95c2c996515eb4b38aae679",
+            "item_id": "82b042b3-d8df-410b-9e75-265a977b6c46",
+            "photo_number": 14
+          },
+          {
+            "sha256": "415753cc031df6d8a120a3ef7fb3717a02bdff8e720d689e5f4519ca2a8ee3c0",
+            "item_id": "49448a6f-54e1-4a37-96c9-ef8782be63bf",
+            "photo_number": 16
+          }
+        ],
+        "member_identity": [
+          {
+            "id": "1b0b3610-4281-42f7-b79d-23ca6f6067f5",
+            "brand": "fabo",
+            "model": "",
+            "design": [
+              "white and blue",
+              "vertical stripe",
+              "",
+              "",
+              "natural cotton"
+            ],
+            "evidence": null,
+            "category_id": "1b657902-3bee-4bcb-85c9-1cac1d4a2f7a",
+            "pos_category_id": "f9809bbe-fe89-4ec4-b1e4-b0648d3082de"
+          },
+          {
+            "id": "40e1a352-ef6d-4ab8-a752-a7fc14aa282c",
+            "brand": "fabo",
+            "model": "",
+            "design": [
+              "white, light blue and navy",
+              "vertical stripe",
+              "",
+              "",
+              "cotton"
+            ],
+            "evidence": null,
+            "category_id": "1b657902-3bee-4bcb-85c9-1cac1d4a2f7a",
+            "pos_category_id": "f9809bbe-fe89-4ec4-b1e4-b0648d3082de"
+          },
+          {
+            "id": "49448a6f-54e1-4a37-96c9-ef8782be63bf",
+            "brand": "fabo",
+            "model": "",
+            "design": [
+              "white, light blue and navy",
+              "vertical stripe",
+              "",
+              "",
+              "cotton"
+            ],
+            "evidence": null,
+            "category_id": "1b657902-3bee-4bcb-85c9-1cac1d4a2f7a",
+            "pos_category_id": "f9809bbe-fe89-4ec4-b1e4-b0648d3082de"
+          },
+          {
+            "id": "82b042b3-d8df-410b-9e75-265a977b6c46",
+            "brand": "fabo",
+            "model": "",
+            "design": [
+              "blue and white",
+              "vertical stripe",
+              "",
+              "",
+              "natural cotton"
+            ],
+            "evidence": null,
+            "category_id": "1b657902-3bee-4bcb-85c9-1cac1d4a2f7a",
+            "pos_category_id": "f9809bbe-fe89-4ec4-b1e4-b0648d3082de"
+          }
+        ],
+        "target_identity": null
+      },
+      "matched_result": "1ffd361c-8f1d-4518-9542-8607f83f01b6",
+      "photo_status": "linked",
+      "image_key": "pos-products/catalog/40e1a352-ef6d-4ab8-a752-a7fc14aa282c/2b4dc88d99f08cfae180d5db33a18b6491f60f82cebc92f72ff6de90faf3dc65",
+      "linked_photo_count": 1
+    },
+    {
+      "id": "c03a0a9a-c341-4cd0-9c0e-4a003616832b",
+      "name": "FABO Men's Cotton Boxer",
+      "brand": "FABO",
+      "attributes": {
+        "size": "L",
+        "color": "Navy",
+        "pattern": "Solid",
+        "material": "Cotton"
+      },
+      "stock_quantity": 5,
+      "stock_distribution_source": "human_confirmed",
+      "pos_product_id": "2bf3698b-905c-41e8-9136-251e347d3f27",
+      "pos_sync_status": "synced",
+      "price": "25000.00",
+      "source_cost": "11000.00",
+      "receipt_product_id": "2bf3698b-905c-41e8-9136-251e347d3f27",
+      "received_quantity": 5,
+      "published_at": "2026-09-09T17:53:42.943Z",
+      "product_name": "FABO Cotton Boxers - Navy",
+      "product_status": "published",
+      "product_active": true,
+      "material": "Cotton",
+      "image_path": "pos-products/catalog/c5bc4c28-46fa-40d9-b72c-e97de02e2209/3a38274978ada83edefe5dffb7cd8817a784c54edd460f8c903c24e515143577",
+      "product_brand": "FABO",
+      "product_category": "f9809bbe-fe89-4ec4-b1e4-b0648d3082de",
+      "pos_category_id": "f9809bbe-fe89-4ec4-b1e4-b0648d3082de",
+      "match_id": "45c257d3-112f-43d5-ad11-dc7c83cb5987",
+      "matched_name": "FABO Cotton Boxers - Navy",
+      "matched_brand": "FABO",
+      "variant_defaults": {
+        "color": "Navy"
+      },
+      "identity_review": {
+        "issues": [],
+        "material": "Cotton",
+        "resolution": "Owner-requested Codex visual matching. Matching solid navy boxer construction, elastic waistband, FABO tag and Natural Cotton packaging. Caption quantities preserved. Visual identity review, not an automatic model-code match. No stock received. Composition supported by packaging.",
+        "fingerprint": "7f498179c609411d17c0fbb61b57a520c424496d710fd5ff4eaf2d1737fd774c",
+        "confirmed_by": "8691f46d-0109-4042-ac1b-45654320e269",
+        "review_method": "owner_requested_codex_visual_comparison",
+        "photo_evidence": [
+          {
+            "sha256": "3a38274978ada83edefe5dffb7cd8817a784c54edd460f8c903c24e515143577",
+            "item_id": "c5bc4c28-46fa-40d9-b72c-e97de02e2209",
+            "photo_number": 10
+          },
+          {
+            "sha256": "a70e515da6b3c92fc8c5ae471515635f42c706696c0356e56f6410ff89b03028",
+            "item_id": "c03a0a9a-c341-4cd0-9c0e-4a003616832b",
+            "photo_number": 12
+          },
+          {
+            "sha256": "672df2a2b96482675a2ae8de37b09db778ac3cb9c733aec7649cc25016299caa",
+            "item_id": "440f216e-19d3-4c72-9365-f0a39e305327",
+            "photo_number": 15
+          }
+        ],
+        "member_identity": [
+          {
+            "id": "440f216e-19d3-4c72-9365-f0a39e305327",
+            "brand": "fabo",
+            "model": "",
+            "design": [
+              "dark navy blue",
+              "solid",
+              "",
+              "",
+              "cotton"
+            ],
+            "evidence": null,
+            "category_id": "1b657902-3bee-4bcb-85c9-1cac1d4a2f7a",
+            "pos_category_id": "f9809bbe-fe89-4ec4-b1e4-b0648d3082de"
+          },
+          {
+            "id": "c03a0a9a-c341-4cd0-9c0e-4a003616832b",
+            "brand": "fabo",
+            "model": "",
+            "design": [
+              "navy",
+              "solid",
+              "",
+              "",
+              "cotton"
+            ],
+            "evidence": null,
+            "category_id": "1b657902-3bee-4bcb-85c9-1cac1d4a2f7a",
+            "pos_category_id": "f9809bbe-fe89-4ec4-b1e4-b0648d3082de"
+          },
+          {
+            "id": "c5bc4c28-46fa-40d9-b72c-e97de02e2209",
+            "brand": "fabo",
+            "model": "",
+            "design": [
+              "navy",
+              "solid",
+              "",
+              "",
+              "natural cotton"
+            ],
+            "evidence": null,
+            "category_id": "1b657902-3bee-4bcb-85c9-1cac1d4a2f7a",
+            "pos_category_id": "f9809bbe-fe89-4ec4-b1e4-b0648d3082de"
+          }
+        ],
+        "target_identity": null
+      },
+      "matched_result": "2bf3698b-905c-41e8-9136-251e347d3f27",
+      "photo_status": "linked",
+      "image_key": "pos-products/catalog/c03a0a9a-c341-4cd0-9c0e-4a003616832b/a70e515da6b3c92fc8c5ae471515635f42c706696c0356e56f6410ff89b03028",
+      "linked_photo_count": 1
+    },
+    {
+      "id": "1b0b3610-4281-42f7-b79d-23ca6f6067f5",
+      "name": "FABO Men’s Cotton Boxer",
+      "brand": "FABO",
+      "attributes": {
+        "size": "XL",
+        "color": "White and blue",
+        "pattern": "Vertical stripe",
+        "material": "Natural cotton"
+      },
+      "stock_quantity": 3,
+      "stock_distribution_source": "human_confirmed",
+      "pos_product_id": "1ffd361c-8f1d-4518-9542-8607f83f01b6",
+      "pos_sync_status": "synced",
+      "price": "25000.00",
+      "source_cost": "11000.00",
+      "receipt_product_id": "1ffd361c-8f1d-4518-9542-8607f83f01b6",
+      "received_quantity": 3,
+      "published_at": "2026-09-09T17:54:11.954Z",
+      "product_name": "FABO Cotton Boxers - Blue and White Stripes",
+      "product_status": "published",
+      "product_active": true,
+      "material": "Cotton",
+      "image_path": "pos-products/catalog/40e1a352-ef6d-4ab8-a752-a7fc14aa282c/2b4dc88d99f08cfae180d5db33a18b6491f60f82cebc92f72ff6de90faf3dc65",
+      "product_brand": "FABO",
+      "product_category": "f9809bbe-fe89-4ec4-b1e4-b0648d3082de",
+      "pos_category_id": "f9809bbe-fe89-4ec4-b1e4-b0648d3082de",
+      "match_id": "f2ea8682-b8b7-4e71-9fb9-ff6a2d9989fc",
+      "matched_name": "FABO Cotton Boxers - Blue and White Stripes",
+      "matched_brand": "FABO",
+      "variant_defaults": {
+        "color": "Blue and white"
+      },
+      "identity_review": {
+        "issues": [],
+        "material": "Cotton",
+        "resolution": "Owner-requested Codex visual matching. Matching repeated narrow blue/white stripe arrangement, waistband, FABO tag and Natural Cotton packaging. Caption quantities preserved. Visual identity review, not an automatic model-code match. No stock received. Composition supported by packaging.",
+        "fingerprint": "d2ea37e723f7c16dc6a7e268b397876dbaf5977783dfd38a8743052c97f92cf0",
+        "confirmed_by": "8691f46d-0109-4042-ac1b-45654320e269",
+        "review_method": "owner_requested_codex_visual_comparison",
+        "photo_evidence": [
+          {
+            "sha256": "2b4dc88d99f08cfae180d5db33a18b6491f60f82cebc92f72ff6de90faf3dc65",
+            "item_id": "40e1a352-ef6d-4ab8-a752-a7fc14aa282c",
+            "photo_number": 11
+          },
+          {
+            "sha256": "7830121d675c0d92306d66efbd09cdbd08dc7af300e4798552daec4e9cd9d47f",
+            "item_id": "1b0b3610-4281-42f7-b79d-23ca6f6067f5",
+            "photo_number": 13
+          },
+          {
+            "sha256": "ba9f00df10c7c29ba5bd580b33d36bd3d6f69494e95c2c996515eb4b38aae679",
+            "item_id": "82b042b3-d8df-410b-9e75-265a977b6c46",
+            "photo_number": 14
+          },
+          {
+            "sha256": "415753cc031df6d8a120a3ef7fb3717a02bdff8e720d689e5f4519ca2a8ee3c0",
+            "item_id": "49448a6f-54e1-4a37-96c9-ef8782be63bf",
+            "photo_number": 16
+          }
+        ],
+        "member_identity": [
+          {
+            "id": "1b0b3610-4281-42f7-b79d-23ca6f6067f5",
+            "brand": "fabo",
+            "model": "",
+            "design": [
+              "white and blue",
+              "vertical stripe",
+              "",
+              "",
+              "natural cotton"
+            ],
+            "evidence": null,
+            "category_id": "1b657902-3bee-4bcb-85c9-1cac1d4a2f7a",
+            "pos_category_id": "f9809bbe-fe89-4ec4-b1e4-b0648d3082de"
+          },
+          {
+            "id": "40e1a352-ef6d-4ab8-a752-a7fc14aa282c",
+            "brand": "fabo",
+            "model": "",
+            "design": [
+              "white, light blue and navy",
+              "vertical stripe",
+              "",
+              "",
+              "cotton"
+            ],
+            "evidence": null,
+            "category_id": "1b657902-3bee-4bcb-85c9-1cac1d4a2f7a",
+            "pos_category_id": "f9809bbe-fe89-4ec4-b1e4-b0648d3082de"
+          },
+          {
+            "id": "49448a6f-54e1-4a37-96c9-ef8782be63bf",
+            "brand": "fabo",
+            "model": "",
+            "design": [
+              "white, light blue and navy",
+              "vertical stripe",
+              "",
+              "",
+              "cotton"
+            ],
+            "evidence": null,
+            "category_id": "1b657902-3bee-4bcb-85c9-1cac1d4a2f7a",
+            "pos_category_id": "f9809bbe-fe89-4ec4-b1e4-b0648d3082de"
+          },
+          {
+            "id": "82b042b3-d8df-410b-9e75-265a977b6c46",
+            "brand": "fabo",
+            "model": "",
+            "design": [
+              "blue and white",
+              "vertical stripe",
+              "",
+              "",
+              "natural cotton"
+            ],
+            "evidence": null,
+            "category_id": "1b657902-3bee-4bcb-85c9-1cac1d4a2f7a",
+            "pos_category_id": "f9809bbe-fe89-4ec4-b1e4-b0648d3082de"
+          }
+        ],
+        "target_identity": null
+      },
+      "matched_result": "1ffd361c-8f1d-4518-9542-8607f83f01b6",
+      "photo_status": "linked",
+      "image_key": "pos-products/catalog/1b0b3610-4281-42f7-b79d-23ca6f6067f5/7830121d675c0d92306d66efbd09cdbd08dc7af300e4798552daec4e9cd9d47f",
+      "linked_photo_count": 1
+    },
+    {
+      "id": "82b042b3-d8df-410b-9e75-265a977b6c46",
+      "name": "FABO Men's Cotton Boxer",
+      "brand": "FABO",
+      "attributes": {
+        "size": "M",
+        "color": "Blue and white",
+        "pattern": "Vertical stripe",
+        "material": "Natural cotton"
+      },
+      "stock_quantity": 3,
+      "stock_distribution_source": "human_confirmed",
+      "pos_product_id": "1ffd361c-8f1d-4518-9542-8607f83f01b6",
+      "pos_sync_status": "synced",
+      "price": "25000.00",
+      "source_cost": "11000.00",
+      "receipt_product_id": "1ffd361c-8f1d-4518-9542-8607f83f01b6",
+      "received_quantity": 3,
+      "published_at": "2026-09-09T17:54:11.954Z",
+      "product_name": "FABO Cotton Boxers - Blue and White Stripes",
+      "product_status": "published",
+      "product_active": true,
+      "material": "Cotton",
+      "image_path": "pos-products/catalog/40e1a352-ef6d-4ab8-a752-a7fc14aa282c/2b4dc88d99f08cfae180d5db33a18b6491f60f82cebc92f72ff6de90faf3dc65",
+      "product_brand": "FABO",
+      "product_category": "f9809bbe-fe89-4ec4-b1e4-b0648d3082de",
+      "pos_category_id": "f9809bbe-fe89-4ec4-b1e4-b0648d3082de",
+      "match_id": "f2ea8682-b8b7-4e71-9fb9-ff6a2d9989fc",
+      "matched_name": "FABO Cotton Boxers - Blue and White Stripes",
+      "matched_brand": "FABO",
+      "variant_defaults": {
+        "color": "Blue and white"
+      },
+      "identity_review": {
+        "issues": [],
+        "material": "Cotton",
+        "resolution": "Owner-requested Codex visual matching. Matching repeated narrow blue/white stripe arrangement, waistband, FABO tag and Natural Cotton packaging. Caption quantities preserved. Visual identity review, not an automatic model-code match. No stock received. Composition supported by packaging.",
+        "fingerprint": "d2ea37e723f7c16dc6a7e268b397876dbaf5977783dfd38a8743052c97f92cf0",
+        "confirmed_by": "8691f46d-0109-4042-ac1b-45654320e269",
+        "review_method": "owner_requested_codex_visual_comparison",
+        "photo_evidence": [
+          {
+            "sha256": "2b4dc88d99f08cfae180d5db33a18b6491f60f82cebc92f72ff6de90faf3dc65",
+            "item_id": "40e1a352-ef6d-4ab8-a752-a7fc14aa282c",
+            "photo_number": 11
+          },
+          {
+            "sha256": "7830121d675c0d92306d66efbd09cdbd08dc7af300e4798552daec4e9cd9d47f",
+            "item_id": "1b0b3610-4281-42f7-b79d-23ca6f6067f5",
+            "photo_number": 13
+          },
+          {
+            "sha256": "ba9f00df10c7c29ba5bd580b33d36bd3d6f69494e95c2c996515eb4b38aae679",
+            "item_id": "82b042b3-d8df-410b-9e75-265a977b6c46",
+            "photo_number": 14
+          },
+          {
+            "sha256": "415753cc031df6d8a120a3ef7fb3717a02bdff8e720d689e5f4519ca2a8ee3c0",
+            "item_id": "49448a6f-54e1-4a37-96c9-ef8782be63bf",
+            "photo_number": 16
+          }
+        ],
+        "member_identity": [
+          {
+            "id": "1b0b3610-4281-42f7-b79d-23ca6f6067f5",
+            "brand": "fabo",
+            "model": "",
+            "design": [
+              "white and blue",
+              "vertical stripe",
+              "",
+              "",
+              "natural cotton"
+            ],
+            "evidence": null,
+            "category_id": "1b657902-3bee-4bcb-85c9-1cac1d4a2f7a",
+            "pos_category_id": "f9809bbe-fe89-4ec4-b1e4-b0648d3082de"
+          },
+          {
+            "id": "40e1a352-ef6d-4ab8-a752-a7fc14aa282c",
+            "brand": "fabo",
+            "model": "",
+            "design": [
+              "white, light blue and navy",
+              "vertical stripe",
+              "",
+              "",
+              "cotton"
+            ],
+            "evidence": null,
+            "category_id": "1b657902-3bee-4bcb-85c9-1cac1d4a2f7a",
+            "pos_category_id": "f9809bbe-fe89-4ec4-b1e4-b0648d3082de"
+          },
+          {
+            "id": "49448a6f-54e1-4a37-96c9-ef8782be63bf",
+            "brand": "fabo",
+            "model": "",
+            "design": [
+              "white, light blue and navy",
+              "vertical stripe",
+              "",
+              "",
+              "cotton"
+            ],
+            "evidence": null,
+            "category_id": "1b657902-3bee-4bcb-85c9-1cac1d4a2f7a",
+            "pos_category_id": "f9809bbe-fe89-4ec4-b1e4-b0648d3082de"
+          },
+          {
+            "id": "82b042b3-d8df-410b-9e75-265a977b6c46",
+            "brand": "fabo",
+            "model": "",
+            "design": [
+              "blue and white",
+              "vertical stripe",
+              "",
+              "",
+              "natural cotton"
+            ],
+            "evidence": null,
+            "category_id": "1b657902-3bee-4bcb-85c9-1cac1d4a2f7a",
+            "pos_category_id": "f9809bbe-fe89-4ec4-b1e4-b0648d3082de"
+          }
+        ],
+        "target_identity": null
+      },
+      "matched_result": "1ffd361c-8f1d-4518-9542-8607f83f01b6",
+      "photo_status": "linked",
+      "image_key": "pos-products/catalog/82b042b3-d8df-410b-9e75-265a977b6c46/ba9f00df10c7c29ba5bd580b33d36bd3d6f69494e95c2c996515eb4b38aae679",
+      "linked_photo_count": 1
+    },
+    {
+      "id": "440f216e-19d3-4c72-9365-f0a39e305327",
+      "name": "FABO Men’s Cotton Boxer",
+      "brand": "FABO",
+      "attributes": {
+        "size": "M",
+        "color": "Dark navy blue",
+        "pattern": "Solid",
+        "material": "Cotton"
+      },
+      "stock_quantity": 1,
+      "stock_distribution_source": "human_confirmed",
+      "pos_product_id": "2bf3698b-905c-41e8-9136-251e347d3f27",
+      "pos_sync_status": "synced",
+      "price": "25000.00",
+      "source_cost": "11000.00",
+      "receipt_product_id": "2bf3698b-905c-41e8-9136-251e347d3f27",
+      "received_quantity": 1,
+      "published_at": "2026-09-09T17:53:42.943Z",
+      "product_name": "FABO Cotton Boxers - Navy",
+      "product_status": "published",
+      "product_active": true,
+      "material": "Cotton",
+      "image_path": "pos-products/catalog/c5bc4c28-46fa-40d9-b72c-e97de02e2209/3a38274978ada83edefe5dffb7cd8817a784c54edd460f8c903c24e515143577",
+      "product_brand": "FABO",
+      "product_category": "f9809bbe-fe89-4ec4-b1e4-b0648d3082de",
+      "pos_category_id": "f9809bbe-fe89-4ec4-b1e4-b0648d3082de",
+      "match_id": "45c257d3-112f-43d5-ad11-dc7c83cb5987",
+      "matched_name": "FABO Cotton Boxers - Navy",
+      "matched_brand": "FABO",
+      "variant_defaults": {
+        "color": "Navy"
+      },
+      "identity_review": {
+        "issues": [],
+        "material": "Cotton",
+        "resolution": "Owner-requested Codex visual matching. Matching solid navy boxer construction, elastic waistband, FABO tag and Natural Cotton packaging. Caption quantities preserved. Visual identity review, not an automatic model-code match. No stock received. Composition supported by packaging.",
+        "fingerprint": "7f498179c609411d17c0fbb61b57a520c424496d710fd5ff4eaf2d1737fd774c",
+        "confirmed_by": "8691f46d-0109-4042-ac1b-45654320e269",
+        "review_method": "owner_requested_codex_visual_comparison",
+        "photo_evidence": [
+          {
+            "sha256": "3a38274978ada83edefe5dffb7cd8817a784c54edd460f8c903c24e515143577",
+            "item_id": "c5bc4c28-46fa-40d9-b72c-e97de02e2209",
+            "photo_number": 10
+          },
+          {
+            "sha256": "a70e515da6b3c92fc8c5ae471515635f42c706696c0356e56f6410ff89b03028",
+            "item_id": "c03a0a9a-c341-4cd0-9c0e-4a003616832b",
+            "photo_number": 12
+          },
+          {
+            "sha256": "672df2a2b96482675a2ae8de37b09db778ac3cb9c733aec7649cc25016299caa",
+            "item_id": "440f216e-19d3-4c72-9365-f0a39e305327",
+            "photo_number": 15
+          }
+        ],
+        "member_identity": [
+          {
+            "id": "440f216e-19d3-4c72-9365-f0a39e305327",
+            "brand": "fabo",
+            "model": "",
+            "design": [
+              "dark navy blue",
+              "solid",
+              "",
+              "",
+              "cotton"
+            ],
+            "evidence": null,
+            "category_id": "1b657902-3bee-4bcb-85c9-1cac1d4a2f7a",
+            "pos_category_id": "f9809bbe-fe89-4ec4-b1e4-b0648d3082de"
+          },
+          {
+            "id": "c03a0a9a-c341-4cd0-9c0e-4a003616832b",
+            "brand": "fabo",
+            "model": "",
+            "design": [
+              "navy",
+              "solid",
+              "",
+              "",
+              "cotton"
+            ],
+            "evidence": null,
+            "category_id": "1b657902-3bee-4bcb-85c9-1cac1d4a2f7a",
+            "pos_category_id": "f9809bbe-fe89-4ec4-b1e4-b0648d3082de"
+          },
+          {
+            "id": "c5bc4c28-46fa-40d9-b72c-e97de02e2209",
+            "brand": "fabo",
+            "model": "",
+            "design": [
+              "navy",
+              "solid",
+              "",
+              "",
+              "natural cotton"
+            ],
+            "evidence": null,
+            "category_id": "1b657902-3bee-4bcb-85c9-1cac1d4a2f7a",
+            "pos_category_id": "f9809bbe-fe89-4ec4-b1e4-b0648d3082de"
+          }
+        ],
+        "target_identity": null
+      },
+      "matched_result": "2bf3698b-905c-41e8-9136-251e347d3f27",
+      "photo_status": "linked",
+      "image_key": "pos-products/catalog/440f216e-19d3-4c72-9365-f0a39e305327/672df2a2b96482675a2ae8de37b09db778ac3cb9c733aec7649cc25016299caa",
+      "linked_photo_count": 1
+    },
+    {
+      "id": "49448a6f-54e1-4a37-96c9-ef8782be63bf",
+      "name": "FABO Men’s Cotton Boxer",
+      "brand": "FABO",
+      "attributes": {
+        "size": "2XL",
+        "color": "White, light blue and navy",
+        "pattern": "Vertical stripe",
+        "material": "Cotton"
+      },
+      "stock_quantity": 3,
+      "stock_distribution_source": "human_confirmed",
+      "pos_product_id": "1ffd361c-8f1d-4518-9542-8607f83f01b6",
+      "pos_sync_status": "synced",
+      "price": "25000.00",
+      "source_cost": "11000.00",
+      "receipt_product_id": "1ffd361c-8f1d-4518-9542-8607f83f01b6",
+      "received_quantity": 3,
+      "published_at": "2026-09-09T17:54:11.954Z",
+      "product_name": "FABO Cotton Boxers - Blue and White Stripes",
+      "product_status": "published",
+      "product_active": true,
+      "material": "Cotton",
+      "image_path": "pos-products/catalog/40e1a352-ef6d-4ab8-a752-a7fc14aa282c/2b4dc88d99f08cfae180d5db33a18b6491f60f82cebc92f72ff6de90faf3dc65",
+      "product_brand": "FABO",
+      "product_category": "f9809bbe-fe89-4ec4-b1e4-b0648d3082de",
+      "pos_category_id": "f9809bbe-fe89-4ec4-b1e4-b0648d3082de",
+      "match_id": "f2ea8682-b8b7-4e71-9fb9-ff6a2d9989fc",
+      "matched_name": "FABO Cotton Boxers - Blue and White Stripes",
+      "matched_brand": "FABO",
+      "variant_defaults": {
+        "color": "Blue and white"
+      },
+      "identity_review": {
+        "issues": [],
+        "material": "Cotton",
+        "resolution": "Owner-requested Codex visual matching. Matching repeated narrow blue/white stripe arrangement, waistband, FABO tag and Natural Cotton packaging. Caption quantities preserved. Visual identity review, not an automatic model-code match. No stock received. Composition supported by packaging.",
+        "fingerprint": "d2ea37e723f7c16dc6a7e268b397876dbaf5977783dfd38a8743052c97f92cf0",
+        "confirmed_by": "8691f46d-0109-4042-ac1b-45654320e269",
+        "review_method": "owner_requested_codex_visual_comparison",
+        "photo_evidence": [
+          {
+            "sha256": "2b4dc88d99f08cfae180d5db33a18b6491f60f82cebc92f72ff6de90faf3dc65",
+            "item_id": "40e1a352-ef6d-4ab8-a752-a7fc14aa282c",
+            "photo_number": 11
+          },
+          {
+            "sha256": "7830121d675c0d92306d66efbd09cdbd08dc7af300e4798552daec4e9cd9d47f",
+            "item_id": "1b0b3610-4281-42f7-b79d-23ca6f6067f5",
+            "photo_number": 13
+          },
+          {
+            "sha256": "ba9f00df10c7c29ba5bd580b33d36bd3d6f69494e95c2c996515eb4b38aae679",
+            "item_id": "82b042b3-d8df-410b-9e75-265a977b6c46",
+            "photo_number": 14
+          },
+          {
+            "sha256": "415753cc031df6d8a120a3ef7fb3717a02bdff8e720d689e5f4519ca2a8ee3c0",
+            "item_id": "49448a6f-54e1-4a37-96c9-ef8782be63bf",
+            "photo_number": 16
+          }
+        ],
+        "member_identity": [
+          {
+            "id": "1b0b3610-4281-42f7-b79d-23ca6f6067f5",
+            "brand": "fabo",
+            "model": "",
+            "design": [
+              "white and blue",
+              "vertical stripe",
+              "",
+              "",
+              "natural cotton"
+            ],
+            "evidence": null,
+            "category_id": "1b657902-3bee-4bcb-85c9-1cac1d4a2f7a",
+            "pos_category_id": "f9809bbe-fe89-4ec4-b1e4-b0648d3082de"
+          },
+          {
+            "id": "40e1a352-ef6d-4ab8-a752-a7fc14aa282c",
+            "brand": "fabo",
+            "model": "",
+            "design": [
+              "white, light blue and navy",
+              "vertical stripe",
+              "",
+              "",
+              "cotton"
+            ],
+            "evidence": null,
+            "category_id": "1b657902-3bee-4bcb-85c9-1cac1d4a2f7a",
+            "pos_category_id": "f9809bbe-fe89-4ec4-b1e4-b0648d3082de"
+          },
+          {
+            "id": "49448a6f-54e1-4a37-96c9-ef8782be63bf",
+            "brand": "fabo",
+            "model": "",
+            "design": [
+              "white, light blue and navy",
+              "vertical stripe",
+              "",
+              "",
+              "cotton"
+            ],
+            "evidence": null,
+            "category_id": "1b657902-3bee-4bcb-85c9-1cac1d4a2f7a",
+            "pos_category_id": "f9809bbe-fe89-4ec4-b1e4-b0648d3082de"
+          },
+          {
+            "id": "82b042b3-d8df-410b-9e75-265a977b6c46",
+            "brand": "fabo",
+            "model": "",
+            "design": [
+              "blue and white",
+              "vertical stripe",
+              "",
+              "",
+              "natural cotton"
+            ],
+            "evidence": null,
+            "category_id": "1b657902-3bee-4bcb-85c9-1cac1d4a2f7a",
+            "pos_category_id": "f9809bbe-fe89-4ec4-b1e4-b0648d3082de"
+          }
+        ],
+        "target_identity": null
+      },
+      "matched_result": "1ffd361c-8f1d-4518-9542-8607f83f01b6",
+      "photo_status": "linked",
+      "image_key": "pos-products/catalog/49448a6f-54e1-4a37-96c9-ef8782be63bf/415753cc031df6d8a120a3ef7fb3717a02bdff8e720d689e5f4519ca2a8ee3c0",
+      "linked_photo_count": 1
+    },
+    {
+      "id": "f752344f-15c8-4682-97d2-804383e41f13",
+      "name": "Robby Cavally formal shoes",
+      "brand": "Robby Cavally",
+      "attributes": {
+        "size": "44",
+        "color": "Black",
+        "style": "3166-27",
+        "pattern": "Solid",
+        "size_eu": 44,
+        "material": "Likely synthetic leather"
+      },
+      "stock_quantity": 1,
+      "stock_distribution_source": "human_confirmed",
+      "pos_product_id": "5626c61f-a9af-4ecf-bff1-657bf4c318b2",
+      "pos_sync_status": "synced",
+      "price": "360000.00",
+      "source_cost": "130000.00",
+      "receipt_product_id": "5626c61f-a9af-4ecf-bff1-657bf4c318b2",
+      "received_quantity": 1,
+      "published_at": "2026-09-09T17:39:13.790Z",
+      "product_name": "Robby Cavally Loafers - Black - 3166-27",
+      "product_status": "published",
+      "product_active": true,
+      "material": null,
+      "image_path": "pos-products/catalog/02ff215c-b83d-47b1-bac4-6874a8ad00e2/4c42957149c6082b9faa49f29b98830deb8097dbcaeac8edeaf297148f17b969",
+      "product_brand": "Robby Cavally",
+      "product_category": "55a82598-20d0-42fc-9096-0c78894c9452",
+      "pos_category_id": "55a82598-20d0-42fc-9096-0c78894c9452",
+      "match_id": "05a105fc-ed50-4f48-a48d-9509687cbab8",
+      "matched_name": "Robby Cavally Loafers - Black - 3166-27",
+      "matched_brand": "Robby Cavally",
+      "variant_defaults": {
+        "color": "Black"
+      },
+      "identity_review": {
+        "issues": [],
+        "material": null,
+        "resolution": "Owner-requested Codex visual matching. Matching corrected printed code 3166-27, penny strap, apron toe seam, sole profile and black finish. Sizes 40 and 44. Visual identity review, not an automatic model-code match. No stock received. Composition unconfirmed; shared material left unset.",
+        "fingerprint": "31fd9cd7c06e45a914f67e8a53446fc9918d67123e731d858bc3da1d3c18e956",
+        "confirmed_by": "8691f46d-0109-4042-ac1b-45654320e269",
+        "review_method": "owner_requested_codex_visual_comparison",
+        "photo_evidence": [
+          {
+            "sha256": "39643ae26388d70e3f7ec1b3d29a345470b1b85ef9eb76fc83788ae51eb0902a",
+            "item_id": "f752344f-15c8-4682-97d2-804383e41f13",
+            "photo_number": 17
+          },
+          {
+            "sha256": "4c42957149c6082b9faa49f29b98830deb8097dbcaeac8edeaf297148f17b969",
+            "item_id": "02ff215c-b83d-47b1-bac4-6874a8ad00e2",
+            "photo_number": 20
+          }
+        ],
+        "member_identity": [
+          {
+            "id": "02ff215c-b83d-47b1-bac4-6874a8ad00e2",
+            "brand": "robby cavally",
+            "model": "3166-27",
+            "design": [
+              "black",
+              "",
+              "",
+              "",
+              "likely synthetic leather"
+            ],
+            "evidence": null,
+            "category_id": "d01d79b5-9341-4e9f-899c-0af9495d2d7d",
+            "pos_category_id": "55a82598-20d0-42fc-9096-0c78894c9452"
+          },
+          {
+            "id": "f752344f-15c8-4682-97d2-804383e41f13",
+            "brand": "robby cavally",
+            "model": "3166-27",
+            "design": [
+              "black",
+              "solid",
+              "",
+              "",
+              "likely synthetic leather"
+            ],
+            "evidence": null,
+            "category_id": "d01d79b5-9341-4e9f-899c-0af9495d2d7d",
+            "pos_category_id": "55a82598-20d0-42fc-9096-0c78894c9452"
+          }
+        ],
+        "target_identity": null
+      },
+      "matched_result": "5626c61f-a9af-4ecf-bff1-657bf4c318b2",
+      "photo_status": "linked",
+      "image_key": "pos-products/catalog/f752344f-15c8-4682-97d2-804383e41f13/39643ae26388d70e3f7ec1b3d29a345470b1b85ef9eb76fc83788ae51eb0902a",
+      "linked_photo_count": 1
+    },
+    {
+      "id": "918334f4-2aa8-4b17-92e1-1eb14c3b4b86",
+      "name": "Robby Cavally Formal Shoes",
+      "brand": "Robby Cavally",
+      "attributes": {
+        "size": "41",
+        "color": "Black",
+        "pattern": "Solid",
+        "size_eu": 41,
+        "material": "Likely leather or faux leather"
+      },
+      "stock_quantity": 1,
+      "stock_distribution_source": "human_confirmed",
+      "pos_product_id": "df6b07ae-509b-4067-b98f-6d9a5bc7c45c",
+      "pos_sync_status": "synced",
+      "price": "360000.00",
+      "source_cost": "130000.00",
+      "receipt_product_id": "df6b07ae-509b-4067-b98f-6d9a5bc7c45c",
+      "received_quantity": 1,
+      "published_at": "2026-09-09T17:39:15.216Z",
+      "product_name": "Robby Cavally Formal Shoes",
+      "product_status": "published",
+      "product_active": true,
+      "material": "Likely leather or faux leather",
+      "image_path": "pos-products/catalog/918334f4-2aa8-4b17-92e1-1eb14c3b4b86/b5faac13a0014a34be4cd2166a727e26caaacc1da00d1d12f267c350282cc23e",
+      "product_brand": "Robby Cavally",
+      "product_category": "55a82598-20d0-42fc-9096-0c78894c9452",
+      "pos_category_id": "55a82598-20d0-42fc-9096-0c78894c9452",
+      "match_id": null,
+      "matched_name": null,
+      "matched_brand": null,
+      "variant_defaults": null,
+      "identity_review": null,
+      "matched_result": null,
+      "photo_status": "linked",
+      "image_key": "pos-products/catalog/918334f4-2aa8-4b17-92e1-1eb14c3b4b86/b5faac13a0014a34be4cd2166a727e26caaacc1da00d1d12f267c350282cc23e",
+      "linked_photo_count": 1
+    },
+    {
+      "id": "be83d601-8bdb-4217-8431-2cdcad6e277e",
+      "name": "Renato Castello Formal Shoes",
+      "brand": "Renato Castello",
+      "attributes": {
+        "size": "45",
+        "color": "Brown and black",
+        "pattern": "Solid",
+        "material": "Likely leather"
+      },
+      "stock_quantity": 1,
+      "stock_distribution_source": "human_confirmed",
+      "pos_product_id": "dc4bef7c-a5ea-4757-ae5e-b1321a4d91b8",
+      "pos_sync_status": "synced",
+      "price": "360000.00",
+      "source_cost": "130000.00",
+      "receipt_product_id": "dc4bef7c-a5ea-4757-ae5e-b1321a4d91b8",
+      "received_quantity": 1,
+      "published_at": "2026-09-09T17:39:20.740Z",
+      "product_name": "Renato Castello Formal Shoes",
+      "product_status": "published",
+      "product_active": true,
+      "material": "Likely leather",
+      "image_path": "pos-products/catalog/be83d601-8bdb-4217-8431-2cdcad6e277e/aee1bf1c082e0a22dee4f0b31cb50809793331bce7135398b2b7d138ecb4248a",
+      "product_brand": "Renato Castello",
+      "product_category": "55a82598-20d0-42fc-9096-0c78894c9452",
+      "pos_category_id": "55a82598-20d0-42fc-9096-0c78894c9452",
+      "match_id": null,
+      "matched_name": null,
+      "matched_brand": null,
+      "variant_defaults": null,
+      "identity_review": null,
+      "matched_result": null,
+      "photo_status": "linked",
+      "image_key": "pos-products/catalog/be83d601-8bdb-4217-8431-2cdcad6e277e/aee1bf1c082e0a22dee4f0b31cb50809793331bce7135398b2b7d138ecb4248a",
+      "linked_photo_count": 1
+    },
+    {
+      "id": "02ff215c-b83d-47b1-bac4-6874a8ad00e2",
+      "name": "Robby Cavally Formal Shoes",
+      "brand": "Robby Cavally",
+      "attributes": {
+        "size": "40",
+        "color": "Black",
+        "style": "3166-27",
+        "size_eu": 40,
+        "material": "Likely synthetic leather"
+      },
+      "stock_quantity": 1,
+      "stock_distribution_source": "human_confirmed",
+      "pos_product_id": "5626c61f-a9af-4ecf-bff1-657bf4c318b2",
+      "pos_sync_status": "synced",
+      "price": "360000.00",
+      "source_cost": "130000.00",
+      "receipt_product_id": "5626c61f-a9af-4ecf-bff1-657bf4c318b2",
+      "received_quantity": 1,
+      "published_at": "2026-09-09T17:39:13.790Z",
+      "product_name": "Robby Cavally Loafers - Black - 3166-27",
+      "product_status": "published",
+      "product_active": true,
+      "material": null,
+      "image_path": "pos-products/catalog/02ff215c-b83d-47b1-bac4-6874a8ad00e2/4c42957149c6082b9faa49f29b98830deb8097dbcaeac8edeaf297148f17b969",
+      "product_brand": "Robby Cavally",
+      "product_category": "55a82598-20d0-42fc-9096-0c78894c9452",
+      "pos_category_id": "55a82598-20d0-42fc-9096-0c78894c9452",
+      "match_id": "05a105fc-ed50-4f48-a48d-9509687cbab8",
+      "matched_name": "Robby Cavally Loafers - Black - 3166-27",
+      "matched_brand": "Robby Cavally",
+      "variant_defaults": {
+        "color": "Black"
+      },
+      "identity_review": {
+        "issues": [],
+        "material": null,
+        "resolution": "Owner-requested Codex visual matching. Matching corrected printed code 3166-27, penny strap, apron toe seam, sole profile and black finish. Sizes 40 and 44. Visual identity review, not an automatic model-code match. No stock received. Composition unconfirmed; shared material left unset.",
+        "fingerprint": "31fd9cd7c06e45a914f67e8a53446fc9918d67123e731d858bc3da1d3c18e956",
+        "confirmed_by": "8691f46d-0109-4042-ac1b-45654320e269",
+        "review_method": "owner_requested_codex_visual_comparison",
+        "photo_evidence": [
+          {
+            "sha256": "39643ae26388d70e3f7ec1b3d29a345470b1b85ef9eb76fc83788ae51eb0902a",
+            "item_id": "f752344f-15c8-4682-97d2-804383e41f13",
+            "photo_number": 17
+          },
+          {
+            "sha256": "4c42957149c6082b9faa49f29b98830deb8097dbcaeac8edeaf297148f17b969",
+            "item_id": "02ff215c-b83d-47b1-bac4-6874a8ad00e2",
+            "photo_number": 20
+          }
+        ],
+        "member_identity": [
+          {
+            "id": "02ff215c-b83d-47b1-bac4-6874a8ad00e2",
+            "brand": "robby cavally",
+            "model": "3166-27",
+            "design": [
+              "black",
+              "",
+              "",
+              "",
+              "likely synthetic leather"
+            ],
+            "evidence": null,
+            "category_id": "d01d79b5-9341-4e9f-899c-0af9495d2d7d",
+            "pos_category_id": "55a82598-20d0-42fc-9096-0c78894c9452"
+          },
+          {
+            "id": "f752344f-15c8-4682-97d2-804383e41f13",
+            "brand": "robby cavally",
+            "model": "3166-27",
+            "design": [
+              "black",
+              "solid",
+              "",
+              "",
+              "likely synthetic leather"
+            ],
+            "evidence": null,
+            "category_id": "d01d79b5-9341-4e9f-899c-0af9495d2d7d",
+            "pos_category_id": "55a82598-20d0-42fc-9096-0c78894c9452"
+          }
+        ],
+        "target_identity": null
+      },
+      "matched_result": "5626c61f-a9af-4ecf-bff1-657bf4c318b2",
+      "photo_status": "linked",
+      "image_key": "pos-products/catalog/02ff215c-b83d-47b1-bac4-6874a8ad00e2/4c42957149c6082b9faa49f29b98830deb8097dbcaeac8edeaf297148f17b969",
+      "linked_photo_count": 1
+    },
+    {
+      "id": "f004995f-90f7-4f81-abab-d3724d79bc26",
+      "name": "zopo Casual Shoes",
+      "brand": "zopo",
+      "attributes": {
+        "size": "44",
+        "color": "Beige and white",
+        "pattern": "Solid",
+        "material": "Likely synthetic suede"
+      },
+      "stock_quantity": 1,
+      "stock_distribution_source": "human_confirmed",
+      "pos_product_id": "649e42be-f24e-4511-9f03-4e9847b6e75d",
+      "pos_sync_status": "synced",
+      "price": "320000.00",
+      "source_cost": "90000.00",
+      "receipt_product_id": "649e42be-f24e-4511-9f03-4e9847b6e75d",
+      "received_quantity": 1,
+      "published_at": "2026-09-09T17:39:21.952Z",
+      "product_name": "Zopo Casual Shoes - Grey and White",
+      "product_status": "published",
+      "product_active": true,
+      "material": null,
+      "image_path": "pos-products/catalog/f235c222-858c-487c-a3fc-9a98734a3c65/ecfc76186e16f40f870f67883527cbe3d9fdcfc46e9282ec67fc0ff417b0ff21",
+      "product_brand": "Zopo",
+      "product_category": "5226f92e-8d2f-4fe9-83cb-1d7827e7edde",
+      "pos_category_id": "5226f92e-8d2f-4fe9-83cb-1d7827e7edde",
+      "match_id": "d93d6543-c5cc-4857-977d-a91440f971d4",
+      "matched_name": "Zopo Casual Shoes - Grey and White",
+      "matched_brand": "Zopo",
+      "variant_defaults": {
+        "color": "Grey and white"
+      },
+      "identity_review": {
+        "issues": [],
+        "material": null,
+        "resolution": "Owner-requested Codex visual matching. Full-resolution comparison confirms matching warm grey upper, panels, stitching, grey laces, brown lining and textured white sole. AI Beige/Grey wording normalized. Visual identity review, not an automatic model-code match. No stock received. Composition unconfirmed; shared material left unset.",
+        "fingerprint": "fa1294bbd3fee937a8941a701b6b08d180e127090af82328a7dfed42d356110a",
+        "confirmed_by": "8691f46d-0109-4042-ac1b-45654320e269",
+        "review_method": "owner_requested_codex_visual_comparison",
+        "photo_evidence": [
+          {
+            "sha256": "1205541ceff8c9f021a90da3c136cf4a45db5f11012e9112bc793a4f041c0e53",
+            "item_id": "f004995f-90f7-4f81-abab-d3724d79bc26",
+            "photo_number": 21
+          },
+          {
+            "sha256": "ecfc76186e16f40f870f67883527cbe3d9fdcfc46e9282ec67fc0ff417b0ff21",
+            "item_id": "f235c222-858c-487c-a3fc-9a98734a3c65",
+            "photo_number": 25
+          }
+        ],
+        "member_identity": [
+          {
+            "id": "f004995f-90f7-4f81-abab-d3724d79bc26",
+            "brand": "zopo",
+            "model": "",
+            "design": [
+              "beige and white",
+              "solid",
+              "",
+              "",
+              "likely synthetic suede"
+            ],
+            "evidence": null,
+            "category_id": "0b6dec98-1d7f-4942-9d2a-fd98af60a9f9",
+            "pos_category_id": "5226f92e-8d2f-4fe9-83cb-1d7827e7edde"
+          },
+          {
+            "id": "f235c222-858c-487c-a3fc-9a98734a3c65",
+            "brand": "zopo",
+            "model": "",
+            "design": [
+              "grey and white",
+              "solid",
+              "",
+              "",
+              "likely suede or synthetic suede"
+            ],
+            "evidence": null,
+            "category_id": "0b6dec98-1d7f-4942-9d2a-fd98af60a9f9",
+            "pos_category_id": "5226f92e-8d2f-4fe9-83cb-1d7827e7edde"
+          }
+        ],
+        "target_identity": null
+      },
+      "matched_result": "649e42be-f24e-4511-9f03-4e9847b6e75d",
+      "photo_status": "linked",
+      "image_key": "pos-products/catalog/f004995f-90f7-4f81-abab-d3724d79bc26/1205541ceff8c9f021a90da3c136cf4a45db5f11012e9112bc793a4f041c0e53",
+      "linked_photo_count": 1
+    },
+    {
+      "id": "71348ed2-18b2-457c-b839-7611b5d4d909",
+      "name": "kenneth cole Casual Shoes",
+      "brand": "kenneth cole",
+      "attributes": {
+        "size": "41",
+        "color": "Black and white",
+        "pattern": "Solid",
+        "material": "Likely synthetic leather"
+      },
+      "stock_quantity": 1,
+      "stock_distribution_source": "human_confirmed",
+      "pos_product_id": "b3fca59d-055e-493e-b790-c73969066564",
+      "pos_sync_status": "synced",
+      "price": "320000.00",
+      "source_cost": "90000.00",
+      "receipt_product_id": "b3fca59d-055e-493e-b790-c73969066564",
+      "received_quantity": 1,
+      "published_at": "2026-09-09T17:39:37.139Z",
+      "product_name": "Kenneth Cole Casual Shoes - Black and White",
+      "product_status": "published",
+      "product_active": true,
+      "material": null,
+      "image_path": "pos-products/catalog/19f1c7ab-ccbb-4416-baa8-e00403c7d3e0/75aa5bd0c4b62ddd375778a7654c2421bd0bdc2caa807af3c05b5d5ec3ea581f",
+      "product_brand": "Kenneth Cole",
+      "product_category": "5226f92e-8d2f-4fe9-83cb-1d7827e7edde",
+      "pos_category_id": "5226f92e-8d2f-4fe9-83cb-1d7827e7edde",
+      "match_id": "00032996-7898-42a1-8406-1a3aa9c15db5",
+      "matched_name": "Kenneth Cole Casual Shoes - Black and White",
+      "matched_brand": "Kenneth Cole",
+      "variant_defaults": {
+        "color": "Black and white"
+      },
+      "identity_review": {
+        "issues": [],
+        "material": null,
+        "resolution": "Owner-requested Codex visual matching. Matching grained black upper, black laces, side panels, white heel tab and white sole profile. Caption brand agrees. Visual identity review, not an automatic model-code match. No stock received. Composition unconfirmed; shared material left unset.",
+        "fingerprint": "b23a9a81b4497b749cc94a64279e2ef75608fdb36b1eb2d460381049d2ffeb6a",
+        "confirmed_by": "8691f46d-0109-4042-ac1b-45654320e269",
+        "review_method": "owner_requested_codex_visual_comparison",
+        "photo_evidence": [
+          {
+            "sha256": "d7d21216455a879e0da9e7ea9ddd96e455f1d4c4e3e6b7ada2314c245f831851",
+            "item_id": "71348ed2-18b2-457c-b839-7611b5d4d909",
+            "photo_number": 22
+          },
+          {
+            "sha256": "75aa5bd0c4b62ddd375778a7654c2421bd0bdc2caa807af3c05b5d5ec3ea581f",
+            "item_id": "19f1c7ab-ccbb-4416-baa8-e00403c7d3e0",
+            "photo_number": 26
+          }
+        ],
+        "member_identity": [
+          {
+            "id": "19f1c7ab-ccbb-4416-baa8-e00403c7d3e0",
+            "brand": "kenneth cole",
+            "model": "",
+            "design": [
+              "black and white",
+              "solid",
+              "",
+              "",
+              "likely synthetic leather"
+            ],
+            "evidence": null,
+            "category_id": "0b6dec98-1d7f-4942-9d2a-fd98af60a9f9",
+            "pos_category_id": "5226f92e-8d2f-4fe9-83cb-1d7827e7edde"
+          },
+          {
+            "id": "71348ed2-18b2-457c-b839-7611b5d4d909",
+            "brand": "kenneth cole",
+            "model": "",
+            "design": [
+              "black and white",
+              "solid",
+              "",
+              "",
+              "likely synthetic leather"
+            ],
+            "evidence": null,
+            "category_id": "0b6dec98-1d7f-4942-9d2a-fd98af60a9f9",
+            "pos_category_id": "5226f92e-8d2f-4fe9-83cb-1d7827e7edde"
+          }
+        ],
+        "target_identity": null
+      },
+      "matched_result": "b3fca59d-055e-493e-b790-c73969066564",
+      "photo_status": "linked",
+      "image_key": "pos-products/catalog/71348ed2-18b2-457c-b839-7611b5d4d909/d7d21216455a879e0da9e7ea9ddd96e455f1d4c4e3e6b7ada2314c245f831851",
+      "linked_photo_count": 1
+    },
+    {
+      "id": "783323c8-df6e-4ffe-9d50-37610a73e75d",
+      "name": "kenneth cole Casual Shoes",
+      "brand": "kenneth cole",
+      "attributes": {
+        "size": "42",
+        "color": "Gray and white",
+        "pattern": "Solid",
+        "material": "Likely synthetic leather"
+      },
+      "stock_quantity": 1,
+      "stock_distribution_source": "human_confirmed",
+      "pos_product_id": "94286fed-6d6e-4d38-849c-5b17b3c6ce59",
+      "pos_sync_status": "synced",
+      "price": "320000.00",
+      "source_cost": "90000.00",
+      "receipt_product_id": "94286fed-6d6e-4d38-849c-5b17b3c6ce59",
+      "received_quantity": 1,
+      "published_at": "2026-09-09T17:39:48.562Z",
+      "product_name": "kenneth cole Casual Shoes",
+      "product_status": "published",
+      "product_active": true,
+      "material": "Likely synthetic leather",
+      "image_path": "pos-products/catalog/783323c8-df6e-4ffe-9d50-37610a73e75d/65c4b0610bac69fe1045c245fbd29bfa12cf658b04acb27fb464624be37e1739",
+      "product_brand": "Kenneth Cole",
+      "product_category": "5226f92e-8d2f-4fe9-83cb-1d7827e7edde",
+      "pos_category_id": "5226f92e-8d2f-4fe9-83cb-1d7827e7edde",
+      "match_id": null,
+      "matched_name": null,
+      "matched_brand": null,
+      "variant_defaults": null,
+      "identity_review": null,
+      "matched_result": null,
+      "photo_status": "linked",
+      "image_key": "pos-products/catalog/783323c8-df6e-4ffe-9d50-37610a73e75d/65c4b0610bac69fe1045c245fbd29bfa12cf658b04acb27fb464624be37e1739",
+      "linked_photo_count": 1
+    },
+    {
+      "id": "94110dd5-62cf-4dc5-8fb9-57076c1a611a",
+      "name": "zopo Casual Shoes",
+      "brand": "zopo",
+      "attributes": {
+        "size": "40",
+        "color": "Blue and white",
+        "pattern": "Solid",
+        "material": "Likely suede or synthetic suede"
+      },
+      "stock_quantity": 1,
+      "stock_distribution_source": "human_confirmed",
+      "pos_product_id": "2f3fb466-61ce-4c82-a7d4-194415c7c408",
+      "pos_sync_status": "synced",
+      "price": "320000.00",
+      "source_cost": "90000.00",
+      "receipt_product_id": "2f3fb466-61ce-4c82-a7d4-194415c7c408",
+      "received_quantity": 1,
+      "published_at": "2026-09-09T17:40:03.280Z",
+      "product_name": "Zopo Casual Shoes - Navy and White",
+      "product_status": "published",
+      "product_active": true,
+      "material": null,
+      "image_path": "pos-products/catalog/94110dd5-62cf-4dc5-8fb9-57076c1a611a/969e9245cc5b3b9dbced24a1be91dcb6d856fb3b4788b2f7cb8b675e44c3a528",
+      "product_brand": "Zopo",
+      "product_category": "5226f92e-8d2f-4fe9-83cb-1d7827e7edde",
+      "pos_category_id": "5226f92e-8d2f-4fe9-83cb-1d7827e7edde",
+      "match_id": "96069a02-d340-483f-9ed6-b33a45bb9960",
+      "matched_name": "Zopo Casual Shoes - Navy and White",
+      "matched_brand": "Zopo",
+      "variant_defaults": {
+        "color": "Navy and white"
+      },
+      "identity_review": {
+        "issues": [],
+        "material": null,
+        "resolution": "Owner-requested Codex visual matching. Matching navy upper, panels and stitching, navy laces, brown lining and textured white sole. Caption brand agrees. Visual identity review, not an automatic model-code match. No stock received. Composition unconfirmed; shared material left unset.",
+        "fingerprint": "c63678056d0d8603ff0922304040439380bc9b845f3987379e7fd472217135a7",
+        "confirmed_by": "8691f46d-0109-4042-ac1b-45654320e269",
+        "review_method": "owner_requested_codex_visual_comparison",
+        "photo_evidence": [
+          {
+            "sha256": "969e9245cc5b3b9dbced24a1be91dcb6d856fb3b4788b2f7cb8b675e44c3a528",
+            "item_id": "94110dd5-62cf-4dc5-8fb9-57076c1a611a",
+            "photo_number": 24
+          },
+          {
+            "sha256": "bfad0f5cf851691d04ff14a54cf623db59eed0ea6904999b09ea49808d585aa9",
+            "item_id": "f26a8bf5-20ce-4736-a472-f0ff73937f61",
+            "photo_number": 27
+          }
+        ],
+        "member_identity": [
+          {
+            "id": "94110dd5-62cf-4dc5-8fb9-57076c1a611a",
+            "brand": "zopo",
+            "model": "",
+            "design": [
+              "blue and white",
+              "solid",
+              "",
+              "",
+              "likely suede or synthetic suede"
+            ],
+            "evidence": null,
+            "category_id": "0b6dec98-1d7f-4942-9d2a-fd98af60a9f9",
+            "pos_category_id": "5226f92e-8d2f-4fe9-83cb-1d7827e7edde"
+          },
+          {
+            "id": "f26a8bf5-20ce-4736-a472-f0ff73937f61",
+            "brand": "zopo",
+            "model": "",
+            "design": [
+              "blue and white",
+              "solid",
+              "",
+              "",
+              "likely suede or synthetic suede"
+            ],
+            "evidence": null,
+            "category_id": "0b6dec98-1d7f-4942-9d2a-fd98af60a9f9",
+            "pos_category_id": "5226f92e-8d2f-4fe9-83cb-1d7827e7edde"
+          }
+        ],
+        "target_identity": null
+      },
+      "matched_result": "2f3fb466-61ce-4c82-a7d4-194415c7c408",
+      "photo_status": "linked",
+      "image_key": "pos-products/catalog/94110dd5-62cf-4dc5-8fb9-57076c1a611a/969e9245cc5b3b9dbced24a1be91dcb6d856fb3b4788b2f7cb8b675e44c3a528",
+      "linked_photo_count": 1
+    },
+    {
+      "id": "f235c222-858c-487c-a3fc-9a98734a3c65",
+      "name": "zopo Casual Shoes",
+      "brand": "zopo",
+      "attributes": {
+        "size": "41",
+        "color": "Grey and white",
+        "pattern": "Solid",
+        "material": "Likely suede or synthetic suede"
+      },
+      "stock_quantity": 1,
+      "stock_distribution_source": "human_confirmed",
+      "pos_product_id": "649e42be-f24e-4511-9f03-4e9847b6e75d",
+      "pos_sync_status": "synced",
+      "price": "320000.00",
+      "source_cost": "90000.00",
+      "receipt_product_id": "649e42be-f24e-4511-9f03-4e9847b6e75d",
+      "received_quantity": 1,
+      "published_at": "2026-09-09T17:39:21.952Z",
+      "product_name": "Zopo Casual Shoes - Grey and White",
+      "product_status": "published",
+      "product_active": true,
+      "material": null,
+      "image_path": "pos-products/catalog/f235c222-858c-487c-a3fc-9a98734a3c65/ecfc76186e16f40f870f67883527cbe3d9fdcfc46e9282ec67fc0ff417b0ff21",
+      "product_brand": "Zopo",
+      "product_category": "5226f92e-8d2f-4fe9-83cb-1d7827e7edde",
+      "pos_category_id": "5226f92e-8d2f-4fe9-83cb-1d7827e7edde",
+      "match_id": "d93d6543-c5cc-4857-977d-a91440f971d4",
+      "matched_name": "Zopo Casual Shoes - Grey and White",
+      "matched_brand": "Zopo",
+      "variant_defaults": {
+        "color": "Grey and white"
+      },
+      "identity_review": {
+        "issues": [],
+        "material": null,
+        "resolution": "Owner-requested Codex visual matching. Full-resolution comparison confirms matching warm grey upper, panels, stitching, grey laces, brown lining and textured white sole. AI Beige/Grey wording normalized. Visual identity review, not an automatic model-code match. No stock received. Composition unconfirmed; shared material left unset.",
+        "fingerprint": "fa1294bbd3fee937a8941a701b6b08d180e127090af82328a7dfed42d356110a",
+        "confirmed_by": "8691f46d-0109-4042-ac1b-45654320e269",
+        "review_method": "owner_requested_codex_visual_comparison",
+        "photo_evidence": [
+          {
+            "sha256": "1205541ceff8c9f021a90da3c136cf4a45db5f11012e9112bc793a4f041c0e53",
+            "item_id": "f004995f-90f7-4f81-abab-d3724d79bc26",
+            "photo_number": 21
+          },
+          {
+            "sha256": "ecfc76186e16f40f870f67883527cbe3d9fdcfc46e9282ec67fc0ff417b0ff21",
+            "item_id": "f235c222-858c-487c-a3fc-9a98734a3c65",
+            "photo_number": 25
+          }
+        ],
+        "member_identity": [
+          {
+            "id": "f004995f-90f7-4f81-abab-d3724d79bc26",
+            "brand": "zopo",
+            "model": "",
+            "design": [
+              "beige and white",
+              "solid",
+              "",
+              "",
+              "likely synthetic suede"
+            ],
+            "evidence": null,
+            "category_id": "0b6dec98-1d7f-4942-9d2a-fd98af60a9f9",
+            "pos_category_id": "5226f92e-8d2f-4fe9-83cb-1d7827e7edde"
+          },
+          {
+            "id": "f235c222-858c-487c-a3fc-9a98734a3c65",
+            "brand": "zopo",
+            "model": "",
+            "design": [
+              "grey and white",
+              "solid",
+              "",
+              "",
+              "likely suede or synthetic suede"
+            ],
+            "evidence": null,
+            "category_id": "0b6dec98-1d7f-4942-9d2a-fd98af60a9f9",
+            "pos_category_id": "5226f92e-8d2f-4fe9-83cb-1d7827e7edde"
+          }
+        ],
+        "target_identity": null
+      },
+      "matched_result": "649e42be-f24e-4511-9f03-4e9847b6e75d",
+      "photo_status": "linked",
+      "image_key": "pos-products/catalog/f235c222-858c-487c-a3fc-9a98734a3c65/ecfc76186e16f40f870f67883527cbe3d9fdcfc46e9282ec67fc0ff417b0ff21",
+      "linked_photo_count": 1
+    },
+    {
+      "id": "19f1c7ab-ccbb-4416-baa8-e00403c7d3e0",
+      "name": "kenneth cole Casual Shoes",
+      "brand": "kenneth cole",
+      "attributes": {
+        "size": "42",
+        "color": "Black and white",
+        "pattern": "Solid",
+        "material": "Likely synthetic leather"
+      },
+      "stock_quantity": 1,
+      "stock_distribution_source": "human_confirmed",
+      "pos_product_id": "b3fca59d-055e-493e-b790-c73969066564",
+      "pos_sync_status": "synced",
+      "price": "320000.00",
+      "source_cost": "90000.00",
+      "receipt_product_id": "b3fca59d-055e-493e-b790-c73969066564",
+      "received_quantity": 1,
+      "published_at": "2026-09-09T17:39:37.139Z",
+      "product_name": "Kenneth Cole Casual Shoes - Black and White",
+      "product_status": "published",
+      "product_active": true,
+      "material": null,
+      "image_path": "pos-products/catalog/19f1c7ab-ccbb-4416-baa8-e00403c7d3e0/75aa5bd0c4b62ddd375778a7654c2421bd0bdc2caa807af3c05b5d5ec3ea581f",
+      "product_brand": "Kenneth Cole",
+      "product_category": "5226f92e-8d2f-4fe9-83cb-1d7827e7edde",
+      "pos_category_id": "5226f92e-8d2f-4fe9-83cb-1d7827e7edde",
+      "match_id": "00032996-7898-42a1-8406-1a3aa9c15db5",
+      "matched_name": "Kenneth Cole Casual Shoes - Black and White",
+      "matched_brand": "Kenneth Cole",
+      "variant_defaults": {
+        "color": "Black and white"
+      },
+      "identity_review": {
+        "issues": [],
+        "material": null,
+        "resolution": "Owner-requested Codex visual matching. Matching grained black upper, black laces, side panels, white heel tab and white sole profile. Caption brand agrees. Visual identity review, not an automatic model-code match. No stock received. Composition unconfirmed; shared material left unset.",
+        "fingerprint": "b23a9a81b4497b749cc94a64279e2ef75608fdb36b1eb2d460381049d2ffeb6a",
+        "confirmed_by": "8691f46d-0109-4042-ac1b-45654320e269",
+        "review_method": "owner_requested_codex_visual_comparison",
+        "photo_evidence": [
+          {
+            "sha256": "d7d21216455a879e0da9e7ea9ddd96e455f1d4c4e3e6b7ada2314c245f831851",
+            "item_id": "71348ed2-18b2-457c-b839-7611b5d4d909",
+            "photo_number": 22
+          },
+          {
+            "sha256": "75aa5bd0c4b62ddd375778a7654c2421bd0bdc2caa807af3c05b5d5ec3ea581f",
+            "item_id": "19f1c7ab-ccbb-4416-baa8-e00403c7d3e0",
+            "photo_number": 26
+          }
+        ],
+        "member_identity": [
+          {
+            "id": "19f1c7ab-ccbb-4416-baa8-e00403c7d3e0",
+            "brand": "kenneth cole",
+            "model": "",
+            "design": [
+              "black and white",
+              "solid",
+              "",
+              "",
+              "likely synthetic leather"
+            ],
+            "evidence": null,
+            "category_id": "0b6dec98-1d7f-4942-9d2a-fd98af60a9f9",
+            "pos_category_id": "5226f92e-8d2f-4fe9-83cb-1d7827e7edde"
+          },
+          {
+            "id": "71348ed2-18b2-457c-b839-7611b5d4d909",
+            "brand": "kenneth cole",
+            "model": "",
+            "design": [
+              "black and white",
+              "solid",
+              "",
+              "",
+              "likely synthetic leather"
+            ],
+            "evidence": null,
+            "category_id": "0b6dec98-1d7f-4942-9d2a-fd98af60a9f9",
+            "pos_category_id": "5226f92e-8d2f-4fe9-83cb-1d7827e7edde"
+          }
+        ],
+        "target_identity": null
+      },
+      "matched_result": "b3fca59d-055e-493e-b790-c73969066564",
+      "photo_status": "linked",
+      "image_key": "pos-products/catalog/19f1c7ab-ccbb-4416-baa8-e00403c7d3e0/75aa5bd0c4b62ddd375778a7654c2421bd0bdc2caa807af3c05b5d5ec3ea581f",
+      "linked_photo_count": 1
+    },
+    {
+      "id": "f26a8bf5-20ce-4736-a472-f0ff73937f61",
+      "name": "zopo Casual Shoes",
+      "brand": "zopo",
+      "attributes": {
+        "size": "42",
+        "color": "Blue and white",
+        "pattern": "Solid",
+        "material": "Likely suede or synthetic suede"
+      },
+      "stock_quantity": 1,
+      "stock_distribution_source": "human_confirmed",
+      "pos_product_id": "2f3fb466-61ce-4c82-a7d4-194415c7c408",
+      "pos_sync_status": "synced",
+      "price": "320000.00",
+      "source_cost": "90000.00",
+      "receipt_product_id": "2f3fb466-61ce-4c82-a7d4-194415c7c408",
+      "received_quantity": 1,
+      "published_at": "2026-09-09T17:40:03.280Z",
+      "product_name": "Zopo Casual Shoes - Navy and White",
+      "product_status": "published",
+      "product_active": true,
+      "material": null,
+      "image_path": "pos-products/catalog/94110dd5-62cf-4dc5-8fb9-57076c1a611a/969e9245cc5b3b9dbced24a1be91dcb6d856fb3b4788b2f7cb8b675e44c3a528",
+      "product_brand": "Zopo",
+      "product_category": "5226f92e-8d2f-4fe9-83cb-1d7827e7edde",
+      "pos_category_id": "5226f92e-8d2f-4fe9-83cb-1d7827e7edde",
+      "match_id": "96069a02-d340-483f-9ed6-b33a45bb9960",
+      "matched_name": "Zopo Casual Shoes - Navy and White",
+      "matched_brand": "Zopo",
+      "variant_defaults": {
+        "color": "Navy and white"
+      },
+      "identity_review": {
+        "issues": [],
+        "material": null,
+        "resolution": "Owner-requested Codex visual matching. Matching navy upper, panels and stitching, navy laces, brown lining and textured white sole. Caption brand agrees. Visual identity review, not an automatic model-code match. No stock received. Composition unconfirmed; shared material left unset.",
+        "fingerprint": "c63678056d0d8603ff0922304040439380bc9b845f3987379e7fd472217135a7",
+        "confirmed_by": "8691f46d-0109-4042-ac1b-45654320e269",
+        "review_method": "owner_requested_codex_visual_comparison",
+        "photo_evidence": [
+          {
+            "sha256": "969e9245cc5b3b9dbced24a1be91dcb6d856fb3b4788b2f7cb8b675e44c3a528",
+            "item_id": "94110dd5-62cf-4dc5-8fb9-57076c1a611a",
+            "photo_number": 24
+          },
+          {
+            "sha256": "bfad0f5cf851691d04ff14a54cf623db59eed0ea6904999b09ea49808d585aa9",
+            "item_id": "f26a8bf5-20ce-4736-a472-f0ff73937f61",
+            "photo_number": 27
+          }
+        ],
+        "member_identity": [
+          {
+            "id": "94110dd5-62cf-4dc5-8fb9-57076c1a611a",
+            "brand": "zopo",
+            "model": "",
+            "design": [
+              "blue and white",
+              "solid",
+              "",
+              "",
+              "likely suede or synthetic suede"
+            ],
+            "evidence": null,
+            "category_id": "0b6dec98-1d7f-4942-9d2a-fd98af60a9f9",
+            "pos_category_id": "5226f92e-8d2f-4fe9-83cb-1d7827e7edde"
+          },
+          {
+            "id": "f26a8bf5-20ce-4736-a472-f0ff73937f61",
+            "brand": "zopo",
+            "model": "",
+            "design": [
+              "blue and white",
+              "solid",
+              "",
+              "",
+              "likely suede or synthetic suede"
+            ],
+            "evidence": null,
+            "category_id": "0b6dec98-1d7f-4942-9d2a-fd98af60a9f9",
+            "pos_category_id": "5226f92e-8d2f-4fe9-83cb-1d7827e7edde"
+          }
+        ],
+        "target_identity": null
+      },
+      "matched_result": "2f3fb466-61ce-4c82-a7d4-194415c7c408",
+      "photo_status": "linked",
+      "image_key": "pos-products/catalog/f26a8bf5-20ce-4736-a472-f0ff73937f61/bfad0f5cf851691d04ff14a54cf623db59eed0ea6904999b09ea49808d585aa9",
+      "linked_photo_count": 1
+    }
+  ],
+  "lines": [
+    {
+      "id": "2c461998-caeb-4865-beb8-2593685a56fe",
+      "item_id": "02ff215c-b83d-47b1-bac4-6874a8ad00e2",
+      "position": 0,
+      "variant_key": "fbc533cc2c83e9784a56bb2551618a42",
+      "variant_attributes": {
+        "size": "40"
+      },
+      "quantity": 1,
+      "price_override": null,
+      "cost_override": null,
+      "sku": "CAT-9CC98827BF034903BA23A5AF60033038",
+      "pos_variant_id": "176943b5-6c8f-4c67-a942-3909796da820",
+      "published_quantity": 1,
+      "publication_status": "published",
+      "publication_error": null,
+      "published_at": "2026-09-09T17:39:13.790Z",
+      "updated_by": "8691f46d-0109-4042-ac1b-45654320e269",
+      "created_at": "2026-09-09T14:42:45.624Z",
+      "updated_at": "2026-09-09T17:39:13.790Z",
+      "variant_product_id": "5626c61f-a9af-4ecf-bff1-657bf4c318b2",
+      "pos_attributes": {
+        "size": "40",
+        "color": "black"
+      },
+      "pos_price": "360000.00",
+      "pos_cost": "130000.00",
+      "barcode": "2000221468823",
+      "is_active": true,
+      "branch_quantity": 1,
+      "is_assorted": true
+    },
+    {
+      "id": "2281586d-84f8-42ba-9f3d-6666c182f3cc",
+      "item_id": "0880f6f0-147a-4c97-ac2e-ed6fc388fc69",
+      "position": 0,
+      "variant_key": "78f3a62b658465b8fffc6ddd0595a9e6",
+      "variant_attributes": {
+        "size": "XL"
+      },
+      "quantity": 1,
+      "price_override": null,
+      "cost_override": null,
+      "sku": "CAT-A9C8DFF2A790441E9D14FC062234BF50",
+      "pos_variant_id": "aae66285-dc92-4ce8-95fa-670458161028",
+      "published_quantity": 1,
+      "publication_status": "published",
+      "publication_error": null,
+      "published_at": "2026-09-09T17:52:59.778Z",
+      "updated_by": "8691f46d-0109-4042-ac1b-45654320e269",
+      "created_at": "2026-09-09T15:22:39.319Z",
+      "updated_at": "2026-09-09T17:52:59.778Z",
+      "variant_product_id": "52e0c436-c24d-48b2-aa44-6bb03ebae3b2",
+      "pos_attributes": {
+        "fit": "slim",
+        "size": "XL",
+        "color": "navy",
+        "sleeve": "short"
+      },
+      "pos_price": "90000.00",
+      "pos_cost": "35000.00",
+      "barcode": "2003936348572",
+      "is_active": true,
+      "branch_quantity": 1,
+      "is_assorted": true
+    },
+    {
+      "id": "08102fea-6c1f-4451-a20a-c7c409364df5",
+      "item_id": "08bf0583-2bf9-4f78-a9ae-d19cbd95cf8f",
+      "position": 0,
+      "variant_key": "be957755308e50b660e165b2f52593ef",
+      "variant_attributes": {
+        "size": "2XL"
+      },
+      "quantity": 1,
+      "price_override": null,
+      "cost_override": null,
+      "sku": "CAT-8B6E8A1C49F847CE9EFA16F06162B075",
+      "pos_variant_id": "a97ed207-7b8d-4071-a640-7190de02efe1",
+      "published_quantity": 1,
+      "publication_status": "published",
+      "publication_error": null,
+      "published_at": "2026-09-09T17:39:09.238Z",
+      "updated_by": "8691f46d-0109-4042-ac1b-45654320e269",
+      "created_at": "2026-09-09T15:22:30.451Z",
+      "updated_at": "2026-09-09T17:39:09.238Z",
+      "variant_product_id": "16cde31a-4d7d-4875-87a0-2aa02257cc76",
+      "pos_attributes": {
+        "fit": "slim",
+        "size": "2XL",
+        "color": "navy and blue",
+        "sleeve": "short"
+      },
+      "pos_price": "90000.00",
+      "pos_cost": "35000.00",
+      "barcode": "2002570486831",
+      "is_active": true,
+      "branch_quantity": 1,
+      "is_assorted": true
+    },
+    {
+      "id": "8952a041-0f29-4fb9-a1e5-210f7c202b06",
+      "item_id": "19f1c7ab-ccbb-4416-baa8-e00403c7d3e0",
+      "position": 0,
+      "variant_key": "77526d953202bde2851f302b532f2ce1",
+      "variant_attributes": {
+        "size": "42"
+      },
+      "quantity": 1,
+      "price_override": null,
+      "cost_override": null,
+      "sku": "CAT-EDB43B8090B6495089146C7CEC3CF81F",
+      "pos_variant_id": "9d76e3ef-59c7-4c84-aa5d-af48a6f06096",
+      "published_quantity": 1,
+      "publication_status": "published",
+      "publication_error": null,
+      "published_at": "2026-09-09T17:39:37.139Z",
+      "updated_by": "8691f46d-0109-4042-ac1b-45654320e269",
+      "created_at": "2026-09-09T14:41:47.619Z",
+      "updated_at": "2026-09-09T17:39:37.139Z",
+      "variant_product_id": "b3fca59d-055e-493e-b790-c73969066564",
+      "pos_attributes": {
+        "size": "42",
+        "color": "black and white"
+      },
+      "pos_price": "320000.00",
+      "pos_cost": "90000.00",
+      "barcode": "2009997160283",
+      "is_active": true,
+      "branch_quantity": 1,
+      "is_assorted": true
+    },
+    {
+      "id": "88d9274d-3bc0-4213-bb79-12aef82e14b2",
+      "item_id": "1b028ea6-615f-4456-90e5-06fcbaa5e435",
+      "position": 0,
+      "variant_key": "544a9f01df3f6a77507b6e244b15a111",
+      "variant_attributes": {
+        "size": "L"
+      },
+      "quantity": 1,
+      "price_override": null,
+      "cost_override": null,
+      "sku": "CAT-91CFBD0A23D147DDAAB05C6DE498CBDB",
+      "pos_variant_id": "1fea7745-8342-4f12-9a32-b6301e356931",
+      "published_quantity": 1,
+      "publication_status": "published",
+      "publication_error": null,
+      "published_at": "2026-09-09T17:52:59.778Z",
+      "updated_by": "8691f46d-0109-4042-ac1b-45654320e269",
+      "created_at": "2026-09-09T15:22:36.865Z",
+      "updated_at": "2026-09-09T17:52:59.778Z",
+      "variant_product_id": "52e0c436-c24d-48b2-aa44-6bb03ebae3b2",
+      "pos_attributes": {
+        "fit": "slim",
+        "size": "L",
+        "color": "navy",
+        "sleeve": "short"
+      },
+      "pos_price": "90000.00",
+      "pos_cost": "35000.00",
+      "barcode": "2003685599850",
+      "is_active": true,
+      "branch_quantity": 1,
+      "is_assorted": true
+    },
+    {
+      "id": "96851a7d-b999-4c40-954a-2743c4db792a",
+      "item_id": "1b0b3610-4281-42f7-b79d-23ca6f6067f5",
+      "position": 0,
+      "variant_key": "78f3a62b658465b8fffc6ddd0595a9e6",
+      "variant_attributes": {
+        "size": "XL"
+      },
+      "quantity": 3,
+      "price_override": null,
+      "cost_override": null,
+      "sku": "CAT-ACAB0EC96A3B4939B806CE46A858E4C6",
+      "pos_variant_id": "81a3ce4a-2274-4a64-a6b6-b8112e7a57ea",
+      "published_quantity": 3,
+      "publication_status": "published",
+      "publication_error": null,
+      "published_at": "2026-09-09T17:54:11.954Z",
+      "updated_by": "8691f46d-0109-4042-ac1b-45654320e269",
+      "created_at": "2026-09-09T16:32:47.751Z",
+      "updated_at": "2026-09-09T17:54:11.954Z",
+      "variant_product_id": "1ffd361c-8f1d-4518-9542-8607f83f01b6",
+      "pos_attributes": {
+        "size": "XL",
+        "color": "blue and white"
+      },
+      "pos_price": "25000.00",
+      "pos_cost": "11000.00",
+      "barcode": "2004399806241",
+      "is_active": true,
+      "branch_quantity": 3,
+      "is_assorted": true
+    },
+    {
+      "id": "9db84f52-f987-4391-aead-9694ca4bf86e",
+      "item_id": "24c42a78-5fba-411f-8894-6e38a44d2e1f",
+      "position": 0,
+      "variant_key": "78f3a62b658465b8fffc6ddd0595a9e6",
+      "variant_attributes": {
+        "size": "XL"
+      },
+      "quantity": 1,
+      "price_override": null,
+      "cost_override": null,
+      "sku": "CAT-31552A2CCAF547C9B5D7DED2C785C981",
+      "pos_variant_id": "133bdf3e-c8d3-4561-921b-e7ff02c5e089",
+      "published_quantity": 1,
+      "publication_status": "published",
+      "publication_error": null,
+      "published_at": "2026-09-09T17:53:24.727Z",
+      "updated_by": "8691f46d-0109-4042-ac1b-45654320e269",
+      "created_at": "2026-09-09T15:22:16.865Z",
+      "updated_at": "2026-09-09T17:53:24.727Z",
+      "variant_product_id": "644fc1b0-d837-474a-bd3c-dad41bff0e20",
+      "pos_attributes": {
+        "fit": "slim",
+        "size": "XL",
+        "color": "white",
+        "sleeve": "short"
+      },
+      "pos_price": "90000.00",
+      "pos_cost": "35000.00",
+      "barcode": "2007604092057",
+      "is_active": true,
+      "branch_quantity": 1,
+      "is_assorted": true
+    },
+    {
+      "id": "ca96a525-7256-436b-8670-ad3c4d4a3c28",
+      "item_id": "326f7d95-c442-492f-bf9d-a4832e926e23",
+      "position": 0,
+      "variant_key": "6367454a28e86dd8ee74e61afaf95b5c",
+      "variant_attributes": {
+        "size": "3XL"
+      },
+      "quantity": 1,
+      "price_override": null,
+      "cost_override": null,
+      "sku": "CAT-105101F0173A414A9F04178D28180D67",
+      "pos_variant_id": "e973e300-244c-4ccd-a720-2754e75edcfe",
+      "published_quantity": 1,
+      "publication_status": "published",
+      "publication_error": null,
+      "published_at": "2026-09-09T17:53:24.727Z",
+      "updated_by": "8691f46d-0109-4042-ac1b-45654320e269",
+      "created_at": "2026-09-09T15:22:23.481Z",
+      "updated_at": "2026-09-09T17:53:24.727Z",
+      "variant_product_id": "644fc1b0-d837-474a-bd3c-dad41bff0e20",
+      "pos_attributes": {
+        "fit": "slim",
+        "size": "3XL",
+        "color": "white",
+        "sleeve": "short"
+      },
+      "pos_price": "90000.00",
+      "pos_cost": "35000.00",
+      "barcode": "2000304880825",
+      "is_active": true,
+      "branch_quantity": 1,
+      "is_assorted": true
+    },
+    {
+      "id": "71e7e65c-2e61-48f4-8f9f-82c18412e5d9",
+      "item_id": "40e1a352-ef6d-4ab8-a752-a7fc14aa282c",
+      "position": 0,
+      "variant_key": "544a9f01df3f6a77507b6e244b15a111",
+      "variant_attributes": {
+        "size": "L"
+      },
+      "quantity": 4,
+      "price_override": null,
+      "cost_override": null,
+      "sku": "CAT-10D12A6FB74B40B1B4B3601408E0B3B0",
+      "pos_variant_id": "4c8e66f3-7bda-4e61-b2bd-59b29b7b7c06",
+      "published_quantity": 4,
+      "publication_status": "published",
+      "publication_error": null,
+      "published_at": "2026-09-09T17:54:11.954Z",
+      "updated_by": "8691f46d-0109-4042-ac1b-45654320e269",
+      "created_at": "2026-09-09T16:31:54.864Z",
+      "updated_at": "2026-09-09T17:54:11.954Z",
+      "variant_product_id": "1ffd361c-8f1d-4518-9542-8607f83f01b6",
+      "pos_attributes": {
+        "size": "L",
+        "color": "blue and white"
+      },
+      "pos_price": "25000.00",
+      "pos_cost": "11000.00",
+      "barcode": "2005702887070",
+      "is_active": true,
+      "branch_quantity": 4,
+      "is_assorted": true
+    },
+    {
+      "id": "c015cf02-6096-4a6e-bd4a-41806f4f279f",
+      "item_id": "440f216e-19d3-4c72-9365-f0a39e305327",
+      "position": 0,
+      "variant_key": "2f88d5aa903887443949847208ed7f0f",
+      "variant_attributes": {
+        "size": "M"
+      },
+      "quantity": 1,
+      "price_override": null,
+      "cost_override": null,
+      "sku": "CAT-F154547D384D4519B37F3213C058DDFA",
+      "pos_variant_id": "47d4e459-f41e-4735-9ebe-624aa2a36e53",
+      "published_quantity": 1,
+      "publication_status": "published",
+      "publication_error": null,
+      "published_at": "2026-09-09T17:53:42.943Z",
+      "updated_by": "8691f46d-0109-4042-ac1b-45654320e269",
+      "created_at": "2026-09-09T16:38:53.992Z",
+      "updated_at": "2026-09-09T17:53:42.943Z",
+      "variant_product_id": "2bf3698b-905c-41e8-9136-251e347d3f27",
+      "pos_attributes": {
+        "size": "M",
+        "color": "navy"
+      },
+      "pos_price": "25000.00",
+      "pos_cost": "11000.00",
+      "barcode": "2001933931186",
+      "is_active": true,
+      "branch_quantity": 1,
+      "is_assorted": true
+    },
+    {
+      "id": "749af3d6-72b0-44ea-aa83-9a498b32b5cf",
+      "item_id": "49448a6f-54e1-4a37-96c9-ef8782be63bf",
+      "position": 0,
+      "variant_key": "be957755308e50b660e165b2f52593ef",
+      "variant_attributes": {
+        "size": "2XL"
+      },
+      "quantity": 3,
+      "price_override": null,
+      "cost_override": null,
+      "sku": "CAT-9C02B0A03A314C8F8B8BAADB57FE7778",
+      "pos_variant_id": "710db139-9be8-43d4-a0c3-7fc32863f76f",
+      "published_quantity": 3,
+      "publication_status": "published",
+      "publication_error": null,
+      "published_at": "2026-09-09T17:54:11.954Z",
+      "updated_by": "8691f46d-0109-4042-ac1b-45654320e269",
+      "created_at": "2026-09-09T16:39:14.427Z",
+      "updated_at": "2026-09-09T17:54:11.954Z",
+      "variant_product_id": "1ffd361c-8f1d-4518-9542-8607f83f01b6",
+      "pos_attributes": {
+        "size": "2XL",
+        "color": "blue and white"
+      },
+      "pos_price": "25000.00",
+      "pos_cost": "11000.00",
+      "barcode": "2007837674570",
+      "is_active": true,
+      "branch_quantity": 3,
+      "is_assorted": true
+    },
+    {
+      "id": "e875abe0-0509-45d5-a6e1-8eec0ad486d0",
+      "item_id": "6a15ff20-a5f9-47ed-b9aa-bf1f936e5f29",
+      "position": 0,
+      "variant_key": "78f3a62b658465b8fffc6ddd0595a9e6",
+      "variant_attributes": {
+        "size": "XL"
+      },
+      "quantity": 1,
+      "price_override": null,
+      "cost_override": null,
+      "sku": "CAT-E5ABB498922E445085C765630F3F72AA",
+      "pos_variant_id": "9aa9f48a-24b1-44a8-abaf-761c61211a01",
+      "published_quantity": 1,
+      "publication_status": "published",
+      "publication_error": null,
+      "published_at": "2026-09-09T17:39:09.238Z",
+      "updated_by": "8691f46d-0109-4042-ac1b-45654320e269",
+      "created_at": "2026-09-09T15:22:34.072Z",
+      "updated_at": "2026-09-09T17:39:09.238Z",
+      "variant_product_id": "16cde31a-4d7d-4875-87a0-2aa02257cc76",
+      "pos_attributes": {
+        "fit": "slim",
+        "size": "XL",
+        "color": "navy and blue",
+        "sleeve": "short"
+      },
+      "pos_price": "90000.00",
+      "pos_cost": "35000.00",
+      "barcode": "2003426636677",
+      "is_active": true,
+      "branch_quantity": 1,
+      "is_assorted": true
+    },
+    {
+      "id": "35578241-0c2e-4429-b2eb-812fdaa23fc6",
+      "item_id": "71348ed2-18b2-457c-b839-7611b5d4d909",
+      "position": 0,
+      "variant_key": "f3a6cbd39c255e0cd7115728afcc3176",
+      "variant_attributes": {
+        "size": "41"
+      },
+      "quantity": 1,
+      "price_override": null,
+      "cost_override": null,
+      "sku": "CAT-30690210337D4BE29305F73A3BFB6E86",
+      "pos_variant_id": "64b5c6bc-0773-4e6f-8064-dd6bac2cfbd2",
+      "published_quantity": 1,
+      "publication_status": "published",
+      "publication_error": null,
+      "published_at": "2026-09-09T17:39:37.139Z",
+      "updated_by": "8691f46d-0109-4042-ac1b-45654320e269",
+      "created_at": "2026-09-09T14:41:59.445Z",
+      "updated_at": "2026-09-09T17:39:37.139Z",
+      "variant_product_id": "b3fca59d-055e-493e-b790-c73969066564",
+      "pos_attributes": {
+        "size": "41",
+        "color": "black and white"
+      },
+      "pos_price": "320000.00",
+      "pos_cost": "90000.00",
+      "barcode": "2008088397263",
+      "is_active": true,
+      "branch_quantity": 1,
+      "is_assorted": true
+    },
+    {
+      "id": "1747b4ac-84b6-47d1-96a3-ecd489b8b36a",
+      "item_id": "737efd90-c39f-4505-b85d-9f8a511f928b",
+      "position": 0,
+      "variant_key": "544a9f01df3f6a77507b6e244b15a111",
+      "variant_attributes": {
+        "size": "L"
+      },
+      "quantity": 1,
+      "price_override": null,
+      "cost_override": null,
+      "sku": "CAT-CE423855C70E42F4B48482003D124621",
+      "pos_variant_id": "5f66dafa-a795-4e73-b0cd-df4f51427e2e",
+      "published_quantity": 1,
+      "publication_status": "published",
+      "publication_error": null,
+      "published_at": "2026-09-09T17:53:24.727Z",
+      "updated_by": "8691f46d-0109-4042-ac1b-45654320e269",
+      "created_at": "2026-09-09T15:22:20.331Z",
+      "updated_at": "2026-09-09T17:53:24.727Z",
+      "variant_product_id": "644fc1b0-d837-474a-bd3c-dad41bff0e20",
+      "pos_attributes": {
+        "fit": "slim",
+        "size": "L",
+        "color": "white",
+        "sleeve": "short"
+      },
+      "pos_price": "90000.00",
+      "pos_cost": "35000.00",
+      "barcode": "2001980137524",
+      "is_active": true,
+      "branch_quantity": 1,
+      "is_assorted": true
+    },
+    {
+      "id": "02cbbce5-7b05-40d7-97b1-c3222b89f06d",
+      "item_id": "783323c8-df6e-4ffe-9d50-37610a73e75d",
+      "position": 0,
+      "variant_key": "77526d953202bde2851f302b532f2ce1",
+      "variant_attributes": {
+        "size": "42"
+      },
+      "quantity": 1,
+      "price_override": null,
+      "cost_override": null,
+      "sku": "CAT-783323C8DF6E",
+      "pos_variant_id": "b3077825-4e7f-453f-9fe0-b37200ad5677",
+      "published_quantity": 1,
+      "publication_status": "published",
+      "publication_error": null,
+      "published_at": "2026-09-09T17:39:48.562Z",
+      "updated_by": "8691f46d-0109-4042-ac1b-45654320e269",
+      "created_at": "2026-09-09T14:41:56.815Z",
+      "updated_at": "2026-09-09T17:39:48.562Z",
+      "variant_product_id": "94286fed-6d6e-4d38-849c-5b17b3c6ce59",
+      "pos_attributes": {
+        "size": "42",
+        "color": "Gray and white"
+      },
+      "pos_price": "320000.00",
+      "pos_cost": "90000.00",
+      "barcode": "2003313437189",
+      "is_active": true,
+      "branch_quantity": 1,
+      "is_assorted": true
+    },
+    {
+      "id": "253b038f-ed41-49be-912a-28fd6b8dfdc9",
+      "item_id": "82b042b3-d8df-410b-9e75-265a977b6c46",
+      "position": 0,
+      "variant_key": "2f88d5aa903887443949847208ed7f0f",
+      "variant_attributes": {
+        "size": "M"
+      },
+      "quantity": 3,
+      "price_override": null,
+      "cost_override": null,
+      "sku": "CAT-2CE40C5001C44B6FA57773BC0FD44766",
+      "pos_variant_id": "cb59c4df-fd14-431c-9875-ec94e3fbdb6d",
+      "published_quantity": 3,
+      "publication_status": "published",
+      "publication_error": null,
+      "published_at": "2026-09-09T17:54:11.954Z",
+      "updated_by": "8691f46d-0109-4042-ac1b-45654320e269",
+      "created_at": "2026-09-09T16:38:33.665Z",
+      "updated_at": "2026-09-09T17:54:11.954Z",
+      "variant_product_id": "1ffd361c-8f1d-4518-9542-8607f83f01b6",
+      "pos_attributes": {
+        "size": "M",
+        "color": "blue and white"
+      },
+      "pos_price": "25000.00",
+      "pos_cost": "11000.00",
+      "barcode": "2005634271015",
+      "is_active": true,
+      "branch_quantity": 3,
+      "is_assorted": true
+    },
+    {
+      "id": "b10d29c5-6eeb-4bbf-9a58-e8d6f3c8b3a3",
+      "item_id": "87e02ccc-3dbb-4b76-9765-6b53d5e501e3",
+      "position": 0,
+      "variant_key": "6367454a28e86dd8ee74e61afaf95b5c",
+      "variant_attributes": {
+        "size": "3XL"
+      },
+      "quantity": 1,
+      "price_override": null,
+      "cost_override": null,
+      "sku": "CAT-30F68FDFFB9B487798462A44E377C9BB",
+      "pos_variant_id": "58506d0d-24f8-453d-811f-337524432e15",
+      "published_quantity": 1,
+      "publication_status": "published",
+      "publication_error": null,
+      "published_at": "2026-09-09T17:39:09.238Z",
+      "updated_by": "8691f46d-0109-4042-ac1b-45654320e269",
+      "created_at": "2026-09-09T15:22:27.080Z",
+      "updated_at": "2026-09-09T17:39:09.238Z",
+      "variant_product_id": "16cde31a-4d7d-4875-87a0-2aa02257cc76",
+      "pos_attributes": {
+        "fit": "slim",
+        "size": "3XL",
+        "color": "navy and blue",
+        "sleeve": "short"
+      },
+      "pos_price": "90000.00",
+      "pos_cost": "35000.00",
+      "barcode": "2005033816893",
+      "is_active": true,
+      "branch_quantity": 1,
+      "is_assorted": true
+    },
+    {
+      "id": "61d5b4a8-69a8-475d-9cab-09ef6cffd8df",
+      "item_id": "918334f4-2aa8-4b17-92e1-1eb14c3b4b86",
+      "position": 0,
+      "variant_key": "f3a6cbd39c255e0cd7115728afcc3176",
+      "variant_attributes": {
+        "size": "41"
+      },
+      "quantity": 1,
+      "price_override": null,
+      "cost_override": null,
+      "sku": "CAT-918334F42AA8",
+      "pos_variant_id": "4c1b6236-c7bd-47c0-b1e2-28abeb974304",
+      "published_quantity": 1,
+      "publication_status": "published",
+      "publication_error": null,
+      "published_at": "2026-09-09T17:39:15.216Z",
+      "updated_by": "8691f46d-0109-4042-ac1b-45654320e269",
+      "created_at": "2026-09-09T14:42:52.772Z",
+      "updated_at": "2026-09-09T17:39:15.216Z",
+      "variant_product_id": "df6b07ae-509b-4067-b98f-6d9a5bc7c45c",
+      "pos_attributes": {
+        "size": "41",
+        "color": "Black"
+      },
+      "pos_price": "360000.00",
+      "pos_cost": "130000.00",
+      "barcode": "2009606066890",
+      "is_active": true,
+      "branch_quantity": 1,
+      "is_assorted": true
+    },
+    {
+      "id": "85eb95cd-b6d9-4da5-9fb2-04860705f2cf",
+      "item_id": "94110dd5-62cf-4dc5-8fb9-57076c1a611a",
+      "position": 0,
+      "variant_key": "fbc533cc2c83e9784a56bb2551618a42",
+      "variant_attributes": {
+        "size": "40"
+      },
+      "quantity": 1,
+      "price_override": null,
+      "cost_override": "70000.00",
+      "sku": "CAT-44909B7D16034B8195A0E20DA19E8167",
+      "pos_variant_id": "b6709d3d-4754-4d3a-9cd4-2e60ea0c270c",
+      "published_quantity": 1,
+      "publication_status": "published",
+      "publication_error": null,
+      "published_at": "2026-09-09T17:40:03.280Z",
+      "updated_by": "8691f46d-0109-4042-ac1b-45654320e269",
+      "created_at": "2026-09-09T14:41:53.423Z",
+      "updated_at": "2026-09-09T17:40:03.280Z",
+      "variant_product_id": "2f3fb466-61ce-4c82-a7d4-194415c7c408",
+      "pos_attributes": {
+        "size": "40",
+        "color": "navy and white"
+      },
+      "pos_price": "320000.00",
+      "pos_cost": "70000.00",
+      "barcode": "2008644286055",
+      "is_active": true,
+      "branch_quantity": 1,
+      "is_assorted": true
+    },
+    {
+      "id": "3de5bd1b-0593-463d-b202-5e2d4bd90622",
+      "item_id": "9587ee14-5a96-41a0-848e-ef3154769643",
+      "position": 0,
+      "variant_key": "544a9f01df3f6a77507b6e244b15a111",
+      "variant_attributes": {
+        "size": "L"
+      },
+      "quantity": 1,
+      "price_override": null,
+      "cost_override": null,
+      "sku": "CAT-D843FD28C6564B9A989C7157A9AC567E",
+      "pos_variant_id": "ef02987d-1054-4e79-bfa0-11be6bdb72c0",
+      "published_quantity": 1,
+      "publication_status": "published",
+      "publication_error": null,
+      "published_at": "2026-09-09T17:39:09.238Z",
+      "updated_by": "8691f46d-0109-4042-ac1b-45654320e269",
+      "created_at": "2026-09-09T15:22:41.843Z",
+      "updated_at": "2026-09-09T17:39:09.238Z",
+      "variant_product_id": "16cde31a-4d7d-4875-87a0-2aa02257cc76",
+      "pos_attributes": {
+        "fit": "slim",
+        "size": "L",
+        "color": "navy and blue",
+        "sleeve": "short"
+      },
+      "pos_price": "90000.00",
+      "pos_cost": "35000.00",
+      "barcode": "2009991849788",
+      "is_active": true,
+      "branch_quantity": 1,
+      "is_assorted": true
+    },
+    {
+      "id": "f91bc919-112e-46bc-8ecd-e4e136b72c22",
+      "item_id": "be83d601-8bdb-4217-8431-2cdcad6e277e",
+      "position": 0,
+      "variant_key": "e68abec2b56147516bf95cf33b7b1189",
+      "variant_attributes": {
+        "size": "45"
+      },
+      "quantity": 1,
+      "price_override": null,
+      "cost_override": null,
+      "sku": "CAT-BE83D6018BDB",
+      "pos_variant_id": "19888da1-9f1f-4088-a0ea-0951b4599790",
+      "published_quantity": 1,
+      "publication_status": "published",
+      "publication_error": null,
+      "published_at": "2026-09-09T17:39:20.740Z",
+      "updated_by": "8691f46d-0109-4042-ac1b-45654320e269",
+      "created_at": "2026-09-09T14:42:49.183Z",
+      "updated_at": "2026-09-09T17:39:20.740Z",
+      "variant_product_id": "dc4bef7c-a5ea-4757-ae5e-b1321a4d91b8",
+      "pos_attributes": {
+        "size": "45",
+        "color": "Brown and black"
+      },
+      "pos_price": "360000.00",
+      "pos_cost": "130000.00",
+      "barcode": "2004611432067",
+      "is_active": true,
+      "branch_quantity": 1,
+      "is_assorted": true
+    },
+    {
+      "id": "fc8e7937-3889-4b29-a6a7-9885c31b095e",
+      "item_id": "c03a0a9a-c341-4cd0-9c0e-4a003616832b",
+      "position": 0,
+      "variant_key": "544a9f01df3f6a77507b6e244b15a111",
+      "variant_attributes": {
+        "size": "L"
+      },
+      "quantity": 5,
+      "price_override": null,
+      "cost_override": null,
+      "sku": "CAT-FC2C313627334C8FA0CE0363CFD48B32",
+      "pos_variant_id": "dcf08fa1-9168-4b98-9e41-b3ac60e866f1",
+      "published_quantity": 5,
+      "publication_status": "published",
+      "publication_error": null,
+      "published_at": "2026-09-09T17:53:42.943Z",
+      "updated_by": "8691f46d-0109-4042-ac1b-45654320e269",
+      "created_at": "2026-09-09T16:32:22.547Z",
+      "updated_at": "2026-09-09T17:53:42.943Z",
+      "variant_product_id": "2bf3698b-905c-41e8-9136-251e347d3f27",
+      "pos_attributes": {
+        "size": "L",
+        "color": "navy"
+      },
+      "pos_price": "25000.00",
+      "pos_cost": "11000.00",
+      "barcode": "2006310876463",
+      "is_active": true,
+      "branch_quantity": 5,
+      "is_assorted": true
+    },
+    {
+      "id": "5e885f34-45d2-44d3-884b-04bcc7efe360",
+      "item_id": "c5bc4c28-46fa-40d9-b72c-e97de02e2209",
+      "position": 0,
+      "variant_key": "78f3a62b658465b8fffc6ddd0595a9e6",
+      "variant_attributes": {
+        "size": "XL"
+      },
+      "quantity": 6,
+      "price_override": null,
+      "cost_override": null,
+      "sku": "CAT-AD0689381F9B41ABBA52E9B3FB04A115",
+      "pos_variant_id": "9bd3b3b2-f2df-4cae-bd75-52093bbf2e9c",
+      "published_quantity": 6,
+      "publication_status": "published",
+      "publication_error": null,
+      "published_at": "2026-09-09T17:53:42.943Z",
+      "updated_by": "8691f46d-0109-4042-ac1b-45654320e269",
+      "created_at": "2026-09-09T16:31:36.271Z",
+      "updated_at": "2026-09-09T17:53:42.943Z",
+      "variant_product_id": "2bf3698b-905c-41e8-9136-251e347d3f27",
+      "pos_attributes": {
+        "size": "XL",
+        "color": "navy"
+      },
+      "pos_price": "25000.00",
+      "pos_cost": "11000.00",
+      "barcode": "2005805440370",
+      "is_active": true,
+      "branch_quantity": 6,
+      "is_assorted": true
+    },
+    {
+      "id": "df814612-fe91-4209-9476-8c596cc0e1a4",
+      "item_id": "f004995f-90f7-4f81-abab-d3724d79bc26",
+      "position": 0,
+      "variant_key": "3150dd9afe5dbaffc6c396b4e05ef2c1",
+      "variant_attributes": {
+        "size": "44"
+      },
+      "quantity": 1,
+      "price_override": null,
+      "cost_override": "70000.00",
+      "sku": "CAT-D39E224864954730998E42355E6657D9",
+      "pos_variant_id": "57aa22bf-fd5c-4432-aaf8-af88ef4f1c43",
+      "published_quantity": 1,
+      "publication_status": "published",
+      "publication_error": null,
+      "published_at": "2026-09-09T17:39:21.952Z",
+      "updated_by": "8691f46d-0109-4042-ac1b-45654320e269",
+      "created_at": "2026-09-09T14:42:03.951Z",
+      "updated_at": "2026-09-09T17:39:21.952Z",
+      "variant_product_id": "649e42be-f24e-4511-9f03-4e9847b6e75d",
+      "pos_attributes": {
+        "size": "44",
+        "color": "grey and white"
+      },
+      "pos_price": "320000.00",
+      "pos_cost": "70000.00",
+      "barcode": "2007030219448",
+      "is_active": true,
+      "branch_quantity": 1,
+      "is_assorted": true
+    },
+    {
+      "id": "740d391b-bd75-4aae-a5f5-db1680f1010c",
+      "item_id": "f235c222-858c-487c-a3fc-9a98734a3c65",
+      "position": 0,
+      "variant_key": "f3a6cbd39c255e0cd7115728afcc3176",
+      "variant_attributes": {
+        "size": "41"
+      },
+      "quantity": 1,
+      "price_override": null,
+      "cost_override": "70000.00",
+      "sku": "CAT-F66126840C494CBC9373B1B3E092E172",
+      "pos_variant_id": "ae9ed3ef-1d3e-426a-b22e-5b99f62f0fb5",
+      "published_quantity": 1,
+      "publication_status": "published",
+      "publication_error": null,
+      "published_at": "2026-09-09T17:39:21.952Z",
+      "updated_by": "8691f46d-0109-4042-ac1b-45654320e269",
+      "created_at": "2026-09-09T14:41:50.844Z",
+      "updated_at": "2026-09-09T17:39:21.952Z",
+      "variant_product_id": "649e42be-f24e-4511-9f03-4e9847b6e75d",
+      "pos_attributes": {
+        "size": "41",
+        "color": "grey and white"
+      },
+      "pos_price": "320000.00",
+      "pos_cost": "70000.00",
+      "barcode": "2009581159129",
+      "is_active": true,
+      "branch_quantity": 1,
+      "is_assorted": true
+    },
+    {
+      "id": "9ae4f409-6cd4-471d-9050-10ea757fc391",
+      "item_id": "f26a8bf5-20ce-4736-a472-f0ff73937f61",
+      "position": 0,
+      "variant_key": "77526d953202bde2851f302b532f2ce1",
+      "variant_attributes": {
+        "size": "42"
+      },
+      "quantity": 1,
+      "price_override": null,
+      "cost_override": "70000.00",
+      "sku": "CAT-3F17BE7F5C5A4DF1BB92CD0EEE5DF293",
+      "pos_variant_id": "acdbfdf8-5c32-479d-8281-11bb88fa0cc3",
+      "published_quantity": 1,
+      "publication_status": "published",
+      "publication_error": null,
+      "published_at": "2026-09-09T17:40:03.280Z",
+      "updated_by": "8691f46d-0109-4042-ac1b-45654320e269",
+      "created_at": "2026-09-09T14:41:44.898Z",
+      "updated_at": "2026-09-09T17:40:03.280Z",
+      "variant_product_id": "2f3fb466-61ce-4c82-a7d4-194415c7c408",
+      "pos_attributes": {
+        "size": "42",
+        "color": "navy and white"
+      },
+      "pos_price": "320000.00",
+      "pos_cost": "70000.00",
+      "barcode": "2003974703296",
+      "is_active": true,
+      "branch_quantity": 1,
+      "is_assorted": true
+    },
+    {
+      "id": "464774c3-42a3-4605-b753-e9a7e3db3889",
+      "item_id": "f752344f-15c8-4682-97d2-804383e41f13",
+      "position": 0,
+      "variant_key": "3150dd9afe5dbaffc6c396b4e05ef2c1",
+      "variant_attributes": {
+        "size": "44"
+      },
+      "quantity": 1,
+      "price_override": null,
+      "cost_override": null,
+      "sku": "CAT-C9A0ADE059604B0D97DF6257732680CD",
+      "pos_variant_id": "59be4c0c-b267-4321-8a4f-8098dea36b8b",
+      "published_quantity": 1,
+      "publication_status": "published",
+      "publication_error": null,
+      "published_at": "2026-09-09T17:39:13.790Z",
+      "updated_by": "8691f46d-0109-4042-ac1b-45654320e269",
+      "created_at": "2026-09-09T14:42:55.875Z",
+      "updated_at": "2026-09-09T17:39:13.790Z",
+      "variant_product_id": "5626c61f-a9af-4ecf-bff1-657bf4c318b2",
+      "pos_attributes": {
+        "size": "44",
+        "color": "black"
+      },
+      "pos_price": "360000.00",
+      "pos_cost": "130000.00",
+      "barcode": "2006401662906",
+      "is_active": true,
+      "branch_quantity": 1,
+      "is_assorted": true
+    }
+  ],
+  "movements": [
+    {
+      "id": "3035283c-8b16-496a-88e9-cc0c2352a784",
+      "variant_id": "ef02987d-1054-4e79-bfa0-11be6bdb72c0",
+      "movement_type": "purchase",
+      "quantity_change": 1,
+      "previous_quantity": 0,
+      "new_quantity": 1,
+      "reason": "Catalog matched receipt 9587ee14-5a96-41a0-848e-ef3154769643",
+      "reference_id": "3de5bd1b-0593-463d-b202-5e2d4bd90622",
+      "performed_by": "8691f46d-0109-4042-ac1b-45654320e269",
+      "created_at": "2026-09-09T14:39:09.238Z",
+      "supplier_id": null,
+      "grn_reference": null,
+      "cost_price_at_receive": null,
+      "branch_id": "a0fc0889-235b-4467-977b-733cb4354739"
+    },
+    {
+      "id": "3215f813-7d95-4759-8c4a-033ebc278fc3",
+      "variant_id": "58506d0d-24f8-453d-811f-337524432e15",
+      "movement_type": "purchase",
+      "quantity_change": 1,
+      "previous_quantity": 0,
+      "new_quantity": 1,
+      "reason": "Catalog matched receipt 87e02ccc-3dbb-4b76-9765-6b53d5e501e3",
+      "reference_id": "b10d29c5-6eeb-4bbf-9a58-e8d6f3c8b3a3",
+      "performed_by": "8691f46d-0109-4042-ac1b-45654320e269",
+      "created_at": "2026-09-09T14:39:09.238Z",
+      "supplier_id": null,
+      "grn_reference": null,
+      "cost_price_at_receive": null,
+      "branch_id": "a0fc0889-235b-4467-977b-733cb4354739"
+    },
+    {
+      "id": "963c837a-248d-4674-b969-ef33c0d956d6",
+      "variant_id": "9aa9f48a-24b1-44a8-abaf-761c61211a01",
+      "movement_type": "purchase",
+      "quantity_change": 1,
+      "previous_quantity": 0,
+      "new_quantity": 1,
+      "reason": "Catalog matched receipt 6a15ff20-a5f9-47ed-b9aa-bf1f936e5f29",
+      "reference_id": "e875abe0-0509-45d5-a6e1-8eec0ad486d0",
+      "performed_by": "8691f46d-0109-4042-ac1b-45654320e269",
+      "created_at": "2026-09-09T14:39:09.238Z",
+      "supplier_id": null,
+      "grn_reference": null,
+      "cost_price_at_receive": null,
+      "branch_id": "a0fc0889-235b-4467-977b-733cb4354739"
+    },
+    {
+      "id": "c1cc77ce-a1af-461d-8442-cad52bdfb3fb",
+      "variant_id": "a97ed207-7b8d-4071-a640-7190de02efe1",
+      "movement_type": "purchase",
+      "quantity_change": 1,
+      "previous_quantity": 0,
+      "new_quantity": 1,
+      "reason": "Catalog matched receipt 08bf0583-2bf9-4f78-a9ae-d19cbd95cf8f",
+      "reference_id": "08102fea-6c1f-4451-a20a-c7c409364df5",
+      "performed_by": "8691f46d-0109-4042-ac1b-45654320e269",
+      "created_at": "2026-09-09T14:39:09.238Z",
+      "supplier_id": null,
+      "grn_reference": null,
+      "cost_price_at_receive": null,
+      "branch_id": "a0fc0889-235b-4467-977b-733cb4354739"
+    },
+    {
+      "id": "2fb2c11f-c7de-47de-9d34-8b8edebaae85",
+      "variant_id": "59be4c0c-b267-4321-8a4f-8098dea36b8b",
+      "movement_type": "purchase",
+      "quantity_change": 1,
+      "previous_quantity": 0,
+      "new_quantity": 1,
+      "reason": "Catalog matched receipt f752344f-15c8-4682-97d2-804383e41f13",
+      "reference_id": "464774c3-42a3-4605-b753-e9a7e3db3889",
+      "performed_by": "8691f46d-0109-4042-ac1b-45654320e269",
+      "created_at": "2026-09-09T14:39:13.790Z",
+      "supplier_id": null,
+      "grn_reference": null,
+      "cost_price_at_receive": null,
+      "branch_id": "a0fc0889-235b-4467-977b-733cb4354739"
+    },
+    {
+      "id": "31ef8c24-8d04-410f-926a-b11d0bc3d8f3",
+      "variant_id": "176943b5-6c8f-4c67-a942-3909796da820",
+      "movement_type": "purchase",
+      "quantity_change": 1,
+      "previous_quantity": 0,
+      "new_quantity": 1,
+      "reason": "Catalog matched receipt 02ff215c-b83d-47b1-bac4-6874a8ad00e2",
+      "reference_id": "2c461998-caeb-4865-beb8-2593685a56fe",
+      "performed_by": "8691f46d-0109-4042-ac1b-45654320e269",
+      "created_at": "2026-09-09T14:39:13.790Z",
+      "supplier_id": null,
+      "grn_reference": null,
+      "cost_price_at_receive": null,
+      "branch_id": "a0fc0889-235b-4467-977b-733cb4354739"
+    },
+    {
+      "id": "7e5b284e-293f-46d6-927e-3a56f2ca8e34",
+      "variant_id": "4c1b6236-c7bd-47c0-b1e2-28abeb974304",
+      "movement_type": "purchase",
+      "quantity_change": 1,
+      "previous_quantity": 0,
+      "new_quantity": 1,
+      "reason": "Catalog import 918334f4-2aa8-4b17-92e1-1eb14c3b4b86",
+      "reference_id": "61d5b4a8-69a8-475d-9cab-09ef6cffd8df",
+      "performed_by": "8691f46d-0109-4042-ac1b-45654320e269",
+      "created_at": "2026-09-09T14:39:15.216Z",
+      "supplier_id": null,
+      "grn_reference": null,
+      "cost_price_at_receive": null,
+      "branch_id": "a0fc0889-235b-4467-977b-733cb4354739"
+    },
+    {
+      "id": "8d9fa3af-0cc5-4e52-9766-a5ed44c7170d",
+      "variant_id": "19888da1-9f1f-4088-a0ea-0951b4599790",
+      "movement_type": "purchase",
+      "quantity_change": 1,
+      "previous_quantity": 0,
+      "new_quantity": 1,
+      "reason": "Catalog import be83d601-8bdb-4217-8431-2cdcad6e277e",
+      "reference_id": "f91bc919-112e-46bc-8ecd-e4e136b72c22",
+      "performed_by": "8691f46d-0109-4042-ac1b-45654320e269",
+      "created_at": "2026-09-09T14:39:20.740Z",
+      "supplier_id": null,
+      "grn_reference": null,
+      "cost_price_at_receive": null,
+      "branch_id": "a0fc0889-235b-4467-977b-733cb4354739"
+    },
+    {
+      "id": "209780d8-b10d-4c5c-9269-0ebf767cf758",
+      "variant_id": "57aa22bf-fd5c-4432-aaf8-af88ef4f1c43",
+      "movement_type": "purchase",
+      "quantity_change": 1,
+      "previous_quantity": 0,
+      "new_quantity": 1,
+      "reason": "Catalog matched receipt f004995f-90f7-4f81-abab-d3724d79bc26",
+      "reference_id": "df814612-fe91-4209-9476-8c596cc0e1a4",
+      "performed_by": "8691f46d-0109-4042-ac1b-45654320e269",
+      "created_at": "2026-09-09T14:39:21.952Z",
+      "supplier_id": null,
+      "grn_reference": null,
+      "cost_price_at_receive": null,
+      "branch_id": "a0fc0889-235b-4467-977b-733cb4354739"
+    },
+    {
+      "id": "8c2386dc-7688-4dd6-9836-b79cea549717",
+      "variant_id": "ae9ed3ef-1d3e-426a-b22e-5b99f62f0fb5",
+      "movement_type": "purchase",
+      "quantity_change": 1,
+      "previous_quantity": 0,
+      "new_quantity": 1,
+      "reason": "Catalog matched receipt f235c222-858c-487c-a3fc-9a98734a3c65",
+      "reference_id": "740d391b-bd75-4aae-a5f5-db1680f1010c",
+      "performed_by": "8691f46d-0109-4042-ac1b-45654320e269",
+      "created_at": "2026-09-09T14:39:21.952Z",
+      "supplier_id": null,
+      "grn_reference": null,
+      "cost_price_at_receive": null,
+      "branch_id": "a0fc0889-235b-4467-977b-733cb4354739"
+    },
+    {
+      "id": "233fb399-4134-4012-bd14-10fbb80f4301",
+      "variant_id": "9d76e3ef-59c7-4c84-aa5d-af48a6f06096",
+      "movement_type": "purchase",
+      "quantity_change": 1,
+      "previous_quantity": 0,
+      "new_quantity": 1,
+      "reason": "Catalog matched receipt 19f1c7ab-ccbb-4416-baa8-e00403c7d3e0",
+      "reference_id": "8952a041-0f29-4fb9-a1e5-210f7c202b06",
+      "performed_by": "8691f46d-0109-4042-ac1b-45654320e269",
+      "created_at": "2026-09-09T14:39:37.139Z",
+      "supplier_id": null,
+      "grn_reference": null,
+      "cost_price_at_receive": null,
+      "branch_id": "a0fc0889-235b-4467-977b-733cb4354739"
+    },
+    {
+      "id": "31447fd7-d1f1-4850-b3c0-0645d081fa6a",
+      "variant_id": "64b5c6bc-0773-4e6f-8064-dd6bac2cfbd2",
+      "movement_type": "purchase",
+      "quantity_change": 1,
+      "previous_quantity": 0,
+      "new_quantity": 1,
+      "reason": "Catalog matched receipt 71348ed2-18b2-457c-b839-7611b5d4d909",
+      "reference_id": "35578241-0c2e-4429-b2eb-812fdaa23fc6",
+      "performed_by": "8691f46d-0109-4042-ac1b-45654320e269",
+      "created_at": "2026-09-09T14:39:37.139Z",
+      "supplier_id": null,
+      "grn_reference": null,
+      "cost_price_at_receive": null,
+      "branch_id": "a0fc0889-235b-4467-977b-733cb4354739"
+    },
+    {
+      "id": "19572904-6af9-4602-9b8e-fc8f9243eceb",
+      "variant_id": "b3077825-4e7f-453f-9fe0-b37200ad5677",
+      "movement_type": "purchase",
+      "quantity_change": 1,
+      "previous_quantity": 0,
+      "new_quantity": 1,
+      "reason": "Catalog import 783323c8-df6e-4ffe-9d50-37610a73e75d",
+      "reference_id": "02cbbce5-7b05-40d7-97b1-c3222b89f06d",
+      "performed_by": "8691f46d-0109-4042-ac1b-45654320e269",
+      "created_at": "2026-09-09T14:39:48.562Z",
+      "supplier_id": null,
+      "grn_reference": null,
+      "cost_price_at_receive": null,
+      "branch_id": "a0fc0889-235b-4467-977b-733cb4354739"
+    },
+    {
+      "id": "7bfffe3a-f388-45c8-adc9-d5efde56f0ac",
+      "variant_id": "b6709d3d-4754-4d3a-9cd4-2e60ea0c270c",
+      "movement_type": "purchase",
+      "quantity_change": 1,
+      "previous_quantity": 0,
+      "new_quantity": 1,
+      "reason": "Catalog matched receipt 94110dd5-62cf-4dc5-8fb9-57076c1a611a",
+      "reference_id": "85eb95cd-b6d9-4da5-9fb2-04860705f2cf",
+      "performed_by": "8691f46d-0109-4042-ac1b-45654320e269",
+      "created_at": "2026-09-09T14:40:03.280Z",
+      "supplier_id": null,
+      "grn_reference": null,
+      "cost_price_at_receive": null,
+      "branch_id": "a0fc0889-235b-4467-977b-733cb4354739"
+    },
+    {
+      "id": "aa3a31d9-a0a5-4228-8d0e-0ca1ed58678f",
+      "variant_id": "acdbfdf8-5c32-479d-8281-11bb88fa0cc3",
+      "movement_type": "purchase",
+      "quantity_change": 1,
+      "previous_quantity": 0,
+      "new_quantity": 1,
+      "reason": "Catalog matched receipt f26a8bf5-20ce-4736-a472-f0ff73937f61",
+      "reference_id": "9ae4f409-6cd4-471d-9050-10ea757fc391",
+      "performed_by": "8691f46d-0109-4042-ac1b-45654320e269",
+      "created_at": "2026-09-09T14:40:03.280Z",
+      "supplier_id": null,
+      "grn_reference": null,
+      "cost_price_at_receive": null,
+      "branch_id": "a0fc0889-235b-4467-977b-733cb4354739"
+    },
+    {
+      "id": "26881f1d-e746-411c-a6a1-999221113b97",
+      "variant_id": "aae66285-dc92-4ce8-95fa-670458161028",
+      "movement_type": "purchase",
+      "quantity_change": 1,
+      "previous_quantity": 0,
+      "new_quantity": 1,
+      "reason": "Catalog matched receipt 0880f6f0-147a-4c97-ac2e-ed6fc388fc69",
+      "reference_id": "2281586d-84f8-42ba-9f3d-6666c182f3cc",
+      "performed_by": "8691f46d-0109-4042-ac1b-45654320e269",
+      "created_at": "2026-09-09T14:52:59.778Z",
+      "supplier_id": null,
+      "grn_reference": null,
+      "cost_price_at_receive": null,
+      "branch_id": "a0fc0889-235b-4467-977b-733cb4354739"
+    },
+    {
+      "id": "b6d7ad61-7c3d-4eee-a676-d76280594c57",
+      "variant_id": "1fea7745-8342-4f12-9a32-b6301e356931",
+      "movement_type": "purchase",
+      "quantity_change": 1,
+      "previous_quantity": 0,
+      "new_quantity": 1,
+      "reason": "Catalog matched receipt 1b028ea6-615f-4456-90e5-06fcbaa5e435",
+      "reference_id": "88d9274d-3bc0-4213-bb79-12aef82e14b2",
+      "performed_by": "8691f46d-0109-4042-ac1b-45654320e269",
+      "created_at": "2026-09-09T14:52:59.778Z",
+      "supplier_id": null,
+      "grn_reference": null,
+      "cost_price_at_receive": null,
+      "branch_id": "a0fc0889-235b-4467-977b-733cb4354739"
+    },
+    {
+      "id": "630e0e14-6a8b-4846-81e0-363324d48025",
+      "variant_id": "e973e300-244c-4ccd-a720-2754e75edcfe",
+      "movement_type": "purchase",
+      "quantity_change": 1,
+      "previous_quantity": 0,
+      "new_quantity": 1,
+      "reason": "Catalog matched receipt 326f7d95-c442-492f-bf9d-a4832e926e23",
+      "reference_id": "ca96a525-7256-436b-8670-ad3c4d4a3c28",
+      "performed_by": "8691f46d-0109-4042-ac1b-45654320e269",
+      "created_at": "2026-09-09T14:53:24.727Z",
+      "supplier_id": null,
+      "grn_reference": null,
+      "cost_price_at_receive": null,
+      "branch_id": "a0fc0889-235b-4467-977b-733cb4354739"
+    },
+    {
+      "id": "76396515-4f9f-4838-9dd0-81fa40a4490b",
+      "variant_id": "133bdf3e-c8d3-4561-921b-e7ff02c5e089",
+      "movement_type": "purchase",
+      "quantity_change": 1,
+      "previous_quantity": 0,
+      "new_quantity": 1,
+      "reason": "Catalog matched receipt 24c42a78-5fba-411f-8894-6e38a44d2e1f",
+      "reference_id": "9db84f52-f987-4391-aead-9694ca4bf86e",
+      "performed_by": "8691f46d-0109-4042-ac1b-45654320e269",
+      "created_at": "2026-09-09T14:53:24.727Z",
+      "supplier_id": null,
+      "grn_reference": null,
+      "cost_price_at_receive": null,
+      "branch_id": "a0fc0889-235b-4467-977b-733cb4354739"
+    },
+    {
+      "id": "eb9c041e-cae7-4639-a032-a0b03fb9eecb",
+      "variant_id": "5f66dafa-a795-4e73-b0cd-df4f51427e2e",
+      "movement_type": "purchase",
+      "quantity_change": 1,
+      "previous_quantity": 0,
+      "new_quantity": 1,
+      "reason": "Catalog matched receipt 737efd90-c39f-4505-b85d-9f8a511f928b",
+      "reference_id": "1747b4ac-84b6-47d1-96a3-ecd489b8b36a",
+      "performed_by": "8691f46d-0109-4042-ac1b-45654320e269",
+      "created_at": "2026-09-09T14:53:24.727Z",
+      "supplier_id": null,
+      "grn_reference": null,
+      "cost_price_at_receive": null,
+      "branch_id": "a0fc0889-235b-4467-977b-733cb4354739"
+    },
+    {
+      "id": "03694c20-4605-450c-9a51-3f338ea3f01e",
+      "variant_id": "dcf08fa1-9168-4b98-9e41-b3ac60e866f1",
+      "movement_type": "purchase",
+      "quantity_change": 5,
+      "previous_quantity": 0,
+      "new_quantity": 5,
+      "reason": "Catalog matched receipt c03a0a9a-c341-4cd0-9c0e-4a003616832b",
+      "reference_id": "fc8e7937-3889-4b29-a6a7-9885c31b095e",
+      "performed_by": "8691f46d-0109-4042-ac1b-45654320e269",
+      "created_at": "2026-09-09T14:53:42.943Z",
+      "supplier_id": null,
+      "grn_reference": null,
+      "cost_price_at_receive": null,
+      "branch_id": "a0fc0889-235b-4467-977b-733cb4354739"
+    },
+    {
+      "id": "436287e6-f31e-41b3-bacd-a2047ae06a18",
+      "variant_id": "47d4e459-f41e-4735-9ebe-624aa2a36e53",
+      "movement_type": "purchase",
+      "quantity_change": 1,
+      "previous_quantity": 0,
+      "new_quantity": 1,
+      "reason": "Catalog matched receipt 440f216e-19d3-4c72-9365-f0a39e305327",
+      "reference_id": "c015cf02-6096-4a6e-bd4a-41806f4f279f",
+      "performed_by": "8691f46d-0109-4042-ac1b-45654320e269",
+      "created_at": "2026-09-09T14:53:42.943Z",
+      "supplier_id": null,
+      "grn_reference": null,
+      "cost_price_at_receive": null,
+      "branch_id": "a0fc0889-235b-4467-977b-733cb4354739"
+    },
+    {
+      "id": "c35e2a01-0b8b-4161-aa8c-0eb9c22bd54c",
+      "variant_id": "9bd3b3b2-f2df-4cae-bd75-52093bbf2e9c",
+      "movement_type": "purchase",
+      "quantity_change": 6,
+      "previous_quantity": 0,
+      "new_quantity": 6,
+      "reason": "Catalog matched receipt c5bc4c28-46fa-40d9-b72c-e97de02e2209",
+      "reference_id": "5e885f34-45d2-44d3-884b-04bcc7efe360",
+      "performed_by": "8691f46d-0109-4042-ac1b-45654320e269",
+      "created_at": "2026-09-09T14:53:42.943Z",
+      "supplier_id": null,
+      "grn_reference": null,
+      "cost_price_at_receive": null,
+      "branch_id": "a0fc0889-235b-4467-977b-733cb4354739"
+    },
+    {
+      "id": "1b7f3510-d8b5-4fd0-9eb1-c29f64ef1d03",
+      "variant_id": "4c8e66f3-7bda-4e61-b2bd-59b29b7b7c06",
+      "movement_type": "purchase",
+      "quantity_change": 4,
+      "previous_quantity": 0,
+      "new_quantity": 4,
+      "reason": "Catalog matched receipt 40e1a352-ef6d-4ab8-a752-a7fc14aa282c",
+      "reference_id": "71e7e65c-2e61-48f4-8f9f-82c18412e5d9",
+      "performed_by": "8691f46d-0109-4042-ac1b-45654320e269",
+      "created_at": "2026-09-09T14:54:11.954Z",
+      "supplier_id": null,
+      "grn_reference": null,
+      "cost_price_at_receive": null,
+      "branch_id": "a0fc0889-235b-4467-977b-733cb4354739"
+    },
+    {
+      "id": "48185d44-9bf9-4a58-a02c-30c7b8c1a3f5",
+      "variant_id": "710db139-9be8-43d4-a0c3-7fc32863f76f",
+      "movement_type": "purchase",
+      "quantity_change": 3,
+      "previous_quantity": 0,
+      "new_quantity": 3,
+      "reason": "Catalog matched receipt 49448a6f-54e1-4a37-96c9-ef8782be63bf",
+      "reference_id": "749af3d6-72b0-44ea-aa83-9a498b32b5cf",
+      "performed_by": "8691f46d-0109-4042-ac1b-45654320e269",
+      "created_at": "2026-09-09T14:54:11.954Z",
+      "supplier_id": null,
+      "grn_reference": null,
+      "cost_price_at_receive": null,
+      "branch_id": "a0fc0889-235b-4467-977b-733cb4354739"
+    },
+    {
+      "id": "635d4b7a-b326-4962-885e-c7a265f18f2e",
+      "variant_id": "81a3ce4a-2274-4a64-a6b6-b8112e7a57ea",
+      "movement_type": "purchase",
+      "quantity_change": 3,
+      "previous_quantity": 0,
+      "new_quantity": 3,
+      "reason": "Catalog matched receipt 1b0b3610-4281-42f7-b79d-23ca6f6067f5",
+      "reference_id": "96851a7d-b999-4c40-954a-2743c4db792a",
+      "performed_by": "8691f46d-0109-4042-ac1b-45654320e269",
+      "created_at": "2026-09-09T14:54:11.954Z",
+      "supplier_id": null,
+      "grn_reference": null,
+      "cost_price_at_receive": null,
+      "branch_id": "a0fc0889-235b-4467-977b-733cb4354739"
+    },
+    {
+      "id": "d773ebac-5d2f-4f70-8460-8eb1512fb499",
+      "variant_id": "cb59c4df-fd14-431c-9875-ec94e3fbdb6d",
+      "movement_type": "purchase",
+      "quantity_change": 3,
+      "previous_quantity": 0,
+      "new_quantity": 3,
+      "reason": "Catalog matched receipt 82b042b3-d8df-410b-9e75-265a977b6c46",
+      "reference_id": "253b038f-ed41-49be-912a-28fd6b8dfdc9",
+      "performed_by": "8691f46d-0109-4042-ac1b-45654320e269",
+      "created_at": "2026-09-09T14:54:11.954Z",
+      "supplier_id": null,
+      "grn_reference": null,
+      "cost_price_at_receive": null,
+      "branch_id": "a0fc0889-235b-4467-977b-733cb4354739"
+    }
+  ],
+  "stockChecks": [
+    {
+      "variant_id": "176943b5-6c8f-4c67-a942-3909796da820",
+      "received": 1,
+      "purchased": 1,
+      "balance": 1,
+      "expected_balance": 1,
+      "history_entries": 1
+    },
+    {
+      "variant_id": "aae66285-dc92-4ce8-95fa-670458161028",
+      "received": 1,
+      "purchased": 1,
+      "balance": 1,
+      "expected_balance": 1,
+      "history_entries": 1
+    },
+    {
+      "variant_id": "a97ed207-7b8d-4071-a640-7190de02efe1",
+      "received": 1,
+      "purchased": 1,
+      "balance": 1,
+      "expected_balance": 1,
+      "history_entries": 1
+    },
+    {
+      "variant_id": "9d76e3ef-59c7-4c84-aa5d-af48a6f06096",
+      "received": 1,
+      "purchased": 1,
+      "balance": 1,
+      "expected_balance": 1,
+      "history_entries": 1
+    },
+    {
+      "variant_id": "1fea7745-8342-4f12-9a32-b6301e356931",
+      "received": 1,
+      "purchased": 1,
+      "balance": 1,
+      "expected_balance": 1,
+      "history_entries": 1
+    },
+    {
+      "variant_id": "81a3ce4a-2274-4a64-a6b6-b8112e7a57ea",
+      "received": 3,
+      "purchased": 3,
+      "balance": 3,
+      "expected_balance": 3,
+      "history_entries": 1
+    },
+    {
+      "variant_id": "133bdf3e-c8d3-4561-921b-e7ff02c5e089",
+      "received": 1,
+      "purchased": 1,
+      "balance": 1,
+      "expected_balance": 1,
+      "history_entries": 1
+    },
+    {
+      "variant_id": "e973e300-244c-4ccd-a720-2754e75edcfe",
+      "received": 1,
+      "purchased": 1,
+      "balance": 1,
+      "expected_balance": 1,
+      "history_entries": 1
+    },
+    {
+      "variant_id": "4c8e66f3-7bda-4e61-b2bd-59b29b7b7c06",
+      "received": 4,
+      "purchased": 4,
+      "balance": 4,
+      "expected_balance": 4,
+      "history_entries": 1
+    },
+    {
+      "variant_id": "47d4e459-f41e-4735-9ebe-624aa2a36e53",
+      "received": 1,
+      "purchased": 1,
+      "balance": 1,
+      "expected_balance": 1,
+      "history_entries": 1
+    },
+    {
+      "variant_id": "710db139-9be8-43d4-a0c3-7fc32863f76f",
+      "received": 3,
+      "purchased": 3,
+      "balance": 3,
+      "expected_balance": 3,
+      "history_entries": 1
+    },
+    {
+      "variant_id": "9aa9f48a-24b1-44a8-abaf-761c61211a01",
+      "received": 1,
+      "purchased": 1,
+      "balance": 1,
+      "expected_balance": 1,
+      "history_entries": 1
+    },
+    {
+      "variant_id": "64b5c6bc-0773-4e6f-8064-dd6bac2cfbd2",
+      "received": 1,
+      "purchased": 1,
+      "balance": 1,
+      "expected_balance": 1,
+      "history_entries": 1
+    },
+    {
+      "variant_id": "5f66dafa-a795-4e73-b0cd-df4f51427e2e",
+      "received": 1,
+      "purchased": 1,
+      "balance": 1,
+      "expected_balance": 1,
+      "history_entries": 1
+    },
+    {
+      "variant_id": "b3077825-4e7f-453f-9fe0-b37200ad5677",
+      "received": 1,
+      "purchased": 1,
+      "balance": 1,
+      "expected_balance": 1,
+      "history_entries": 1
+    },
+    {
+      "variant_id": "cb59c4df-fd14-431c-9875-ec94e3fbdb6d",
+      "received": 3,
+      "purchased": 3,
+      "balance": 3,
+      "expected_balance": 3,
+      "history_entries": 1
+    },
+    {
+      "variant_id": "58506d0d-24f8-453d-811f-337524432e15",
+      "received": 1,
+      "purchased": 1,
+      "balance": 1,
+      "expected_balance": 1,
+      "history_entries": 1
+    },
+    {
+      "variant_id": "4c1b6236-c7bd-47c0-b1e2-28abeb974304",
+      "received": 1,
+      "purchased": 1,
+      "balance": 1,
+      "expected_balance": 1,
+      "history_entries": 1
+    },
+    {
+      "variant_id": "b6709d3d-4754-4d3a-9cd4-2e60ea0c270c",
+      "received": 1,
+      "purchased": 1,
+      "balance": 1,
+      "expected_balance": 1,
+      "history_entries": 1
+    },
+    {
+      "variant_id": "ef02987d-1054-4e79-bfa0-11be6bdb72c0",
+      "received": 1,
+      "purchased": 1,
+      "balance": 1,
+      "expected_balance": 1,
+      "history_entries": 1
+    },
+    {
+      "variant_id": "19888da1-9f1f-4088-a0ea-0951b4599790",
+      "received": 1,
+      "purchased": 1,
+      "balance": 1,
+      "expected_balance": 1,
+      "history_entries": 1
+    },
+    {
+      "variant_id": "dcf08fa1-9168-4b98-9e41-b3ac60e866f1",
+      "received": 5,
+      "purchased": 5,
+      "balance": 5,
+      "expected_balance": 5,
+      "history_entries": 1
+    },
+    {
+      "variant_id": "9bd3b3b2-f2df-4cae-bd75-52093bbf2e9c",
+      "received": 6,
+      "purchased": 6,
+      "balance": 6,
+      "expected_balance": 6,
+      "history_entries": 1
+    },
+    {
+      "variant_id": "57aa22bf-fd5c-4432-aaf8-af88ef4f1c43",
+      "received": 1,
+      "purchased": 1,
+      "balance": 1,
+      "expected_balance": 1,
+      "history_entries": 1
+    },
+    {
+      "variant_id": "ae9ed3ef-1d3e-426a-b22e-5b99f62f0fb5",
+      "received": 1,
+      "purchased": 1,
+      "balance": 1,
+      "expected_balance": 1,
+      "history_entries": 1
+    },
+    {
+      "variant_id": "acdbfdf8-5c32-479d-8281-11bb88fa0cc3",
+      "received": 1,
+      "purchased": 1,
+      "balance": 1,
+      "expected_balance": 1,
+      "history_entries": 1
+    },
+    {
+      "variant_id": "59be4c0c-b267-4321-8a4f-8098dea36b8b",
+      "received": 1,
+      "purchased": 1,
+      "balance": 1,
+      "expected_balance": 1,
+      "history_entries": 1
+    }
+  ],
+  "galleries": [
+    {
+      "id": "94286fed-6d6e-4d38-849c-5b17b3c6ce59",
+      "name": "kenneth cole Casual Shoes",
+      "image_path": "pos-products/catalog/783323c8-df6e-4ffe-9d50-37610a73e75d/65c4b0610bac69fe1045c245fbd29bfa12cf658b04acb27fb464624be37e1739",
+      "photos": 1,
+      "primary_count": 1,
+      "matching_primary": 1
+    },
+    {
+      "id": "644fc1b0-d837-474a-bd3c-dad41bff0e20",
+      "name": "Oxford Short Sleeve Shirt - White",
+      "image_path": "pos-products/catalog/326f7d95-c442-492f-bf9d-a4832e926e23/e07957acd9edae4a48875766bd9498cf252f32a9e9d313ce0036f590ec1117ac",
+      "photos": 3,
+      "primary_count": 1,
+      "matching_primary": 1
+    },
+    {
+      "id": "16cde31a-4d7d-4875-87a0-2aa02257cc76",
+      "name": "Oxford Short Sleeve Shirt - Navy Floral Paisley",
+      "image_path": "pos-products/catalog/6a15ff20-a5f9-47ed-b9aa-bf1f936e5f29/a6930ea4264476bd8b6db317c1842bebf9cc9dbf378a8eec351479dcd93f023c",
+      "photos": 4,
+      "primary_count": 1,
+      "matching_primary": 1
+    },
+    {
+      "id": "b3fca59d-055e-493e-b790-c73969066564",
+      "name": "Kenneth Cole Casual Shoes - Black and White",
+      "image_path": "pos-products/catalog/19f1c7ab-ccbb-4416-baa8-e00403c7d3e0/75aa5bd0c4b62ddd375778a7654c2421bd0bdc2caa807af3c05b5d5ec3ea581f",
+      "photos": 2,
+      "primary_count": 1,
+      "matching_primary": 1
+    },
+    {
+      "id": "dc4bef7c-a5ea-4757-ae5e-b1321a4d91b8",
+      "name": "Renato Castello Formal Shoes",
+      "image_path": "pos-products/catalog/be83d601-8bdb-4217-8431-2cdcad6e277e/aee1bf1c082e0a22dee4f0b31cb50809793331bce7135398b2b7d138ecb4248a",
+      "photos": 1,
+      "primary_count": 1,
+      "matching_primary": 1
+    },
+    {
+      "id": "1ffd361c-8f1d-4518-9542-8607f83f01b6",
+      "name": "FABO Cotton Boxers - Blue and White Stripes",
+      "image_path": "pos-products/catalog/40e1a352-ef6d-4ab8-a752-a7fc14aa282c/2b4dc88d99f08cfae180d5db33a18b6491f60f82cebc92f72ff6de90faf3dc65",
+      "photos": 4,
+      "primary_count": 1,
+      "matching_primary": 1
+    },
+    {
+      "id": "2bf3698b-905c-41e8-9136-251e347d3f27",
+      "name": "FABO Cotton Boxers - Navy",
+      "image_path": "pos-products/catalog/c5bc4c28-46fa-40d9-b72c-e97de02e2209/3a38274978ada83edefe5dffb7cd8817a784c54edd460f8c903c24e515143577",
+      "photos": 3,
+      "primary_count": 1,
+      "matching_primary": 1
+    },
+    {
+      "id": "df6b07ae-509b-4067-b98f-6d9a5bc7c45c",
+      "name": "Robby Cavally Formal Shoes",
+      "image_path": "pos-products/catalog/918334f4-2aa8-4b17-92e1-1eb14c3b4b86/b5faac13a0014a34be4cd2166a727e26caaacc1da00d1d12f267c350282cc23e",
+      "photos": 1,
+      "primary_count": 1,
+      "matching_primary": 1
+    },
+    {
+      "id": "52e0c436-c24d-48b2-aa44-6bb03ebae3b2",
+      "name": "Oxford Short Sleeve Shirt - Navy",
+      "image_path": "pos-products/catalog/0880f6f0-147a-4c97-ac2e-ed6fc388fc69/75afe8e0214d51cd860d74d61e2af082ac3a029bfd85a6c5381bbf56449ca7ac",
+      "photos": 2,
+      "primary_count": 1,
+      "matching_primary": 1
+    },
+    {
+      "id": "649e42be-f24e-4511-9f03-4e9847b6e75d",
+      "name": "Zopo Casual Shoes - Grey and White",
+      "image_path": "pos-products/catalog/f235c222-858c-487c-a3fc-9a98734a3c65/ecfc76186e16f40f870f67883527cbe3d9fdcfc46e9282ec67fc0ff417b0ff21",
+      "photos": 2,
+      "primary_count": 1,
+      "matching_primary": 1
+    },
+    {
+      "id": "2f3fb466-61ce-4c82-a7d4-194415c7c408",
+      "name": "Zopo Casual Shoes - Navy and White",
+      "image_path": "pos-products/catalog/94110dd5-62cf-4dc5-8fb9-57076c1a611a/969e9245cc5b3b9dbced24a1be91dcb6d856fb3b4788b2f7cb8b675e44c3a528",
+      "photos": 2,
+      "primary_count": 1,
+      "matching_primary": 1
+    },
+    {
+      "id": "5626c61f-a9af-4ecf-bff1-657bf4c318b2",
+      "name": "Robby Cavally Loafers - Black - 3166-27",
+      "image_path": "pos-products/catalog/02ff215c-b83d-47b1-bac4-6874a8ad00e2/4c42957149c6082b9faa49f29b98830deb8097dbcaeac8edeaf297148f17b969",
+      "photos": 2,
+      "primary_count": 1,
+      "matching_primary": 1
+    }
+  ]
+}

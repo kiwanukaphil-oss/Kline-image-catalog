@@ -1,0 +1,60 @@
+{
+  "domain": "klinemen-catalog.com",
+  "railway_domain_id": "c2d9615f-39ea-459f-acfe-d4b407400fcf",
+  "railway_service_id": "e848d8df-cf36-4c6b-ab3d-11d7120a4950",
+  "target_port": 8080,
+  "required_cname": "qi63kp8y.up.railway.app",
+  "state": "Live: DNS propagated, ownership verified, HTTPS certificate valid, new workspace HTTP verified",
+  "certificate_status": "VALID",
+  "remaining": [
+    "Verify cached-browser transition and sign-in at custom domain"
+  ],
+  "cloudflare_account_id": "5afd1facc45c9ddd86114155b09fc2e2",
+  "previous_records": [
+    {
+      "type": "A",
+      "name": "klinemen-catalog.com",
+      "content": "185.199.111.153",
+      "proxied": false,
+      "ttl": "Auto"
+    },
+    {
+      "type": "A",
+      "name": "klinemen-catalog.com",
+      "content": "185.199.110.153",
+      "proxied": false,
+      "ttl": "Auto"
+    },
+    {
+      "type": "A",
+      "name": "klinemen-catalog.com",
+      "content": "185.199.109.153",
+      "proxied": false,
+      "ttl": "Auto"
+    },
+    {
+      "type": "A",
+      "name": "klinemen-catalog.com",
+      "content": "185.199.108.153",
+      "proxied": false,
+      "ttl": "Auto"
+    },
+    {
+      "type": "CNAME",
+      "name": "www.klinemen-catalog.com",
+      "content": "kiwanukaphil-oss.github.io",
+      "proxied": false,
+      "ttl": "Auto"
+    }
+  ],
+  "old_app_this_browser_pending_photos": 0,
+  "other_devices_queues": "Not inspected; browser databases and old deployment preserved",
+  "deployment_id": "63267500-2fb9-4ef0-8192-d7f592277cf1",
+  "service_worker_compatibility": "Old SKIP_WAITING and new ACTIVATE_UPDATE messages validated; installed app update remains explicit",
+  "www": "Existing GitHub Pages 301 to https://klinemen-catalog.com/ retained",
+  "rollback_records": "Three original A records retained at previous-origin; fourth original address saved in previous_records",
+  "source_control": "Compatibility change deployed from working tree; not committed",
+  "domain_ownership_verified": true,
+  "health_checks_passed": 8,
+  "custom_domain_browser": "Chrome still displayed cached old app; owner asked to hard-refresh. No browser storage cleared."
+}

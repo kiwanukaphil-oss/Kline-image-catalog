@@ -1,0 +1,16 @@
+{
+  "checked_at": "2026-09-09T18:08:58.711Z",
+  "outcomes": [
+    {
+      "item_id": "1b0b3610-4281-42f7-b79d-23ca6f6067f5",
+      "status": "linked",
+      "updated_at": "2026-09-09T18:08:18.561Z"
+    },
+    {
+      "item_id": "49448a6f-54e1-4a37-96c9-ef8782be63bf",
+      "status": "linked",
+      "updated_at": "2026-09-09T18:08:56.245Z"
+    }
+  ],
+  "stock_receipt_called": false
+}

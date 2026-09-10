@@ -1,0 +1,788 @@
+{
+  "status": "saved_and_verified",
+  "checked_at": "2026-09-09T17:23:28.679Z",
+  "groups": [
+    {
+      "id": "00032996-7898-42a1-8406-1a3aa9c15db5",
+      "branch_id": "a0fc0889-235b-4467-977b-733cb4354739",
+      "item_ids": [
+        "71348ed2-18b2-457c-b839-7611b5d4d909",
+        "19f1c7ab-ccbb-4416-baa8-e00403c7d3e0"
+      ],
+      "target_product_id": null,
+      "product_name": "Kenneth Cole Casual Shoes - Black and White",
+      "brand_name": "Kenneth Cole",
+      "variant_defaults": {
+        "color": "Black and white"
+      },
+      "review_note": "Owner-requested Codex visual matching. Matching grained black upper, black laces, side panels, white heel tab and white sole profile. Caption brand agrees. Visual identity review, not an automatic model-code match. No stock received. Composition unconfirmed; shared material left unset.",
+      "result_product_id": null,
+      "retired_at": null,
+      "created_by": "8691f46d-0109-4042-ac1b-45654320e269",
+      "updated_at": "2026-09-09T17:22:33.527Z",
+      "identity_review": {
+        "issues": [],
+        "material": null,
+        "resolution": "Owner-requested Codex visual matching. Matching grained black upper, black laces, side panels, white heel tab and white sole profile. Caption brand agrees. Visual identity review, not an automatic model-code match. No stock received. Composition unconfirmed; shared material left unset.",
+        "fingerprint": "b23a9a81b4497b749cc94a64279e2ef75608fdb36b1eb2d460381049d2ffeb6a",
+        "confirmed_by": "8691f46d-0109-4042-ac1b-45654320e269",
+        "review_method": "owner_requested_codex_visual_comparison",
+        "photo_evidence": [
+          {
+            "sha256": "d7d21216455a879e0da9e7ea9ddd96e455f1d4c4e3e6b7ada2314c245f831851",
+            "item_id": "71348ed2-18b2-457c-b839-7611b5d4d909",
+            "photo_number": 22
+          },
+          {
+            "sha256": "75aa5bd0c4b62ddd375778a7654c2421bd0bdc2caa807af3c05b5d5ec3ea581f",
+            "item_id": "19f1c7ab-ccbb-4416-baa8-e00403c7d3e0",
+            "photo_number": 26
+          }
+        ],
+        "member_identity": [
+          {
+            "id": "19f1c7ab-ccbb-4416-baa8-e00403c7d3e0",
+            "brand": "kenneth cole",
+            "model": "",
+            "design": [
+              "black and white",
+              "solid",
+              "",
+              "",
+              "likely synthetic leather"
+            ],
+            "evidence": null,
+            "category_id": "0b6dec98-1d7f-4942-9d2a-fd98af60a9f9",
+            "pos_category_id": "5226f92e-8d2f-4fe9-83cb-1d7827e7edde"
+          },
+          {
+            "id": "71348ed2-18b2-457c-b839-7611b5d4d909",
+            "brand": "kenneth cole",
+            "model": "",
+            "design": [
+              "black and white",
+              "solid",
+              "",
+              "",
+              "likely synthetic leather"
+            ],
+            "evidence": null,
+            "category_id": "0b6dec98-1d7f-4942-9d2a-fd98af60a9f9",
+            "pos_category_id": "5226f92e-8d2f-4fe9-83cb-1d7827e7edde"
+          }
+        ],
+        "target_identity": null
+      }
+    },
+    {
+      "id": "05a105fc-ed50-4f48-a48d-9509687cbab8",
+      "branch_id": "a0fc0889-235b-4467-977b-733cb4354739",
+      "item_ids": [
+        "f752344f-15c8-4682-97d2-804383e41f13",
+        "02ff215c-b83d-47b1-bac4-6874a8ad00e2"
+      ],
+      "target_product_id": null,
+      "product_name": "Robby Cavally Loafers - Black - 3166-27",
+      "brand_name": "Robby Cavally",
+      "variant_defaults": {
+        "color": "Black"
+      },
+      "review_note": "Owner-requested Codex visual matching. Matching corrected printed code 3166-27, penny strap, apron toe seam, sole profile and black finish. Sizes 40 and 44. Visual identity review, not an automatic model-code match. No stock received. Composition unconfirmed; shared material left unset.",
+      "result_product_id": null,
+      "retired_at": null,
+      "created_by": "8691f46d-0109-4042-ac1b-45654320e269",
+      "updated_at": "2026-09-09T17:22:33.527Z",
+      "identity_review": {
+        "issues": [],
+        "material": null,
+        "resolution": "Owner-requested Codex visual matching. Matching corrected printed code 3166-27, penny strap, apron toe seam, sole profile and black finish. Sizes 40 and 44. Visual identity review, not an automatic model-code match. No stock received. Composition unconfirmed; shared material left unset.",
+        "fingerprint": "31fd9cd7c06e45a914f67e8a53446fc9918d67123e731d858bc3da1d3c18e956",
+        "confirmed_by": "8691f46d-0109-4042-ac1b-45654320e269",
+        "review_method": "owner_requested_codex_visual_comparison",
+        "photo_evidence": [
+          {
+            "sha256": "39643ae26388d70e3f7ec1b3d29a345470b1b85ef9eb76fc83788ae51eb0902a",
+            "item_id": "f752344f-15c8-4682-97d2-804383e41f13",
+            "photo_number": 17
+          },
+          {
+            "sha256": "4c42957149c6082b9faa49f29b98830deb8097dbcaeac8edeaf297148f17b969",
+            "item_id": "02ff215c-b83d-47b1-bac4-6874a8ad00e2",
+            "photo_number": 20
+          }
+        ],
+        "member_identity": [
+          {
+            "id": "02ff215c-b83d-47b1-bac4-6874a8ad00e2",
+            "brand": "robby cavally",
+            "model": "3166-27",
+            "design": [
+              "black",
+              "",
+              "",
+              "",
+              "likely synthetic leather"
+            ],
+            "evidence": null,
+            "category_id": "d01d79b5-9341-4e9f-899c-0af9495d2d7d",
+            "pos_category_id": "55a82598-20d0-42fc-9096-0c78894c9452"
+          },
+          {
+            "id": "f752344f-15c8-4682-97d2-804383e41f13",
+            "brand": "robby cavally",
+            "model": "3166-27",
+            "design": [
+              "black",
+              "solid",
+              "",
+              "",
+              "likely synthetic leather"
+            ],
+            "evidence": null,
+            "category_id": "d01d79b5-9341-4e9f-899c-0af9495d2d7d",
+            "pos_category_id": "55a82598-20d0-42fc-9096-0c78894c9452"
+          }
+        ],
+        "target_identity": null
+      }
+    },
+    {
+      "id": "4544ea52-6141-4914-a1fb-ea6793b56646",
+      "branch_id": "a0fc0889-235b-4467-977b-733cb4354739",
+      "item_ids": [
+        "9587ee14-5a96-41a0-848e-ef3154769643",
+        "6a15ff20-a5f9-47ed-b9aa-bf1f936e5f29",
+        "08bf0583-2bf9-4f78-a9ae-d19cbd95cf8f",
+        "87e02ccc-3dbb-4b76-9765-6b53d5e501e3"
+      ],
+      "target_product_id": null,
+      "product_name": "Oxford Short Sleeve Shirt - Navy Floral Paisley",
+      "brand_name": "Oxford",
+      "variant_defaults": {
+        "fit": "Slim",
+        "color": "Navy and blue"
+      },
+      "review_note": "Owner-requested Codex visual matching. Matching floral/paisley motif, woven appearance, button-down collar, white buttons, packaging and Slim Fit labels. Short sleeves confirmed by owner. Visual identity review, not an automatic model-code match. No stock received. Composition unconfirmed; shared material left unset.",
+      "result_product_id": null,
+      "retired_at": null,
+      "created_by": "8691f46d-0109-4042-ac1b-45654320e269",
+      "updated_at": "2026-09-09T17:22:33.527Z",
+      "identity_review": {
+        "issues": [],
+        "material": null,
+        "resolution": "Owner-requested Codex visual matching. Matching floral/paisley motif, woven appearance, button-down collar, white buttons, packaging and Slim Fit labels. Short sleeves confirmed by owner. Visual identity review, not an automatic model-code match. No stock received. Composition unconfirmed; shared material left unset.",
+        "fingerprint": "8ad3071138b5fea87f31fe266571cd8a681a4b3c6a6e7ded371aa89d31641d0d",
+        "confirmed_by": "8691f46d-0109-4042-ac1b-45654320e269",
+        "review_method": "owner_requested_codex_visual_comparison",
+        "photo_evidence": [
+          {
+            "sha256": "0f57ddeabb4809eb439d4a7cb7fd706ffe7fd0e9e3391c39688927c0825301fa",
+            "item_id": "9587ee14-5a96-41a0-848e-ef3154769643",
+            "photo_number": 1
+          },
+          {
+            "sha256": "a6930ea4264476bd8b6db317c1842bebf9cc9dbf378a8eec351479dcd93f023c",
+            "item_id": "6a15ff20-a5f9-47ed-b9aa-bf1f936e5f29",
+            "photo_number": 4
+          },
+          {
+            "sha256": "da1bff6c15f61fdb82d2ce2b0173691259dae3e4beb4fb59f51387080d38bcb0",
+            "item_id": "08bf0583-2bf9-4f78-a9ae-d19cbd95cf8f",
+            "photo_number": 5
+          },
+          {
+            "sha256": "07e1480dddf5131317b9afdba3aab78767e6fff0161f1c77663e8bec1f19b22e",
+            "item_id": "87e02ccc-3dbb-4b76-9765-6b53d5e501e3",
+            "photo_number": 6
+          }
+        ],
+        "member_identity": [
+          {
+            "id": "08bf0583-2bf9-4f78-a9ae-d19cbd95cf8f",
+            "brand": "oxford",
+            "model": "",
+            "design": [
+              "navy blue and black",
+              "floral",
+              "slim",
+              "short",
+              "likely synthetic blend"
+            ],
+            "evidence": null,
+            "category_id": "ede7260a-0626-4ac9-b4c1-04123f36059a",
+            "pos_category_id": "01220431-51c3-4af9-877d-f21afb422b7e"
+          },
+          {
+            "id": "6a15ff20-a5f9-47ed-b9aa-bf1f936e5f29",
+            "brand": "oxford",
+            "model": "",
+            "design": [
+              "navy blue and black",
+              "floral",
+              "slim",
+              "short",
+              "likely cotton or cotton blend"
+            ],
+            "evidence": null,
+            "category_id": "ede7260a-0626-4ac9-b4c1-04123f36059a",
+            "pos_category_id": "01220431-51c3-4af9-877d-f21afb422b7e"
+          },
+          {
+            "id": "87e02ccc-3dbb-4b76-9765-6b53d5e501e3",
+            "brand": "oxford",
+            "model": "",
+            "design": [
+              "dark navy blue and gray",
+              "floral paisley",
+              "slim",
+              "short",
+              "likely cotton or cotton blend"
+            ],
+            "evidence": null,
+            "category_id": "ede7260a-0626-4ac9-b4c1-04123f36059a",
+            "pos_category_id": "01220431-51c3-4af9-877d-f21afb422b7e"
+          },
+          {
+            "id": "9587ee14-5a96-41a0-848e-ef3154769643",
+            "brand": "oxford",
+            "model": "",
+            "design": [
+              "dark navy and blue",
+              "floral paisley",
+              "slim",
+              "short",
+              "likely synthetic jacquard weave"
+            ],
+            "evidence": null,
+            "category_id": "ede7260a-0626-4ac9-b4c1-04123f36059a",
+            "pos_category_id": "01220431-51c3-4af9-877d-f21afb422b7e"
+          }
+        ],
+        "target_identity": null
+      }
+    },
+    {
+      "id": "45c257d3-112f-43d5-ad11-dc7c83cb5987",
+      "branch_id": "a0fc0889-235b-4467-977b-733cb4354739",
+      "item_ids": [
+        "c5bc4c28-46fa-40d9-b72c-e97de02e2209",
+        "c03a0a9a-c341-4cd0-9c0e-4a003616832b",
+        "440f216e-19d3-4c72-9365-f0a39e305327"
+      ],
+      "target_product_id": null,
+      "product_name": "FABO Cotton Boxers - Navy",
+      "brand_name": "FABO",
+      "variant_defaults": {
+        "color": "Navy"
+      },
+      "review_note": "Owner-requested Codex visual matching. Matching solid navy boxer construction, elastic waistband, FABO tag and Natural Cotton packaging. Caption quantities preserved. Visual identity review, not an automatic model-code match. No stock received. Composition supported by packaging.",
+      "result_product_id": null,
+      "retired_at": null,
+      "created_by": "8691f46d-0109-4042-ac1b-45654320e269",
+      "updated_at": "2026-09-09T17:22:33.527Z",
+      "identity_review": {
+        "issues": [],
+        "material": "Cotton",
+        "resolution": "Owner-requested Codex visual matching. Matching solid navy boxer construction, elastic waistband, FABO tag and Natural Cotton packaging. Caption quantities preserved. Visual identity review, not an automatic model-code match. No stock received. Composition supported by packaging.",
+        "fingerprint": "7f498179c609411d17c0fbb61b57a520c424496d710fd5ff4eaf2d1737fd774c",
+        "confirmed_by": "8691f46d-0109-4042-ac1b-45654320e269",
+        "review_method": "owner_requested_codex_visual_comparison",
+        "photo_evidence": [
+          {
+            "sha256": "3a38274978ada83edefe5dffb7cd8817a784c54edd460f8c903c24e515143577",
+            "item_id": "c5bc4c28-46fa-40d9-b72c-e97de02e2209",
+            "photo_number": 10
+          },
+          {
+            "sha256": "a70e515da6b3c92fc8c5ae471515635f42c706696c0356e56f6410ff89b03028",
+            "item_id": "c03a0a9a-c341-4cd0-9c0e-4a003616832b",
+            "photo_number": 12
+          },
+          {
+            "sha256": "672df2a2b96482675a2ae8de37b09db778ac3cb9c733aec7649cc25016299caa",
+            "item_id": "440f216e-19d3-4c72-9365-f0a39e305327",
+            "photo_number": 15
+          }
+        ],
+        "member_identity": [
+          {
+            "id": "440f216e-19d3-4c72-9365-f0a39e305327",
+            "brand": "fabo",
+            "model": "",
+            "design": [
+              "dark navy blue",
+              "solid",
+              "",
+              "",
+              "cotton"
+            ],
+            "evidence": null,
+            "category_id": "1b657902-3bee-4bcb-85c9-1cac1d4a2f7a",
+            "pos_category_id": "f9809bbe-fe89-4ec4-b1e4-b0648d3082de"
+          },
+          {
+            "id": "c03a0a9a-c341-4cd0-9c0e-4a003616832b",
+            "brand": "fabo",
+            "model": "",
+            "design": [
+              "navy",
+              "solid",
+              "",
+              "",
+              "cotton"
+            ],
+            "evidence": null,
+            "category_id": "1b657902-3bee-4bcb-85c9-1cac1d4a2f7a",
+            "pos_category_id": "f9809bbe-fe89-4ec4-b1e4-b0648d3082de"
+          },
+          {
+            "id": "c5bc4c28-46fa-40d9-b72c-e97de02e2209",
+            "brand": "fabo",
+            "model": "",
+            "design": [
+              "navy",
+              "solid",
+              "",
+              "",
+              "natural cotton"
+            ],
+            "evidence": null,
+            "category_id": "1b657902-3bee-4bcb-85c9-1cac1d4a2f7a",
+            "pos_category_id": "f9809bbe-fe89-4ec4-b1e4-b0648d3082de"
+          }
+        ],
+        "target_identity": null
+      }
+    },
+    {
+      "id": "64b1fb72-f80a-407a-9d0e-81665776878e",
+      "branch_id": "a0fc0889-235b-4467-977b-733cb4354739",
+      "item_ids": [
+        "326f7d95-c442-492f-bf9d-a4832e926e23",
+        "737efd90-c39f-4505-b85d-9f8a511f928b",
+        "24c42a78-5fba-411f-8894-6e38a44d2e1f"
+      ],
+      "target_product_id": null,
+      "product_name": "Oxford Short Sleeve Shirt - White",
+      "brand_name": "Oxford",
+      "variant_defaults": {
+        "fit": "Slim",
+        "color": "White"
+      },
+      "review_note": "Owner-requested Codex visual matching. Matching white fabric, button-down collar, white buttons, packaging and Slim Fit labels. Short sleeves confirmed by owner. Visual identity review, not an automatic model-code match. No stock received. Composition unconfirmed; shared material left unset.",
+      "result_product_id": null,
+      "retired_at": null,
+      "created_by": "8691f46d-0109-4042-ac1b-45654320e269",
+      "updated_at": "2026-09-09T17:22:33.527Z",
+      "identity_review": {
+        "issues": [],
+        "material": null,
+        "resolution": "Owner-requested Codex visual matching. Matching white fabric, button-down collar, white buttons, packaging and Slim Fit labels. Short sleeves confirmed by owner. Visual identity review, not an automatic model-code match. No stock received. Composition unconfirmed; shared material left unset.",
+        "fingerprint": "e720720fd1a267052aa6eb4a68e23deb0549bc52a196d5be30a62d1fcff8ebdb",
+        "confirmed_by": "8691f46d-0109-4042-ac1b-45654320e269",
+        "review_method": "owner_requested_codex_visual_comparison",
+        "photo_evidence": [
+          {
+            "sha256": "e07957acd9edae4a48875766bd9498cf252f32a9e9d313ce0036f590ec1117ac",
+            "item_id": "326f7d95-c442-492f-bf9d-a4832e926e23",
+            "photo_number": 7
+          },
+          {
+            "sha256": "7551bdcd6eb236c0aa519d9b674b5ada8eee10269911e7c4acc51120dac7eb7b",
+            "item_id": "737efd90-c39f-4505-b85d-9f8a511f928b",
+            "photo_number": 8
+          },
+          {
+            "sha256": "fad3441aaeb99470790c6090068420fdadf6e56bb5972898e87f5d0bda5fa2a2",
+            "item_id": "24c42a78-5fba-411f-8894-6e38a44d2e1f",
+            "photo_number": 9
+          }
+        ],
+        "member_identity": [
+          {
+            "id": "24c42a78-5fba-411f-8894-6e38a44d2e1f",
+            "brand": "oxford",
+            "model": "",
+            "design": [
+              "white",
+              "solid",
+              "slim",
+              "short",
+              "likely cotton"
+            ],
+            "evidence": null,
+            "category_id": "ede7260a-0626-4ac9-b4c1-04123f36059a",
+            "pos_category_id": "01220431-51c3-4af9-877d-f21afb422b7e"
+          },
+          {
+            "id": "326f7d95-c442-492f-bf9d-a4832e926e23",
+            "brand": "oxford",
+            "model": "",
+            "design": [
+              "white",
+              "solid",
+              "slim",
+              "short",
+              "likely cotton"
+            ],
+            "evidence": null,
+            "category_id": "ede7260a-0626-4ac9-b4c1-04123f36059a",
+            "pos_category_id": "01220431-51c3-4af9-877d-f21afb422b7e"
+          },
+          {
+            "id": "737efd90-c39f-4505-b85d-9f8a511f928b",
+            "brand": "oxford",
+            "model": "",
+            "design": [
+              "white",
+              "solid",
+              "slim",
+              "short",
+              "likely cotton"
+            ],
+            "evidence": null,
+            "category_id": "ede7260a-0626-4ac9-b4c1-04123f36059a",
+            "pos_category_id": "01220431-51c3-4af9-877d-f21afb422b7e"
+          }
+        ],
+        "target_identity": null
+      }
+    },
+    {
+      "id": "96069a02-d340-483f-9ed6-b33a45bb9960",
+      "branch_id": "a0fc0889-235b-4467-977b-733cb4354739",
+      "item_ids": [
+        "94110dd5-62cf-4dc5-8fb9-57076c1a611a",
+        "f26a8bf5-20ce-4736-a472-f0ff73937f61"
+      ],
+      "target_product_id": null,
+      "product_name": "Zopo Casual Shoes - Navy and White",
+      "brand_name": "Zopo",
+      "variant_defaults": {
+        "color": "Navy and white"
+      },
+      "review_note": "Owner-requested Codex visual matching. Matching navy upper, panels and stitching, navy laces, brown lining and textured white sole. Caption brand agrees. Visual identity review, not an automatic model-code match. No stock received. Composition unconfirmed; shared material left unset.",
+      "result_product_id": null,
+      "retired_at": null,
+      "created_by": "8691f46d-0109-4042-ac1b-45654320e269",
+      "updated_at": "2026-09-09T17:22:33.527Z",
+      "identity_review": {
+        "issues": [],
+        "material": null,
+        "resolution": "Owner-requested Codex visual matching. Matching navy upper, panels and stitching, navy laces, brown lining and textured white sole. Caption brand agrees. Visual identity review, not an automatic model-code match. No stock received. Composition unconfirmed; shared material left unset.",
+        "fingerprint": "c63678056d0d8603ff0922304040439380bc9b845f3987379e7fd472217135a7",
+        "confirmed_by": "8691f46d-0109-4042-ac1b-45654320e269",
+        "review_method": "owner_requested_codex_visual_comparison",
+        "photo_evidence": [
+          {
+            "sha256": "969e9245cc5b3b9dbced24a1be91dcb6d856fb3b4788b2f7cb8b675e44c3a528",
+            "item_id": "94110dd5-62cf-4dc5-8fb9-57076c1a611a",
+            "photo_number": 24
+          },
+          {
+            "sha256": "bfad0f5cf851691d04ff14a54cf623db59eed0ea6904999b09ea49808d585aa9",
+            "item_id": "f26a8bf5-20ce-4736-a472-f0ff73937f61",
+            "photo_number": 27
+          }
+        ],
+        "member_identity": [
+          {
+            "id": "94110dd5-62cf-4dc5-8fb9-57076c1a611a",
+            "brand": "zopo",
+            "model": "",
+            "design": [
+              "blue and white",
+              "solid",
+              "",
+              "",
+              "likely suede or synthetic suede"
+            ],
+            "evidence": null,
+            "category_id": "0b6dec98-1d7f-4942-9d2a-fd98af60a9f9",
+            "pos_category_id": "5226f92e-8d2f-4fe9-83cb-1d7827e7edde"
+          },
+          {
+            "id": "f26a8bf5-20ce-4736-a472-f0ff73937f61",
+            "brand": "zopo",
+            "model": "",
+            "design": [
+              "blue and white",
+              "solid",
+              "",
+              "",
+              "likely suede or synthetic suede"
+            ],
+            "evidence": null,
+            "category_id": "0b6dec98-1d7f-4942-9d2a-fd98af60a9f9",
+            "pos_category_id": "5226f92e-8d2f-4fe9-83cb-1d7827e7edde"
+          }
+        ],
+        "target_identity": null
+      }
+    },
+    {
+      "id": "d93d6543-c5cc-4857-977d-a91440f971d4",
+      "branch_id": "a0fc0889-235b-4467-977b-733cb4354739",
+      "item_ids": [
+        "f004995f-90f7-4f81-abab-d3724d79bc26",
+        "f235c222-858c-487c-a3fc-9a98734a3c65"
+      ],
+      "target_product_id": null,
+      "product_name": "Zopo Casual Shoes - Grey and White",
+      "brand_name": "Zopo",
+      "variant_defaults": {
+        "color": "Grey and white"
+      },
+      "review_note": "Owner-requested Codex visual matching. Full-resolution comparison confirms matching warm grey upper, panels, stitching, grey laces, brown lining and textured white sole. AI Beige/Grey wording normalized. Visual identity review, not an automatic model-code match. No stock received. Composition unconfirmed; shared material left unset.",
+      "result_product_id": null,
+      "retired_at": null,
+      "created_by": "8691f46d-0109-4042-ac1b-45654320e269",
+      "updated_at": "2026-09-09T17:22:33.527Z",
+      "identity_review": {
+        "issues": [],
+        "material": null,
+        "resolution": "Owner-requested Codex visual matching. Full-resolution comparison confirms matching warm grey upper, panels, stitching, grey laces, brown lining and textured white sole. AI Beige/Grey wording normalized. Visual identity review, not an automatic model-code match. No stock received. Composition unconfirmed; shared material left unset.",
+        "fingerprint": "fa1294bbd3fee937a8941a701b6b08d180e127090af82328a7dfed42d356110a",
+        "confirmed_by": "8691f46d-0109-4042-ac1b-45654320e269",
+        "review_method": "owner_requested_codex_visual_comparison",
+        "photo_evidence": [
+          {
+            "sha256": "1205541ceff8c9f021a90da3c136cf4a45db5f11012e9112bc793a4f041c0e53",
+            "item_id": "f004995f-90f7-4f81-abab-d3724d79bc26",
+            "photo_number": 21
+          },
+          {
+            "sha256": "ecfc76186e16f40f870f67883527cbe3d9fdcfc46e9282ec67fc0ff417b0ff21",
+            "item_id": "f235c222-858c-487c-a3fc-9a98734a3c65",
+            "photo_number": 25
+          }
+        ],
+        "member_identity": [
+          {
+            "id": "f004995f-90f7-4f81-abab-d3724d79bc26",
+            "brand": "zopo",
+            "model": "",
+            "design": [
+              "beige and white",
+              "solid",
+              "",
+              "",
+              "likely synthetic suede"
+            ],
+            "evidence": null,
+            "category_id": "0b6dec98-1d7f-4942-9d2a-fd98af60a9f9",
+            "pos_category_id": "5226f92e-8d2f-4fe9-83cb-1d7827e7edde"
+          },
+          {
+            "id": "f235c222-858c-487c-a3fc-9a98734a3c65",
+            "brand": "zopo",
+            "model": "",
+            "design": [
+              "grey and white",
+              "solid",
+              "",
+              "",
+              "likely suede or synthetic suede"
+            ],
+            "evidence": null,
+            "category_id": "0b6dec98-1d7f-4942-9d2a-fd98af60a9f9",
+            "pos_category_id": "5226f92e-8d2f-4fe9-83cb-1d7827e7edde"
+          }
+        ],
+        "target_identity": null
+      }
+    },
+    {
+      "id": "f2ea8682-b8b7-4e71-9fb9-ff6a2d9989fc",
+      "branch_id": "a0fc0889-235b-4467-977b-733cb4354739",
+      "item_ids": [
+        "40e1a352-ef6d-4ab8-a752-a7fc14aa282c",
+        "1b0b3610-4281-42f7-b79d-23ca6f6067f5",
+        "82b042b3-d8df-410b-9e75-265a977b6c46",
+        "49448a6f-54e1-4a37-96c9-ef8782be63bf"
+      ],
+      "target_product_id": null,
+      "product_name": "FABO Cotton Boxers - Blue and White Stripes",
+      "brand_name": "FABO",
+      "variant_defaults": {
+        "color": "Blue and white"
+      },
+      "review_note": "Owner-requested Codex visual matching. Matching repeated narrow blue/white stripe arrangement, waistband, FABO tag and Natural Cotton packaging. Caption quantities preserved. Visual identity review, not an automatic model-code match. No stock received. Composition supported by packaging.",
+      "result_product_id": null,
+      "retired_at": null,
+      "created_by": "8691f46d-0109-4042-ac1b-45654320e269",
+      "updated_at": "2026-09-09T17:22:33.527Z",
+      "identity_review": {
+        "issues": [],
+        "material": "Cotton",
+        "resolution": "Owner-requested Codex visual matching. Matching repeated narrow blue/white stripe arrangement, waistband, FABO tag and Natural Cotton packaging. Caption quantities preserved. Visual identity review, not an automatic model-code match. No stock received. Composition supported by packaging.",
+        "fingerprint": "d2ea37e723f7c16dc6a7e268b397876dbaf5977783dfd38a8743052c97f92cf0",
+        "confirmed_by": "8691f46d-0109-4042-ac1b-45654320e269",
+        "review_method": "owner_requested_codex_visual_comparison",
+        "photo_evidence": [
+          {
+            "sha256": "2b4dc88d99f08cfae180d5db33a18b6491f60f82cebc92f72ff6de90faf3dc65",
+            "item_id": "40e1a352-ef6d-4ab8-a752-a7fc14aa282c",
+            "photo_number": 11
+          },
+          {
+            "sha256": "7830121d675c0d92306d66efbd09cdbd08dc7af300e4798552daec4e9cd9d47f",
+            "item_id": "1b0b3610-4281-42f7-b79d-23ca6f6067f5",
+            "photo_number": 13
+          },
+          {
+            "sha256": "ba9f00df10c7c29ba5bd580b33d36bd3d6f69494e95c2c996515eb4b38aae679",
+            "item_id": "82b042b3-d8df-410b-9e75-265a977b6c46",
+            "photo_number": 14
+          },
+          {
+            "sha256": "415753cc031df6d8a120a3ef7fb3717a02bdff8e720d689e5f4519ca2a8ee3c0",
+            "item_id": "49448a6f-54e1-4a37-96c9-ef8782be63bf",
+            "photo_number": 16
+          }
+        ],
+        "member_identity": [
+          {
+            "id": "1b0b3610-4281-42f7-b79d-23ca6f6067f5",
+            "brand": "fabo",
+            "model": "",
+            "design": [
+              "white and blue",
+              "vertical stripe",
+              "",
+              "",
+              "natural cotton"
+            ],
+            "evidence": null,
+            "category_id": "1b657902-3bee-4bcb-85c9-1cac1d4a2f7a",
+            "pos_category_id": "f9809bbe-fe89-4ec4-b1e4-b0648d3082de"
+          },
+          {
+            "id": "40e1a352-ef6d-4ab8-a752-a7fc14aa282c",
+            "brand": "fabo",
+            "model": "",
+            "design": [
+              "white, light blue and navy",
+              "vertical stripe",
+              "",
+              "",
+              "cotton"
+            ],
+            "evidence": null,
+            "category_id": "1b657902-3bee-4bcb-85c9-1cac1d4a2f7a",
+            "pos_category_id": "f9809bbe-fe89-4ec4-b1e4-b0648d3082de"
+          },
+          {
+            "id": "49448a6f-54e1-4a37-96c9-ef8782be63bf",
+            "brand": "fabo",
+            "model": "",
+            "design": [
+              "white, light blue and navy",
+              "vertical stripe",
+              "",
+              "",
+              "cotton"
+            ],
+            "evidence": null,
+            "category_id": "1b657902-3bee-4bcb-85c9-1cac1d4a2f7a",
+            "pos_category_id": "f9809bbe-fe89-4ec4-b1e4-b0648d3082de"
+          },
+          {
+            "id": "82b042b3-d8df-410b-9e75-265a977b6c46",
+            "brand": "fabo",
+            "model": "",
+            "design": [
+              "blue and white",
+              "vertical stripe",
+              "",
+              "",
+              "natural cotton"
+            ],
+            "evidence": null,
+            "category_id": "1b657902-3bee-4bcb-85c9-1cac1d4a2f7a",
+            "pos_category_id": "f9809bbe-fe89-4ec4-b1e4-b0648d3082de"
+          }
+        ],
+        "target_identity": null
+      }
+    },
+    {
+      "id": "f690f2c1-6065-4b32-9177-75fbb57f9467",
+      "branch_id": "a0fc0889-235b-4467-977b-733cb4354739",
+      "item_ids": [
+        "0880f6f0-147a-4c97-ac2e-ed6fc388fc69",
+        "1b028ea6-615f-4456-90e5-06fcbaa5e435"
+      ],
+      "target_product_id": null,
+      "product_name": "Oxford Short Sleeve Shirt - Navy",
+      "brand_name": "Oxford",
+      "variant_defaults": {
+        "fit": "Slim",
+        "color": "Navy"
+      },
+      "review_note": "Owner-requested Codex visual matching. Matching plain navy textured fabric, button-down collar, white buttons, packaging and Slim Fit labels. Short sleeves confirmed by owner. Visual identity review, not an automatic model-code match. No stock received. Composition unconfirmed; shared material left unset.",
+      "result_product_id": null,
+      "retired_at": null,
+      "created_by": "8691f46d-0109-4042-ac1b-45654320e269",
+      "updated_at": "2026-09-09T17:22:33.527Z",
+      "identity_review": {
+        "issues": [],
+        "material": null,
+        "resolution": "Owner-requested Codex visual matching. Matching plain navy textured fabric, button-down collar, white buttons, packaging and Slim Fit labels. Short sleeves confirmed by owner. Visual identity review, not an automatic model-code match. No stock received. Composition unconfirmed; shared material left unset.",
+        "fingerprint": "c5abc8b99696faa7c7925f19cade287576eb40c29732340077e93ff369c362e5",
+        "confirmed_by": "8691f46d-0109-4042-ac1b-45654320e269",
+        "review_method": "owner_requested_codex_visual_comparison",
+        "photo_evidence": [
+          {
+            "sha256": "75afe8e0214d51cd860d74d61e2af082ac3a029bfd85a6c5381bbf56449ca7ac",
+            "item_id": "0880f6f0-147a-4c97-ac2e-ed6fc388fc69",
+            "photo_number": 2
+          },
+          {
+            "sha256": "101037b67cb5255b249218a8ec4f8122ef62e0f901074f4f8870c3bf93525e91",
+            "item_id": "1b028ea6-615f-4456-90e5-06fcbaa5e435",
+            "photo_number": 3
+          }
+        ],
+        "member_identity": [
+          {
+            "id": "0880f6f0-147a-4c97-ac2e-ed6fc388fc69",
+            "brand": "oxford",
+            "model": "",
+            "design": [
+              "navy",
+              "solid",
+              "slim",
+              "short",
+              "likely cotton or cotton blend"
+            ],
+            "evidence": null,
+            "category_id": "ede7260a-0626-4ac9-b4c1-04123f36059a",
+            "pos_category_id": "01220431-51c3-4af9-877d-f21afb422b7e"
+          },
+          {
+            "id": "1b028ea6-615f-4456-90e5-06fcbaa5e435",
+            "brand": "oxford",
+            "model": "",
+            "design": [
+              "navy",
+              "solid",
+              "slim",
+              "short",
+              "likely cotton or cotton blend"
+            ],
+            "evidence": null,
+            "category_id": "ede7260a-0626-4ac9-b4c1-04123f36059a",
+            "pos_category_id": "01220431-51c3-4af9-877d-f21afb422b7e"
+          }
+        ],
+        "target_identity": null
+      }
+    }
+  ],
+  "matched_lots": 24,
+  "separate_lots": 3,
+  "prospective_pos_products": 12,
+  "source_photos_attributes_prices_counts_unchanged": true,
+  "pos_stock_received": false
+}

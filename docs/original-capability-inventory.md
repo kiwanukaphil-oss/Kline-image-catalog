@@ -21,7 +21,7 @@ The production execution checklist is in [production cutover](production-cutover
 | Restart-safe queue, camera, burst capture, large photos, duplicate warning | Implemented. Unsent photos still held only by the old browser must finish there before its origin is retired. Uploaded server images require no move. |
 | Upload Undo / correction | Audited reversible cancellation, including stable queued IDs; received stock is protected. |
 | PWA install, share target, offline/update handling | Implemented and browser-verified. Physical store-phone camera/OS acceptance remains a human check. |
-| Categories, fields, mappings and POS administration | Implemented. Three pre-existing mapping gaps affect Jeans, Shorts and Sweat pants; see the cutover plan and requested category decisions. |
+| Categories, fields, mappings and POS administration | Implemented. The three pre-existing mapping gaps for Jeans, Shorts and Sweat pants are now resolved with owner approval; all 25 active catalog categories are connected. |
 | Light/dark appearance and accessibility | Implemented; eight automated accessibility views passed. |
 | Vocabulary autocomplete | Historical vocabulary data is preserved. The current old-app backend already returns an empty vocabulary list; this is not a newly removed feature. |
 | CSV, general bulk editing and legacy user/deletion controls | Some are README claims or masked source controls, not established reachable production capabilities. Retain source; do not claim a CSV importer is needed for records already in the same database. |

@@ -1,0 +1,36 @@
+{
+  "checked_at": "2026-09-07T20:08:50.111Z",
+  "passed": true,
+  "read_only": true,
+  "active_catalog_categories": 25,
+  "unmapped_or_inactive_destinations": 0,
+  "approved_mappings": [
+    {
+      "catalog_category_id": "8a0a5eda-6167-436b-8a84-0bb10c695571",
+      "name": "Jeans",
+      "pos_category_id": "d22fd593-0c59-4eab-b2b1-90615dc18b00",
+      "status": "active",
+      "is_active": true,
+      "parent_id": "138b52ac-6839-4555-b12f-1eba32b466f7"
+    },
+    {
+      "catalog_category_id": "49047f22-2cd7-4d76-80c4-ff55bc175054",
+      "name": "Shorts",
+      "pos_category_id": "9addde8b-a374-4b83-81a6-1b719d35f5b4",
+      "status": "active",
+      "is_active": true,
+      "parent_id": "667b99b6-db4e-47d6-a073-7bbe1e3c57f3"
+    },
+    {
+      "catalog_category_id": "d8be0f0c-32cf-4bb6-95a8-6bfcbf5a8d6c",
+      "name": "Sweat pants",
+      "pos_category_id": "982b00d2-bf11-45ee-9a2a-4c76113d3bb6",
+      "status": "active",
+      "is_active": true,
+      "parent_id": "138b52ac-6839-4555-b12f-1eba32b466f7"
+    }
+  ],
+  "original_pos_categories": 34,
+  "original_categories_unchanged": true,
+  "archived_categories_preserved": true
+}

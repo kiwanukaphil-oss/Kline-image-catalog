@@ -1,0 +1,31 @@
+{
+  "passed": true,
+  "checked_at": "2026-09-09T14:49:52.223Z",
+  "parent": {
+    "id": "d09a9454-b625-4625-805c-adfaea17b1e3",
+    "name": "Underwear & Socks",
+    "parent_id": "667b99b6-db4e-47d6-a073-7bbe1e3c57f3"
+  },
+  "children": [
+    {
+      "id": "f9809bbe-fe89-4ec4-b1e4-b0648d3082de",
+      "name": "Boxers",
+      "parent_id": "d09a9454-b625-4625-805c-adfaea17b1e3"
+    },
+    {
+      "id": "c6b89cfd-99e6-4eed-a1ac-7ec6ca174e23",
+      "name": "Briefs",
+      "parent_id": "d09a9454-b625-4625-805c-adfaea17b1e3"
+    },
+    {
+      "id": "5d6cb7db-27c3-403e-9b36-826743754ef8",
+      "name": "Socks",
+      "parent_id": "d09a9454-b625-4625-805c-adfaea17b1e3"
+    },
+    {
+      "id": "4b4f01f1-846a-42ab-bdfa-9975ba634772",
+      "name": "Vests",
+      "parent_id": "d09a9454-b625-4625-805c-adfaea17b1e3"
+    }
+  ]
+}

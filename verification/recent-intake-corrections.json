@@ -1,0 +1,158 @@
+{
+  "status": "applied_and_verified",
+  "verified_at": "2026-09-09T17:01:14.163Z",
+  "lots_updated": 16,
+  "field_corrections": 20,
+  "shirts_set_short": 9,
+  "size_formats_normalized": 7,
+  "brand_and_name_corrected": 1,
+  "shoe_model_codes_corrected": 2,
+  "quantities_variant_lines_receiving_and_delivery_membership_unchanged": true,
+  "raw_ai_transcriptions_preserved": true,
+  "stale_ai_evidence_preserved_in_audit": true,
+  "backup": ".test-data/intake-corrections-before-1788973248991.json",
+  "changes": [
+    {
+      "item_id": "9587ee14-5a96-41a0-848e-ef3154769643",
+      "field": "attributes.sleeve",
+      "before": null,
+      "after": "Short",
+      "basis": "Owner confirmed all shirts are short sleeve; record as human guidance."
+    },
+    {
+      "item_id": "0880f6f0-147a-4c97-ac2e-ed6fc388fc69",
+      "field": "attributes.sleeve",
+      "before": null,
+      "after": "Short",
+      "basis": "Owner confirmed all shirts are short sleeve; record as human guidance."
+    },
+    {
+      "item_id": "1b028ea6-615f-4456-90e5-06fcbaa5e435",
+      "field": "attributes.sleeve",
+      "before": null,
+      "after": "Short",
+      "basis": "Owner confirmed all shirts are short sleeve; record as human guidance."
+    },
+    {
+      "item_id": "6a15ff20-a5f9-47ed-b9aa-bf1f936e5f29",
+      "field": "attributes.sleeve",
+      "before": "Long",
+      "after": "Short",
+      "basis": "Owner confirmed all shirts are short sleeve; record as human guidance."
+    },
+    {
+      "item_id": "08bf0583-2bf9-4f78-a9ae-d19cbd95cf8f",
+      "field": "attributes.sleeve",
+      "before": null,
+      "after": "Short",
+      "basis": "Owner confirmed all shirts are short sleeve; record as human guidance."
+    },
+    {
+      "item_id": "87e02ccc-3dbb-4b76-9765-6b53d5e501e3",
+      "field": "attributes.sleeve",
+      "before": null,
+      "after": "Short",
+      "basis": "Owner confirmed all shirts are short sleeve; record as human guidance."
+    },
+    {
+      "item_id": "326f7d95-c442-492f-bf9d-a4832e926e23",
+      "field": "attributes.sleeve",
+      "before": null,
+      "after": "Short",
+      "basis": "Owner confirmed all shirts are short sleeve; record as human guidance."
+    },
+    {
+      "item_id": "737efd90-c39f-4505-b85d-9f8a511f928b",
+      "field": "attributes.sleeve",
+      "before": null,
+      "after": "Short",
+      "basis": "Owner confirmed all shirts are short sleeve; record as human guidance."
+    },
+    {
+      "item_id": "24c42a78-5fba-411f-8894-6e38a44d2e1f",
+      "field": "attributes.sleeve",
+      "before": null,
+      "after": "Short",
+      "basis": "Owner confirmed all shirts are short sleeve; record as human guidance."
+    },
+    {
+      "item_id": "9587ee14-5a96-41a0-848e-ef3154769643",
+      "field": "attributes.size",
+      "before": "L 16-16½",
+      "after": "L",
+      "basis": "Canonical size; retain original label transcription separately."
+    },
+    {
+      "item_id": "1b028ea6-615f-4456-90e5-06fcbaa5e435",
+      "field": "attributes.size",
+      "before": "L\n16-16½",
+      "after": "L",
+      "basis": "Canonical size; retain original label transcription separately."
+    },
+    {
+      "item_id": "08bf0583-2bf9-4f78-a9ae-d19cbd95cf8f",
+      "field": "attributes.size",
+      "before": "XXL",
+      "after": "2XL",
+      "basis": "Canonical size; retain original label transcription separately."
+    },
+    {
+      "item_id": "c03a0a9a-c341-4cd0-9c0e-4a003616832b",
+      "field": "attributes.size",
+      "before": "large",
+      "after": "L",
+      "basis": "Canonical size; retain original label transcription separately."
+    },
+    {
+      "item_id": "1b0b3610-4281-42f7-b79d-23ca6f6067f5",
+      "field": "attributes.size",
+      "before": "xl",
+      "after": "XL",
+      "basis": "Canonical size; retain original label transcription separately."
+    },
+    {
+      "item_id": "82b042b3-d8df-410b-9e75-265a977b6c46",
+      "field": "attributes.size",
+      "before": "Medium",
+      "after": "M",
+      "basis": "Canonical size; retain original label transcription separately."
+    },
+    {
+      "item_id": "49448a6f-54e1-4a37-96c9-ef8782be63bf",
+      "field": "attributes.size",
+      "before": "2xl",
+      "after": "2XL",
+      "basis": "Canonical size; retain original label transcription separately."
+    },
+    {
+      "item_id": "c5bc4c28-46fa-40d9-b72c-e97de02e2209",
+      "field": "brand",
+      "before": "EABO",
+      "after": "FABO",
+      "basis": "Brand clearly visible in original photo."
+    },
+    {
+      "item_id": "c5bc4c28-46fa-40d9-b72c-e97de02e2209",
+      "field": "name",
+      "before": "EABO Men’s Cotton Boxer",
+      "after": "FABO Men’s Cotton Boxer",
+      "basis": "Brand clearly visible in original photo."
+    },
+    {
+      "item_id": "f752344f-15c8-4682-97d2-804383e41f13",
+      "field": "attributes.style",
+      "before": "3166527",
+      "after": "3166-27",
+      "basis": "Verified by enlarged original label; preserve code punctuation."
+    },
+    {
+      "item_id": "02ff215c-b83d-47b1-bac4-6874a8ad00e2",
+      "field": "attributes.style",
+      "before": "31-662-27",
+      "after": "3166-27",
+      "basis": "Verified by enlarged original label; preserve code punctuation."
+    }
+  ],
+  "committed_readback_verified_at": "2026-09-09T17:01:21.425Z",
+  "committed_audit_fields_verified": 20
+}

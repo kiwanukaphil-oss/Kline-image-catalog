@@ -1,0 +1,464 @@
+{
+  "checked_at": "2026-09-09T17:51:14.123Z",
+  "received_lots": 15,
+  "received_units": 15,
+  "pending": [
+    {
+      "id": "0880f6f0-147a-4c97-ac2e-ed6fc388fc69",
+      "name": "OXFORD shirt"
+    },
+    {
+      "id": "1b028ea6-615f-4456-90e5-06fcbaa5e435",
+      "name": "OXFORD Business Casual Shirt"
+    },
+    {
+      "id": "326f7d95-c442-492f-bf9d-a4832e926e23",
+      "name": "OXFORD Shirt"
+    },
+    {
+      "id": "737efd90-c39f-4505-b85d-9f8a511f928b",
+      "name": "OXFORD Shirt"
+    },
+    {
+      "id": "24c42a78-5fba-411f-8894-6e38a44d2e1f",
+      "name": "OXFORD shirt"
+    },
+    {
+      "id": "c5bc4c28-46fa-40d9-b72c-e97de02e2209",
+      "name": "FABO Men’s Cotton Boxer"
+    },
+    {
+      "id": "40e1a352-ef6d-4ab8-a752-a7fc14aa282c",
+      "name": "FABO Men’s Cotton Boxer"
+    },
+    {
+      "id": "c03a0a9a-c341-4cd0-9c0e-4a003616832b",
+      "name": "FABO Men's Cotton Boxer"
+    },
+    {
+      "id": "1b0b3610-4281-42f7-b79d-23ca6f6067f5",
+      "name": "FABO Men’s Cotton Boxer"
+    },
+    {
+      "id": "82b042b3-d8df-410b-9e75-265a977b6c46",
+      "name": "FABO Men's Cotton Boxer"
+    },
+    {
+      "id": "440f216e-19d3-4c72-9365-f0a39e305327",
+      "name": "FABO Men’s Cotton Boxer"
+    },
+    {
+      "id": "49448a6f-54e1-4a37-96c9-ef8782be63bf",
+      "name": "FABO Men’s Cotton Boxer"
+    }
+  ],
+  "items": [
+    {
+      "id": "9587ee14-5a96-41a0-848e-ef3154769643",
+      "name": "OXFORD business casual shirt",
+      "pos_product_id": "16cde31a-4d7d-4875-87a0-2aa02257cc76",
+      "stock_quantity": 1,
+      "total_quantity": 1,
+      "published_at": "2026-09-09T17:39:09.238Z"
+    },
+    {
+      "id": "0880f6f0-147a-4c97-ac2e-ed6fc388fc69",
+      "name": "OXFORD shirt",
+      "pos_product_id": null,
+      "stock_quantity": 1,
+      "total_quantity": null,
+      "published_at": null
+    },
+    {
+      "id": "1b028ea6-615f-4456-90e5-06fcbaa5e435",
+      "name": "OXFORD Business Casual Shirt",
+      "pos_product_id": null,
+      "stock_quantity": 1,
+      "total_quantity": null,
+      "published_at": null
+    },
+    {
+      "id": "6a15ff20-a5f9-47ed-b9aa-bf1f936e5f29",
+      "name": "OXFORD shirt",
+      "pos_product_id": "16cde31a-4d7d-4875-87a0-2aa02257cc76",
+      "stock_quantity": 1,
+      "total_quantity": 1,
+      "published_at": "2026-09-09T17:39:09.238Z"
+    },
+    {
+      "id": "08bf0583-2bf9-4f78-a9ae-d19cbd95cf8f",
+      "name": "OXFORD shirt",
+      "pos_product_id": "16cde31a-4d7d-4875-87a0-2aa02257cc76",
+      "stock_quantity": 1,
+      "total_quantity": 1,
+      "published_at": "2026-09-09T17:39:09.238Z"
+    },
+    {
+      "id": "87e02ccc-3dbb-4b76-9765-6b53d5e501e3",
+      "name": "OXFORD Business Casual Shirt",
+      "pos_product_id": "16cde31a-4d7d-4875-87a0-2aa02257cc76",
+      "stock_quantity": 1,
+      "total_quantity": 1,
+      "published_at": "2026-09-09T17:39:09.238Z"
+    },
+    {
+      "id": "326f7d95-c442-492f-bf9d-a4832e926e23",
+      "name": "OXFORD Shirt",
+      "pos_product_id": null,
+      "stock_quantity": 1,
+      "total_quantity": null,
+      "published_at": null
+    },
+    {
+      "id": "737efd90-c39f-4505-b85d-9f8a511f928b",
+      "name": "OXFORD Shirt",
+      "pos_product_id": null,
+      "stock_quantity": 1,
+      "total_quantity": null,
+      "published_at": null
+    },
+    {
+      "id": "24c42a78-5fba-411f-8894-6e38a44d2e1f",
+      "name": "OXFORD shirt",
+      "pos_product_id": null,
+      "stock_quantity": 1,
+      "total_quantity": null,
+      "published_at": null
+    },
+    {
+      "id": "c5bc4c28-46fa-40d9-b72c-e97de02e2209",
+      "name": "FABO Men’s Cotton Boxer",
+      "pos_product_id": null,
+      "stock_quantity": 6,
+      "total_quantity": null,
+      "published_at": null
+    },
+    {
+      "id": "40e1a352-ef6d-4ab8-a752-a7fc14aa282c",
+      "name": "FABO Men’s Cotton Boxer",
+      "pos_product_id": null,
+      "stock_quantity": 4,
+      "total_quantity": null,
+      "published_at": null
+    },
+    {
+      "id": "c03a0a9a-c341-4cd0-9c0e-4a003616832b",
+      "name": "FABO Men's Cotton Boxer",
+      "pos_product_id": null,
+      "stock_quantity": 5,
+      "total_quantity": null,
+      "published_at": null
+    },
+    {
+      "id": "1b0b3610-4281-42f7-b79d-23ca6f6067f5",
+      "name": "FABO Men’s Cotton Boxer",
+      "pos_product_id": null,
+      "stock_quantity": 3,
+      "total_quantity": null,
+      "published_at": null
+    },
+    {
+      "id": "82b042b3-d8df-410b-9e75-265a977b6c46",
+      "name": "FABO Men's Cotton Boxer",
+      "pos_product_id": null,
+      "stock_quantity": 3,
+      "total_quantity": null,
+      "published_at": null
+    },
+    {
+      "id": "440f216e-19d3-4c72-9365-f0a39e305327",
+      "name": "FABO Men’s Cotton Boxer",
+      "pos_product_id": null,
+      "stock_quantity": 1,
+      "total_quantity": null,
+      "published_at": null
+    },
+    {
+      "id": "49448a6f-54e1-4a37-96c9-ef8782be63bf",
+      "name": "FABO Men’s Cotton Boxer",
+      "pos_product_id": null,
+      "stock_quantity": 3,
+      "total_quantity": null,
+      "published_at": null
+    },
+    {
+      "id": "f752344f-15c8-4682-97d2-804383e41f13",
+      "name": "Robby Cavally formal shoes",
+      "pos_product_id": "5626c61f-a9af-4ecf-bff1-657bf4c318b2",
+      "stock_quantity": 1,
+      "total_quantity": 1,
+      "published_at": "2026-09-09T17:39:13.790Z"
+    },
+    {
+      "id": "918334f4-2aa8-4b17-92e1-1eb14c3b4b86",
+      "name": "Robby Cavally Formal Shoes",
+      "pos_product_id": "df6b07ae-509b-4067-b98f-6d9a5bc7c45c",
+      "stock_quantity": 1,
+      "total_quantity": 1,
+      "published_at": "2026-09-09T17:39:15.216Z"
+    },
+    {
+      "id": "be83d601-8bdb-4217-8431-2cdcad6e277e",
+      "name": "Renato Castello Formal Shoes",
+      "pos_product_id": "dc4bef7c-a5ea-4757-ae5e-b1321a4d91b8",
+      "stock_quantity": 1,
+      "total_quantity": 1,
+      "published_at": "2026-09-09T17:39:20.740Z"
+    },
+    {
+      "id": "02ff215c-b83d-47b1-bac4-6874a8ad00e2",
+      "name": "Robby Cavally Formal Shoes",
+      "pos_product_id": "5626c61f-a9af-4ecf-bff1-657bf4c318b2",
+      "stock_quantity": 1,
+      "total_quantity": 1,
+      "published_at": "2026-09-09T17:39:13.790Z"
+    },
+    {
+      "id": "f004995f-90f7-4f81-abab-d3724d79bc26",
+      "name": "zopo Casual Shoes",
+      "pos_product_id": "649e42be-f24e-4511-9f03-4e9847b6e75d",
+      "stock_quantity": 1,
+      "total_quantity": 1,
+      "published_at": "2026-09-09T17:39:21.952Z"
+    },
+    {
+      "id": "71348ed2-18b2-457c-b839-7611b5d4d909",
+      "name": "kenneth cole Casual Shoes",
+      "pos_product_id": "b3fca59d-055e-493e-b790-c73969066564",
+      "stock_quantity": 1,
+      "total_quantity": 1,
+      "published_at": "2026-09-09T17:39:37.139Z"
+    },
+    {
+      "id": "783323c8-df6e-4ffe-9d50-37610a73e75d",
+      "name": "kenneth cole Casual Shoes",
+      "pos_product_id": "94286fed-6d6e-4d38-849c-5b17b3c6ce59",
+      "stock_quantity": 1,
+      "total_quantity": 1,
+      "published_at": "2026-09-09T17:39:48.562Z"
+    },
+    {
+      "id": "94110dd5-62cf-4dc5-8fb9-57076c1a611a",
+      "name": "zopo Casual Shoes",
+      "pos_product_id": "2f3fb466-61ce-4c82-a7d4-194415c7c408",
+      "stock_quantity": 1,
+      "total_quantity": 1,
+      "published_at": "2026-09-09T17:40:03.280Z"
+    },
+    {
+      "id": "f235c222-858c-487c-a3fc-9a98734a3c65",
+      "name": "zopo Casual Shoes",
+      "pos_product_id": "649e42be-f24e-4511-9f03-4e9847b6e75d",
+      "stock_quantity": 1,
+      "total_quantity": 1,
+      "published_at": "2026-09-09T17:39:21.952Z"
+    },
+    {
+      "id": "19f1c7ab-ccbb-4416-baa8-e00403c7d3e0",
+      "name": "kenneth cole Casual Shoes",
+      "pos_product_id": "b3fca59d-055e-493e-b790-c73969066564",
+      "stock_quantity": 1,
+      "total_quantity": 1,
+      "published_at": "2026-09-09T17:39:37.139Z"
+    },
+    {
+      "id": "f26a8bf5-20ce-4736-a472-f0ff73937f61",
+      "name": "zopo Casual Shoes",
+      "pos_product_id": "2f3fb466-61ce-4c82-a7d4-194415c7c408",
+      "stock_quantity": 1,
+      "total_quantity": 1,
+      "published_at": "2026-09-09T17:40:03.280Z"
+    }
+  ],
+  "lines": [
+    {
+      "item_id": "be83d601-8bdb-4217-8431-2cdcad6e277e",
+      "id": "f91bc919-112e-46bc-8ecd-e4e136b72c22",
+      "quantity": 1,
+      "pos_variant_id": "19888da1-9f1f-4088-a0ea-0951b4599790",
+      "stock_quantity": 1
+    },
+    {
+      "item_id": "40e1a352-ef6d-4ab8-a752-a7fc14aa282c",
+      "id": "71e7e65c-2e61-48f4-8f9f-82c18412e5d9",
+      "quantity": 4,
+      "pos_variant_id": null,
+      "stock_quantity": null
+    },
+    {
+      "item_id": "6a15ff20-a5f9-47ed-b9aa-bf1f936e5f29",
+      "id": "e875abe0-0509-45d5-a6e1-8eec0ad486d0",
+      "quantity": 1,
+      "pos_variant_id": "9aa9f48a-24b1-44a8-abaf-761c61211a01",
+      "stock_quantity": 1
+    },
+    {
+      "item_id": "87e02ccc-3dbb-4b76-9765-6b53d5e501e3",
+      "id": "b10d29c5-6eeb-4bbf-9a58-e8d6f3c8b3a3",
+      "quantity": 1,
+      "pos_variant_id": "58506d0d-24f8-453d-811f-337524432e15",
+      "stock_quantity": 1
+    },
+    {
+      "item_id": "1b0b3610-4281-42f7-b79d-23ca6f6067f5",
+      "id": "96851a7d-b999-4c40-954a-2743c4db792a",
+      "quantity": 3,
+      "pos_variant_id": null,
+      "stock_quantity": null
+    },
+    {
+      "item_id": "440f216e-19d3-4c72-9365-f0a39e305327",
+      "id": "c015cf02-6096-4a6e-bd4a-41806f4f279f",
+      "quantity": 1,
+      "pos_variant_id": null,
+      "stock_quantity": null
+    },
+    {
+      "item_id": "02ff215c-b83d-47b1-bac4-6874a8ad00e2",
+      "id": "2c461998-caeb-4865-beb8-2593685a56fe",
+      "quantity": 1,
+      "pos_variant_id": "176943b5-6c8f-4c67-a942-3909796da820",
+      "stock_quantity": 1
+    },
+    {
+      "item_id": "783323c8-df6e-4ffe-9d50-37610a73e75d",
+      "id": "02cbbce5-7b05-40d7-97b1-c3222b89f06d",
+      "quantity": 1,
+      "pos_variant_id": "b3077825-4e7f-453f-9fe0-b37200ad5677",
+      "stock_quantity": 1
+    },
+    {
+      "item_id": "f235c222-858c-487c-a3fc-9a98734a3c65",
+      "id": "740d391b-bd75-4aae-a5f5-db1680f1010c",
+      "quantity": 1,
+      "pos_variant_id": "ae9ed3ef-1d3e-426a-b22e-5b99f62f0fb5",
+      "stock_quantity": 1
+    },
+    {
+      "item_id": "9587ee14-5a96-41a0-848e-ef3154769643",
+      "id": "3de5bd1b-0593-463d-b202-5e2d4bd90622",
+      "quantity": 1,
+      "pos_variant_id": "ef02987d-1054-4e79-bfa0-11be6bdb72c0",
+      "stock_quantity": 1
+    },
+    {
+      "item_id": "0880f6f0-147a-4c97-ac2e-ed6fc388fc69",
+      "id": "2281586d-84f8-42ba-9f3d-6666c182f3cc",
+      "quantity": 1,
+      "pos_variant_id": null,
+      "stock_quantity": null
+    },
+    {
+      "item_id": "326f7d95-c442-492f-bf9d-a4832e926e23",
+      "id": "ca96a525-7256-436b-8670-ad3c4d4a3c28",
+      "quantity": 1,
+      "pos_variant_id": null,
+      "stock_quantity": null
+    },
+    {
+      "item_id": "737efd90-c39f-4505-b85d-9f8a511f928b",
+      "id": "1747b4ac-84b6-47d1-96a3-ecd489b8b36a",
+      "quantity": 1,
+      "pos_variant_id": null,
+      "stock_quantity": null
+    },
+    {
+      "item_id": "82b042b3-d8df-410b-9e75-265a977b6c46",
+      "id": "253b038f-ed41-49be-912a-28fd6b8dfdc9",
+      "quantity": 3,
+      "pos_variant_id": null,
+      "stock_quantity": null
+    },
+    {
+      "item_id": "c03a0a9a-c341-4cd0-9c0e-4a003616832b",
+      "id": "fc8e7937-3889-4b29-a6a7-9885c31b095e",
+      "quantity": 5,
+      "pos_variant_id": null,
+      "stock_quantity": null
+    },
+    {
+      "item_id": "24c42a78-5fba-411f-8894-6e38a44d2e1f",
+      "id": "9db84f52-f987-4391-aead-9694ca4bf86e",
+      "quantity": 1,
+      "pos_variant_id": null,
+      "stock_quantity": null
+    },
+    {
+      "item_id": "49448a6f-54e1-4a37-96c9-ef8782be63bf",
+      "id": "749af3d6-72b0-44ea-aa83-9a498b32b5cf",
+      "quantity": 3,
+      "pos_variant_id": null,
+      "stock_quantity": null
+    },
+    {
+      "item_id": "c5bc4c28-46fa-40d9-b72c-e97de02e2209",
+      "id": "5e885f34-45d2-44d3-884b-04bcc7efe360",
+      "quantity": 6,
+      "pos_variant_id": null,
+      "stock_quantity": null
+    },
+    {
+      "item_id": "f752344f-15c8-4682-97d2-804383e41f13",
+      "id": "464774c3-42a3-4605-b753-e9a7e3db3889",
+      "quantity": 1,
+      "pos_variant_id": "59be4c0c-b267-4321-8a4f-8098dea36b8b",
+      "stock_quantity": 1
+    },
+    {
+      "item_id": "19f1c7ab-ccbb-4416-baa8-e00403c7d3e0",
+      "id": "8952a041-0f29-4fb9-a1e5-210f7c202b06",
+      "quantity": 1,
+      "pos_variant_id": "9d76e3ef-59c7-4c84-aa5d-af48a6f06096",
+      "stock_quantity": 1
+    },
+    {
+      "item_id": "1b028ea6-615f-4456-90e5-06fcbaa5e435",
+      "id": "88d9274d-3bc0-4213-bb79-12aef82e14b2",
+      "quantity": 1,
+      "pos_variant_id": null,
+      "stock_quantity": null
+    },
+    {
+      "item_id": "918334f4-2aa8-4b17-92e1-1eb14c3b4b86",
+      "id": "61d5b4a8-69a8-475d-9cab-09ef6cffd8df",
+      "quantity": 1,
+      "pos_variant_id": "4c1b6236-c7bd-47c0-b1e2-28abeb974304",
+      "stock_quantity": 1
+    },
+    {
+      "item_id": "94110dd5-62cf-4dc5-8fb9-57076c1a611a",
+      "id": "85eb95cd-b6d9-4da5-9fb2-04860705f2cf",
+      "quantity": 1,
+      "pos_variant_id": "b6709d3d-4754-4d3a-9cd4-2e60ea0c270c",
+      "stock_quantity": 1
+    },
+    {
+      "item_id": "f004995f-90f7-4f81-abab-d3724d79bc26",
+      "id": "df814612-fe91-4209-9476-8c596cc0e1a4",
+      "quantity": 1,
+      "pos_variant_id": "57aa22bf-fd5c-4432-aaf8-af88ef4f1c43",
+      "stock_quantity": 1
+    },
+    {
+      "item_id": "f26a8bf5-20ce-4736-a472-f0ff73937f61",
+      "id": "9ae4f409-6cd4-471d-9050-10ea757fc391",
+      "quantity": 1,
+      "pos_variant_id": "acdbfdf8-5c32-479d-8281-11bb88fa0cc3",
+      "stock_quantity": 1
+    },
+    {
+      "item_id": "08bf0583-2bf9-4f78-a9ae-d19cbd95cf8f",
+      "id": "08102fea-6c1f-4451-a20a-c7c409364df5",
+      "quantity": 1,
+      "pos_variant_id": "a97ed207-7b8d-4071-a640-7190de02efe1",
+      "stock_quantity": 1
+    },
+    {
+      "item_id": "71348ed2-18b2-457c-b839-7611b5d4d909",
+      "id": "35578241-0c2e-4429-b2eb-812fdaa23fc6",
+      "quantity": 1,
+      "pos_variant_id": "64b5c6bc-0773-4e6f-8064-dd6bac2cfbd2",
+      "stock_quantity": 1
+    }
+  ]
+}

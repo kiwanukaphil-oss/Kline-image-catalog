@@ -1,0 +1,26 @@
+{
+  "status": "deployed_and_verified",
+  "changed_files": [
+    "app\\components\\upload-delivery.tsx"
+  ],
+  "typecheck": true,
+  "lint": true,
+  "production_build": true,
+  "queue_regression_tests": true,
+  "phone_queue_recovered": false,
+  "deployment": "824e59ed-3155-4784-8415-22c3980f04d1",
+  "verified_at": "2026-09-10T05:18:58.679Z",
+  "live_checks": [
+    {
+      "url": "https://klinemen-catalog.com/",
+      "status": 200
+    },
+    {
+      "url": "https://inventorypos-production.up.railway.app/api/health",
+      "status": 200
+    }
+  ],
+  "live_upload_resume_verified": true,
+  "live_client_summary_verified": true,
+  "live_client_recovery_verified": true
+}

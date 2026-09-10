@@ -1,0 +1,121 @@
+{
+  "checked_at": "2026-09-10T04:31:39.793Z",
+  "outcomes": [
+    {
+      "mode": "WHEN_REQUIRED",
+      "success": true,
+      "observed": [
+        {
+          "method": "PUT",
+          "signedHeaders": [
+            "amz-sdk-invocation-id",
+            "amz-sdk-request",
+            "content-length",
+            "content-type",
+            "host",
+            "if-none-match",
+            "x-amz-content-sha256",
+            "x-amz-date",
+            "x-amz-meta-purpose",
+            "x-amz-user-agent"
+          ],
+          "headerNames": [
+            "content-length",
+            "content-type",
+            "if-none-match",
+            "x-amz-meta-purpose",
+            "x-amz-user-agent",
+            "user-agent",
+            "host",
+            "amz-sdk-invocation-id",
+            "amz-sdk-request",
+            "x-amz-date",
+            "x-amz-content-sha256",
+            "authorization"
+          ]
+        },
+        {
+          "method": "HEAD",
+          "signedHeaders": [
+            "amz-sdk-invocation-id",
+            "amz-sdk-request",
+            "host",
+            "x-amz-content-sha256",
+            "x-amz-date",
+            "x-amz-user-agent"
+          ],
+          "headerNames": [
+            "x-amz-user-agent",
+            "user-agent",
+            "host",
+            "amz-sdk-invocation-id",
+            "amz-sdk-request",
+            "x-amz-date",
+            "x-amz-content-sha256",
+            "authorization"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "WHEN_SUPPORTED",
+      "success": true,
+      "observed": [
+        {
+          "method": "PUT",
+          "signedHeaders": [
+            "amz-sdk-invocation-id",
+            "amz-sdk-request",
+            "content-length",
+            "content-type",
+            "host",
+            "if-none-match",
+            "x-amz-checksum-crc32",
+            "x-amz-content-sha256",
+            "x-amz-date",
+            "x-amz-meta-purpose",
+            "x-amz-sdk-checksum-algorithm",
+            "x-amz-user-agent"
+          ],
+          "headerNames": [
+            "content-length",
+            "content-type",
+            "if-none-match",
+            "x-amz-meta-purpose",
+            "x-amz-sdk-checksum-algorithm",
+            "x-amz-checksum-crc32",
+            "x-amz-user-agent",
+            "user-agent",
+            "host",
+            "amz-sdk-invocation-id",
+            "amz-sdk-request",
+            "x-amz-date",
+            "x-amz-content-sha256",
+            "authorization"
+          ]
+        },
+        {
+          "method": "HEAD",
+          "signedHeaders": [
+            "amz-sdk-invocation-id",
+            "amz-sdk-request",
+            "host",
+            "x-amz-content-sha256",
+            "x-amz-date",
+            "x-amz-user-agent"
+          ],
+          "headerNames": [
+            "x-amz-user-agent",
+            "user-agent",
+            "host",
+            "amz-sdk-invocation-id",
+            "amz-sdk-request",
+            "x-amz-date",
+            "x-amz-content-sha256",
+            "authorization"
+          ]
+        }
+      ]
+    }
+  ]
+}

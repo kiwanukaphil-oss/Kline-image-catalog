@@ -1,0 +1,136 @@
+{
+  "passed": true,
+  "checked_at": "2026-09-09T14:32:51.433Z",
+  "read_only_verification": true,
+  "categories": [
+    {
+      "id": "0b6dec98-1d7f-4942-9d2a-fd98af60a9f9",
+      "name": "Casual Shoes",
+      "parent_id": "57155a81-0d84-4ab1-812c-4b6f997451a1",
+      "pos_category_id": "5226f92e-8d2f-4fe9-83cb-1d7827e7edde",
+      "pos_name": "Casual Shoes",
+      "pos_parent_id": "a5239b63-473b-4821-afe6-703f95012774",
+      "pos_active": true
+    },
+    {
+      "id": "57155a81-0d84-4ab1-812c-4b6f997451a1",
+      "name": "Footware",
+      "parent_id": null,
+      "pos_category_id": "a5239b63-473b-4821-afe6-703f95012774",
+      "pos_name": "Footware",
+      "pos_parent_id": null,
+      "pos_active": true
+    },
+    {
+      "id": "d01d79b5-9341-4e9f-899c-0af9495d2d7d",
+      "name": "Formal Shoes",
+      "parent_id": "57155a81-0d84-4ab1-812c-4b6f997451a1",
+      "pos_category_id": "55a82598-20d0-42fc-9096-0c78894c9452",
+      "pos_name": "Formal Shoes",
+      "pos_parent_id": "a5239b63-473b-4821-afe6-703f95012774",
+      "pos_active": true
+    },
+    {
+      "id": "61d9895e-0579-403d-bdcc-918163ffd99a",
+      "name": "Sandals",
+      "parent_id": "57155a81-0d84-4ab1-812c-4b6f997451a1",
+      "pos_category_id": "1c832023-0752-46cc-bff6-657900c4032c",
+      "pos_name": "Sandals",
+      "pos_parent_id": "a5239b63-473b-4821-afe6-703f95012774",
+      "pos_active": true
+    },
+    {
+      "id": "1288eebc-0f38-45ba-b66a-4531e7539037",
+      "name": "Sneakers",
+      "parent_id": "57155a81-0d84-4ab1-812c-4b6f997451a1",
+      "pos_category_id": "6c15bc68-1694-475f-8322-43717e55ec5c",
+      "pos_name": "Sneakers",
+      "pos_parent_id": "a5239b63-473b-4821-afe6-703f95012774",
+      "pos_active": true
+    }
+  ],
+  "fields": [
+    {
+      "category_id": "1288eebc-0f38-45ba-b66a-4531e7539037",
+      "key": "size_eu",
+      "label": "Size (EU)",
+      "type": "number",
+      "required": false,
+      "inherit": false
+    },
+    {
+      "category_id": "1288eebc-0f38-45ba-b66a-4531e7539037",
+      "key": "width",
+      "label": "Width",
+      "type": "select",
+      "required": false,
+      "inherit": false
+    },
+    {
+      "category_id": "1288eebc-0f38-45ba-b66a-4531e7539037",
+      "key": "style",
+      "label": "Model / style",
+      "type": "text",
+      "required": false,
+      "inherit": false
+    },
+    {
+      "category_id": "57155a81-0d84-4ab1-812c-4b6f997451a1",
+      "key": "color",
+      "label": "Colour",
+      "type": "select",
+      "required": true,
+      "inherit": true
+    },
+    {
+      "category_id": "57155a81-0d84-4ab1-812c-4b6f997451a1",
+      "key": "pattern",
+      "label": "Pattern",
+      "type": "text",
+      "required": false,
+      "inherit": true
+    },
+    {
+      "category_id": "57155a81-0d84-4ab1-812c-4b6f997451a1",
+      "key": "material",
+      "label": "Material",
+      "type": "text",
+      "required": false,
+      "inherit": true
+    },
+    {
+      "category_id": "57155a81-0d84-4ab1-812c-4b6f997451a1",
+      "key": "size",
+      "label": "Shoe size (as captioned)",
+      "type": "text",
+      "required": true,
+      "inherit": true
+    },
+    {
+      "category_id": "d01d79b5-9341-4e9f-899c-0af9495d2d7d",
+      "key": "size_eu",
+      "label": "Size (EU)",
+      "type": "number",
+      "required": false,
+      "inherit": false
+    },
+    {
+      "category_id": "d01d79b5-9341-4e9f-899c-0af9495d2d7d",
+      "key": "width",
+      "label": "Width",
+      "type": "select",
+      "required": false,
+      "inherit": false
+    },
+    {
+      "category_id": "d01d79b5-9341-4e9f-899c-0af9495d2d7d",
+      "key": "style",
+      "label": "Style code",
+      "type": "text",
+      "required": false,
+      "inherit": false
+    }
+  ],
+  "caption_guidance": "Existing AI prompt reads captions and preserves printed sizes. The inherited size key enables size-count extraction.",
+  "live_shoe_ai_test": false
+}

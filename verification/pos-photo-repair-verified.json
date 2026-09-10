@@ -1,0 +1,13 @@
+{
+  "checked_at": "2026-09-09T18:09:37.044Z",
+  "repaired_photos": 12,
+  "linked_photos": 27,
+  "products_with_photos": 12,
+  "size_variants": 27,
+  "stock_units": 45,
+  "stock_ledger_unchanged": true,
+  "variant_lines_unchanged": true,
+  "photo_issues": 0,
+  "stock_issues": 0,
+  "hosted_recurring_failure_fixed": false
+}

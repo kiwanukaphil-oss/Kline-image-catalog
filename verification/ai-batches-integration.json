@@ -1,0 +1,20 @@
+{
+  "checked_at": "2026-09-09T16:23:09.175Z",
+  "checks": [
+    "Idempotent acceptance, overlap and legacy endpoint protection; authenticated branch scope",
+    "Two workers claim once; stop/resume retains queued work; saved human fields and counts protected",
+    "Lost acknowledgement replay does not repeat completed inference",
+    "Provider failures pause remaining work; explicit paid retry required",
+    "Durable usage caps pause without provider calls and allow later resume",
+    "Requester deactivation pauses queued work",
+    "Cancellation before execution skips inference",
+    "Real worker process termination preserves queue; uncertain attempt requires consent and late results are fenced",
+    "Restart before attempt linkage safely requeues without an uncertain paid retry",
+    "Extraction result and queue completion commit together; lost bookkeeping cannot repeat paid inference",
+    "Effective permission revocation pauses execution; batch reads cannot cross branches",
+    "Publication after queue acceptance prevents later inference"
+  ],
+  "provider_calls": 13,
+  "paid_provider_calls": 0,
+  "production_changed": false
+}

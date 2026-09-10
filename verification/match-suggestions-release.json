@@ -1,0 +1,84 @@
+{
+  "prepared_at": "2026-09-09T15:55:00.761Z",
+  "status": "deployed_and_verified",
+  "production_changed": true,
+  "git_commit_created": false,
+  "backend_package": {
+    "version": "0.22.0",
+    "path": ".test-data/matching-release/kline-pos-workspace-0.22.0.tgz",
+    "sha256": "5dc00d334e7a324f5926196e3079d839e1321e4fe63fd6e9464bcb752094132f"
+  },
+  "checks": [
+    "typecheck",
+    "lint",
+    "node_production_build",
+    "exact_match_baseline",
+    "matching_api_integration",
+    "grouped_receipt_gallery_regression",
+    "workspace_integration",
+    "desktop_mobile_browser_flow"
+  ],
+  "source_sha256": {
+    "app/components/suggested-matches.tsx": "d935541538e9d2d983f4187a1383c069242e6bc42f15920ca33aebfb82903540",
+    "app/components/receiving.tsx": "b3424814ea1b49d21aa409318063afff2a862f43930698fb8b7a6406d8645f99",
+    "app/components/ai-fill.tsx": "d05321d42c7a9dda9be648d8a85c56445f4434ee0d0f6593efe9dc02ce6a2d50",
+    "app/app/globals.css": "6b11739cae634600db9fb8cd4f7e65d2f9e26cc625e3dc941c3e72662911396b",
+    "server/match-candidates.cjs": "2eb932ab209ae427105895fbd4ffbebeeab51927c76ca04bedbb30e639ca3ffa",
+    "server/match-suggestions.cjs": "fcade53071d01e5134b2910cef199add46990f4d20baab44e4ed28061fe0079a",
+    "server/product-matching.cjs": "bc957566415844eadbde2fbe537f505d101943b22d3d82b90b3b238701e7a833",
+    "server/workspace-router.cjs": "cc02c10ce0452fc6a64631f4680ba089a0c7af2f6791f91100874f1260fa3fc8",
+    "server/package.json": "bcd87555f6633b2abaad5c47f67147f2d22490fdd58c32e0ed0c0640220eace5",
+    "server/migrations/002_match_suggestions.sql": "e8bb7efa0ef352727095d91fa3bfcfa250c69c70fdd2040c0eb9a6941263800c"
+  },
+  "deployed_at": "2026-09-09T16:05:29.802Z",
+  "backend_deployment": "8fb041c9-3430-42d7-9eff-ec775597db1d",
+  "frontend_deployment": "d202c7e0-6bd7-4ac6-adc9-5a02aaf6da32",
+  "previous_backend_deployment": "caebc6e7-0bad-4c84-a129-41b34c861e3e",
+  "previous_frontend_deployment": "397253a1-296d-4044-8f19-a6dfb95d0df8",
+  "backend_base_commit": "003324d0c9ca2b7ca17dce327eac2792a1d0faa5",
+  "url": "https://klinemen-catalog.com",
+  "migration": "112_catalog_match_suggestions.sql",
+  "migration_verification": "verification/match-suggestions-migration.json",
+  "schema_verification": "verification/match-suggestions-schema.json",
+  "deployment_status": {
+    "backend": "SUCCESS",
+    "frontend": "SUCCESS",
+    "api_health": "OK"
+  },
+  "snapshots": {
+    "backend": ".test-data/suggested-matching-pos-release-20260909",
+    "frontend": ".test-data/suggested-matching-catalog-release-20260909"
+  },
+  "live_browser": {
+    "authenticated_admin": true,
+    "namugongo_delivery": {
+      "eligible_lots": 8,
+      "with_model_evidence": 0,
+      "suggestions": 0
+    },
+    "namugongo_branch": {
+      "eligible_lots": 27,
+      "with_model_evidence": 0,
+      "suggestions": 0
+    },
+    "ntinda_branch": {
+      "eligible_lots": 701,
+      "with_model_evidence": 56,
+      "suggestions": 9,
+      "all_require_difference_review": true
+    },
+    "reviewed_model": "Mack Weldon 26201A-29",
+    "category": "Clothing → Shirts → Formal",
+    "recorded_sizes": "L × 1 · XL × 1",
+    "counts_marked_unconfirmed": true,
+    "original_photos_rendered": true,
+    "saved_label_text_visible": true,
+    "missing_pattern_and_material_flagged": true,
+    "confirm_disabled_until_review": true,
+    "scope_switch_verified": true,
+    "empty_evidence_fallback_verified": true,
+    "groups_confirmed": 0,
+    "receipts_created": 0,
+    "merchandise_modified": false
+  }
+}

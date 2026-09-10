@@ -1,0 +1,13 @@
+{
+  "checked_at": "2026-09-08T08:09:34.258Z",
+  "branch": "NAMUGONGO",
+  "lots": 67,
+  "photographed_units": 126,
+  "unconfirmed": 0,
+  "blocked": [],
+  "ready": 67,
+  "pos_received_units": 0,
+  "passed": true,
+  "review_basis": "Original-photo review under existing stock-label conventions; not a physical recount",
+  "price_overrides_preserved": true
+}

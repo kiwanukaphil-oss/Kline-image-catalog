@@ -1,0 +1,219 @@
+{
+  "passed": true,
+  "checked_at": "2026-09-09T14:52:47.171Z",
+  "read_only_verification": true,
+  "categories": [
+    {
+      "id": "1b657902-3bee-4bcb-85c9-1cac1d4a2f7a",
+      "name": "Boxers",
+      "parent_id": "7fc5bc1d-f5d4-4503-b6f6-534e23f5d159",
+      "pos_category_id": "f9809bbe-fe89-4ec4-b1e4-b0648d3082de",
+      "pos_name": "Boxers",
+      "pos_parent_id": "d09a9454-b625-4625-805c-adfaea17b1e3",
+      "pos_active": true
+    },
+    {
+      "id": "105d787f-b264-4e3c-a0a2-e23fdac3727c",
+      "name": "Briefs",
+      "parent_id": "7fc5bc1d-f5d4-4503-b6f6-534e23f5d159",
+      "pos_category_id": "c6b89cfd-99e6-4eed-a1ac-7ec6ca174e23",
+      "pos_name": "Briefs",
+      "pos_parent_id": "d09a9454-b625-4625-805c-adfaea17b1e3",
+      "pos_active": true
+    },
+    {
+      "id": "22a6a323-1f82-440f-8ddc-09874e1e6f3b",
+      "name": "Socks",
+      "parent_id": "7fc5bc1d-f5d4-4503-b6f6-534e23f5d159",
+      "pos_category_id": "5d6cb7db-27c3-403e-9b36-826743754ef8",
+      "pos_name": "Socks",
+      "pos_parent_id": "d09a9454-b625-4625-805c-adfaea17b1e3",
+      "pos_active": true
+    },
+    {
+      "id": "7fc5bc1d-f5d4-4503-b6f6-534e23f5d159",
+      "name": "Underwear & Socks",
+      "parent_id": "f61801d0-328c-4f22-8375-26dc3d4b1c9f",
+      "pos_category_id": "d09a9454-b625-4625-805c-adfaea17b1e3",
+      "pos_name": "Underwear & Socks",
+      "pos_parent_id": "667b99b6-db4e-47d6-a073-7bbe1e3c57f3",
+      "pos_active": true
+    },
+    {
+      "id": "676aa9d6-b5a8-48a3-99c7-9bffab199252",
+      "name": "Vests",
+      "parent_id": "7fc5bc1d-f5d4-4503-b6f6-534e23f5d159",
+      "pos_category_id": "4b4f01f1-846a-42ab-bdfa-9975ba634772",
+      "pos_name": "Vests",
+      "pos_parent_id": "d09a9454-b625-4625-805c-adfaea17b1e3",
+      "pos_active": true
+    }
+  ],
+  "effective_fields": [
+    {
+      "category": "Boxers",
+      "fields": [
+        {
+          "key": "color",
+          "label": "Colour",
+          "type": "select",
+          "required": true,
+          "inherit": true
+        },
+        {
+          "key": "material",
+          "label": "Material",
+          "type": "text",
+          "required": false,
+          "inherit": true
+        },
+        {
+          "key": "pattern",
+          "label": "Pattern",
+          "type": "text",
+          "required": false,
+          "inherit": true
+        },
+        {
+          "key": "size",
+          "label": "Size (as labelled)",
+          "type": "text",
+          "required": true,
+          "inherit": true
+        }
+      ]
+    },
+    {
+      "category": "Briefs",
+      "fields": [
+        {
+          "key": "color",
+          "label": "Colour",
+          "type": "select",
+          "required": true,
+          "inherit": true
+        },
+        {
+          "key": "material",
+          "label": "Material",
+          "type": "text",
+          "required": false,
+          "inherit": true
+        },
+        {
+          "key": "pattern",
+          "label": "Pattern",
+          "type": "text",
+          "required": false,
+          "inherit": true
+        },
+        {
+          "key": "size",
+          "label": "Size (as labelled)",
+          "type": "text",
+          "required": true,
+          "inherit": true
+        }
+      ]
+    },
+    {
+      "category": "Socks",
+      "fields": [
+        {
+          "key": "color",
+          "label": "Colour",
+          "type": "select",
+          "required": true,
+          "inherit": true
+        },
+        {
+          "key": "material",
+          "label": "Material",
+          "type": "text",
+          "required": false,
+          "inherit": true
+        },
+        {
+          "key": "pattern",
+          "label": "Pattern",
+          "type": "text",
+          "required": false,
+          "inherit": true
+        },
+        {
+          "key": "size",
+          "label": "Size (as labelled)",
+          "type": "text",
+          "required": true,
+          "inherit": true
+        }
+      ]
+    },
+    {
+      "category": "Underwear & Socks",
+      "fields": [
+        {
+          "key": "color",
+          "label": "Colour",
+          "type": "select",
+          "required": true,
+          "inherit": true
+        },
+        {
+          "key": "material",
+          "label": "Material",
+          "type": "text",
+          "required": false,
+          "inherit": true
+        },
+        {
+          "key": "pattern",
+          "label": "Pattern",
+          "type": "text",
+          "required": false,
+          "inherit": true
+        },
+        {
+          "key": "size",
+          "label": "Size (as labelled)",
+          "type": "text",
+          "required": true,
+          "inherit": true
+        }
+      ]
+    },
+    {
+      "category": "Vests",
+      "fields": [
+        {
+          "key": "color",
+          "label": "Colour",
+          "type": "select",
+          "required": true,
+          "inherit": true
+        },
+        {
+          "key": "material",
+          "label": "Material",
+          "type": "text",
+          "required": false,
+          "inherit": true
+        },
+        {
+          "key": "pattern",
+          "label": "Pattern",
+          "type": "text",
+          "required": false,
+          "inherit": true
+        },
+        {
+          "key": "size",
+          "label": "Size (as labelled)",
+          "type": "text",
+          "required": true,
+          "inherit": true
+        }
+      ]
+    }
+  ]
+}

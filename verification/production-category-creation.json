@@ -1,0 +1,19 @@
+{
+  "checked_at": "2026-09-07T20:05:32.210Z",
+  "actor": "existing catalog_sync integration account",
+  "owner_approved": true,
+  "active_parent_id": "138b52ac-6839-4555-b12f-1eba32b466f7",
+  "categories": [
+    {
+      "id": "d22fd593-0c59-4eab-b2b1-90615dc18b00",
+      "name": "Jeans",
+      "created": true
+    },
+    {
+      "id": "982b00d2-bf11-45ee-9a2a-4c76113d3bb6",
+      "name": "Sweat pants",
+      "created": true
+    }
+  ],
+  "archived_categories_modified": false
+}

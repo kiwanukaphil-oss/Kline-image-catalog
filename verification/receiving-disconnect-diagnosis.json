@@ -1,0 +1,39 @@
+{
+  "observed_crash": "2026-09-09T17:39:10Z",
+  "error": "Uncaught write EPIPE",
+  "server_restarted_at": "2026-09-09T17:39:13Z",
+  "affected_requests": [
+    {
+      "timestamp": "2026-09-09T17:39:10.468122043Z",
+      "path": "/api/catalog-workspace/product-matches/4544ea52-6141-4914-a1fb-ea6793b56646/receive",
+      "httpStatus": 502
+    },
+    {
+      "timestamp": "2026-09-09T17:39:11.708848274Z",
+      "path": "/api/catalog-workspace/ai-batches",
+      "httpStatus": 502
+    },
+    {
+      "timestamp": "2026-09-09T17:39:11.866233926Z",
+      "path": "/api/catalog-workspace/product-matches/f690f2c1-6065-4b32-9177-75fbb57f9467/receive",
+      "httpStatus": 502
+    },
+    {
+      "timestamp": "2026-09-09T17:39:12.244030182Z",
+      "path": "/api/catalog-workspace/product-matches/64b1fb72-f80a-407a-9d0e-81665776878e/receive",
+      "httpStatus": 502
+    },
+    {
+      "timestamp": "2026-09-09T17:39:12.616947528Z",
+      "path": "/api/catalog-workspace/product-matches/45c257d3-112f-43d5-ad11-dc7c83cb5987/receive",
+      "httpStatus": 502
+    },
+    {
+      "timestamp": "2026-09-09T17:39:12.985922851Z",
+      "path": "/api/catalog-workspace/product-matches/f2ea8682-b8b7-4e71-9fb9-ff6a2d9989fc/receive",
+      "httpStatus": 502
+    }
+  ],
+  "interpretation": "A stock transaction committed before the process restart; the client did not receive its success acknowledgement. Exact broken-pipe source is not established by the stack trace.",
+  "changes": "Frontend pauses writes and forces a receipt readback on fetch errors and HTTP 502/503/504. No backend deployment or automatic stock replay."
+}

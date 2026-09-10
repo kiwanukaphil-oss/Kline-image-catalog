@@ -1,0 +1,9 @@
+{
+  "checked_at": "2026-09-09T16:30:22.922Z",
+  "deployment": "b0be3f0f-0c72-4478-b75d-f5775675f707",
+  "queue_errors_in_checked_logs": 0,
+  "production_batch_execution_tested": false,
+  "reason": "No paid production test batch was requested. Actual execution and restart recovery were tested locally.",
+  "runtime_inspection": "SSH unavailable because no SSH keys are configured; connector variable values are redacted. Used deployment health, logs and authenticated UI checks instead.",
+  "database_last_statement_snapshot_inconclusive": true
+}

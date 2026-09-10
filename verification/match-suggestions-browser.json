@@ -1,0 +1,18 @@
+{
+  "checked_date": "2026-09-09",
+  "environment": "local production build; dedicated kline_catalog_workspace_test database",
+  "production_mutations": false,
+  "desktop_comparison": "passed: original photos, caption evidence and full category paths",
+  "phone_viewport": { "width": 360, "height": 800, "horizontal_overflow": false, "normal_viewport_restored": true },
+  "exclusions_and_restoration": "passed: six members to five and back to six, with recalculated preview",
+  "dismissal_and_reconsideration": "passed",
+  "keyboard_confirmation": "passed",
+  "save_before_readiness": "passed",
+  "delivery_scope": "current delivery by default; explicit inclusion of other deliveries verified",
+  "receipt_before_preparation": "blocked for unconfirmed counts, retail price and cost",
+  "receipt_after_preparation": { "products": 1, "lots": 6, "units": 6, "new_variants": 6, "result": "Stock received" },
+  "material_conflict": "explicit optional-unset resolution saved",
+  "stale_comparison": "rejected; refresh resets confirmation and permits reviewed retry",
+  "original_photo": { "width": 960, "height": 1280, "complete": true },
+  "source_images_preserved": true
+}

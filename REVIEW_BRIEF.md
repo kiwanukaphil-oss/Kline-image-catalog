@@ -49,3 +49,13 @@ Production browser update, 7 September 2026: owner sign-in passes; 964 NTINDA an
 ## Completed live upload verification
 
 The owner enabled Chrome file access. A real upload exposed an unsigned-header storage rejection. Fresh API deployment 5afadc04-6e5d-46a7-b26a-85bbc0575244 explicitly applied the required checksum compatibility setting; resuming the same browser queue then succeeded. The photo survived failed-upload reload and successful-upload reload, matched its original 15,431 bytes and SHA-256, and was reversibly cancelled. All original catalog items, publications and POS commerce hashes remain unchanged. Eight post-fix public health probes pass in GitHub run 34157581100. A minor frontend follow-up labels all-cancelled deliveries correctly and fixes the cancellation separator/count grammar; TypeScript, lint and Node production build pass. C8/G7 are complete; category mapping, monitoring and staff/device decisions remain open.
+
+## Approved production category connections
+
+Created active Jeans and Sweat pants beneath active POS Pants using the existing authorized integration account. Saved Jeans, Shorts and Sweat pants mappings through the signed-in administrator workspace. All 25 active catalog categories show connected destinations. No archived category was edited and no merchandise was received by these actions. The deployed cancelled-delivery label also passes the live UI check. Additional staff access, physical-device acceptance and monitoring ownership remain open.
+
+Read-only category verification passed after transient connection timeouts: all 25 active catalog categories map to active POS destinations, and all 34 original POS categories retain their exact baseline fingerprints, including archived categories. See `verification/production-category-mappings.json`.
+
+## Production custom domain
+
+Owner-approved `klinemen-catalog.com` now routes to the new Railway app. HTTPS, ownership, new workspace HTML, service worker and existing www redirect pass. Direct Railway URL remains available. Old GitHub Pages deployment and original DNS settings are retained for rollback; three old DNS A records were renamed `previous-origin` and annotated rather than deleted. Source adds old Workbox `SKIP_WAITING` support so the installed old app can request activation. Message checks and production build pass; deployment 63267500-2fb9-4ef0-8192-d7f592277cf1 is successful. Updated public probe distinguishes new workspace HTML from the old cached app. All eight checks pass after propagation. Browser-cache transition is pending the owner hard refresh; no IndexedDB, unsent photos or browser storage were cleared. Working-tree changes remain uncommitted under current user preferences.

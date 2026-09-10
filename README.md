@@ -1,6 +1,6 @@
 # K-Line merchandise workspace
 
-Receiving, Pricing and current Stock, connected to the live POS. The production app is **https://catalog-production-ed0b.up.railway.app**; use your existing POS account. Only accounts with catalog permissions can enter.
+Receiving, Pricing and current Stock, connected to the live POS. The production app is **https://klinemen-catalog.com**. The direct Railway address remains **https://catalog-production-ed0b.up.railway.app**; use your existing POS account. Only accounts with catalog permissions can enter.
 
 The app reuses the original catalog's live database and private images. No duplicate import or stock receipt is needed. The [production cutover plan](docs/production-cutover-plan.md) records the gap assessment, verified database/image backups, deployments and remaining sign-in/category/access checks. [POS PR #1](https://github.com/kiwanukaphil-oss/Inventory_POS/pull/1) is merged; [COMPLETION_CHECKLIST.md](COMPLETION_CHECKLIST.md) tracks completion and staff acceptance.
 

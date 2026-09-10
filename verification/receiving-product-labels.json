@@ -1,0 +1,21 @@
+{
+  "status": "implemented_validated_awaiting_publication_confirmation",
+  "production_changed": false,
+  "git_commit_created": false,
+  "sample": "27 source lots -> 12 POS products; 9 matched groups, 3 separate lots, 45 confirmed units",
+  "checks": [
+    "Source/product totals unit checks passed",
+    "Typecheck passed",
+    "Lint passed",
+    "Railway Node production build passed",
+    "Updated existing browser expectations; browser suites not run"
+  ],
+  "source_sha256": {
+    "app/components/receiving.tsx": "e8ae5b88ac4825653edaea894d0971d800aa2889b9572abe5747cbd2c77c7b3a",
+    "app/lib/receiving-product-summary.ts": "669f9bbc38e083f60ac790b9dfb4d9ca660d0a82724c2304f2390b0064cb4f83",
+    "app/tests/receiving-product-summary.mjs": "79d1de8c080a8fd01374530f6f3aa0f23a6691ed3f541f36c14053de6c93e7e4",
+    "app/tests/bulk-receiving.mjs": "20376d2bfbafa5229efd8b40ec27230f9e83c5614400db0426113588de61ee46",
+    "app/tests/product-matching.mjs": "56f51cd7db0cd0c28ce944c23500d46d7d2db40a5271a79acd10d7b811cda5b9"
+  },
+  "deployment_scope": "Frontend only; preserve deployed 0.23.0 backend and current Railway hosting"
+}

@@ -1,0 +1,26 @@
+{
+  "checked_at": "2026-09-08T17:31:28.849Z",
+  "product_id": "b9e807c7-3173-4d51-a614-411175a980bd",
+  "color": "White",
+  "variants": [
+    {
+      "id": "33504e8f-37dd-42c9-a3cf-143365ebe852",
+      "size": "XL",
+      "barcode": "2007966232092",
+      "units": 1
+    },
+    {
+      "id": "c7a3d632-c6ca-4d61-b0af-8dfe5cd802db",
+      "size": "3XL",
+      "barcode": "2006736076355",
+      "units": 1
+    },
+    {
+      "id": "e9d0e63c-ca2f-4f93-9256-46e07124c2ed",
+      "size": "2XL",
+      "barcode": "2007647370075",
+      "units": 1
+    }
+  ],
+  "stock_and_other_fields_unchanged": true
+}

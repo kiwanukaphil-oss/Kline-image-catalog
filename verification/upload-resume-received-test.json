@@ -1,0 +1,8 @@
+{
+  "passed": true,
+  "eight_entry_queue_completed": true,
+  "received_entries_not_reassigned": true,
+  "receipt_race_confirmed": true,
+  "unrelated_conflict_and_failed_readback_preserve_queue": true,
+  "production_requests": false
+}

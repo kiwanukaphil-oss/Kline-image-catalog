@@ -1,0 +1,49 @@
+{
+  "status": "deployed_and_verified",
+  "snapshot": ".test-data\\receiving-recovery-catalog",
+  "frontend_project": "7df5ac43-bc99-4cd8-9605-b17fb1cbadfd",
+  "frontend_service": "e848d8df-cf36-4c6b-ab3d-11d7120a4950",
+  "environment": "bfae25a3-032c-415b-a451-4e35da0d85f0",
+  "previous_deployment": "be993f5f-a30f-463c-b86c-b43c093b7236",
+  "source_sha256": {
+    "app/components/receiving.tsx": "6ff0fc88f785ab9f3d56ebef6be2a4f4e762e7abed69c6edb33ebac33c33cdc6",
+    "app/lib/receiving-product-summary.ts": "669f9bbc38e083f60ac790b9dfb4d9ca660d0a82724c2304f2390b0064cb4f83",
+    "app/lib/receipt-connection.ts": "3ec8464f0359222e02b470d5afc0864308894c40310c6d833b838df7e1abbf6a",
+    "app/tests/receiving-product-summary.mjs": "79d1de8c080a8fd01374530f6f3aa0f23a6691ed3f541f36c14053de6c93e7e4",
+    "app/tests/receipt-connection.mjs": "707dcfa7b0a0e88b17613a598f8955029f49ede7ce58c8792395cb91acde93a4",
+    "app/tests/receipt-network-recovery.mjs": "4939145a76b6b2b15d474629ae93baa561fad11820ef8b0c95d711c7e5cc948f",
+    "app/tests/bulk-receiving.mjs": "20376d2bfbafa5229efd8b40ec27230f9e83c5614400db0426113588de61ee46",
+    "app/tests/product-matching.mjs": "56f51cd7db0cd0c28ce944c23500d46d7d2db40a5271a79acd10d7b811cda5b9"
+  },
+  "checks": [
+    "typecheck",
+    "lint",
+    "production_build",
+    "summary_unit_tests",
+    "receipt_connection_unit_tests",
+    "isolated_browser_lost_acknowledgement_recovery"
+  ],
+  "git_commit_created": false,
+  "deployment": "5795324c-e759-4e19-99f3-cc970aefc643",
+  "verified_at": "2026-09-09T17:50:28.720Z",
+  "live_checks": [
+    {
+      "url": "https://klinemen-catalog.com/",
+      "status": 200
+    },
+    {
+      "url": "https://inventorypos-production.up.railway.app/api/health",
+      "status": 200
+    }
+  ],
+  "live_client_summary_verified": true,
+  "live_client_recovery_verified": true,
+  "receipt_audit": {
+    "received_units": 15,
+    "remaining_units": 30,
+    "remaining_source_lots": 12,
+    "received_variant_stock_verified": true,
+    "photos_recovered": 15,
+    "stock_receipts_replayed": 0
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "checked_at": "2026-09-09T16:21:22.540Z",
+  "passed": true,
+  "discovery_ms": 27,
+  "branch_discovery_ms": 36,
+  "branch_eligible_lots": 1144,
+  "checks": [
+    "unready identity confirmation",
+    "receipt blockers",
+    "design conflicts",
+    "exclusion recalculation",
+    "persistent dismissal",
+    "price does not restore dismissal",
+    "identity does restore dismissal",
+    "restore decision",
+    "stale revision",
+    "concurrent overlap",
+    "material resolution",
+    "permission checks",
+    "cross-branch",
+    "delivery scope",
+    "cancelled source",
+    "manual evidence",
+    "material retained as unset in POS",
+    "changed identity blocks receipt",
+    "idempotent receipt",
+    "eligible existing POS singleton",
+    "multiple targets require choice",
+    "inactive target invalidates review"
+  ],
+  "model_calls": 0
+}

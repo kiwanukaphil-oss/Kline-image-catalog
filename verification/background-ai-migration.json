@@ -1,0 +1,9 @@
+{
+  "checked_at": "2026-09-09T16:25:58.411Z",
+  "migration": "113_catalog_ai_batches.sql",
+  "backup_path": "D:/CodexBuildCache/Kline Image Catalog/production-before-background-ai-1788971084040.dump",
+  "backup_bytes": 2211962,
+  "backup_sha256": "2519eb4156abbae71dfc2a65080fa5a13f1cc278d1b96dd5bb170021f707bfc1",
+  "archive_readable": true,
+  "applied": true
+}

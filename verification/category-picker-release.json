@@ -1,0 +1,73 @@
+{
+    "committed":  false,
+    "target":  "https://klinemen-catalog.com",
+    "checked_at":  "2026-09-09T15:11:46.3408964Z",
+    "files":  [
+                  {
+                      "sha256":  "2C9BC315CF98A1D924170649D25A441D5D0BC651A43C19CDEBEF17DA77144FF3",
+                      "path":  "app/app/globals.css"
+                  },
+                  {
+                      "sha256":  "D9C45C22ABE60D6724C28AFF2227450C00A7B648502F3C1D949A72BB5EFF4EC7",
+                      "path":  "app/components/ui/combobox.tsx"
+                  },
+                  {
+                      "sha256":  "5D082AB96FE5D79B08F37E92A21C2E3D08DE84A52F8ED193D41DD3EF2C6ED356",
+                      "path":  "app/components/upload-delivery.tsx"
+                  },
+                  {
+                      "sha256":  "F4C117AAF963BA80B2557C3BBD3EBA920CF74EEFFA262A2465B21CE7F87CA37A",
+                      "path":  "app/components/upload-category-picker.tsx"
+                  },
+                  {
+                      "sha256":  "705C0859025761D34E951FBFDEBEF0AE25A01BB40E84902F1F2547FF5EDFD5BF",
+                      "path":  "app/lib/category-path.ts"
+                  },
+                  {
+                      "sha256":  "39C159D2A34D88D6D1A440EEC2B56390F11C04535DB85C420F2D076A91388A0C",
+                      "path":  "app/lib/upload-queue.ts"
+                  },
+                  {
+                      "sha256":  "62AF6E7F59F4BCBFE457A9F32608A398076476374658F2E8DAAF2B90AF0D360E",
+                      "path":  "app/tests/category-path.mjs"
+                  },
+                  {
+                      "sha256":  "8975D05A7414F17821DF600D3CFD9A9F404D7B26FD5562F5C3BE32AA50342EDD",
+                      "path":  "app/tests/browser.mjs"
+                  },
+                  {
+                      "sha256":  "961A902B7F4D96FDE7E7F5B8F217E96ED4D9114047743E7D82BD23C7A7514644",
+                      "path":  "app/tests/recovery-keyboard.mjs"
+                  },
+                  {
+                      "sha256":  "05F3AC91C2EBCE1CBBA0A4759CCD586A9D47DFCD212DD154D8E37033CC3D95B2",
+                      "path":  "app/tests/phone-intake.mjs"
+                  },
+                  {
+                      "sha256":  "F9BEC11E0E79BF3315E2B943D301A5A439ECDCED34364A741EECEA803BF57280",
+                      "path":  "app/tests/pwa-share.mjs"
+                  }
+              ],
+    "browser_checks":  [
+                           "duplicate names distinguished",
+                           "parent search",
+                           "explicit selection required with photo",
+                           "360px no horizontal overflow",
+                           "saved destination survives reload and new selection"
+                       ],
+    "deployment_id":  "397253a1-296d-4044-8f19-a6dfb95d0df8",
+    "rollback_deployment_id":  "90cb893a-cfbf-4c61-8282-c19f6db6481d",
+    "validation":  [
+                       "typecheck passed",
+                       "lint passed",
+                       "category path regression passed",
+                       "production build passed",
+                       "browser duplicate-path selection passed",
+                       "browser 360px layout passed",
+                       "browser queue recovery and selection separation passed"
+                   ],
+    "deployment_status":  "SUCCESS",
+    "production_browser_verified":  true,
+    "production_health_checks_passed":  8,
+    "recovery_result":  "Exactly one local fixture uploaded to its original category after reload and changing the new-photo selection."
+}

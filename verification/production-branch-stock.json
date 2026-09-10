@@ -1,0 +1,50 @@
+﻿{
+    "date":  "2026-09-08",
+    "database_read_only":  true,
+    "before":  {
+                   "NAMUGONGO":  {
+                                     "inventory_rows":  0,
+                                     "units":  0
+                                 },
+                   "NTINDA":  {
+                                  "inventory_rows":  241,
+                                  "units":  270
+                              }
+               },
+    "reproduced":  "Namugongo dashboard: 0 units; Products table incorrectly showed positive Ntinda quantities",
+    "root_cause":  "GET /api/pricing/variants did not resolve branch context and selected global product_variants.stock_quantity",
+    "fix":  "Validate selected branch and read COALESCE(branch_inventory.stock_quantity,0); prices and product metadata remain shared",
+    "regression_before_fix":  "Both tests failed as expected: empty branch returned 50 instead of 0, inaccessible branch request returned 200",
+    "working_tree":  "C:/Projects/Inventory POS release check",
+    "branch":  "fix/branch-pricing-stock",
+    "deployment":  "7c5270a9-346d-412e-9caa-7306e707c26e",
+    "stock_writes":  false,
+    "deployment_status":  "SUCCESS",
+    "backend_tests":  {
+                          "suites":  27,
+                          "tests":  263,
+                          "passed":  true
+                      },
+    "typescript":  "passed",
+    "after":  {
+                  "NAMUGONGO":  {
+                                    "inventory_rows":  0,
+                                    "units":  0
+                                },
+                  "NTINDA":  {
+                                 "inventory_rows":  241,
+                                 "units":  270
+                             }
+              },
+    "browser_verified":  {
+                             "NTINDA":  "Products table shows original positive stock quantities",
+                             "NAMUGONGO":  "Same displayed product rows all show stock 0 and out of stock"
+                         },
+    "public_health_checks":  8,
+    "source_control":  "Committed and pushed to Inventory_POS master",
+    "commit":  "665f83d4d428421b05fae9e8079592d2d2654ba6",
+    "git_deployment":  "9953f830-7323-4ec2-943e-669fb347a343",
+    "git_deployment_status":  "SUCCESS",
+    "committed_deployment_browser_verified":  true,
+    "github_ci":  "34186984180: frontend-build and backend-tests passed"
+}

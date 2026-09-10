@@ -1,0 +1,224 @@
+﻿{
+    "prepared_at":  "2026-09-10",
+    "status":  "deployed_and_healthy",
+    "changed_files":  [
+                          "backend\\src\\services\\catalogImageStorageService.js",
+                          "backend\\src\\services\\catalogPhotoHandoffService.js"
+                      ],
+    "probes":  {
+                   "underscored_header":  [
+                                              {
+                                                  "mode":  "WHEN_REQUIRED",
+                                                  "success":  false,
+                                                  "error":  "AccessDenied",
+                                                  "status":  400,
+                                                  "message":  "There were headers present in the request which were not signed",
+                                                  "observed":  [
+                                                                   {
+                                                                       "method":  "PUT",
+                                                                       "signedHeaders":  [
+                                                                                             "amz-sdk-invocation-id",
+                                                                                             "amz-sdk-request",
+                                                                                             "content-length",
+                                                                                             "content-type",
+                                                                                             "host",
+                                                                                             "if-none-match",
+                                                                                             "x-amz-content-sha256",
+                                                                                             "x-amz-date",
+                                                                                             "x-amz-meta-catalog_item_id",
+                                                                                             "x-amz-meta-sha256",
+                                                                                             "x-amz-user-agent"
+                                                                                         ],
+                                                                       "headerNames":  [
+                                                                                           "content-length",
+                                                                                           "content-type",
+                                                                                           "if-none-match",
+                                                                                           "x-amz-meta-catalog_item_id",
+                                                                                           "x-amz-meta-sha256",
+                                                                                           "x-amz-user-agent",
+                                                                                           "user-agent",
+                                                                                           "host",
+                                                                                           "amz-sdk-invocation-id",
+                                                                                           "amz-sdk-request",
+                                                                                           "x-amz-date",
+                                                                                           "x-amz-content-sha256",
+                                                                                           "authorization"
+                                                                                       ]
+                                                                   }
+                                                               ]
+                                              },
+                                              {
+                                                  "mode":  "WHEN_SUPPORTED",
+                                                  "success":  false,
+                                                  "error":  "AccessDenied",
+                                                  "status":  400,
+                                                  "message":  "There were headers present in the request which were not signed",
+                                                  "observed":  [
+                                                                   {
+                                                                       "method":  "PUT",
+                                                                       "signedHeaders":  [
+                                                                                             "amz-sdk-invocation-id",
+                                                                                             "amz-sdk-request",
+                                                                                             "content-length",
+                                                                                             "content-type",
+                                                                                             "host",
+                                                                                             "if-none-match",
+                                                                                             "x-amz-checksum-crc32",
+                                                                                             "x-amz-content-sha256",
+                                                                                             "x-amz-date",
+                                                                                             "x-amz-meta-catalog_item_id",
+                                                                                             "x-amz-meta-sha256",
+                                                                                             "x-amz-sdk-checksum-algorithm",
+                                                                                             "x-amz-user-agent"
+                                                                                         ],
+                                                                       "headerNames":  [
+                                                                                           "content-length",
+                                                                                           "content-type",
+                                                                                           "if-none-match",
+                                                                                           "x-amz-meta-catalog_item_id",
+                                                                                           "x-amz-meta-sha256",
+                                                                                           "x-amz-sdk-checksum-algorithm",
+                                                                                           "x-amz-checksum-crc32",
+                                                                                           "x-amz-user-agent",
+                                                                                           "user-agent",
+                                                                                           "host",
+                                                                                           "amz-sdk-invocation-id",
+                                                                                           "amz-sdk-request",
+                                                                                           "x-amz-date",
+                                                                                           "x-amz-content-sha256",
+                                                                                           "authorization"
+                                                                                       ]
+                                                                   }
+                                                               ]
+                                              }
+                                          ],
+                   "hyphenated_header":  [
+                                             {
+                                                 "mode":  "WHEN_REQUIRED",
+                                                 "success":  true,
+                                                 "observed":  [
+                                                                  {
+                                                                      "method":  "PUT",
+                                                                      "signedHeaders":  [
+                                                                                            "amz-sdk-invocation-id",
+                                                                                            "amz-sdk-request",
+                                                                                            "content-length",
+                                                                                            "content-type",
+                                                                                            "host",
+                                                                                            "if-none-match",
+                                                                                            "x-amz-content-sha256",
+                                                                                            "x-amz-date",
+                                                                                            "x-amz-meta-catalog-item-id",
+                                                                                            "x-amz-meta-sha256",
+                                                                                            "x-amz-user-agent"
+                                                                                        ],
+                                                                      "headerNames":  [
+                                                                                          "content-length",
+                                                                                          "content-type",
+                                                                                          "if-none-match",
+                                                                                          "x-amz-meta-catalog-item-id",
+                                                                                          "x-amz-meta-sha256",
+                                                                                          "x-amz-user-agent",
+                                                                                          "user-agent",
+                                                                                          "host",
+                                                                                          "amz-sdk-invocation-id",
+                                                                                          "amz-sdk-request",
+                                                                                          "x-amz-date",
+                                                                                          "x-amz-content-sha256",
+                                                                                          "authorization"
+                                                                                      ]
+                                                                  },
+                                                                  {
+                                                                      "method":  "HEAD",
+                                                                      "signedHeaders":  [
+                                                                                            "amz-sdk-invocation-id",
+                                                                                            "amz-sdk-request",
+                                                                                            "host",
+                                                                                            "x-amz-content-sha256",
+                                                                                            "x-amz-date",
+                                                                                            "x-amz-user-agent"
+                                                                                        ],
+                                                                      "headerNames":  [
+                                                                                          "x-amz-user-agent",
+                                                                                          "user-agent",
+                                                                                          "host",
+                                                                                          "amz-sdk-invocation-id",
+                                                                                          "amz-sdk-request",
+                                                                                          "x-amz-date",
+                                                                                          "x-amz-content-sha256",
+                                                                                          "authorization"
+                                                                                      ]
+                                                                  }
+                                                              ]
+                                             },
+                                             {
+                                                 "mode":  "WHEN_SUPPORTED",
+                                                 "success":  true,
+                                                 "observed":  [
+                                                                  {
+                                                                      "method":  "PUT",
+                                                                      "signedHeaders":  [
+                                                                                            "amz-sdk-invocation-id",
+                                                                                            "amz-sdk-request",
+                                                                                            "content-length",
+                                                                                            "content-type",
+                                                                                            "host",
+                                                                                            "if-none-match",
+                                                                                            "x-amz-checksum-crc32",
+                                                                                            "x-amz-content-sha256",
+                                                                                            "x-amz-date",
+                                                                                            "x-amz-meta-catalog-item-id",
+                                                                                            "x-amz-meta-sha256",
+                                                                                            "x-amz-sdk-checksum-algorithm",
+                                                                                            "x-amz-user-agent"
+                                                                                        ],
+                                                                      "headerNames":  [
+                                                                                          "content-length",
+                                                                                          "content-type",
+                                                                                          "if-none-match",
+                                                                                          "x-amz-meta-catalog-item-id",
+                                                                                          "x-amz-meta-sha256",
+                                                                                          "x-amz-sdk-checksum-algorithm",
+                                                                                          "x-amz-checksum-crc32",
+                                                                                          "x-amz-user-agent",
+                                                                                          "user-agent",
+                                                                                          "host",
+                                                                                          "amz-sdk-invocation-id",
+                                                                                          "amz-sdk-request",
+                                                                                          "x-amz-date",
+                                                                                          "x-amz-content-sha256",
+                                                                                          "authorization"
+                                                                                      ]
+                                                                  },
+                                                                  {
+                                                                      "method":  "HEAD",
+                                                                      "signedHeaders":  [
+                                                                                            "amz-sdk-invocation-id",
+                                                                                            "amz-sdk-request",
+                                                                                            "host",
+                                                                                            "x-amz-content-sha256",
+                                                                                            "x-amz-date",
+                                                                                            "x-amz-user-agent"
+                                                                                        ],
+                                                                      "headerNames":  [
+                                                                                          "x-amz-user-agent",
+                                                                                          "user-agent",
+                                                                                          "host",
+                                                                                          "amz-sdk-invocation-id",
+                                                                                          "amz-sdk-request",
+                                                                                          "x-amz-date",
+                                                                                          "x-amz-content-sha256",
+                                                                                          "authorization"
+                                                                                      ]
+                                                                  }
+                                                              ]
+                                             }
+                                         ]
+               },
+    "temporary_ssh_access_revoked":  true,
+    "phone_queue_recovered":  false,
+    "deployment_id":  "26e4551f-944a-4123-b257-459f5f2dfb38",
+    "deployed_verified_at":  "2026-09-10T05:04:15.4415763Z",
+    "health_http_status":  200,
+    "database_health_http_status":  200
+}

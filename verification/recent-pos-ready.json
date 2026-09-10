@@ -1,0 +1,425 @@
+{
+  "status": "ready_for_pos_receiving",
+  "verified_at": "2026-09-09T17:26:25.376Z",
+  "branch": "Namugongo",
+  "product_groups": 9,
+  "separate_products": 3,
+  "total_products": 12,
+  "size_variants": 27,
+  "sellable_units": 45,
+  "warnings": [],
+  "pos_stock_received": false,
+  "countSummary": {
+    "lots": 27,
+    "units": 45,
+    "confirmed": 27,
+    "received": 0
+  },
+  "groups": [
+    {
+      "id": "00032996-7898-42a1-8406-1a3aa9c15db5",
+      "product_name": "Kenneth Cole Casual Shoes - Black and White",
+      "target_product_id": null,
+      "total_units": 2,
+      "lot_count": 2,
+      "variant_count": 2,
+      "new_variants": 2,
+      "existing_variants": 0,
+      "warnings": [],
+      "revision": "86b751e18e5a6b6223e417ed9480d2aabae589eab1f97e4bc648808ca183a234",
+      "rows": [
+        {
+          "attributes": {
+            "color": "black and white",
+            "size": "41"
+          },
+          "quantity": 1,
+          "price": 320000,
+          "action": "New variant"
+        },
+        {
+          "attributes": {
+            "color": "black and white",
+            "size": "42"
+          },
+          "quantity": 1,
+          "price": 320000,
+          "action": "New variant"
+        }
+      ]
+    },
+    {
+      "id": "05a105fc-ed50-4f48-a48d-9509687cbab8",
+      "product_name": "Robby Cavally Loafers - Black - 3166-27",
+      "target_product_id": null,
+      "total_units": 2,
+      "lot_count": 2,
+      "variant_count": 2,
+      "new_variants": 2,
+      "existing_variants": 0,
+      "warnings": [],
+      "revision": "3d68eda81244d9b7f77eaa093f066550faee21318d33916a2cab4775de4dd536",
+      "rows": [
+        {
+          "attributes": {
+            "color": "black",
+            "size": "44"
+          },
+          "quantity": 1,
+          "price": 360000,
+          "action": "New variant"
+        },
+        {
+          "attributes": {
+            "color": "black",
+            "size": "40"
+          },
+          "quantity": 1,
+          "price": 360000,
+          "action": "New variant"
+        }
+      ]
+    },
+    {
+      "id": "4544ea52-6141-4914-a1fb-ea6793b56646",
+      "product_name": "Oxford Short Sleeve Shirt - Navy Floral Paisley",
+      "target_product_id": null,
+      "total_units": 4,
+      "lot_count": 4,
+      "variant_count": 4,
+      "new_variants": 4,
+      "existing_variants": 0,
+      "warnings": [],
+      "revision": "483ca7b5a8b2c8e6a7be277a89e594090ebc41eeebc58f7c371d0ee4b7aa4f37",
+      "rows": [
+        {
+          "attributes": {
+            "color": "navy and blue",
+            "fit": "slim",
+            "size": "L",
+            "sleeve": "short"
+          },
+          "quantity": 1,
+          "price": 90000,
+          "action": "New variant"
+        },
+        {
+          "attributes": {
+            "color": "navy and blue",
+            "fit": "slim",
+            "size": "XL",
+            "sleeve": "short"
+          },
+          "quantity": 1,
+          "price": 90000,
+          "action": "New variant"
+        },
+        {
+          "attributes": {
+            "color": "navy and blue",
+            "fit": "slim",
+            "size": "2XL",
+            "sleeve": "short"
+          },
+          "quantity": 1,
+          "price": 90000,
+          "action": "New variant"
+        },
+        {
+          "attributes": {
+            "color": "navy and blue",
+            "fit": "slim",
+            "size": "3XL",
+            "sleeve": "short"
+          },
+          "quantity": 1,
+          "price": 90000,
+          "action": "New variant"
+        }
+      ]
+    },
+    {
+      "id": "45c257d3-112f-43d5-ad11-dc7c83cb5987",
+      "product_name": "FABO Cotton Boxers - Navy",
+      "target_product_id": null,
+      "total_units": 12,
+      "lot_count": 3,
+      "variant_count": 3,
+      "new_variants": 3,
+      "existing_variants": 0,
+      "warnings": [],
+      "revision": "045362a43620effa89fd9b847bd2f5f053fed55cd59de01e95142b6b3cb5b576",
+      "rows": [
+        {
+          "attributes": {
+            "color": "navy",
+            "size": "XL"
+          },
+          "quantity": 6,
+          "price": 25000,
+          "action": "New variant"
+        },
+        {
+          "attributes": {
+            "color": "navy",
+            "size": "L"
+          },
+          "quantity": 5,
+          "price": 25000,
+          "action": "New variant"
+        },
+        {
+          "attributes": {
+            "color": "navy",
+            "size": "M"
+          },
+          "quantity": 1,
+          "price": 25000,
+          "action": "New variant"
+        }
+      ]
+    },
+    {
+      "id": "64b1fb72-f80a-407a-9d0e-81665776878e",
+      "product_name": "Oxford Short Sleeve Shirt - White",
+      "target_product_id": null,
+      "total_units": 3,
+      "lot_count": 3,
+      "variant_count": 3,
+      "new_variants": 3,
+      "existing_variants": 0,
+      "warnings": [],
+      "revision": "1dd801a19bc5114f2aa504621c9ac27adf620c1904131d59ba52557eaa8e5986",
+      "rows": [
+        {
+          "attributes": {
+            "color": "white",
+            "fit": "slim",
+            "size": "3XL",
+            "sleeve": "short"
+          },
+          "quantity": 1,
+          "price": 90000,
+          "action": "New variant"
+        },
+        {
+          "attributes": {
+            "color": "white",
+            "fit": "slim",
+            "size": "L",
+            "sleeve": "short"
+          },
+          "quantity": 1,
+          "price": 90000,
+          "action": "New variant"
+        },
+        {
+          "attributes": {
+            "color": "white",
+            "fit": "slim",
+            "size": "XL",
+            "sleeve": "short"
+          },
+          "quantity": 1,
+          "price": 90000,
+          "action": "New variant"
+        }
+      ]
+    },
+    {
+      "id": "96069a02-d340-483f-9ed6-b33a45bb9960",
+      "product_name": "Zopo Casual Shoes - Navy and White",
+      "target_product_id": null,
+      "total_units": 2,
+      "lot_count": 2,
+      "variant_count": 2,
+      "new_variants": 2,
+      "existing_variants": 0,
+      "warnings": [],
+      "revision": "6ff94af3067dde5f9331c054303346320b74b4ca99584ffe2142244b92173cff",
+      "rows": [
+        {
+          "attributes": {
+            "color": "navy and white",
+            "size": "40"
+          },
+          "quantity": 1,
+          "price": 320000,
+          "action": "New variant"
+        },
+        {
+          "attributes": {
+            "color": "navy and white",
+            "size": "42"
+          },
+          "quantity": 1,
+          "price": 320000,
+          "action": "New variant"
+        }
+      ]
+    },
+    {
+      "id": "d93d6543-c5cc-4857-977d-a91440f971d4",
+      "product_name": "Zopo Casual Shoes - Grey and White",
+      "target_product_id": null,
+      "total_units": 2,
+      "lot_count": 2,
+      "variant_count": 2,
+      "new_variants": 2,
+      "existing_variants": 0,
+      "warnings": [],
+      "revision": "9ddbf601c4377a78fff1aa54e4df4169701c38994dd5c33e3176a3bdf8556aa3",
+      "rows": [
+        {
+          "attributes": {
+            "color": "grey and white",
+            "size": "44"
+          },
+          "quantity": 1,
+          "price": 320000,
+          "action": "New variant"
+        },
+        {
+          "attributes": {
+            "color": "grey and white",
+            "size": "41"
+          },
+          "quantity": 1,
+          "price": 320000,
+          "action": "New variant"
+        }
+      ]
+    },
+    {
+      "id": "f2ea8682-b8b7-4e71-9fb9-ff6a2d9989fc",
+      "product_name": "FABO Cotton Boxers - Blue and White Stripes",
+      "target_product_id": null,
+      "total_units": 13,
+      "lot_count": 4,
+      "variant_count": 4,
+      "new_variants": 4,
+      "existing_variants": 0,
+      "warnings": [],
+      "revision": "f4414d5f915f53aa3ea74137b030a93a16980913ba701f23d684ddcbe08e55d2",
+      "rows": [
+        {
+          "attributes": {
+            "color": "blue and white",
+            "size": "L"
+          },
+          "quantity": 4,
+          "price": 25000,
+          "action": "New variant"
+        },
+        {
+          "attributes": {
+            "color": "blue and white",
+            "size": "XL"
+          },
+          "quantity": 3,
+          "price": 25000,
+          "action": "New variant"
+        },
+        {
+          "attributes": {
+            "color": "blue and white",
+            "size": "M"
+          },
+          "quantity": 3,
+          "price": 25000,
+          "action": "New variant"
+        },
+        {
+          "attributes": {
+            "color": "blue and white",
+            "size": "2XL"
+          },
+          "quantity": 3,
+          "price": 25000,
+          "action": "New variant"
+        }
+      ]
+    },
+    {
+      "id": "f690f2c1-6065-4b32-9177-75fbb57f9467",
+      "product_name": "Oxford Short Sleeve Shirt - Navy",
+      "target_product_id": null,
+      "total_units": 2,
+      "lot_count": 2,
+      "variant_count": 2,
+      "new_variants": 2,
+      "existing_variants": 0,
+      "warnings": [],
+      "revision": "6a533538167f2ce23036ea6b26750e77e325398d5770ba6fabb36df24a5a2e72",
+      "rows": [
+        {
+          "attributes": {
+            "color": "navy",
+            "fit": "slim",
+            "size": "XL",
+            "sleeve": "short"
+          },
+          "quantity": 1,
+          "price": 90000,
+          "action": "New variant"
+        },
+        {
+          "attributes": {
+            "color": "navy",
+            "fit": "slim",
+            "size": "L",
+            "sleeve": "short"
+          },
+          "quantity": 1,
+          "price": 90000,
+          "action": "New variant"
+        }
+      ]
+    }
+  ],
+  "singles": [
+    {
+      "id": "918334f4-2aa8-4b17-92e1-1eb14c3b4b86",
+      "name": "Robby Cavally Formal Shoes",
+      "attributes": {
+        "size": "41",
+        "color": "Black",
+        "pattern": "Solid",
+        "size_eu": 41,
+        "material": "Likely leather or faux leather"
+      },
+      "quantity": 1,
+      "price": 360000,
+      "cost": 130000,
+      "ready": true
+    },
+    {
+      "id": "be83d601-8bdb-4217-8431-2cdcad6e277e",
+      "name": "Renato Castello Formal Shoes",
+      "attributes": {
+        "size": "45",
+        "color": "Brown and black",
+        "pattern": "Solid",
+        "material": "Likely leather"
+      },
+      "quantity": 1,
+      "price": 360000,
+      "cost": 130000,
+      "ready": true
+    },
+    {
+      "id": "783323c8-df6e-4ffe-9d50-37610a73e75d",
+      "name": "kenneth cole Casual Shoes",
+      "attributes": {
+        "size": "42",
+        "color": "Gray and white",
+        "pattern": "Solid",
+        "material": "Likely synthetic leather"
+      },
+      "quantity": 1,
+      "price": 320000,
+      "cost": 90000,
+      "ready": true
+    }
+  ]
+}

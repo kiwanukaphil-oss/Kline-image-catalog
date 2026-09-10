@@ -1,0 +1,16 @@
+{
+  "checked_at": "2026-09-08T18:50:02.210Z",
+  "branch": "Namugongo",
+  "active_variants_updated": 52,
+  "exception_variants_unchanged": 72,
+  "catalog_costs_updated": 54,
+  "exception_catalog_costs_unchanged": 13,
+  "standard_cost": 35000,
+  "exception_cost": 40000,
+  "exceptions": [
+    "Hugo & Victor",
+    "Bianco Cortini"
+  ],
+  "selling_prices_stock_barcodes_and_other_branches_unchanged": true,
+  "posted_transaction_history_modified": false
+}

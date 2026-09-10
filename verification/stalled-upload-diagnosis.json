@@ -1,0 +1,15 @@
+{
+  "reported_pending_photos": 8,
+  "observed_failure_at_utc": "2026-09-09T18:12:32Z",
+  "endpoint": "POST /api/catalog/items",
+  "http_status": 500,
+  "storage_http_status": 400,
+  "storage_error": "AccessDenied",
+  "storage_message": "There were headers present in the request which were not signed",
+  "intake_id": "928e2dda-e0b8-421d-8de9-f4ba05dfb34d",
+  "storage_request_id": "1788977552188994222",
+  "queue_behavior": "Original files and stable intake IDs are retained in browser IndexedDB. uploadQueued stops at the first thrown error, leaving later photos pending.",
+  "recovery_status": "Not recovered; awaiting identification of the device holding the queued files",
+  "root_cause_status": "Storage request signing rejection confirmed. The exact unsigned header and permanent correction are not yet established.",
+  "production_mutations_this_turn": false
+}

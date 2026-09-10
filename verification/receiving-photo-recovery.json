@@ -1,0 +1,81 @@
+{
+  "checked_at": "2026-09-09T17:51:05.409Z",
+  "outcomes": [
+    {
+      "item_id": "be83d601-8bdb-4217-8431-2cdcad6e277e",
+      "status": "linked",
+      "updated_at": "2026-09-09T17:48:05.523Z"
+    },
+    {
+      "item_id": "6a15ff20-a5f9-47ed-b9aa-bf1f936e5f29",
+      "status": "linked",
+      "updated_at": "2026-09-09T17:48:17.345Z"
+    },
+    {
+      "item_id": "87e02ccc-3dbb-4b76-9765-6b53d5e501e3",
+      "status": "linked",
+      "updated_at": "2026-09-09T17:48:34.640Z"
+    },
+    {
+      "item_id": "02ff215c-b83d-47b1-bac4-6874a8ad00e2",
+      "status": "linked",
+      "updated_at": "2026-09-09T17:48:40.804Z"
+    },
+    {
+      "item_id": "783323c8-df6e-4ffe-9d50-37610a73e75d",
+      "status": "linked",
+      "updated_at": "2026-09-09T17:48:50.777Z"
+    },
+    {
+      "item_id": "f235c222-858c-487c-a3fc-9a98734a3c65",
+      "status": "linked",
+      "updated_at": "2026-09-09T17:49:03.715Z"
+    },
+    {
+      "item_id": "9587ee14-5a96-41a0-848e-ef3154769643",
+      "status": "linked",
+      "updated_at": "2026-09-09T17:49:08.655Z"
+    },
+    {
+      "item_id": "f752344f-15c8-4682-97d2-804383e41f13",
+      "status": "linked",
+      "updated_at": "2026-09-09T17:49:18.855Z"
+    },
+    {
+      "item_id": "19f1c7ab-ccbb-4416-baa8-e00403c7d3e0",
+      "status": "linked",
+      "updated_at": "2026-09-09T17:49:29.758Z"
+    },
+    {
+      "item_id": "918334f4-2aa8-4b17-92e1-1eb14c3b4b86",
+      "status": "linked",
+      "updated_at": "2026-09-09T17:49:56.398Z"
+    },
+    {
+      "item_id": "94110dd5-62cf-4dc5-8fb9-57076c1a611a",
+      "status": "linked",
+      "updated_at": "2026-09-09T17:50:16.133Z"
+    },
+    {
+      "item_id": "f004995f-90f7-4f81-abab-d3724d79bc26",
+      "status": "linked",
+      "updated_at": "2026-09-09T17:50:27.169Z"
+    },
+    {
+      "item_id": "f26a8bf5-20ce-4736-a472-f0ff73937f61",
+      "status": "linked",
+      "updated_at": "2026-09-09T17:50:39.967Z"
+    },
+    {
+      "item_id": "08bf0583-2bf9-4f78-a9ae-d19cbd95cf8f",
+      "status": "linked",
+      "updated_at": "2026-09-09T17:50:51.174Z"
+    },
+    {
+      "item_id": "71348ed2-18b2-457c-b839-7611b5d4d909",
+      "status": "linked",
+      "updated_at": "2026-09-09T17:51:02.527Z"
+    }
+  ],
+  "stock_receipt_called": false
+}

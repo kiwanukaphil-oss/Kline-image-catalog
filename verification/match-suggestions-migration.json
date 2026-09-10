@@ -1,0 +1,9 @@
+{
+  "checked_at": "2026-09-09T15:59:47.797Z",
+  "migration": "112_catalog_match_suggestions.sql",
+  "backup_path": "D:/CodexBuildCache/Kline Image Catalog/production-before-match-suggestions-1788969520579.dump",
+  "backup_bytes": 2204803,
+  "backup_sha256": "e2da5057693faf2f0fd2236e7b05ea6b6df5c228abf830cca9c53a477a68a704",
+  "archive_readable": true,
+  "applied": true
+}

@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "checked_at": "2026-09-09T14:31:16.502Z",
+  "parent_id": "a5239b63-473b-4821-afe6-703f95012774",
+  "categories": [
+    {
+      "id": "5226f92e-8d2f-4fe9-83cb-1d7827e7edde",
+      "name": "Casual Shoes",
+      "parent_id": "a5239b63-473b-4821-afe6-703f95012774"
+    },
+    {
+      "id": "1c832023-0752-46cc-bff6-657900c4032c",
+      "name": "Sandals",
+      "parent_id": "a5239b63-473b-4821-afe6-703f95012774"
+    }
+  ]
+}

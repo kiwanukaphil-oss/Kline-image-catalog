@@ -1,0 +1,78 @@
+{
+  "prepared_at": "2026-09-09T16:24:03.382Z",
+  "status": "deployed_and_verified",
+  "production_changed": true,
+  "git_commit_created": false,
+  "paid_provider_calls": 0,
+  "backend_package": {
+    "version": "0.23.0",
+    "path": ".test-data/background-ai-release/kline-pos-workspace-0.23.0.tgz",
+    "sha256": "7c3a61b89064e85752faa3f4feaafae85e2e1797a2ebbcc6a921908dc8d2fa0b"
+  },
+  "backend_snapshot": ".test-data/background-ai-pos",
+  "frontend_snapshot": ".test-data/background-ai-catalog",
+  "source_sha256": {
+    "app/components/ai-fill.tsx": "1861141718da3f53e82a8ecf25c0e8f1ee763408e558d352687b2cee2ebf7b4e",
+    "app/components/receiving.tsx": "fa5f6377e3130df7da1f6503c22204d4ee79c6cc5c5b2b5afc6ed415ea0470a6",
+    "app/lib/ai-batches.ts": "ecaaa2d06b7b8e883d9095b9f2ccdc9609fba9bfb3f02c6c3b9c8e16978e31bc",
+    "server/ai-batches.cjs": "341246cfa572e68bde420fc7f61af7b0b64d015c87cc8629c70ba91782f99866",
+    "server/index.cjs": "a7ef06a39a57f0cfce0e3962179159d4458b897e7e99dce73680d9c8faeb22e5",
+    "server/workspace-router.cjs": "69d444fc6904edfe18ea9591ebda6baa27bbe2469fd09c9a0398e3b7d4e02c80",
+    "server/package.json": "e9655fc99383ffb83b2021290b532958e6a662b36ffa3a0898063fb1b9c7bba4",
+    "server/README.md": "55951cab1c24985d1238e3404c9f912e451b1a043be61787d520f3ee0d2a5b8b",
+    "server/migrations/003_ai_batches.sql": "19baf9c0c74adbb69159a4edab5d28550e9daf83f677bcfd6075fe2568c51c3c",
+    "server/host-integration/catalogAiQueueGuard.cjs": "bec5e36db95c9bddd5e396ee42caacd17ce55ddb40f551c68ee46ee2bbd22d4d",
+    "server/host-integration/apply-ai-queue.cjs": "b46a950fba1e0b89b791e4c69e32181484ce2790b9786e89e70b08cd7d17b29e"
+  },
+  "host_sha256": {
+    "package.json": "421f31d352a3fa7a7c96e230243bd4c602ab2e9f445a2782ae4e9e7cdaa946c5",
+    "package-lock.json": "f48db466851263e6ecc82cffd951981ee5df9628adcff8648f5309a9383b784b",
+    "src/models/CatalogAiRun.js": "55e53386ffe1c4dcb319f86d14d569b738474a80e85fd6f636b1353ff03767d3",
+    "src/services/catalogAiExtractionService.js": "9003fdb254943a8696fa99b0653d464162bd57b8d3f651b050117d1da8471f1c",
+    "src/services/catalogAiQueueGuard.cjs": "bec5e36db95c9bddd5e396ee42caacd17ce55ddb40f551c68ee46ee2bbd22d4d",
+    "src/migrations/113_catalog_ai_batches.sql": "19baf9c0c74adbb69159a4edab5d28550e9daf83f677bcfd6075fe2568c51c3c"
+  },
+  "checks": [
+    "queue_integration",
+    "packaged_backend_queue_integration",
+    "actual_worker_process_termination",
+    "late_result_fencing",
+    "browser_closed_completion",
+    "fresh_sign_in_progress_recovery",
+    "lost_submission_acknowledgement",
+    "mobile_progress_visual_review",
+    "existing_ai_review_and_single_photo_recovery",
+    "matching_and_receipt_regression",
+    "workspace_pricing_stock_sales_regression",
+    "typecheck",
+    "lint",
+    "node_production_build",
+    "git_diff_check"
+  ],
+  "limitations": [
+    "No physical device sleep test; whole-browser closure tested",
+    "Provider fixture validates lifecycle, not extraction accuracy",
+    "Details-editor single-photo action retains its existing request/reconciliation flow"
+  ],
+  "deployed_at": "2026-09-09T16:30:22.922Z",
+  "backend_deployment": "b0be3f0f-0c72-4478-b75d-f5775675f707",
+  "frontend_deployment": "be993f5f-a30f-463c-b86c-b43c093b7236",
+  "previous_backend_deployment": "8fb041c9-3430-42d7-9eff-ec775597db1d",
+  "previous_frontend_deployment": "d202c7e0-6bd7-4ac6-adc9-5a02aaf6da32",
+  "url": "https://klinemen-catalog.com",
+  "migration": "113_catalog_ai_batches.sql",
+  "migration_verification": "verification/background-ai-migration.json",
+  "schema_verification": "verification/background-ai-schema.json",
+  "live_verification": {
+    "backend_status": "SUCCESS",
+    "frontend_status": "SUCCESS",
+    "api_health": "OK",
+    "signed_in_catalog": true,
+    "background_progress_visible": true,
+    "background_list_loaded": true,
+    "suggested_matches_preserved": 9,
+    "production_test_batches_started": 0,
+    "merchandise_changed": false,
+    "queue_errors_in_checked_logs": 0
+  }
+}

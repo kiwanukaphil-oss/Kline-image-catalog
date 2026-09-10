@@ -253,3 +253,15 @@ No production sleeve values were changed. Existing Long values are preserved; un
 - [x] Owner requested independent label quantities in product detail. Each selected variant now has its own Labels field, initialized from branch stock; the action shows the summed label count. Thermal and browser printing use identical quantities. The printer's existing 1–99 per-variant limit is validated visibly instead of silently truncating a print request. Empty variants remain opt-in.
 - [x] Expanded dialog regression coverage verifies L = 1 / XL = 2 defaults, editing XL independently, actual browser-sheet label counts, thermal payload quantities, deselection, invalid input and reset on reopening. Six frontend tests pass alongside the three API tests; typecheck and production build pass.
 - [x] Owner approved commit/deploy. POS `003324d` deployed successfully to Railway (`caebc6e7-0bad-4c84-a129-41b34c861e3e`) and Cloudflare Pages. Live Namugongo label dialog defaults to White L = 1 and White XL = 2, showing Print 3 labels. Changing XL to 4 leaves L at 1 and changes the action to Print 5 labels. Cancelled without printing or altering stock. Frontend CI passed.
+
+## Tommy Dolby brand alignment
+
+- [x] Owner approved alignment of trademark and plain spellings under Tommy Dolby in catalog and POS.
+- [x] Aligned six catalog records (including TOMMY/DOLBY) and four POS products. Preserved separate product identities and archived the duplicate brand; no duplicate-brand pricing rules were present.
+- [x] Backed-up, audited transaction verified unchanged variants, stock, barcodes, photos, source variant lines and product model/category/price details. Evidence: verification/tommy-dolby-alignment.json. This live data correction requires no application deployment.
+
+## Namugongo cost correction
+
+- [x] Owner confirmed Namugongo only: UGX 35,000 except Hugo & Victor and Bianco Cortini remaining UGX 40,000.
+- [x] Updated 52 active POS variant costs and 54 catalog item costs in a backed-up, audited transaction. Preserved 72 exception-brand variant costs and 13 exception catalog costs at UGX 40,000.
+- [x] Verified all other variant fields, selling prices, stock balances and other branches unchanged. Posted transaction history was not rewritten. Evidence: verification/namugongo-cost-correction.json. Live data correction; no deployment required.

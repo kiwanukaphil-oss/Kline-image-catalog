@@ -1,0 +1,22 @@
+{
+  "scope": "Latest 27 Namugongo intake lots; repair remaining 12 photo transfers",
+  "observations": {
+    "hosted_failure": "AccessDenied, HTTP 400, stage copy_photo",
+    "failure_window_utc": "2026-09-09T17:53:42Z to 2026-09-09T17:54:15Z",
+    "bucket_configuration_matches_local": true,
+    "matching_configuration_fields": 6,
+    "currently_configured_checksum_mode": "WHEN_REQUIRED",
+    "checksum_mode_in_running_process_verified": false,
+    "backend_deployment": "b0be3f0f-0c72-4478-b75d-f5775675f707",
+    "backend_deployment_status": "SUCCESS",
+    "remote_runtime_probe": "Unavailable: Railway SSH has no configured local key",
+    "logs_fallback": "Railway CLI used after connector transport failure",
+    "local_repair_transient_failures": ["ETIMEDOUT at attach_gallery", "ENOTFOUND at attach_gallery"],
+    "local_repair_response": "Retry pending or failed handoffs through the idempotent service; immutable copied objects are reused",
+    "backend_health_http_status": 200
+  },
+  "conclusion": "The hosted failure occurs within the storage copy stage. The existing stage encompasses both destination HEAD and conditional PUT, so the failing S3 operation and exact rejection reason are not established. Successful local retries with matching bucket credentials do not prove a permanent hosted fix.",
+  "next_diagnostic_step": "Instrument destination HEAD and conditional PUT separately with bounded error codes, request IDs, effective checksum mode and SDK version, then verify a fresh photo copy in the hosted runtime. Exclude credentials, signed URLs and raw request headers.",
+  "production_code_or_configuration_changed_this_turn": false,
+  "stock_receipt_replayed": false
+}
