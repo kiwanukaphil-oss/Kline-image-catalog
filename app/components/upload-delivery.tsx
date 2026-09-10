@@ -1,5 +1,6 @@
 'use client';
-import { WorkspaceSelect } from '@/components/workspace-select';
+import { UploadCategoryPicker } from '@/components/upload-category-picker';
+import { categoryPath } from '@/lib/category-path';
 import { useEffect, useRef, useState } from 'react';
 import { Upload, Check } from 'lucide-react';
 import { PhotoIntake } from './photo-intake';
@@ -9,7 +10,7 @@ import { sharedPhotos } from '@/lib/shared-photos';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Modal } from './workspace-ui';
-import { postPos, requestPos } from '@/lib/catalog-api';
+import { ApiError, postPos, requestPos } from '@/lib/catalog-api';
 import { queuePhotos, readPendingPhotos, finishPhoto, type PendingPhoto } from '@/lib/upload-queue';
 export type Category = { id: string; name: string; parent_id: string | null };
 
@@ -32,7 +33,7 @@ export function UploadDelivery({
   const [title, setTitle] = useState(
       `Delivery · ${new Date().toLocaleDateString([], { month: 'short', day: 'numeric' })}`,
     ),
-    [category, setCategory] = useState(categories[0]?.id || '');
+    [category, setCategory] = useState('');
   const [files, setFiles] = useState<File[]>([]),
     [pending, setPending] = useState<PendingPhoto[]>([]),
     [error, setError] = useState(''),
@@ -56,6 +57,7 @@ export function UploadDelivery({
   async function uploadQueued(photos: PendingPhoto[]) {
     const token = sessionStorage.getItem('kline.session');
     let completed = 0,
+      alreadyReceived = 0,
       lastBatch = '',
       lastTitle = '';
     for (const photo of photos) {
@@ -66,22 +68,40 @@ export function UploadDelivery({
       form.set('category_id', photo.categoryId);
       form.set('status', 'draft');
       form.set('image', photo.file);
-      await requestPos('/catalog/items', branch, {
+      const uploaded = await requestPos<{ data: { pos_product_id?: string | null } }>('/catalog/items', branch, {
         method: 'POST',
         body: form,
         signal: lifetime.current?.signal,
       });
-      await requestPos(`/catalog-workspace/batches/${photo.batchId}/items/${photo.id}`, branch, {
-        method: 'PUT',
-        signal: lifetime.current?.signal,
-      });
+      let received = !!uploaded.data.pos_product_id;
+      if (!received) {
+        try {
+          await requestPos(`/catalog-workspace/batches/${photo.batchId}/items/${photo.id}`, branch, {
+            method: 'PUT',
+            signal: lifetime.current?.signal,
+          });
+        } catch (cause) {
+          // Receipt can commit between upload readback and delivery linking; confirm it before clearing saved bytes.
+          if (!(cause instanceof ApiError) || cause.status !== 409) throw cause;
+          const current = await requestPos<{ item: { is_published: boolean } }>(
+            `/catalog-workspace/items/${photo.id}`, branch, { signal: lifetime.current?.signal },
+          );
+          if (!current.item.is_published) throw cause;
+          received = true;
+        }
+      }
       await finishPhoto(photo.id);
       completed++;
-      lastBatch = photo.batchId;
-      lastTitle = photo.batchTitle;
+      if (received) alreadyReceived++;
+      else {
+        lastBatch = photo.batchId;
+        lastTitle = photo.batchTitle;
+      }
     }
     setPending(await readPendingPhotos(userId, branch));
-    setProgress(`${completed} photos added`);
+    setProgress(alreadyReceived
+      ? `${completed - alreadyReceived} photos added · ${alreadyReceived} already received`
+      : `${completed} photos added`);
     setFiles([]);
     if (lastBatch) onComplete(lastBatch, lastTitle);
   }
@@ -91,7 +111,7 @@ export function UploadDelivery({
     setBusy(true);
     setError('');
     try {
-      if (!title.trim() || !category || !files.length)
+      if (!title.trim() || !categories.some((entry) => entry.id === category) || !files.length)
         throw new Error('Name the delivery, choose a category and add photos.');
       await postPos('/catalog-workspace/batches', branch, { id: batchId.current, title: title.trim() });
       const queued: PendingPhoto[] = [];
@@ -103,6 +123,7 @@ export function UploadDelivery({
           batchId: batchId.current,
           batchTitle: title,
           categoryId: category,
+          categoryPath: categoryPath(category, categories),
           file,
           createdAt: Date.now(),
         };
@@ -155,21 +176,7 @@ export function UploadDelivery({
         Delivery name
         <Input disabled={busy} value={title} maxLength={120} onChange={(e) => setTitle(e.target.value)} />
       </label>
-      <label>
-        Category
-        <WorkspaceSelect
-          aria-label="Delivery category"
-          disabled={busy}
-          value={category}
-          onValueChange={(e) => setCategory(e)}
-        >
-          {categories.map((entry) => (
-            <option value={entry.id} key={entry.id}>
-              {entry.name}
-            </option>
-          ))}
-        </WorkspaceSelect>
-      </label>
+      <UploadCategoryPicker categories={categories} value={category} onChange={setCategory} disabled={busy} />
       <PhotoIntake key={intakeVersion} onChange={setFiles} disabled={busy} onWorkingChange={setPreparing} />
       {pending.length > 0 && (
         <div className="pending-uploads">
@@ -177,7 +184,15 @@ export function UploadDelivery({
           <small>{[...new Set(pending.map((photo) => photo.batchTitle))].join(', ')}</small>
           {pending.map((photo) => (
             <div key={photo.id} className="flex items-center justify-between gap-2">
-              <span className="truncate">{photo.file.name}</span>
+              <div className="min-w-0">
+                <span className="block truncate">{photo.file.name}</span>
+                <small className="pending-category-path">
+                  {photo.categoryPath ||
+                    categoryPath(photo.categoryId, categories) ||
+                    'Saved category unavailable'}{' '}
+                  — saved destination
+                </small>
+              </div>
               {canCancel && (
                 <Button
                   variant="ghost"
@@ -214,7 +229,11 @@ export function UploadDelivery({
           {error}
         </p>
       )}
-      <Button className="h-11" disabled={busy || preparing || !files.length} onClick={startDelivery}>
+      <Button
+        className="h-11"
+        disabled={busy || preparing || !files.length || !categories.some((entry) => entry.id === category)}
+        onClick={startDelivery}
+      >
         {busy ? <Check size={16} /> : <Upload size={16} />} {busy ? 'Adding photos…' : 'Add to Receiving'}
       </Button>
     </Modal>

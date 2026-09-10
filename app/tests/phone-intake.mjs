@@ -69,6 +69,8 @@ try {
   assert.equal(await page.evaluate(() => window.intakeTestTrack.readyState), 'ended');
   await page.screenshot({ path: '../verification/phone-intake-mobile.png', animations: 'disabled' });
   await page.route('**/api/catalog/items', (route) => route.abort());
+  await page.getByRole('combobox', { name: 'Delivery category' }).fill('Trousers');
+  await page.getByRole('option', { name: 'Trousers', exact: true }).click();
   await page.getByRole('button', { name: 'Add to Receiving', exact: true }).click();
   await page.getByRole('button', { name: 'Resume uploads', exact: true }).waitFor();
   const saved = await page.evaluate(

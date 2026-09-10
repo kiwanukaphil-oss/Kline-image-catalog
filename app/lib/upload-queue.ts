@@ -5,6 +5,7 @@ export type PendingPhoto = {
   batchId: string;
   batchTitle: string;
   categoryId: string;
+  categoryPath?: string;
   file: File;
   createdAt: number;
 };

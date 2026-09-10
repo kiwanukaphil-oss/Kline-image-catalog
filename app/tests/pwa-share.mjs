@@ -55,6 +55,8 @@ try {
   await page.getByRole('link', { name: 'Try again' }).click();
   await page.getByRole('img', { name: 'Shared-shirt.png', exact: true }).waitFor();
   await page.route('**/api/catalog/items', (route) => route.abort());
+  await page.getByRole('combobox', { name: 'Delivery category' }).fill('Trousers');
+  await page.getByRole('option', { name: 'Trousers', exact: true }).click();
   await page.getByRole('button', { name: 'Add to Receiving', exact: true }).click();
   await page.getByRole('button', { name: 'Resume uploads', exact: true }).waitFor();
   assert.equal(new URL(page.url()).searchParams.has('share'), false);
