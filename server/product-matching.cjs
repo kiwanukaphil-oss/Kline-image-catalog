@@ -1,4 +1,5 @@
 const { randomUUID } = require("node:crypto");
+const { identityOf, fingerprint } = require("./match-candidates.cjs");
 const MATCH_BLOCKER = "Receive this lot through its matched product group.";
 const normalized = (value) =>
   String(value || "")
@@ -47,11 +48,12 @@ function createProductMatchingService({ source }) {
   const { mintUniqueEan13 } = source("utils/barcode");
   const { roundMoney } = source("utils/moneyUtils");
   const { transferCatalogPhoto } = source("services/catalogPhotoHandoffService");
+  let validateSuggestedTarget;
   const revision = (plan, branchId, userId) =>
     createPublicationRevision(plan, { branchId, userId });
 
   /** Lock members deterministically and reject cross-branch, cancelled, unready or already-received evidence. */
-  async function readContexts(client, plan) {
+  async function readContexts(client, plan, requireReady = true) {
     const contexts = [];
     for (const itemId of [...plan.item_ids].sort()) {
       const context = await repository.loadLockedContext(client, {
@@ -61,15 +63,25 @@ function createProductMatchingService({ source }) {
       if (!context) throw DomainError.notFound("A matching lot is unavailable in this branch.");
       if (context.item.publication_id || context.item.pos_product_id)
         throw DomainError.conflict("A lot has already been received. Rebuild this product match.");
+      if (context.item.intake_cancelled_at)
+        throw DomainError.conflict("A matching lot was cancelled. Rebuild this product match.");
+      if (
+        !(
+          await client.query("SELECT id FROM inventory.categories WHERE id=$1 AND active=true", [
+            context.item.category_id,
+          ])
+        ).rowCount
+      )
+        throw DomainError.conflict("A matching category is inactive. Review the lot category.");
       const blockers = catalogPublicationBlockers(context).filter(
         (message) => message !== MATCH_BLOCKER,
       );
-      if (blockers.length)
+      if (requireReady && blockers.length)
         throw DomainError.validationFailed(`${context.item.name}: ${blockers.join(" ")}`);
       contexts.push(context);
     }
-    if (new Set(contexts.map((context) => context.item.pos_category_id)).size !== 1)
-      throw DomainError.validationFailed("Match lots within the same POS category.");
+    if (new Set(contexts.map((context) => context.item.category_id)).size !== 1)
+      throw DomainError.validationFailed("Match lots within the same catalog category.");
     return contexts.sort(
       (a, b) => plan.item_ids.indexOf(a.item.id) - plan.item_ids.indexOf(b.item.id),
     );
@@ -78,6 +90,22 @@ function createProductMatchingService({ source }) {
   /** Group identical sellable attributes; existing variants retain their prices while new ones require consistent prices/costs. */
   async function prepareProduct(client, plan) {
     const contexts = await readContexts(client, plan);
+    if (plan.identity_review) {
+      const identities = [...contexts]
+        .sort((a, b) => a.item.id.localeCompare(b.item.id))
+        .map((context) =>
+          identityOf({
+            ...context.item,
+            staff_model_confirmed:
+              plan.identity_review.member_identity.find((row) => row.id === context.item.id)
+                ?.evidence?.source === "Staff-confirmed code",
+          }),
+        );
+      if (fingerprint(identities) !== plan.identity_review.fingerprint)
+        throw DomainError.conflict(
+          "Confirmed model evidence changed. Unmatch and review these lots again.",
+        );
+    }
     let target = null;
     if (plan.target_product_id) {
       target = await repository.loadRestockTarget(client, plan.target_product_id);
@@ -88,6 +116,13 @@ function createProductMatchingService({ source }) {
         target.product.category_id !== contexts[0].item.pos_category_id
       )
         throw DomainError.validationFailed("Choose an active POS product in the mapped category.");
+      if (plan.identity_review?.target_identity) {
+        if (!validateSuggestedTarget)
+          throw DomainError.conflict(
+            "Suggested target validation is unavailable. Reopen Receiving.",
+          );
+        await validateSuggestedTarget(client, plan);
+      }
     }
     const variants = new Map();
     for (const variant of target?.variants || []) {
@@ -149,7 +184,10 @@ function createProductMatchingService({ source }) {
     const warnings = [];
     if (new Set(contexts.map((context) => normalized(context.item.brand))).size > 1)
       warnings.push("Source brand names differ. Confirm these labels identify the same brand.");
-    if (new Set(contexts.map((context) => normalized(context.item.attributes?.material))).size > 1)
+    if (
+      !plan.identity_review &&
+      new Set(contexts.map((context) => normalized(context.item.attributes?.material))).size > 1
+    )
       warnings.push(
         "Material descriptions differ. The first source supplies material for a new product.",
       );
@@ -187,6 +225,9 @@ function createProductMatchingService({ source }) {
   }
 
   return {
+    setSuggestionTargetValidator(validator) {
+      validateSuggestedTarget = validator;
+    },
     async list(branchId, userId) {
       const rows = (
         await pool.query(
@@ -196,7 +237,7 @@ function createProductMatchingService({ source }) {
       ).rows;
       return rows.map((plan) => ({ ...plan, revision: revision(plan, branchId, userId) }));
     },
-    async save({ branchId, userId, plan, expectedRevision }) {
+    async save({ branchId, userId, plan, expectedRevision, validateIdentity }) {
       // Serialize plan membership changes so two staff members cannot assign a lot twice.
       return repository.withTransaction(async (client) => {
         await client.query(
@@ -219,7 +260,12 @@ function createProductMatchingService({ source }) {
             revision(existing, branchId, userId) !== expectedRevision)
         )
           throw DomainError.conflict("This product match changed. Reload it.");
-        const next = { ...plan, id: existing?.id || randomUUID(), branch_id: branchId };
+        const next = {
+          ...plan,
+          identity_review: existing?.identity_review || null,
+          id: existing?.id || randomUUID(),
+          branch_id: branchId,
+        };
         const overlap = await client.query(
           "SELECT id FROM catalog_workspace.product_matches WHERE branch_id=$1 AND retired_at IS NULL AND result_product_id IS NULL AND item_ids && $2::uuid[] AND id<>$3",
           [branchId, next.item_ids, next.id],
@@ -228,13 +274,34 @@ function createProductMatchingService({ source }) {
           throw DomainError.conflict(
             "Some lots already belong to a product match. Unmatch them first.",
           );
-        const prepared = await prepareProduct(client, next);
-        if (prepared.warnings.length && !plan.confirm_differences)
-          throw DomainError.validationFailed(prepared.warnings.join(" "));
+        const contexts = await readContexts(client, next, false);
+        if (!next.target_product_id && next.item_ids.length < 2)
+          throw DomainError.validationFailed("A new product group needs at least two lots.");
+        if (next.target_product_id) {
+          const target = await repository.loadRestockTarget(client, next.target_product_id);
+          if (
+            !target?.product.is_active ||
+            target.product.status !== "published" ||
+            target.product.category_id !== contexts[0].item.pos_category_id
+          )
+            throw DomainError.validationFailed(
+              "Choose an active POS product in the mapped category.",
+            );
+        }
+        if (validateIdentity) await validateIdentity(client, next, contexts);
+        if (
+          existing?.identity_review &&
+          (JSON.stringify(existing.item_ids) !== JSON.stringify(next.item_ids) ||
+            existing.target_product_id !== next.target_product_id ||
+            Object.keys(next.variant_defaults).length)
+        )
+          throw DomainError.validationFailed(
+            "Unmatch and review suggestions again to change confirmed membership or shared attributes.",
+          );
         const saved = (
           await client.query(
-            `INSERT INTO catalog_workspace.product_matches(id,branch_id,item_ids,target_product_id,product_name,brand_name,variant_defaults,review_note,created_by)
-          VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9) ON CONFLICT(id) DO UPDATE SET item_ids=$3,target_product_id=$4,product_name=$5,brand_name=$6,variant_defaults=$7,review_note=$8,updated_at=now() RETURNING *`,
+            `INSERT INTO catalog_workspace.product_matches(id,branch_id,item_ids,target_product_id,product_name,brand_name,variant_defaults,review_note,created_by,identity_review)
+          VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9,$10) ON CONFLICT(id) DO UPDATE SET item_ids=$3,target_product_id=$4,product_name=$5,brand_name=$6,variant_defaults=$7,review_note=$8,identity_review=$10,updated_at=now() RETURNING *`,
             [
               next.id,
               branchId,
@@ -245,6 +312,7 @@ function createProductMatchingService({ source }) {
               next.variant_defaults,
               next.review_note,
               userId,
+              next.identity_review,
             ],
           )
         ).rows[0];
@@ -320,11 +388,22 @@ function createProductMatchingService({ source }) {
             brandId: brand?.id || null,
             categoryId: first.pos_category_id,
             description: Object.entries(first.attributes || {})
-              .filter(([key]) => !["size", "color", "colour", "fit"].includes(key))
+              .filter(
+                ([key]) =>
+                  ![
+                    "size",
+                    "color",
+                    "colour",
+                    "fit",
+                    ...(plan.identity_review ? ["material"] : []),
+                  ].includes(key),
+              )
               .map(([key, value]) => `${key}: ${value}`)
               .join("; "),
             basePrice: Math.min(...prepared.rows.map((row) => row.price)),
-            material: first.attributes?.material || null,
+            material: plan.identity_review
+              ? plan.identity_review.material
+              : first.attributes?.material || null,
             gender: ["men", "women", "unisex", "kids"].includes(first.attributes?.gender)
               ? first.attributes.gender
               : null,

@@ -19,7 +19,7 @@ const { Pool } = requirePos('pg');
 const { downloadPrivateObject } = requirePos('./src/services/railwayObjectStorageService');
 const pool = new Pool({ host: 'autorack.proxy.rlwy.net', port: 10669,
   database: db.PGDATABASE, user: db.PGUSER, password: db.PGPASSWORD,
-  ssl: { rejectUnauthorized: false }, max: 1, connectionTimeoutMillis: 15000,
+  ssl: { rejectUnauthorized: false }, max: 1, connectionTimeoutMillis: 45000,
   options: '-c default_transaction_read_only=on -c timezone=UTC' });
 const itemId = '5e28a317-8cee-425a-9da9-96014729a16a';
 const cancelled = process.argv.includes('--cancelled');

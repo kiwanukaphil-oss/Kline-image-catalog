@@ -25,11 +25,14 @@ import {
 import { Modal, Photo, SearchField, Pagination, usePosRead } from './workspace-ui';
 import { UploadDelivery, type Category } from './upload-delivery';
 import { DraftEditor } from './draft-editor';
-import { AiFill } from './ai-fill';
+import { AiFill, AiBatchProgress } from './ai-fill';
 import { useWorkspaceTool } from '@/lib/webmcp';
 import { ProductMatching, type ProductMatch, type ProductMatchReview } from './product-matching';
 import { useReceivingScope } from '@/lib/receiving-inventory';
+import { describeReceivingProducts, summarizeReceivingProducts } from '@/lib/receiving-product-summary';
+import { isUncertainReceiptError, RECEIPT_CONNECTION_MESSAGE } from '@/lib/receipt-connection';
 import { readPendingPhotos } from '@/lib/upload-queue';
+import { SuggestedMatches } from './suggested-matches';
 type Batch = {
   id: string;
   title: string;
@@ -105,6 +108,7 @@ export function Receiving({
     [receiving, setReceiving] = useState<string[] | null>(null);
   const [matchEditorItems, setMatchEditorItems] = useState<CatalogItem[] | null>(null);
   const [editingMatch, setEditingMatch] = useState<ProductMatch | undefined>();
+  const [suggestionVersion, setSuggestionVersion] = useState(0);
   const productMatches = usePosRead<ProductMatch[]>('/catalog-workspace/product-matches', branch);
   const [receipt, setReceipt] = useState<Receipt | null>(null);
   const [task, setTask] = useState('all'),
@@ -143,9 +147,24 @@ export function Receiving({
   );
   const visibleMatches =
     productMatches.data?.filter((plan) =>
-      plan.item_ids.some((id) => matchingItems.some((item) => item.id === id)),
+      plan.item_ids.some((id) =>
+        scope.items.some(
+          (item) =>
+            item.id === id &&
+            (!brandFilter || item.brand === brandFilter) &&
+            (!deliveryFilter ||
+              (deliveryFilter === 'ungrouped' ? !item.batch_id : item.batch_id === deliveryFilter)),
+        ),
+      ),
     ) || [];
   const selectableItems = matchingItems.filter((item) => !item.is_published && !item.is_cancelled);
+  const matchesLoaded = !productMatches.loading && !productMatches.error && productMatches.data !== null;
+  const incomingSummary = matchesLoaded
+    ? summarizeReceivingProducts(selectableItems, productMatches.data!)
+    : null;
+  const selectionSummary = matchesLoaded
+    ? summarizeReceivingProducts(selectedItems, productMatches.data!)
+    : null;
   const pageItems = matchingItems.slice((page - 1) * 48, page * 48);
   const selectablePage = pageItems.filter((item) => !item.is_published && !item.is_cancelled);
   const inventory = {
@@ -204,6 +223,7 @@ export function Receiving({
     },
   });
   function refreshReceiving() {
+    setSuggestionVersion((value) => value + 1);
     setPage(1);
     inventory.refresh();
     productMatches.refresh();
@@ -390,7 +410,19 @@ export function Receiving({
           )}
         </section>
       )}
-      {tab === 'ready' && !!visibleMatches.length && (
+      {active && session.can_edit && (
+        <AiBatchProgress key={branch} branch={branch} onReview={setEditing} onExtracted={refreshReceiving} />
+      )}
+      {active && session.can_publish && session.can_open_pos_product && (
+        <SuggestedMatches
+          key={`${branch}:${batch?.id || ''}`}
+          branch={branch}
+          batchId={batch?.id}
+          refreshKey={`${active}:${suggestionVersion}`}
+          onSaved={refreshReceiving}
+        />
+      )}
+      {['ready', 'preparing', 'lots'].includes(tab) && !!visibleMatches.length && (
         <details className="receiving-review-group" open>
           <summary>
             <strong>{visibleMatches.length} matched products</strong>
@@ -400,10 +432,15 @@ export function Receiving({
               <div>
                 <strong>{plan.product_name}</strong>
                 <small className="block">
-                  {plan.item_ids.length} lots /{' '}
+                  {plan.item_ids.length} source lots →{' '}
                   {plan.target_product_id ? 'Existing POS product' : 'One new product'}
                 </small>
               </div>
+              {session.can_publish && session.can_open_pos_product && (
+                <Button variant="outline" onClick={() => setReceiving(plan.item_ids)}>
+                  Review receipt
+                </Button>
+              )}
               {session.can_publish && session.can_open_pos_product && (
                 <Button
                   variant="outline"
@@ -443,7 +480,7 @@ export function Receiving({
               placeholder="Find incoming merchandise"
             />
             <span className="muted">
-              {inventory.data?.total?.toLocaleString() ?? '—'} lots /{' '}
+              {inventory.data?.total?.toLocaleString() ?? '—'} source lots /{' '}
               {inventory.data?.total_units?.toLocaleString() ?? '—'} units
             </span>
           </div>
@@ -554,6 +591,37 @@ export function Receiving({
               </label>
             )}
           </div>
+          {!inventory.loading && !inventory.error && selectableItems.length > 0 && (
+            <section className="mb-4" aria-label="Incoming product summary" aria-live="polite">
+              {incomingSummary ? (
+                <>
+                  <strong>{describeReceivingProducts(incomingSummary)}</strong>
+                  <p className="muted">
+                    {incomingSummary.matchedGroups} matched{' '}
+                    {incomingSummary.matchedGroups === 1 ? 'group' : 'groups'} ·{' '}
+                    {incomingSummary.separateLots} separate{' '}
+                    {incomingSummary.separateLots === 1 ? 'lot' : 'lots'}. Original lots stay visible with
+                    their photos. Matched lots are received through their group.
+                  </p>
+                  {incomingSummary.partialGroups > 0 && (
+                    <p className="muted">
+                      Some matched groups include lots outside this view. Review the full group before
+                      receiving; quantities above cover only the lots shown.
+                    </p>
+                  )}
+                </>
+              ) : productMatches.error ? (
+                <p role="alert">
+                  Product totals are unavailable until matching groups load.{' '}
+                  <Button variant="ghost" onClick={productMatches.refresh}>
+                    Reload groups
+                  </Button>
+                </p>
+              ) : (
+                <p className="muted">Loading matched product totals…</p>
+              )}
+            </section>
+          )}
           {!inventory.loading && !inventory.error && (
             <div className="receiving-bulk-toolbar" aria-label="Bulk receiving actions">
               <div className="receiving-page-selection">
@@ -584,7 +652,7 @@ export function Receiving({
               </div>
               {!!selectableItems.length && (
                 <Button variant="ghost" onClick={() => setSelectedItems(selectableItems)}>
-                  Select all {selectableItems.length} matching lots
+                  Select all {selectableItems.length} source lots
                 </Button>
               )}
               {tab === 'ready' && session.can_publish && (
@@ -711,11 +779,15 @@ export function Receiving({
           {selectedItems.length > 0 && (
             <div className="selection-bar">
               <span>
-                {selectedItems.length} lots /{' '}
-                {selectedItems
-                  .reduce((sum, item) => sum + Number(item.stock_quantity || 0), 0)
-                  .toLocaleString()}{' '}
-                units selected
+                {selectionSummary
+                  ? describeReceivingProducts(selectionSummary)
+                  : `${selectedItems.length} source lots`}{' '}
+                selected
+                {!!selectionSummary?.partialGroups && (
+                  <small className="block">
+                    Selection includes part of a matched group. Review the full group before receiving.
+                  </small>
+                )}
               </span>
               <Button variant="ghost" onClick={() => setSelectedItems([])}>
                 Clear
@@ -868,6 +940,7 @@ export function Receiving({
         <AiFill
           items={aiItems}
           branch={branch}
+          onExtracted={() => setSuggestionVersion((value) => value + 1)}
           onClose={() => {
             setAiItems(null);
             refreshReceiving();
@@ -1040,7 +1113,14 @@ function ReceiveReview({
               branch,
               {},
             );
-            if (!reviewed.already_received) reviews.push({ ...reviewed, item_ids: plan.item_ids });
+            if (!reviewed.already_received) {
+              reviews.push({ ...reviewed, item_ids: plan.item_ids });
+              // A successful grouped review authorizes this receipt route, while individual receipt stays blocked.
+              for (const row of rows.filter((item) => plan.item_ids.includes(item.id)))
+                row.blockers = row.blockers.filter(
+                  (message) => message !== 'Receive this lot through its matched product group.',
+                );
+            }
           } catch (cause) {
             for (const row of rows.filter((item) => plan.item_ids.includes(item.id)))
               row.blockers = [(cause as Error).message];
@@ -1097,6 +1177,12 @@ function ReceiveReview({
             outcomes[item.id] = 'Received';
           }
         } catch (cause) {
+          if (isUncertainReceiptError(cause)) {
+            for (const id of match?.item_ids || [item.id]) outcomes[id] = 'Receipt status needs checking';
+            setNeedsReview(true);
+            setError(RECEIPT_CONNECTION_MESSAGE);
+            break;
+          }
           for (const id of match?.item_ids || [item.id]) outcomes[id] = (cause as Error).message;
           if (cause instanceof ApiError && cause.status === 409) setNeedsReview(true);
           if (cause instanceof ApiError && [401, 403].includes(cause.status)) {

@@ -46,8 +46,39 @@ function createWorkspaceRouter(dependencies) {
     res.set('Cache-Control', 'no-store');
     next();
   });
+  const aiBatches = require('./ai-batches.cjs').createAiBatchService(dependencies);
+  const { catalogAiRateLimiter } = source('middleware/catalogAiRateLimiter');
+  router.get('/ai-batches', checkPermission('catalog.edit'), reply(req => aiBatches.list(req.branchId)));
+  router.get('/ai-batches/:id', checkPermission('catalog.edit'), reply(req => aiBatches.read(uuid(req.params.id),req.branchId)));
+  router.post('/ai-batches', checkPermission('catalog.edit'), catalogAiRateLimiter, reply(req => {
+    const ids=req.body.item_ids;
+    if (!Array.isArray(ids) || !ids.length || ids.length>1000 || new Set(ids).size!==ids.length)
+      throw DomainError.validationFailed('Choose between 1 and 1000 distinct photos.');
+    return aiBatches.submit({itemIds:ids.map(uuid),submissionKey:uuid(req.body.submission_key),userId:req.user.id,branchId:req.branchId});
+  }));
+  router.post('/ai-batches/:id/:action', checkPermission('catalog.edit'), reply(req => aiBatches.change({
+    id:uuid(req.params.id),branchId:req.branchId,userId:req.user.id,action:choice(req.params.action,['stop','resume']),confirmRetry:req.body.confirm_retry===true,
+  })));
   const matching = require('./product-matching.cjs').createProductMatchingService(dependencies);
   const canMatch = [checkPermission('catalog.publish'), checkPermission('products.view')];
+  const suggestions = require('./match-suggestions.cjs').createMatchSuggestionService(dependencies, matching);
+  router.get('/match-suggestions', ...canMatch, reply(req => suggestions.list({ branchId:req.branchId, userId:req.user.id,
+    batchId:req.query.batch_id ? uuid(req.query.batch_id) : null })));
+  router.post('/match-suggestions/:action', ...canMatch, reply(req => {
+    // Accept only an explicit member subset and signed preview; the server rechecks every identity.
+    const body=req.body, action=choice(req.params.action,['review','dismiss','restore','confirm']);
+    const input={branchId:req.branchId,userId:req.user.id};
+    if(action==='restore')return suggestions.restore({...input,id:text(body.id,64)});
+    if(!Array.isArray(body.item_ids)||!body.item_ids.length||body.item_ids.length>1000||new Set(body.item_ids).size!==body.item_ids.length)
+      throw DomainError.validationFailed('Choose distinct incoming lots.');
+    Object.assign(input,{itemIds:body.item_ids.map(uuid),batchId:body.batch_id?uuid(body.batch_id):null,expectedRevision:body.expected_revision});
+    if(action==='review')return suggestions.review(input);
+    if(action==='dismiss')return suggestions.dismiss(input);
+    const name=text(body.product_name,200),brand=text(body.brand_name,120),note=text(body.review_note || '',1000);
+    if(!name||!brand||body.confirm_identity!==true)throw DomainError.validationFailed('Confirm model identity, product name and brand.');
+    return suggestions.confirm({...input,name,brand,note,targetId:body.target_product_id?uuid(body.target_product_id):null,
+      resolveDifferences:body.resolve_differences===true,material:body.material===undefined?undefined:body.material===null?null:text(body.material,120)});
+  }));
   router.get('/product-matches', reply(req => matching.list(req.branchId,req.user.id)));
   router.post('/product-matches', ...canMatch, reply(req => {
     // Validate a deliberate grouping plan; names and colours never silently establish identity.

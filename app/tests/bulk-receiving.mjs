@@ -23,7 +23,7 @@ const rows = Array.from({ length: 1001 }, (_, i) => ({
   created_at: '2026-09-08',
   is_published: false,
   is_cancelled: false,
-  stock_distribution_source: 'confirmed',
+  stock_distribution_source: 'human_confirmed',
   blockers: i === 1000 ? ['Confirm stock breakdown'] : [],
   batch_id: null,
   batch_title: null,
@@ -31,6 +31,7 @@ const rows = Array.from({ length: 1001 }, (_, i) => ({
   revision: 'v1',
   status: 'ready',
 }));
+await page.route('**/api/catalog-workspace/product-matches', (route) => route.fulfill({ json: [] }));
 const attempts = new Map();
 const revisions = new Map();
 const postedRevisions = new Map();
@@ -87,19 +88,19 @@ async function verifyBulkReceiving() {
   await page.getByRole('textbox', { name: 'Password', exact: true }).fill('testpass123');
   await button('Sign in').click();
   await tab('Ready for POS').click();
-  await button('Select all 1000 matching lots').waitFor();
+  await button('Select all 1000 source lots').waitFor();
   await check('Select this page').check();
-  await text('48 lots / 96 units selected');
-  await button('Select all 1000 matching lots').click();
-  await text('1000 lots / 2,000 units selected');
+  await text('48 source lots → 48 POS products · 96 confirmed units selected');
+  await button('Select all 1000 source lots').click();
+  await text('1000 source lots → 1000 POS products · 2000 confirmed units selected');
   await check('Select Formal shirt 0').uncheck();
   await button('Next').click();
-  await text('999 lots / 1,998 units selected');
+  await text('999 source lots → 999 POS products · 1998 confirmed units selected');
   assert(await check('Select Formal shirt 48').isChecked());
   await button('Clear').click();
   await page.getByRole('combobox', { name: 'Receiving brand', exact: true }).click();
   await page.getByRole('option', { name: 'Hugo Boss', exact: true }).click();
-  await button('Select all 8 matching lots').waitFor();
+  await button('Select all 8 source lots').waitFor();
   await page.getByRole('listbox').waitFor({ state: 'hidden' });
   await page.screenshot({ path: `${evidence}/ready-desktop.png`, animations: 'disabled' });
   await button('Ready for POS').nth(1).click();
@@ -112,19 +113,21 @@ async function verifyBulkReceiving() {
   await page.waitForTimeout(300);
   await page.screenshot({ path: `${evidence}/bulk-confirmation.png`, animations: 'disabled' });
   await button('Receive 7 lots into Test Store').click();
-  await button('Retry unresolved lots').waitFor();
+  await button('Review changed lots').waitFor();
   assert.equal(attempts.has('lot-0'), false);
-  await button('Retry unresolved lots').click();
+  assert.equal(attempts.has('lot-2'), false, 'Stop further receipt writes while the connection is uncertain');
+  await button('Review changed lots').click();
+  await button('Receive 7 lots into Test Store').click();
   await page.getByRole('heading', { name: 'Stock received', exact: true }).waitFor();
   assert.equal(attempts.get('lot-1'), 2);
   for (let i = 2; i < 8; i++) assert.equal(attempts.get(`lot-${i}`), 1);
-  assert.equal(reviewReads, 9);
+  assert.equal(reviewReads, 17);
   await button('View stock').waitFor();
   await button('View receipts').click();
   await tab('Ready for POS').click();
   await page.getByRole('combobox', { name: 'Receiving brand', exact: true }).click();
   await page.getByRole('option', { name: 'All brands', exact: true }).click();
-  await button('Select all 993 matching lots').waitFor();
+  await button('Select all 993 source lots').waitFor();
   await page
     .locator('.receiving-row')
     .filter({ has: check('Select Formal shirt 8') })
@@ -144,10 +147,10 @@ async function verifyBulkReceiving() {
   await tab('Preparation').click();
   await page.getByRole('combobox', { name: 'Receiving brand', exact: true }).click();
   await page.getByRole('option', { name: 'All brands', exact: true }).click();
-  await button('Select all 1 matching lots').waitFor();
+  await button('Select all 1 source lots').waitFor();
   assert.equal(await page.locator('.receiving-row').count(), 1);
   await tab('Ready for POS').click();
-  await button('Select all 992 matching lots').waitFor();
+  await button('Select all 992 source lots').waitFor();
   await page.setViewportSize({ width: 390, height: 844 });
   await check('Select this page').check();
   assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));

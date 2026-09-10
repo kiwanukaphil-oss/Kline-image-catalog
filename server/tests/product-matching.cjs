@@ -195,8 +195,9 @@ async function verifyMatching() {
     );
     const f = await seedLot("S", 1),
       g = await seedLot("S", 1, 110000);
-    await call("/catalog-workspace/product-matches", planBody([f, g]), 409);
-    const removable = await call("/catalog-workspace/product-matches", planBody([f]));
+    // Identity plans may be saved before prices agree; the separate receiving review must still reject them.
+    const removable = await call("/catalog-workspace/product-matches", planBody([f, g]));
+    await call(`/catalog-workspace/product-matches/${removable.id}/review`, {}, 409);
     await call(
       `/catalog-workspace/product-matches/${removable.id}/unmatch`,
       { expected_revision: "stale" },
@@ -220,11 +221,11 @@ async function verifyMatching() {
       `UPDATE product_variants SET variant_attributes=variant_attributes || '{"sleeve":"Long"}'::jsonb WHERE product_id=$1`,
       [productId],
     );
-    await call(
-      "/catalog-workspace/product-matches",
-      { ...planBody([g]), target_product_id: productId },
-      400,
-    );
+    const missingSleeve = await call("/catalog-workspace/product-matches", {
+      ...planBody([g]),
+      target_product_id: productId,
+    });
+    await call(`/catalog-workspace/product-matches/${missingSleeve.id}/review`, {}, 400);
     // A complete sleeve dimension reuses the native size; a different sleeve gets its own variant.
     const longSleeve = await seedLot("XL"),
       shortSleeve = await seedLot("XL");

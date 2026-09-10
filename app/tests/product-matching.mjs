@@ -80,7 +80,7 @@ try {
   await page.getByRole('textbox', { name: 'Password', exact: true }).fill('testpass123');
   await button('Sign in').click();
   await page.getByRole('tab', { name: 'Ready for POS', exact: true }).click();
-  await button('Select all 3 matching lots').click();
+  await button('Select all 3 source lots').click();
   await button('Match product').click();
   await page.getByLabel('Product name', { exact: true }).fill('Same model 123');
   await page.getByLabel('Matching evidence', { exact: true }).fill('Model 123 on each label');

@@ -33,7 +33,8 @@ try {
   const deliveryName = process.env.KLINE_TEST_DELIVERY || 'September delivery';
   await page.getByRole('button', { name: 'New delivery', exact: true }).first().click();
   await page.getByLabel('Delivery name').fill(deliveryName);
-  await page.getByLabel('Delivery category').selectOption({ label: 'Trousers' });
+  await page.getByRole('combobox', { name: 'Delivery category' }).fill('Trousers');
+  await page.getByRole('option', { name: 'Trousers', exact: true }).click();
   await page
     .getByLabel('Delivery photos')
     .setInputFiles([0, 1, 2].map((index) => path.join(root, `design/assets/item-${index}.jpg`)));

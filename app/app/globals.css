@@ -563,6 +563,32 @@ small {
 .workspace-dialog :is(select, [data-slot='select-trigger']) {
   width: 100%;
 }
+.upload-category-picker {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+}
+.upload-category-destination,
+.pending-category-path {
+  white-space: normal;
+  overflow-wrap: anywhere;
+  line-height: 1.5;
+}
+.upload-category-destination {
+  margin: 0;
+  font-size: 13px;
+}
+.upload-category-destination strong {
+  display: block;
+}
+.upload-category-options {
+  min-width: 0;
+}
+.upload-category-option {
+  min-height: 44px;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
 .workspace-dialog.wide {
   max-width: 880px !important;
 }
@@ -2205,3 +2231,11 @@ td small {
 .matching-evidence small {
   color: var(--muted-foreground);
 }
+/* Keep model evidence and review actions readable on narrow receiving screens. */
+.suggested-matches { margin-block: 1rem; }
+.suggestion-card, .suggestion-issues { border: 1px solid var(--border); padding: 1rem; border-radius: .75rem; overflow-wrap: anywhere; }
+.suggestion-thumbnails { display: flex; gap: .5rem; margin-block: .75rem; }
+.suggestion-thumbnails > * { width: 5rem; height: 6rem; }
+.suggestion-thumbnails img { object-fit: contain; width: 100%; height: 100%; }
+.suggestion-issues { background: var(--muted); }
+.matching-evidence article p { font-size: .875rem; overflow-wrap: anywhere; white-space: pre-wrap; }

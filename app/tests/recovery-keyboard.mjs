@@ -17,6 +17,8 @@ try {
   await page.getByRole('heading', { name: 'Receiving', exact: true }).waitFor();
   await page.getByRole('button', { name: 'New delivery', exact: true }).first().click();
   await page.getByLabel('Delivery name').fill('Upload recovery check');
+  await page.getByRole('combobox', { name: 'Delivery category' }).fill('Trousers');
+  await page.getByRole('option', { name: 'Trousers', exact: true }).click();
   await page.getByLabel('Delivery photos').setInputFiles(path.join(root, 'design/assets/item-0.jpg'));
   await page.route('**/api/catalog/items', (route) =>
     route.request().method() === 'POST' ? route.abort('connectionreset') : route.continue(),

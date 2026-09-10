@@ -1,0 +1,4504 @@
+{
+  "provenance": "Saved pre-receipt evidence from 2026-09-08, paired with the independent 67-photo review. Expected labels are never copied into the extracted-evidence evaluation.",
+  "items": [
+    {
+      "id": "01",
+      "photo_number": 1,
+      "name": "Bianco Cortini Formal Shirt",
+      "brand": "Bianco Cortini",
+      "category_id": "formal-shirts",
+      "pos_category_id": "pos-shirts",
+      "attributes": {
+        "size": "2XL",
+        "color": "Light Blue",
+        "material": "Cotton"
+      },
+      "ai_visible_text": "2XL\n42/43\nCortini\nITALY\nPREMIUM QUALITY\nNON IRON\nsize: small-2xl\nOriginal Quality\nNON IRON\nITALY\nBianco Cortini\nITALY",
+      "ai_field_evidence": {
+        "material": {
+          "source": "visual_inference",
+          "observation": "Review of the original photo: fine matte woven shirting. Cotton is the best-supported catalog material; no composition label is visible."
+        }
+      },
+      "stock_quantity": 5,
+      "stock_distribution_source": "human_confirmed",
+      "variant_lines": [
+        {
+          "variant_attributes": {
+            "size": "2XL"
+          },
+          "quantity": 1
+        },
+        {
+          "variant_attributes": {
+            "size": "S"
+          },
+          "quantity": 1
+        },
+        {
+          "variant_attributes": {
+            "size": "M"
+          },
+          "quantity": 1
+        },
+        {
+          "variant_attributes": {
+            "size": "L"
+          },
+          "quantity": 1
+        },
+        {
+          "variant_attributes": {
+            "size": "XL"
+          },
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "02",
+      "photo_number": 2,
+      "name": "Bianco Cortini Formal Shirt",
+      "brand": "Bianco Cortini",
+      "category_id": "formal-shirts",
+      "pos_category_id": "pos-shirts",
+      "attributes": {
+        "size": "small-3xl",
+        "color": "White",
+        "sleeve": "Long",
+        "material": "Cotton"
+      },
+      "ai_visible_text": "38/39\nBianco Cortini\nITALY\nPREMIUM QUALITY\nNON IRON\nsizes: small-3xl\nOriginal Quality\nNON IRON\nITALY\nBianco Cortini\nITALY",
+      "ai_field_evidence": {
+        "material": {
+          "source": "visual_inference",
+          "observation": "Review of the original photo: fine matte woven shirting. Cotton is the best-supported catalog material; no composition label is visible."
+        }
+      },
+      "stock_quantity": 6,
+      "stock_distribution_source": "human_confirmed",
+      "variant_lines": [
+        {
+          "variant_attributes": {
+            "size": "S"
+          },
+          "quantity": 1
+        },
+        {
+          "variant_attributes": {
+            "size": "M"
+          },
+          "quantity": 1
+        },
+        {
+          "variant_attributes": {
+            "size": "L"
+          },
+          "quantity": 1
+        },
+        {
+          "variant_attributes": {
+            "size": "XL"
+          },
+          "quantity": 1
+        },
+        {
+          "variant_attributes": {
+            "size": "2XL"
+          },
+          "quantity": 1
+        },
+        {
+          "variant_attributes": {
+            "size": "3XL"
+          },
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "03",
+      "photo_number": 3,
+      "name": "Bianco Cortini Formal Shirt",
+      "brand": "Bianco Cortini",
+      "category_id": "formal-shirts",
+      "pos_category_id": "pos-shirts",
+      "attributes": {
+        "size": "S 38/39",
+        "color": "Light mauve",
+        "sleeve": "Long",
+        "pattern": "Herringbone",
+        "material": "Cotton"
+      },
+      "ai_visible_text": "S\n38/39\nBianco Cortini\nITALY\nPREMIUM QUALITY\nNON IRON\nBianco Cortini\nITALY\nsizes: small-2xl\nOriginal Quality\nNON IRON\nITALY\nBianco Cortini\nITALY\nBianco Cortini\nITALY",
+      "ai_field_evidence": {
+        "color": {
+          "source": "visual_observation",
+          "observation": "The shirt fabric visibly appears light mauve."
+        },
+        "pattern": {
+          "source": "visual_observation",
+          "observation": "Visible diagonal woven chevron texture across the shirt."
+        },
+        "material": {
+          "source": "visual_inference",
+          "observation": "Fine smooth woven shirting fabric is visible; no composition label is shown."
+        }
+      },
+      "stock_quantity": 5,
+      "stock_distribution_source": "human_confirmed",
+      "variant_lines": [
+        {
+          "variant_attributes": {
+            "size": "S"
+          },
+          "quantity": 1
+        },
+        {
+          "variant_attributes": {
+            "size": "M"
+          },
+          "quantity": 1
+        },
+        {
+          "variant_attributes": {
+            "size": "L"
+          },
+          "quantity": 1
+        },
+        {
+          "variant_attributes": {
+            "size": "XL"
+          },
+          "quantity": 1
+        },
+        {
+          "variant_attributes": {
+            "size": "2XL"
+          },
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "04",
+      "photo_number": 4,
+      "name": "Bianco Cortini Formal shirt",
+      "brand": "Bianco Cortini",
+      "category_id": "formal-shirts",
+      "pos_category_id": "pos-shirts",
+      "attributes": {
+        "size": "XL 41",
+        "color": "Pink",
+        "sleeve": "Long",
+        "material": "Cotton"
+      },
+      "ai_visible_text": "XL\n41\nBianco Cortini\nITALY\nPREMIUM QUALITY\nNON IRON\nsizes: small-2xl\nOriginal Quality\nNON IRON\nITALY\nBianco Cortini\nITALY",
+      "ai_field_evidence": {
+        "name": {
+          "source": "printed_label",
+          "observation": "Brand is printed; garment is a formal shirt."
+        },
+        "size": {
+          "source": "printed_label",
+          "observation": "Inner collar label shows “XL” and “41”."
+        },
+        "brand": {
+          "source": "printed_label",
+          "observation": "Multiple labels print “Bianco Cortini”."
+        },
+        "color": {
+          "source": "visual_observation",
+          "observation": "The packaged shirt is visibly pink."
+        },
+        "sleeve": {
+          "source": "visual_observation",
+          "observation": "Visible buttoned cuff indicates a long-sleeve shirt."
+        },
+        "material": {
+          "source": "visual_inference",
+          "observation": "Fine woven shirting fabric with a subtle diagonal texture; no composition is printed."
+        }
+      },
+      "stock_quantity": 5,
+      "stock_distribution_source": "human_confirmed",
+      "variant_lines": [
+        {
+          "variant_attributes": {
+            "size": "S"
+          },
+          "quantity": 1
+        },
+        {
+          "variant_attributes": {
+            "size": "M"
+          },
+          "quantity": 1
+        },
+        {
+          "variant_attributes": {
+            "size": "L"
+          },
+          "quantity": 1
+        },
+        {
+          "variant_attributes": {
+            "size": "XL"
+          },
+          "quantity": 1
+        },
+        {
+          "variant_attributes": {
+            "size": "2XL"
+          },
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "05",
+      "photo_number": 5,
+      "name": "Bianco Cortini Formal shirt",
+      "brand": "Bianco Cortini",
+      "category_id": "formal-shirts",
+      "pos_category_id": "pos-shirts",
+      "attributes": {
+        "size": "2XL",
+        "color": "Light blue and white",
+        "sleeve": "Long",
+        "pattern": "Vertical stripe",
+        "material": "Cotton"
+      },
+      "ai_visible_text": "2XL\n42/43\nBianco Cortini\nITALY\nPREMUM QUALITY\nNON IRON\nsizes: small-2xl\nPremium Quality\nNON IRON\nITALY\nBianco Cortini\nITALY\nBianco Cortini\nITALY",
+      "ai_field_evidence": {
+        "name": {
+          "source": "visual_observation",
+          "observation": "Visible collared button-front formal shirt; no printed model name."
+        },
+        "size": {
+          "source": "printed_label",
+          "observation": "Inner collar label reads “2XL 42/43”."
+        },
+        "brand": {
+          "source": "printed_label",
+          "observation": "Multiple labels print “Bianco Cortini”."
+        },
+        "color": {
+          "source": "visual_observation",
+          "observation": "Garment visibly has light blue and white stripes."
+        },
+        "sleeve": {
+          "source": "visual_observation",
+          "observation": "A long sleeve with cuff is visible."
+        },
+        "pattern": {
+          "source": "visual_observation",
+          "observation": "Fine vertical stripes are visible across the shirt."
+        },
+        "material": {
+          "source": "visual_inference",
+          "observation": "Smooth, lightweight woven shirting fabric is visible; no composition label is shown."
+        }
+      },
+      "stock_quantity": 5,
+      "stock_distribution_source": "human_confirmed",
+      "variant_lines": [
+        {
+          "variant_attributes": {
+            "size": "S"
+          },
+          "quantity": 1
+        },
+        {
+          "variant_attributes": {
+            "size": "M"
+          },
+          "quantity": 1
+        },
+        {
+          "variant_attributes": {
+            "size": "L"
+          },
+          "quantity": 1
+        },
+        {
+          "variant_attributes": {
+            "size": "XL"
+          },
+          "quantity": 1
+        },
+        {
+          "variant_attributes": {
+            "size": "2XL"
+          },
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "06",
+      "photo_number": 6,
+      "name": "Bianco Cortini Formal Shirt",
+      "brand": "Bianco Cortini",
+      "category_id": "formal-shirts",
+      "pos_category_id": "pos-shirts",
+      "attributes": {
+        "size": "M 39/40",
+        "color": "Brown",
+        "sleeve": "Long",
+        "pattern": "Solid",
+        "material": "Oxford fabric"
+      },
+      "ai_visible_text": "M\n39/40\nBianco Cortini\nITALY\nPREMIUM QUALITY\nNON IRON\nsizes: small-2xl\nOriginal Quality\nNON IRON\nITALY",
+      "ai_field_evidence": {
+        "name": {
+          "source": "visual_observation",
+          "observation": "Visible packaged collared button-front formal shirt with Bianco Cortini labels."
+        },
+        "size": {
+          "source": "printed_label",
+          "observation": "Collar label prints “M” and “39/40”."
+        },
+        "brand": {
+          "source": "printed_label",
+          "observation": "Multiple labels print “Bianco Cortini” and “ITALY”."
+        },
+        "color": {
+          "source": "visual_observation",
+          "observation": "The garment fabric is visibly brown."
+        },
+        "sleeve": {
+          "source": "visual_observation",
+          "observation": "Folded shirt construction and visible cuff indicate long sleeves."
+        },
+        "pattern": {
+          "source": "visual_observation",
+          "observation": "Fabric appears uniformly colored with no visible printed pattern."
+        },
+        "material": {
+          "source": "printed_label",
+          "observation": "Collar label reads “PREMIUM OXFORD”."
+        }
+      },
+      "stock_quantity": 5,
+      "stock_distribution_source": "human_confirmed",
+      "variant_lines": [
+        {
+          "variant_attributes": {
+            "size": "S"
+          },
+          "quantity": 1
+        },
+        {
+          "variant_attributes": {
+            "size": "M"
+          },
+          "quantity": 1
+        },
+        {
+          "variant_attributes": {
+            "size": "L"
+          },
+          "quantity": 1
+        },
+        {
+          "variant_attributes": {
+            "size": "XL"
+          },
+          "quantity": 1
+        },
+        {
+          "variant_attributes": {
+            "size": "2XL"
+          },
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "07",
+      "photo_number": 7,
+      "name": "Bianco Cortini Formal shirt",
+      "brand": "Bianco Cortini",
+      "category_id": "formal-shirts",
+      "pos_category_id": "pos-shirts",
+      "attributes": {
+        "size": "S 38/39",
+        "color": "Light blue",
+        "pattern": "Solid",
+        "material": "Cotton"
+      },
+      "ai_visible_text": "Bianco Cortini\nITALY\nS\n38/39\nNUMO\nNON\nsizes: small-2xl\nOriginal Quality\nNON IRON\nITALY\nBianco Cortini\nITALY",
+      "ai_field_evidence": {
+        "name": {
+          "source": "printed_label",
+          "observation": "The printed brand is Bianco Cortini; garment is a formal shirt."
+        },
+        "size": {
+          "source": "printed_label",
+          "observation": "Collar label shows “S 38/39.”"
+        },
+        "brand": {
+          "source": "printed_label",
+          "observation": "Collar, band, and hangtag print “Bianco Cortini.”"
+        },
+        "color": {
+          "source": "visual_observation",
+          "observation": "The folded shirt fabric is visibly light blue."
+        },
+        "pattern": {
+          "source": "visual_observation",
+          "observation": "Fabric appears uniformly coloured with no distinct printed or woven motif."
+        },
+        "material": {
+          "source": "visual_inference",
+          "observation": "Fine woven shirting texture is visible; no composition label is shown."
+        }
+      },
+      "stock_quantity": 5,
+      "stock_distribution_source": "human_confirmed",
+      "variant_lines": [
+        {
+          "variant_attributes": {
+            "size": "S"
+          },
+          "quantity": 1
+        },
+        {
+          "variant_attributes": {
+            "size": "M"
+          },
+          "quantity": 1
+        },
+        {
+          "variant_attributes": {
+            "size": "L"
+          },
+          "quantity": 1
+        },
+        {
+          "variant_attributes": {
+            "size": "XL"
+          },
+          "quantity": 1
+        },
+        {
+          "variant_attributes": {
+            "size": "2XL"
+          },
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "08",
+      "photo_number": 8,
+      "name": "MACK WELDON Formal shirt",
+      "brand": "MACK WELDON",
+      "category_id": "formal-shirts",
+      "pos_category_id": "pos-shirts",
+      "attributes": {
+        "fit": "Slim",
+        "size": "L",
+        "color": "White",
+        "style": "201A-6",
+        "sleeve": "Long",
+        "pattern": "Solid",
+        "material": "Cotton"
+      },
+      "ai_visible_text": "L\nMACK WELDON\nSLIM FIT\n201A-6\nSIZE:L\nOriginal Quality\nNON IRON\nMACK WELDON",
+      "ai_field_evidence": {
+        "fit": {
+          "source": "printed_label",
+          "observation": "Collar label reads “SLIM FIT.”"
+        },
+        "name": {
+          "source": "printed_label",
+          "observation": "No specific model is visible; the collar label identifies MACK WELDON and the item is a formal shirt."
+        },
+        "size": {
+          "source": "printed_label",
+          "observation": "Collar label and sticker show L / SIZE:L."
+        },
+        "brand": {
+          "source": "printed_label",
+          "observation": "Collar label reads “MACK WELDON.”"
+        },
+        "color": {
+          "source": "visual_observation",
+          "observation": "The shirt fabric appears white."
+        },
+        "style": {
+          "source": "printed_label",
+          "observation": "Sticker reads “201A-6.”"
+        },
+        "sleeve": {
+          "source": "visual_observation",
+          "observation": "Visible button cuffs indicate long sleeves."
+        },
+        "pattern": {
+          "source": "visual_observation",
+          "observation": "No printed motif or stripe is visible; fabric has a solid appearance."
+        },
+        "material": {
+          "source": "visual_inference",
+          "observation": "Fine woven dress-shirt fabric is visible, but no composition label is shown."
+        }
+      },
+      "stock_quantity": 1,
+      "stock_distribution_source": "human_confirmed",
+      "variant_lines": [
+        {
+          "variant_attributes": {
+            "size": "L"
+          },
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "09",
+      "photo_number": 9,
+      "name": "MACK WELDON Formal Shirt",
+      "brand": "MACK WELDON",
+      "category_id": "formal-shirts",
+      "pos_category_id": "pos-shirts",
+      "attributes": {
+        "fit": "Slim",
+        "size": "XL",
+        "color": "Light Gray",
+        "style": "20260145",
+        "sleeve": "Long",
+        "pattern": "Solid",
+        "material": "Cotton"
+      },
+      "ai_visible_text": "MACK WELDON\nSLIM FIT\nOriginal Quality\nNON IRON\nNO: 20260145\nSIZE: XL\nWASH SEPARATELY\nDO NOT BLEACH\nTUMBLE DRY MEDIUM\nIRON AT MAX 110°C\nDRY CLEAN",
+      "ai_field_evidence": {
+        "fit": {
+          "source": "printed_label",
+          "observation": "Collar label reads “SLIM FIT.”"
+        },
+        "name": {
+          "source": "printed_label",
+          "observation": "Printed MACK WELDON branding; garment is a formal shirt."
+        },
+        "size": {
+          "source": "printed_label",
+          "observation": "Round tag reads “SIZE: XL.”"
+        },
+        "brand": {
+          "source": "printed_label",
+          "observation": "Collar label and packaging ribbons read “MACK WELDON.”"
+        },
+        "color": {
+          "source": "visual_observation",
+          "observation": "Garment fabric is visibly light gray."
+        },
+        "style": {
+          "source": "printed_label",
+          "observation": "Round tag reads “NO: 20260145.”"
+        },
+        "sleeve": {
+          "source": "visual_observation",
+          "observation": "Folded shirt shows buttoned sleeve cuffs, indicating long sleeves."
+        },
+        "pattern": {
+          "source": "visual_observation",
+          "observation": "Visible fabric has no printed or woven multicolor arrangement."
+        },
+        "material": {
+          "source": "visual_inference",
+          "observation": "Fine woven shirting texture is visible; no fiber composition is legible."
+        }
+      },
+      "stock_quantity": 1,
+      "stock_distribution_source": "human_confirmed",
+      "variant_lines": [
+        {
+          "variant_attributes": {
+            "size": "XL"
+          },
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "10",
+      "photo_number": 10,
+      "name": "MACK WELDON Formal shirt",
+      "brand": "MACK WELDON",
+      "category_id": "formal-shirts",
+      "pos_category_id": "pos-shirts",
+      "attributes": {
+        "fit": "Slim",
+        "size": "M",
+        "color": "Light beige",
+        "style": "51262014",
+        "sleeve": "Long",
+        "pattern": "Geometric micro-texture",
+        "material": "Cotton"
+      },
+      "ai_visible_text": "M\nMACK WELDON\nSLIM FIT\nOriginal Quality\nNON IRON\nMACK WELDON\nNO: 51262014-7\nSIZE: M\nDO NOT BLEACH\nDO NOT TUMBLE DRY\nDO NOT DRY CLEAN\nDO NOT IRON",
+      "ai_field_evidence": {
+        "fit": {
+          "source": "printed_label",
+          "observation": "Collar label reads “SLIM FIT.”"
+        },
+        "name": {
+          "source": "visible_text",
+          "observation": "No printed model name is visible; product is a formal shirt."
+        },
+        "size": {
+          "source": "printed_label",
+          "observation": "Collar label and oval tag show “M” / “SIZE: M.”"
+        },
+        "brand": {
+          "source": "printed_label",
+          "observation": "Collar label and packaging ribbon read “MACK WELDON.”"
+        },
+        "color": {
+          "source": "visual_observation",
+          "observation": "Garment appears light beige throughout."
+        },
+        "style": {
+          "source": "printed_label",
+          "observation": "Oval tag reads “NO: 51262014.”"
+        },
+        "sleeve": {
+          "source": "visual_observation",
+          "observation": "Visible button cuffs indicate long sleeves."
+        },
+        "pattern": {
+          "source": "visual_observation",
+          "observation": "Fabric shows a fine repeating geometric woven texture."
+        },
+        "material": {
+          "source": "visual_inference",
+          "observation": "Fine textured woven fabric is visible; no composition is legible."
+        }
+      },
+      "stock_quantity": 1,
+      "stock_distribution_source": "human_confirmed",
+      "variant_lines": [
+        {
+          "variant_attributes": {
+            "size": "M"
+          },
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "11",
+      "photo_number": 11,
+      "name": "MACK WELDON Formal Shirt",
+      "brand": "MACK WELDON",
+      "category_id": "formal-shirts",
+      "pos_category_id": "pos-shirts",
+      "attributes": {
+        "fit": "Slim",
+        "size": "3XL",
+        "color": "Light Gray",
+        "style": "262014-86",
+        "sleeve": "Long",
+        "pattern": "Solid",
+        "material": "Cotton"
+      },
+      "ai_visible_text": "3XL\nMACK WELDON\nSLIM FIT\nNO: 262014-86\nSIZE: 3XL\nWASH AT WATER 30°C\nDO NOT BLEACHING\nDO NOT TUMBLE DRY\nIRON PLATE AT MAXIMUM TEMPERATURE 110°C\nDRY CLEAN\nMACK WELDON\nOriginal Quality\nNON IRON\nMACK WELDON",
+      "ai_field_evidence": {
+        "fit": {
+          "source": "printed_label",
+          "observation": "Neck label reads “SLIM FIT.”"
+        },
+        "name": {
+          "source": "printed_label",
+          "observation": "Brand is printed; garment is a formal shirt."
+        },
+        "size": {
+          "source": "printed_label",
+          "observation": "Neck label and hangtag both show 3XL."
+        },
+        "brand": {
+          "source": "printed_label",
+          "observation": "Neck label and ribbon print read “MACK WELDON.”"
+        },
+        "color": {
+          "source": "visual_observation",
+          "observation": "The shirt fabric appears light gray."
+        },
+        "style": {
+          "source": "printed_label",
+          "observation": "Hangtag reads “NO: 262014-86.”"
+        },
+        "sleeve": {
+          "source": "visual_observation",
+          "observation": "A button cuff and folded long sleeve are visible."
+        },
+        "pattern": {
+          "source": "visual_observation",
+          "observation": "Fabric has no distinct printed or woven motif beyond fine texture."
+        },
+        "material": {
+          "source": "visual_inference",
+          "observation": "Fine woven shirting texture is visible; no composition label is shown."
+        }
+      },
+      "stock_quantity": 1,
+      "stock_distribution_source": "human_confirmed",
+      "variant_lines": [
+        {
+          "variant_attributes": {
+            "size": "3XL"
+          },
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "12",
+      "photo_number": 12,
+      "name": "MACK WELDON Formal Shirt",
+      "brand": "MACK WELDON",
+      "category_id": "formal-shirts",
+      "pos_category_id": "pos-shirts",
+      "attributes": {
+        "fit": "Slim",
+        "size": "2XL",
+        "color": "Light beige",
+        "style": "26201A-6",
+        "sleeve": "Long",
+        "material": "Cotton"
+      },
+      "ai_visible_text": "XXL\nMACK WELDON\nSLIM FIT\nNO:26201A-6\nSIZE:2XL\n30°\nWASH AT WATER 30°C\nOriginal Quality",
+      "ai_field_evidence": {
+        "fit": {
+          "source": "printed_label",
+          "observation": "Neck label reads “SLIM FIT”."
+        },
+        "name": {
+          "source": "visible_text",
+          "observation": "Brand is printed; garment type is supported by the formal-shirt category and visible collared shirt."
+        },
+        "size": {
+          "source": "printed_label",
+          "observation": "Hangtag reads “SIZE:2XL”."
+        },
+        "brand": {
+          "source": "printed_label",
+          "observation": "Neck label reads “MACK WELDON”."
+        },
+        "color": {
+          "source": "visual_observation",
+          "observation": "The folded shirt appears light beige."
+        },
+        "style": {
+          "source": "printed_label",
+          "observation": "Hangtag reads “NO:26201A-6”."
+        },
+        "sleeve": {
+          "source": "visual_observation",
+          "observation": "Visible cuffs and folded long sleeves."
+        },
+        "material": {
+          "source": "visual_inference",
+          "observation": "Fine textured woven shirting is visible; no composition label is shown."
+        }
+      },
+      "stock_quantity": 1,
+      "stock_distribution_source": "human_confirmed",
+      "variant_lines": [
+        {
+          "variant_attributes": {
+            "size": "2XL"
+          },
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "13",
+      "photo_number": 13,
+      "name": "MACK WELDON Formal Shirt",
+      "brand": "MACK WELDON",
+      "category_id": "formal-shirts",
+      "pos_category_id": "pos-shirts",
+      "attributes": {
+        "fit": "Slim",
+        "size": "4XL",
+        "color": "Light beige",
+        "sleeve": "Long",
+        "pattern": "Solid",
+        "material": "Cotton"
+      },
+      "ai_visible_text": "MACK WELDON\n4XL\nSLIM FIT\nWASH AT TEMPERATURE 30°C\nDO NOT BLEACH\nDO NOT TUMBLE DRY\nDO NOT IRON AT MAXIMUM TEMPERATURE 110°C\nDRY CLEAN\nOriginal Quality\nNON IRON",
+      "ai_field_evidence": {
+        "fit": {
+          "source": "printed_label",
+          "observation": "Neck label reads “SLIM FIT.”"
+        },
+        "name": {
+          "source": "printed_label",
+          "observation": "MACK WELDON label is visible; garment is a formal shirt."
+        },
+        "size": {
+          "source": "printed_label",
+          "observation": "Neck label shows “4XL.”"
+        },
+        "brand": {
+          "source": "printed_label",
+          "observation": "Neck label reads “MACK WELDON.”"
+        },
+        "color": {
+          "source": "visual_observation",
+          "observation": "The shirt fabric is visibly light beige."
+        },
+        "sleeve": {
+          "source": "visual_observation",
+          "observation": "Long sleeves with button cuffs are visible."
+        },
+        "pattern": {
+          "source": "visual_observation",
+          "observation": "No distinct printed pattern is visible; fabric appears solid with fine woven texture."
+        },
+        "material": {
+          "source": "visual_inference",
+          "observation": "Fine textured woven shirting is visible; no fibre composition is printed."
+        }
+      },
+      "stock_quantity": 1,
+      "stock_distribution_source": "human_confirmed",
+      "variant_lines": [
+        {
+          "variant_attributes": {
+            "size": "4XL"
+          },
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "14",
+      "photo_number": 14,
+      "name": "MACK WELDON Formal Shirt",
+      "brand": "MACK WELDON",
+      "category_id": "formal-shirts",
+      "pos_category_id": "pos-shirts",
+      "attributes": {
+        "fit": "Slim",
+        "size": "M",
+        "color": "Light blue",
+        "style": "2620IR-26",
+        "sleeve": "Long",
+        "pattern": "Herringbone",
+        "material": "Cotton"
+      },
+      "ai_visible_text": "MACK WELDON\nSLIM FIT\nOriginal Quality\nNON IRON\nNO: 26201B-26\nSIZE: M\nWASH AT OR BELOW 30°C\nDO NOT BLEACH\nIRON PLATE AT MAXIMUM TEMPERATURE 110°C\nDRY CLEAN",
+      "ai_field_evidence": {
+        "fit": {
+          "source": "printed_label",
+          "observation": "Collar label reads “SLIM FIT.”"
+        },
+        "name": {
+          "source": "visual_observation",
+          "observation": "Visible collared button-front formal shirt with MACK WELDON label."
+        },
+        "size": {
+          "source": "printed_label",
+          "observation": "Hangtag sticker reads “SIZE: M.”"
+        },
+        "brand": {
+          "source": "printed_label",
+          "observation": "Collar label reads “MACK WELDON.”"
+        },
+        "color": {
+          "source": "visual_observation",
+          "observation": "Garment is visibly light blue."
+        },
+        "style": {
+          "source": "printed_label",
+          "observation": "Hangtag sticker reads “NO: 2620IR-26.”"
+        },
+        "sleeve": {
+          "source": "visual_observation",
+          "observation": "A button cuff is visible, supporting long sleeves."
+        },
+        "pattern": {
+          "source": "visual_observation",
+          "observation": "Fabric visibly has a fine herringbone weave arrangement."
+        },
+        "material": {
+          "source": "visual_inference",
+          "observation": "Woven dress-shirt fabric appearance supports a cautious cotton or cotton-blend inference; no composition is printed."
+        }
+      },
+      "stock_quantity": 1,
+      "stock_distribution_source": "human_confirmed",
+      "variant_lines": [
+        {
+          "variant_attributes": {
+            "size": "M"
+          },
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "15",
+      "photo_number": 15,
+      "name": "MACK WELDON Formal Shirt",
+      "brand": "MACK WELDON",
+      "category_id": "formal-shirts",
+      "pos_category_id": "pos-shirts",
+      "attributes": {
+        "fit": "Slim",
+        "size": "L",
+        "color": "Light blue",
+        "style": "2620",
+        "sleeve": "Long",
+        "material": "Cotton"
+      },
+      "ai_visible_text": "MACK WELDON\nSLIM FIT\nMACK WELDON\nOriginal Quality\nNON IRON\nNO: 2620\nSIZE: L\nMACK WELDON",
+      "ai_field_evidence": {
+        "fit": {
+          "source": "printed_label",
+          "observation": "Collar label reads “SLIM FIT”."
+        },
+        "name": {
+          "source": "printed_label",
+          "observation": "Brand is printed; garment category identifies a formal shirt."
+        },
+        "size": {
+          "source": "printed_label",
+          "observation": "Hangtag oval reads “SIZE: L”."
+        },
+        "brand": {
+          "source": "printed_label",
+          "observation": "Collar label reads “MACK WELDON”."
+        },
+        "color": {
+          "source": "visual_observation",
+          "observation": "The shirt fabric is visibly light blue."
+        },
+        "style": {
+          "source": "printed_label",
+          "observation": "Hangtag oval reads “NO: 2620”."
+        },
+        "sleeve": {
+          "source": "visual_observation",
+          "observation": "A buttoned shirt cuff is visible, supporting long sleeves."
+        },
+        "material": {
+          "source": "visual_inference",
+          "observation": "Fine woven herringbone-like texture suggests cotton or a cotton blend; no composition is printed."
+        }
+      },
+      "stock_quantity": 1,
+      "stock_distribution_source": "human_confirmed",
+      "variant_lines": [
+        {
+          "variant_attributes": {
+            "size": "L"
+          },
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "16",
+      "photo_number": 16,
+      "name": "MACK WELDON Formal shirt",
+      "brand": "MACK WELDON",
+      "category_id": "formal-shirts",
+      "pos_category_id": "pos-shirts",
+      "attributes": {
+        "fit": "Slim",
+        "size": "XL",
+        "color": "Light blue",
+        "style": "2620 JB 16",
+        "sleeve": "Long",
+        "material": "Cotton blend"
+      },
+      "ai_visible_text": "XL\nMACK WELDON\nSLIM FIT\nNO.2620/B 16\nSIZE: XL\nMACK WELDON\nMACK WELDON\nOriginal Quality\nNON IRON\nMACK WELDON",
+      "ai_field_evidence": {
+        "fit": {
+          "source": "printed_label",
+          "observation": "Collar label reads “SLIM FIT.”"
+        },
+        "name": {
+          "source": "printed_label",
+          "observation": "Printed brand is MACK WELDON; garment is a formal shirt."
+        },
+        "size": {
+          "source": "printed_label",
+          "observation": "Collar label and hangtag state “XL” and “SIZE: XL.”"
+        },
+        "brand": {
+          "source": "printed_label",
+          "observation": "Collar label and packaging ribbon read “MACK WELDON.”"
+        },
+        "color": {
+          "source": "visual_observation",
+          "observation": "The folded shirt fabric is light blue."
+        },
+        "style": {
+          "source": "printed_label",
+          "observation": "Oval hangtag reads “NO. 2620 JB 16.”"
+        },
+        "sleeve": {
+          "source": "visual_observation",
+          "observation": "Visible button cuffs indicate long sleeves."
+        },
+        "material": {
+          "source": "visual_inference",
+          "observation": "Smooth, tightly woven dress-shirt fabric is visible; no composition label is shown."
+        }
+      },
+      "stock_quantity": 1,
+      "stock_distribution_source": "human_confirmed",
+      "variant_lines": [
+        {
+          "variant_attributes": {
+            "size": "XL"
+          },
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "17",
+      "photo_number": 17,
+      "name": "MACK WELDON Formal shirt",
+      "brand": "MACK WELDON",
+      "category_id": "formal-shirts",
+      "pos_category_id": "pos-shirts",
+      "attributes": {
+        "fit": "Slim",
+        "size": "M",
+        "color": "Light blue",
+        "style": "2362014-14",
+        "sleeve": "Long",
+        "material": "Cotton"
+      },
+      "ai_visible_text": "MACK WELDON\nOriginal Quality\nNON IRON\nNO: 2362014-14\nSIZE: M\nWASH AT OR BELOW 40°C\nDO NOT BLEACH\nIRON AT LOW TEMPERATURE\nDRY TEMPERATURE MAXIMUM\nDRY CLEAN\nSLIM\nM",
+      "ai_field_evidence": {
+        "fit": {
+          "source": "printed_label",
+          "observation": "SLIM is printed on the collar label."
+        },
+        "name": {
+          "source": "printed_label",
+          "observation": "MACK WELDON is printed; garment is a formal shirt."
+        },
+        "size": {
+          "source": "printed_label",
+          "observation": "Both the collar label and hang tag show M."
+        },
+        "brand": {
+          "source": "printed_label",
+          "observation": "MACK WELDON is printed on the collar label and hang tag."
+        },
+        "color": {
+          "source": "visual_observation",
+          "observation": "The shirt fabric is visibly light blue."
+        },
+        "style": {
+          "source": "printed_label",
+          "observation": "Hang tag reads NO: 2362014-14."
+        },
+        "sleeve": {
+          "source": "visual_observation",
+          "observation": "A buttoned shirt cuff is visible, supporting long sleeves."
+        },
+        "material": {
+          "source": "visual_inference",
+          "observation": "Smooth woven formal shirting fabric is visible; no fibre composition is printed."
+        }
+      },
+      "stock_quantity": 1,
+      "stock_distribution_source": "human_confirmed",
+      "variant_lines": [
+        {
+          "variant_attributes": {
+            "size": "M"
+          },
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "18",
+      "photo_number": 18,
+      "name": "MACK WELDON Formal shirt",
+      "brand": "MACK WELDON",
+      "category_id": "formal-shirts",
+      "pos_category_id": "pos-shirts",
+      "attributes": {
+        "fit": "Slim",
+        "size": "XXL",
+        "color": "Navy blue and white",
+        "style": "26021",
+        "sleeve": "Long",
+        "pattern": "Micro geometric dot",
+        "material": "Cotton"
+      },
+      "ai_visible_text": "XXL\nMACK WELDON\nSLIM FIT\nMACK WELDON\nNO: 26021\nSIZE: XXL\nOriginal Quality\nNON IRON\nDO NOT BLEACH\nWASH SEPARATELY\nDO NOT TUMBLE DRY\nIRON AT LOW TEMPERATURE\nPERFECT FIT\nPERFECT DESIGN",
+      "ai_field_evidence": {
+        "fit": {
+          "source": "printed_label",
+          "observation": "Collar label reads “SLIM FIT.”"
+        },
+        "name": {
+          "source": "printed_label",
+          "observation": "The printed brand is MACK WELDON; the item is a formal shirt."
+        },
+        "size": {
+          "source": "printed_label",
+          "observation": "Collar label and hangtag state “XXL.”"
+        },
+        "brand": {
+          "source": "printed_label",
+          "observation": "Collar label and garment ribbon read “MACK WELDON.”"
+        },
+        "color": {
+          "source": "visual_observation",
+          "observation": "Garment is navy blue with a dense white micro-dot design."
+        },
+        "style": {
+          "source": "printed_label",
+          "observation": "Hangtag reads “NO: 26021.”"
+        },
+        "sleeve": {
+          "source": "visual_observation",
+          "observation": "Folded shirt shows a buttoned cuff consistent with long sleeves."
+        },
+        "pattern": {
+          "source": "visual_observation",
+          "observation": "Dense repeating small white geometric dots are visible across the shirt."
+        },
+        "material": {
+          "source": "visual_inference",
+          "observation": "Fine smooth woven formal-shirt fabric is visible; no composition is printed."
+        }
+      },
+      "stock_quantity": 1,
+      "stock_distribution_source": "human_confirmed",
+      "variant_lines": [
+        {
+          "variant_attributes": {
+            "size": "2XL"
+          },
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "19",
+      "photo_number": 19,
+      "name": "Manschett Formal Shirt",
+      "brand": "Manschett",
+      "category_id": "formal-shirts",
+      "pos_category_id": "pos-shirts",
+      "attributes": {
+        "size": "M",
+        "color": "Navy",
+        "pattern": "Solid",
+        "material": "Cotton"
+      },
+      "ai_visible_text": "Classic\nM",
+      "ai_field_evidence": {
+        "size": {
+          "source": "printed_label",
+          "observation": "An M is visible at the lower right of the collar label."
+        },
+        "color": {
+          "source": "visual_observation",
+          "observation": "The folded shirt fabric is visibly navy blue."
+        },
+        "pattern": {
+          "source": "visual_observation",
+          "observation": "Visible fabric appears uniform with no printed or woven pattern."
+        },
+        "material": {
+          "source": "visual_inference",
+          "observation": "Fine woven formal-shirt fabric is visible, but no composition label is legible."
+        }
+      },
+      "stock_quantity": 1,
+      "stock_distribution_source": "human_confirmed",
+      "variant_lines": [
+        {
+          "variant_attributes": {
+            "size": "M"
+          },
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "20",
+      "photo_number": 20,
+      "name": "Manschett By QUESSTE Formal shirt",
+      "brand": "Manschett By QUESSTE",
+      "category_id": "formal-shirts",
+      "pos_category_id": "pos-shirts",
+      "attributes": {
+        "size": "3XL",
+        "color": "Blue",
+        "pattern": "Solid",
+        "material": "Cotton"
+      },
+      "ai_visible_text": "Manschett\nBy QUESSTE\nPremium\nSize\n3XL",
+      "ai_field_evidence": {
+        "name": {
+          "source": "printed_label",
+          "observation": "Branded formal shirt is shown; no separate model name is visible."
+        },
+        "size": {
+          "source": "printed_label",
+          "observation": "Small collar size label reads “Size 3XL”."
+        },
+        "brand": {
+          "source": "printed_label",
+          "observation": "Inner collar label reads “Manschett By QUESSTE”."
+        },
+        "color": {
+          "source": "visual_observation",
+          "observation": "Garment fabric is visibly blue."
+        },
+        "pattern": {
+          "source": "visual_observation",
+          "observation": "Visible fabric has no printed or woven pattern."
+        },
+        "material": {
+          "source": "visual_inference",
+          "observation": "Smooth, matte woven shirting fabric; no composition text is legible."
+        }
+      },
+      "stock_quantity": 1,
+      "stock_distribution_source": "human_confirmed",
+      "variant_lines": [
+        {
+          "variant_attributes": {
+            "size": "3XL"
+          },
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "21",
+      "photo_number": 21,
+      "name": "Manschett Formal shirt",
+      "brand": "Manschett",
+      "category_id": "formal-shirts",
+      "pos_category_id": "pos-shirts",
+      "attributes": {
+        "size": "M",
+        "color": "Navy",
+        "pattern": "Solid",
+        "material": "Cotton"
+      },
+      "ai_visible_text": "M\nManschett\nBy QUESTE\nPremium\nPremium\nManschett\nBy QUESTE\nPremium\nManschett\nBy QUESTE",
+      "ai_field_evidence": {
+        "name": {
+          "source": "visual_observation",
+          "observation": "Visible garment is a formal button-front shirt with Manschett branding."
+        },
+        "size": {
+          "source": "printed_label",
+          "observation": "Collar size tab reads “M”."
+        },
+        "brand": {
+          "source": "printed_label",
+          "observation": "Inner collar print reads “Manschett”."
+        },
+        "color": {
+          "source": "visual_observation",
+          "observation": "Garment fabric appears navy blue."
+        },
+        "pattern": {
+          "source": "visual_observation",
+          "observation": "Visible fabric is uniform with no pattern."
+        },
+        "material": {
+          "source": "visual_inference",
+          "observation": "Smooth, tightly woven shirt fabric; no composition label is visible."
+        }
+      },
+      "stock_quantity": 1,
+      "stock_distribution_source": "human_confirmed",
+      "variant_lines": [
+        {
+          "variant_attributes": {
+            "size": "M"
+          },
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "22",
+      "photo_number": 22,
+      "name": "Manschett Formal shirt",
+      "brand": "Manschett",
+      "category_id": "formal-shirts",
+      "pos_category_id": "pos-shirts",
+      "attributes": {
+        "size": "L",
+        "color": "Navy",
+        "pattern": "Solid",
+        "material": "Cotton"
+      },
+      "ai_visible_text": "Manschett\nBy QUESSTE\nPremium\nManschett\nBy QUESSTE\nPremium\nManschett\nBY QUESSTE\nPremium",
+      "ai_field_evidence": {
+        "name": {
+          "source": "printed_label",
+          "observation": "No specific model is printed; this is a formal shirt."
+        },
+        "brand": {
+          "source": "printed_label",
+          "observation": "Collar insert and packaging band read “Manschett” and “By QUESSTE.”"
+        },
+        "color": {
+          "source": "visual_observation",
+          "observation": "Garment fabric is visibly navy blue."
+        },
+        "pattern": {
+          "source": "visual_observation",
+          "observation": "Visible fabric has a uniform solid appearance."
+        },
+        "material": {
+          "source": "visual_inference",
+          "observation": "Smooth, matte woven shirting fabric suggests cotton or a cotton blend."
+        }
+      },
+      "stock_quantity": 1,
+      "stock_distribution_source": "human_confirmed",
+      "variant_lines": [
+        {
+          "variant_attributes": {
+            "size": "L"
+          },
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "23",
+      "photo_number": 23,
+      "name": "MACK WELDON Formal shirt",
+      "brand": "MACK WELDON",
+      "category_id": "formal-shirts",
+      "pos_category_id": "pos-shirts",
+      "attributes": {
+        "fit": "Slim",
+        "size": "M",
+        "color": "White",
+        "style": "26201B-25",
+        "sleeve": "Long",
+        "pattern": "Herringbone",
+        "material": "Cotton"
+      },
+      "ai_visible_text": "M\nMACK WELDON\nSLIM FIT\nNO: 26201B-25\nSIZE: M\nWASH AT 30°C\nDO NOT BLEACHING\nDO NOT TUMBLE DRY\nIRON PLATE AT MAXIMUM\nTEMPERATURE 110°C\nDRY CLEAN\nOriginal Quality\nNON IRON\nMACK WELDON",
+      "ai_field_evidence": {
+        "fit": {
+          "source": "printed_label",
+          "observation": "Neck label reads “SLIM FIT.”"
+        },
+        "name": {
+          "source": "printed_label",
+          "observation": "Printed MACK WELDON label on a formal shirt."
+        },
+        "size": {
+          "source": "printed_label",
+          "observation": "Neck label and hang tag both show M."
+        },
+        "brand": {
+          "source": "printed_label",
+          "observation": "Neck label reads “MACK WELDON.”"
+        },
+        "color": {
+          "source": "visual_observation",
+          "observation": "The shirt fabric is visibly white."
+        },
+        "style": {
+          "source": "printed_label",
+          "observation": "Hang tag reads “NO:26201B-25.”"
+        },
+        "sleeve": {
+          "source": "visual_observation",
+          "observation": "Visible buttoned cuffs indicate long sleeves."
+        },
+        "pattern": {
+          "source": "visual_observation",
+          "observation": "Fabric shows a subtle repeating herringbone weave."
+        },
+        "material": {
+          "source": "visual_inference",
+          "observation": "Fine woven dress-shirt fabric is visible; no composition is printed."
+        }
+      },
+      "stock_quantity": 1,
+      "stock_distribution_source": "human_confirmed",
+      "variant_lines": [
+        {
+          "variant_attributes": {
+            "size": "M"
+          },
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "24",
+      "photo_number": 24,
+      "name": "MACK WELDON Formal shirt",
+      "brand": "MACK WELDON",
+      "category_id": "formal-shirts",
+      "pos_category_id": "pos-shirts",
+      "attributes": {
+        "fit": "Slim",
+        "size": "L",
+        "color": "White",
+        "style": "26201B-25",
+        "sleeve": "Long",
+        "pattern": "Subtle diagonal stripe",
+        "material": "Cotton"
+      },
+      "ai_visible_text": "MACK WELDON\nSLIM FIT\nL\nNO: 26201B-25\nSIZE: L\nWASH AT WATER 30℃\nDO NOT BLEACHING\nDO NOT TUMBLE DRY\nIRON PLATE AT MAXIMUM\nTEMPERATURE 110℃\nDRY CLEAN\nOriginal Quality\nNON IRON\nMACK WELDON",
+      "ai_field_evidence": {
+        "fit": {
+          "source": "printed_label",
+          "observation": "Neck label reads “SLIM FIT.”"
+        },
+        "name": {
+          "source": "printed_label",
+          "observation": "MACK WELDON is printed; garment is a formal collared shirt."
+        },
+        "size": {
+          "source": "printed_label",
+          "observation": "Hangtag reads “SIZE: L,” and neck label shows “L.”"
+        },
+        "brand": {
+          "source": "printed_label",
+          "observation": "Neck label reads “MACK WELDON.”"
+        },
+        "color": {
+          "source": "visual_observation",
+          "observation": "Garment is visibly white."
+        },
+        "style": {
+          "source": "printed_label",
+          "observation": "Hangtag reads “NO: 26201B-25.”"
+        },
+        "sleeve": {
+          "source": "visual_observation",
+          "observation": "Long sleeves with button cuffs are visible."
+        },
+        "pattern": {
+          "source": "visual_observation",
+          "observation": "Fabric shows a subtle diagonal striped weave."
+        },
+        "material": {
+          "source": "visual_inference",
+          "observation": "Fine woven shirting texture is visible; no fiber composition is printed."
+        }
+      },
+      "stock_quantity": 1,
+      "stock_distribution_source": "human_confirmed",
+      "variant_lines": [
+        {
+          "variant_attributes": {
+            "size": "L"
+          },
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "25",
+      "photo_number": 25,
+      "name": "MACK WELDON Formal Shirt",
+      "brand": "MACK WELDON",
+      "category_id": "formal-shirts",
+      "pos_category_id": "pos-shirts",
+      "attributes": {
+        "fit": "Slim",
+        "size": "XL",
+        "color": "White",
+        "style": "26201B-25",
+        "sleeve": "Long",
+        "material": "Cotton"
+      },
+      "ai_visible_text": "XL\nMACK WELDON\nSLIM FIT\nNO:26201B-25\nSIZE:XL\nWASH AT WATER 30°C\nDO NOT BLEACH\nDO NOT TUMBLE DRY\nIRON PLATE MAXIMUM TEMPERATURE 110°C\nDRY CLEAN\nQuality\nIRON\nMACK WELDON\nMACK WELDON",
+      "ai_field_evidence": {
+        "fit": {
+          "source": "printed_label",
+          "observation": "Neck label reads “SLIM FIT.”"
+        },
+        "name": {
+          "source": "printed_label",
+          "observation": "MACK WELDON is printed; no specific shirt model is visible."
+        },
+        "size": {
+          "source": "printed_label",
+          "observation": "Neck label and hanging tag both show XL."
+        },
+        "brand": {
+          "source": "printed_label",
+          "observation": "Neck label and cuff band read “MACK WELDON.”"
+        },
+        "color": {
+          "source": "visual_observation",
+          "observation": "The garment is visibly white."
+        },
+        "style": {
+          "source": "printed_label",
+          "observation": "Hanging tag reads “NO:26201B-25.”"
+        },
+        "sleeve": {
+          "source": "visual_observation",
+          "observation": "Folded shirt shows buttoned cuffs, indicating long sleeves."
+        },
+        "material": {
+          "source": "visual_inference",
+          "observation": "Fine woven shirt fabric is visible, but no fibre composition is printed."
+        }
+      },
+      "stock_quantity": 1,
+      "stock_distribution_source": "human_confirmed",
+      "variant_lines": [
+        {
+          "variant_attributes": {
+            "size": "XL"
+          },
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "26",
+      "photo_number": 26,
+      "name": "MACK WELDON Formal shirt",
+      "brand": "MACK WELDON",
+      "category_id": "formal-shirts",
+      "pos_category_id": "pos-shirts",
+      "attributes": {
+        "fit": "Slim",
+        "size": "XL",
+        "color": "Black",
+        "style": "2620JA-12",
+        "sleeve": "Long",
+        "material": "Synthetic blend"
+      },
+      "ai_visible_text": "XL\nMACK WELDON\nSLIM FIT\nNO.:2620JA-12\nSIZE:XL\nWASH AT WATER 30°C\nDO NOT BLEACHING\nDO NOT TUMBLE DRY\nIRON PLATE AT MAXIMUM\nTEMPERATURE 110°C\nDRY CLEAN\nOriginal Quality\nNON IRON\nMACK WELDON\nMACK WELDON",
+      "ai_field_evidence": {
+        "fit": {
+          "source": "printed_label",
+          "observation": "Neck label reads “SLIM FIT.”"
+        },
+        "name": {
+          "source": "printed_label",
+          "observation": "MACK WELDON is printed; garment is a formal shirt."
+        },
+        "size": {
+          "source": "printed_label",
+          "observation": "Neck label and hangtag state “XL” / “SIZE:XL.”"
+        },
+        "brand": {
+          "source": "printed_label",
+          "observation": "Neck label and ribbon print read “MACK WELDON.”"
+        },
+        "color": {
+          "source": "visual_observation",
+          "observation": "The packaged garment is visibly black."
+        },
+        "style": {
+          "source": "printed_label",
+          "observation": "Hangtag states “NO.:2620JA-12.”"
+        },
+        "sleeve": {
+          "source": "visual_observation",
+          "observation": "A buttoned shirt cuff is visible, supporting long sleeves."
+        },
+        "material": {
+          "source": "visual_inference",
+          "observation": "Fine textured woven surface is visible; no fibre composition is printed."
+        }
+      },
+      "stock_quantity": 1,
+      "stock_distribution_source": "human_confirmed",
+      "variant_lines": [
+        {
+          "variant_attributes": {
+            "size": "XL"
+          },
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "27",
+      "photo_number": 27,
+      "name": "MACK WELDON Formal shirt",
+      "brand": "MACK WELDON",
+      "category_id": "formal-shirts",
+      "pos_category_id": "pos-shirts",
+      "attributes": {
+        "fit": "Slim",
+        "size": "2XL",
+        "color": "Black",
+        "style": "26201A-7",
+        "sleeve": "Long",
+        "pattern": "Solid",
+        "material": "Cotton"
+      },
+      "ai_visible_text": "XXL\nMACK WELDON\nSLIM FIT\nNO:26201A-7\nSIZE:2XL\nWASH AT WATER 30℃\nDO NOT BLEACHING\nDO NOT TUMBLE DRY\nIRON PLATE AT MAXIMUM\nTEMPERATURE 110℃\nDRY CLEAN\nOriginal Quality\nNON IRON\nMACK WELDON",
+      "ai_field_evidence": {
+        "fit": {
+          "source": "printed_label",
+          "observation": "Neck label reads “SLIM FIT.”"
+        },
+        "name": {
+          "source": "printed_label",
+          "observation": "MACK WELDON is printed on the neck label; garment is a formal shirt."
+        },
+        "size": {
+          "source": "printed_label",
+          "observation": "Hangtag sticker reads “SIZE:2XL.”"
+        },
+        "brand": {
+          "source": "printed_label",
+          "observation": "Neck label reads “MACK WELDON.”"
+        },
+        "color": {
+          "source": "visual_observation",
+          "observation": "The folded shirt fabric is visibly black."
+        },
+        "style": {
+          "source": "printed_label",
+          "observation": "Hangtag sticker reads “NO:26201A-7.”"
+        },
+        "sleeve": {
+          "source": "visual_observation",
+          "observation": "Folded shirt shows a cuffed long sleeve."
+        },
+        "pattern": {
+          "source": "visual_observation",
+          "observation": "Visible shirt fabric has no printed or woven pattern."
+        },
+        "material": {
+          "source": "visual_inference",
+          "observation": "Fine woven formal-shirt fabric is visible; no fibre composition is printed."
+        }
+      },
+      "stock_quantity": 1,
+      "stock_distribution_source": "human_confirmed",
+      "variant_lines": [
+        {
+          "variant_attributes": {
+            "size": "2XL"
+          },
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "28",
+      "photo_number": 28,
+      "name": "MACK WELDON Formal Shirt",
+      "brand": "MACK WELDON",
+      "category_id": "formal-shirts",
+      "pos_category_id": "pos-shirts",
+      "attributes": {
+        "fit": "Slim",
+        "size": "XL",
+        "color": "Black",
+        "style": "26201K-7",
+        "sleeve": "Long",
+        "pattern": "Solid",
+        "material": "Cotton"
+      },
+      "ai_visible_text": "XL\nMACK WELDON\nSLIM FIT\nNO:26201K-7\nSIZE: XL\nWASH AT/WATER 30°C\nDO NOT BLEACHING\nDO NOT TUMBLE DRY\nIRON PLATE AT MAXIMUM\nTEMPERATURE 110°C\nDRY CLEAN\nOriginal Quality\nNON IRON\nMACK WELDON",
+      "ai_field_evidence": {
+        "fit": {
+          "source": "printed_label",
+          "observation": "Neck label reads “SLIM FIT.”"
+        },
+        "name": {
+          "source": "visible_text",
+          "observation": "MACK WELDON is printed on the shirt; garment is a formal shirt."
+        },
+        "size": {
+          "source": "printed_label",
+          "observation": "Neck label and hangtag both show XL."
+        },
+        "brand": {
+          "source": "printed_label",
+          "observation": "Neck label and trim read “MACK WELDON.”"
+        },
+        "color": {
+          "source": "visual_observation",
+          "observation": "The folded shirt fabric is visibly black."
+        },
+        "style": {
+          "source": "printed_label",
+          "observation": "Hangtag reads “NO:26201K-7.”"
+        },
+        "sleeve": {
+          "source": "visual_observation",
+          "observation": "A long sleeve with cuff is visible."
+        },
+        "pattern": {
+          "source": "visual_observation",
+          "observation": "Visible fabric has no printed or woven pattern."
+        },
+        "material": {
+          "source": "visual_inference",
+          "observation": "Fine woven shirting fabric is visible, but no composition is printed."
+        }
+      },
+      "stock_quantity": 1,
+      "stock_distribution_source": "human_confirmed",
+      "variant_lines": [
+        {
+          "variant_attributes": {
+            "size": "XL"
+          },
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "29",
+      "photo_number": 29,
+      "name": "MACK WELDON Formal Shirt",
+      "brand": "MACK WELDON",
+      "category_id": "formal-shirts",
+      "pos_category_id": "pos-shirts",
+      "attributes": {
+        "fit": "Slim",
+        "size": "M",
+        "color": "Light blue",
+        "style": "26201A-13",
+        "sleeve": "Long",
+        "pattern": "Solid",
+        "material": "Cotton"
+      },
+      "ai_visible_text": "M\nMACK WELDON\nSLIM FIT\nNO: 26201A-13\nSIZE: M\nOriginal Quality\nNON IRON\nMACK WELDON",
+      "ai_field_evidence": {
+        "fit": {
+          "source": "printed_label",
+          "observation": "Inner collar label reads “SLIM FIT.”"
+        },
+        "name": {
+          "source": "printed_label",
+          "observation": "Brand is printed; garment is a formal shirt."
+        },
+        "size": {
+          "source": "printed_label",
+          "observation": "Collar label and hangtag both show M."
+        },
+        "brand": {
+          "source": "printed_label",
+          "observation": "Inner collar label reads “MACK WELDON.”"
+        },
+        "color": {
+          "source": "visual_observation",
+          "observation": "The shirt fabric appears light blue."
+        },
+        "style": {
+          "source": "printed_label",
+          "observation": "Hangtag reads “NO: 26201A-13.”"
+        },
+        "sleeve": {
+          "source": "visual_observation",
+          "observation": "Button cuffs and folded long sleeves are visible."
+        },
+        "pattern": {
+          "source": "visual_observation",
+          "observation": "Fabric appears uniform with no visible printed or woven pattern."
+        },
+        "material": {
+          "source": "visual_inference",
+          "observation": "Smooth, fine woven formal shirting fabric is visible; no composition is printed."
+        }
+      },
+      "stock_quantity": 1,
+      "stock_distribution_source": "human_confirmed",
+      "variant_lines": [
+        {
+          "variant_attributes": {
+            "size": "M"
+          },
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "30",
+      "photo_number": 30,
+      "name": "MACK WELDON Formal shirt",
+      "brand": "MACK WELDON",
+      "category_id": "formal-shirts",
+      "pos_category_id": "pos-shirts",
+      "attributes": {
+        "fit": "Slim",
+        "size": "M",
+        "color": "Navy blue and white",
+        "style": "26201A-11",
+        "sleeve": "Long",
+        "pattern": "Geometric",
+        "material": "Cotton"
+      },
+      "ai_visible_text": "MACK WELDON\nM\nSLIM FIT\nNO:26201A-11\nSIZE:M\nWASH AT WATER 30 C\nDO NOT BLEACHING\nDO NOT TUMBLE DRY\nIRON PLATE AT MAXIMUM TEMPERATURE 110 C\nDRY CLEAN\nOriginal Quality\nNON IRON",
+      "ai_field_evidence": {
+        "fit": {
+          "source": "printed_label",
+          "observation": "Inner collar label reads “SLIM FIT.”"
+        },
+        "name": {
+          "source": "printed_label",
+          "observation": "Brand is printed; garment is a formal shirt."
+        },
+        "size": {
+          "source": "printed_label",
+          "observation": "Hangtag states “SIZE:M.”"
+        },
+        "brand": {
+          "source": "printed_label",
+          "observation": "Inner collar label reads “MACK WELDON.”"
+        },
+        "color": {
+          "source": "visual_observation",
+          "observation": "Garment is navy blue with a white dotted design."
+        },
+        "style": {
+          "source": "printed_label",
+          "observation": "Hangtag reads “NO:26201A-11.”"
+        },
+        "sleeve": {
+          "source": "visual_observation",
+          "observation": "A button cuff is visible, indicating a long-sleeve shirt."
+        },
+        "pattern": {
+          "source": "visual_observation",
+          "observation": "Visible repeating small white geometric dot/grid pattern."
+        },
+        "material": {
+          "source": "visual_inference",
+          "observation": "Crisp, smooth woven shirting fabric is visible."
+        }
+      },
+      "stock_quantity": 1,
+      "stock_distribution_source": "human_confirmed",
+      "variant_lines": [
+        {
+          "variant_attributes": {
+            "size": "M"
+          },
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "31",
+      "photo_number": 31,
+      "name": "MACK WELDON Formal shirt",
+      "brand": "MACK WELDON",
+      "category_id": "formal-shirts",
+      "pos_category_id": "pos-shirts",
+      "attributes": {
+        "fit": "Slim",
+        "size": "L",
+        "color": "Navy blue and white",
+        "style": "26201A-11",
+        "sleeve": "Long",
+        "pattern": "Geometric micro-dot",
+        "material": "Cotton"
+      },
+      "ai_visible_text": "M\nMACK WELDON\nSLIM FIT\nL\nNO:26201A-11\nSIZE:L\n30\nMACK WELDON\nOriginal Quality\nNON IRON\nMACK WELDON",
+      "ai_field_evidence": {
+        "fit": {
+          "source": "printed_label",
+          "observation": "Collar label reads “SLIM FIT”."
+        },
+        "name": {
+          "source": "printed_label",
+          "observation": "MACK WELDON is printed; no specific model name is visible."
+        },
+        "size": {
+          "source": "printed_label",
+          "observation": "Collar label and hanging tag both show L / SIZE:L."
+        },
+        "brand": {
+          "source": "printed_label",
+          "observation": "Collar label and packaging ribbon read “MACK WELDON”."
+        },
+        "color": {
+          "source": "visual_observation",
+          "observation": "Garment is dark navy blue with a dense white dot weave."
+        },
+        "style": {
+          "source": "printed_label",
+          "observation": "Hanging tag reads “NO:26201A-11”."
+        },
+        "sleeve": {
+          "source": "visual_observation",
+          "observation": "Folded shirt shows long cuffed sleeves."
+        },
+        "pattern": {
+          "source": "visual_observation",
+          "observation": "Visible evenly spaced small white dots form a geometric micro-dot pattern."
+        },
+        "material": {
+          "source": "visual_inference",
+          "observation": "Fine woven dress-shirt fabric is visible; no composition label is shown."
+        }
+      },
+      "stock_quantity": 1,
+      "stock_distribution_source": "human_confirmed",
+      "variant_lines": [
+        {
+          "variant_attributes": {
+            "size": "L"
+          },
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "32",
+      "photo_number": 32,
+      "name": "MACK WELDON Formal shirt",
+      "brand": "MACK WELDON",
+      "category_id": "formal-shirts",
+      "pos_category_id": "pos-shirts",
+      "attributes": {
+        "fit": "Slim",
+        "size": "XL",
+        "color": "Navy blue and white",
+        "style": "26201A-11",
+        "sleeve": "Long",
+        "pattern": "Micro dot",
+        "material": "Cotton"
+      },
+      "ai_visible_text": "XL\nMACK WELDON\nSLIM FIT\nNO:26201A-11\nSIZE: XL\nOriginal Quality\nNON IRON\nMACK WELDON\nMACK WELDON",
+      "ai_field_evidence": {
+        "fit": {
+          "source": "printed_label",
+          "observation": "Collar label reads “SLIM FIT.”"
+        },
+        "name": {
+          "source": "printed_label",
+          "observation": "Printed MACK WELDON brand; garment is a formal shirt."
+        },
+        "size": {
+          "source": "printed_label",
+          "observation": "Collar label and hangtag both show XL."
+        },
+        "brand": {
+          "source": "printed_label",
+          "observation": "Collar label reads “MACK WELDON.”"
+        },
+        "color": {
+          "source": "visual_observation",
+          "observation": "Shirt fabric is navy blue with white dots."
+        },
+        "style": {
+          "source": "printed_label",
+          "observation": "Hangtag reads “NO:26201A-11.”"
+        },
+        "sleeve": {
+          "source": "visual_observation",
+          "observation": "Folded shirt shows buttoned cuffs consistent with long sleeves."
+        },
+        "pattern": {
+          "source": "visual_observation",
+          "observation": "Visible repeating tiny white dot arrangement."
+        },
+        "material": {
+          "source": "visual_inference",
+          "observation": "Fine smooth woven shirting fabric is visible; no composition label is shown."
+        }
+      },
+      "stock_quantity": 1,
+      "stock_distribution_source": "human_confirmed",
+      "variant_lines": [
+        {
+          "variant_attributes": {
+            "size": "XL"
+          },
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "33",
+      "photo_number": 33,
+      "name": "MACK WELDON Formal shirt",
+      "brand": "MACK WELDON",
+      "category_id": "formal-shirts",
+      "pos_category_id": "pos-shirts",
+      "attributes": {
+        "fit": "Slim",
+        "size": "M",
+        "color": "Blue",
+        "style": "6201A-10",
+        "sleeve": "Long",
+        "material": "Cotton"
+      },
+      "ai_visible_text": "M\nMACK WELDON\nSLIM FIT\nNo: 6201A-10\nSIZE: M\nWASH WATER 30°C\nDO NOT BLEACH\nDO NOT TUMBLE DRY\nIRON AT MEDIUM TEMPERATURE\nKEEP FLAT WHEN DRY\nDRY CLEAN\nMACK WELDON\nOriginal Quality\nNON IRON",
+      "ai_field_evidence": {
+        "fit": {
+          "source": "printed_label",
+          "observation": "Collar label reads “SLIM FIT.”"
+        },
+        "name": {
+          "source": "printed_label",
+          "observation": "Printed brand is MACK WELDON; garment is a formal shirt."
+        },
+        "size": {
+          "source": "printed_label",
+          "observation": "Collar label and hangtag both show M."
+        },
+        "brand": {
+          "source": "printed_label",
+          "observation": "Collar label reads “MACK WELDON.”"
+        },
+        "color": {
+          "source": "visual_observation",
+          "observation": "Garment fabric is visibly blue."
+        },
+        "style": {
+          "source": "printed_label",
+          "observation": "Hangtag reads “No: 6201A-10.”"
+        },
+        "sleeve": {
+          "source": "visual_observation",
+          "observation": "Folded shirt shows long sleeves with button cuffs."
+        },
+        "material": {
+          "source": "visual_inference",
+          "observation": "Fine woven shirting fabric is visible; no fiber composition is printed."
+        }
+      },
+      "stock_quantity": 1,
+      "stock_distribution_source": "human_confirmed",
+      "variant_lines": [
+        {
+          "variant_attributes": {
+            "size": "M"
+          },
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "34",
+      "photo_number": 34,
+      "name": "MACK WELDON Formal Shirt",
+      "brand": "MACK WELDON",
+      "category_id": "formal-shirts",
+      "pos_category_id": "pos-shirts",
+      "attributes": {
+        "fit": "Slim",
+        "size": "4XL",
+        "color": "Light blue",
+        "style": "2620IB-26",
+        "sleeve": "Long",
+        "pattern": "Subtle herringbone",
+        "material": "Cotton"
+      },
+      "ai_visible_text": "MACK WELDON\nSLIM FIT\nNO: 26201B-26\nSIZE: 4XL\nWASH AT WATER 30°C\nDO NOT BLEACH\nDO NOT TUMBLE DRY\nIRON PLATE MAXIMUM TEMPERATURE 110°C\nDRY CLEAN\nOriginal Quality\nNON IRON",
+      "ai_field_evidence": {
+        "fit": {
+          "source": "printed_label",
+          "observation": "Collar label reads “SLIM FIT.”"
+        },
+        "name": {
+          "source": "printed_label",
+          "observation": "MACK WELDON branding is printed; garment category is a formal shirt."
+        },
+        "size": {
+          "source": "printed_label",
+          "observation": "Hangtag reads “SIZE:4XL.”"
+        },
+        "brand": {
+          "source": "printed_label",
+          "observation": "The packaging ribbon reads “MACK WELDON.”"
+        },
+        "color": {
+          "source": "visual_observation",
+          "observation": "The folded shirt is visibly light blue."
+        },
+        "style": {
+          "source": "printed_label",
+          "observation": "Hangtag reads “NO:2620IB-26.”"
+        },
+        "sleeve": {
+          "source": "visual_observation",
+          "observation": "A buttoned shirt cuff is visible."
+        },
+        "pattern": {
+          "source": "visual_observation",
+          "observation": "Fabric shows a fine repeating chevron/herringbone-like weave."
+        },
+        "material": {
+          "source": "visual_inference",
+          "observation": "Fine woven non-iron dress-shirt fabric; no fibre composition is printed."
+        }
+      },
+      "stock_quantity": 1,
+      "stock_distribution_source": "human_confirmed",
+      "variant_lines": [
+        {
+          "variant_attributes": {
+            "size": "4XL"
+          },
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "35",
+      "photo_number": 35,
+      "name": "MACK WELDON Formal Shirt",
+      "brand": "MACK WELDON",
+      "category_id": "formal-shirts",
+      "pos_category_id": "pos-shirts",
+      "attributes": {
+        "fit": "Slim",
+        "size": "2XL",
+        "color": "Light blue",
+        "style": "2620B14",
+        "sleeve": "Long",
+        "pattern": "Solid",
+        "material": "Cotton"
+      },
+      "ai_visible_text": "XXL\nMACK WELDON\nSLIM FIT\nNO: 2620B14\nSIZE:2XL\nWASH AT [illegible]\nDO NOT BLEACH\nDO NOT TUMBLE DRY\nTEMPERATURE 110°C\nDRY CLEAN [illegible]\nOriginal Quality\nNON IRON\nMACK WELDON",
+      "ai_field_evidence": {
+        "fit": {
+          "source": "printed_label",
+          "observation": "Collar label reads “SLIM FIT.”"
+        },
+        "name": {
+          "source": "printed_label",
+          "observation": "No specific shirt model is printed; category identifies it as a formal shirt."
+        },
+        "size": {
+          "source": "printed_label",
+          "observation": "Hangtag states “SIZE:2XL.”"
+        },
+        "brand": {
+          "source": "printed_label",
+          "observation": "Collar label and sleeve band read “MACK WELDON.”"
+        },
+        "color": {
+          "source": "visual_observation",
+          "observation": "Garment is visibly light blue."
+        },
+        "style": {
+          "source": "printed_label",
+          "observation": "Hangtag states “NO: 2620B14.”"
+        },
+        "sleeve": {
+          "source": "visual_observation",
+          "observation": "Visible cuff and folded sleeve indicate a long-sleeve shirt."
+        },
+        "pattern": {
+          "source": "visual_observation",
+          "observation": "Visible shirt fabric has no printed pattern."
+        },
+        "material": {
+          "source": "visual_inference",
+          "observation": "Smooth woven formal-shirt fabric appears consistent with cotton or a cotton blend; no composition is printed."
+        }
+      },
+      "stock_quantity": 1,
+      "stock_distribution_source": "human_confirmed",
+      "variant_lines": [
+        {
+          "variant_attributes": {
+            "size": "2XL"
+          },
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "36",
+      "photo_number": 36,
+      "name": "MACK WELDON Formal Shirt",
+      "brand": "MACK WELDON",
+      "category_id": "formal-shirts",
+      "pos_category_id": "pos-shirts",
+      "attributes": {
+        "fit": "Slim",
+        "size": "XL",
+        "color": "Light blue",
+        "style": "262G1A-13",
+        "sleeve": "Long",
+        "pattern": "Solid",
+        "material": "Cotton"
+      },
+      "ai_visible_text": "MACK WELDON\nSLIM FIT\nNO:262G1A-13\nSIZE:XL\nWASH AT WATER 30℃\nDO NOT BLEACHING\nDO NOT TUMBLE DRY\nIRON PLATE AT MAXIMUM\nTEMPERATURE 110℃\nDRY CLEAN\nOriginal Quality\nNON IRON\nMACK WELDON\nMACK WELDON",
+      "ai_field_evidence": {
+        "fit": {
+          "source": "printed_label",
+          "observation": "Collar label reads “SLIM FIT.”"
+        },
+        "name": {
+          "source": "visible_text",
+          "observation": "No printed model name is visible; garment category is a formal shirt."
+        },
+        "size": {
+          "source": "printed_label",
+          "observation": "Hangtag reads “SIZE:XL.”"
+        },
+        "brand": {
+          "source": "printed_label",
+          "observation": "Collar and cuff labels read “MACK WELDON.”"
+        },
+        "color": {
+          "source": "visual_observation",
+          "observation": "The folded shirt fabric appears light blue."
+        },
+        "style": {
+          "source": "printed_label",
+          "observation": "Hangtag reads “NO:262G1A-13.”"
+        },
+        "sleeve": {
+          "source": "visual_observation",
+          "observation": "Folded shirt shows buttoned cuffs consistent with long sleeves."
+        },
+        "pattern": {
+          "source": "visual_observation",
+          "observation": "Visible fabric has no stripes, checks, or other printed pattern."
+        },
+        "material": {
+          "source": "visual_inference",
+          "observation": "Smooth, lightweight woven shirting fabric is visible; no composition label is shown."
+        }
+      },
+      "stock_quantity": 1,
+      "stock_distribution_source": "human_confirmed",
+      "variant_lines": [
+        {
+          "variant_attributes": {
+            "size": "XL"
+          },
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "37",
+      "photo_number": 37,
+      "name": "MACK WELDON Formal Shirt",
+      "brand": "MACK WELDON",
+      "category_id": "formal-shirts",
+      "pos_category_id": "pos-shirts",
+      "attributes": {
+        "fit": "Slim",
+        "size": "XL",
+        "color": "White",
+        "style": "NO. 5425",
+        "sleeve": "Long",
+        "material": "Cotton"
+      },
+      "ai_visible_text": "XL\nMACK WELDON\nSLIM FIT\nOriginal Quality\nNON IRON\nNO. 5425\nSIZE XL\nDRY CLEAN",
+      "ai_field_evidence": {
+        "fit": {
+          "source": "printed_label",
+          "observation": "Collar label reads “SLIM FIT.”"
+        },
+        "name": {
+          "source": "printed_label",
+          "observation": "Printed MACK WELDON label; garment is a formal shirt."
+        },
+        "size": {
+          "source": "printed_label",
+          "observation": "Collar label and hang tag show XL."
+        },
+        "brand": {
+          "source": "printed_label",
+          "observation": "Collar label reads “MACK WELDON.”"
+        },
+        "color": {
+          "source": "visual_observation",
+          "observation": "The folded shirt is visibly white."
+        },
+        "style": {
+          "source": "printed_label",
+          "observation": "Hang tag shows “NO. 5425.”"
+        },
+        "sleeve": {
+          "source": "visual_observation",
+          "observation": "A buttoned shirt cuff is visible."
+        },
+        "material": {
+          "source": "visual_inference",
+          "observation": "Fine woven formal-shirt fabric is visible, but no fibre composition is legible."
+        }
+      },
+      "stock_quantity": 1,
+      "stock_distribution_source": "human_confirmed",
+      "variant_lines": [
+        {
+          "variant_attributes": {
+            "size": "XL"
+          },
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "38",
+      "photo_number": 38,
+      "name": "MACK WELDON Formal Shirt",
+      "brand": "MACK WELDON",
+      "category_id": "formal-shirts",
+      "pos_category_id": "pos-shirts",
+      "attributes": {
+        "fit": "Slim",
+        "size": "S",
+        "color": "White",
+        "style": "26201A-1",
+        "sleeve": "Long",
+        "pattern": "Solid",
+        "material": "Cotton"
+      },
+      "ai_visible_text": "MACK WELDON\nSLIM FIT\nS\nNO:26201A-1\nSIZE:S\nOriginal Quality\nNON IRON",
+      "ai_field_evidence": {
+        "fit": {
+          "source": "printed_label",
+          "observation": "Collar label reads SLIM FIT."
+        },
+        "name": {
+          "source": "printed_label",
+          "observation": "MACK WELDON is printed; no specific model name is visible."
+        },
+        "size": {
+          "source": "printed_label",
+          "observation": "Hangtag reads SIZE:S."
+        },
+        "brand": {
+          "source": "printed_label",
+          "observation": "Collar label reads MACK WELDON."
+        },
+        "color": {
+          "source": "visual_observation",
+          "observation": "The folded shirt is visibly white."
+        },
+        "style": {
+          "source": "printed_label",
+          "observation": "Hangtag reads NO:26201A-1."
+        },
+        "sleeve": {
+          "source": "visual_observation",
+          "observation": "Buttoned cuffs are visible, indicating long sleeves."
+        },
+        "pattern": {
+          "source": "visual_observation",
+          "observation": "Visible fabric has no printed or woven pattern."
+        },
+        "material": {
+          "source": "visual_inference",
+          "observation": "Fine smooth woven shirting fabric is visible; no composition is printed."
+        }
+      },
+      "stock_quantity": 1,
+      "stock_distribution_source": "human_confirmed",
+      "variant_lines": [
+        {
+          "variant_attributes": {
+            "size": "S"
+          },
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "39",
+      "photo_number": 39,
+      "name": "MACK WELDON Formal Shirt",
+      "brand": "MACK WELDON",
+      "category_id": "formal-shirts",
+      "pos_category_id": "pos-shirts",
+      "attributes": {
+        "size": "M",
+        "color": "White",
+        "style": "26201-1",
+        "sleeve": "Long",
+        "pattern": "Fine vertical stripe",
+        "material": "Cotton"
+      },
+      "ai_visible_text": "MACK WELDON\nNO:26201-1\nSIZE:M\nWASH AT WATER 30℃\nDO NOT BLEACH\nDO NOT TUMBLE DRY\nIRON PLATE AT MAXIMUM\nTEMPERATURE 110℃\nDRY CLEAN\nOriginal Quality\nNON IRON",
+      "ai_field_evidence": {
+        "name": {
+          "source": "printed_label",
+          "observation": "MACK WELDON branding is printed; garment is a formal shirt."
+        },
+        "size": {
+          "source": "printed_label",
+          "observation": "Dark care tag reads “SIZE:M.”"
+        },
+        "brand": {
+          "source": "printed_label",
+          "observation": "Hangtag reads “MACK WELDON.”"
+        },
+        "color": {
+          "source": "visual_observation",
+          "observation": "The folded shirt is visibly white."
+        },
+        "style": {
+          "source": "printed_label",
+          "observation": "Dark tag reads “NO:26201-1.”"
+        },
+        "sleeve": {
+          "source": "visual_observation",
+          "observation": "A buttoned shirt cuff is visible, indicating a long sleeve."
+        },
+        "pattern": {
+          "source": "visual_observation",
+          "observation": "Subtle narrow vertical woven stripes are visible across the shirt."
+        },
+        "material": {
+          "source": "visual_inference",
+          "observation": "Fine woven formal-shirt fabric is visible, but no fibre composition is printed."
+        }
+      },
+      "stock_quantity": 1,
+      "stock_distribution_source": "human_confirmed",
+      "variant_lines": [
+        {
+          "variant_attributes": {
+            "size": "M"
+          },
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "40",
+      "photo_number": 40,
+      "name": "TOMMY DOLBY Formal shirt",
+      "brand": "TOMMY DOLBY",
+      "category_id": "formal-shirts",
+      "pos_category_id": "pos-shirts",
+      "attributes": {
+        "fit": "Slim",
+        "size": "XL",
+        "color": "Navy",
+        "style": "0663-29",
+        "sleeve": "Long",
+        "pattern": "Solid",
+        "material": "Cotton"
+      },
+      "ai_visible_text": "TOMMY DOLBY®\nSLIM FIT\nTOMMY DOLBY®\nNO: 0663-29\nSIZE: XL\nWASH AND IRON PROCESS SIGNS\nDO NOT BLEACH\nDO NOT TUMBLE DRY",
+      "ai_field_evidence": {
+        "fit": {
+          "source": "printed_label",
+          "observation": "Collar label reads “SLIM FIT”."
+        },
+        "name": {
+          "source": "printed_label",
+          "observation": "Printed brand is TOMMY DOLBY; garment is a formal shirt."
+        },
+        "size": {
+          "source": "printed_label",
+          "observation": "Hangtag reads “SIZE: XL”."
+        },
+        "brand": {
+          "source": "printed_label",
+          "observation": "Collar label reads “TOMMY DOLBY®”."
+        },
+        "color": {
+          "source": "visual_observation",
+          "observation": "The garment fabric is visibly navy blue."
+        },
+        "style": {
+          "source": "printed_label",
+          "observation": "Hangtag reads “NO: 0663-29”."
+        },
+        "sleeve": {
+          "source": "visual_observation",
+          "observation": "Visible folded cuff and sleeve construction indicate a long-sleeve shirt."
+        },
+        "pattern": {
+          "source": "visual_observation",
+          "observation": "Visible fabric has no discernible printed or woven pattern."
+        },
+        "material": {
+          "source": "visual_inference",
+          "observation": "Smooth, tightly woven shirting fabric; no composition is printed visibly."
+        }
+      },
+      "stock_quantity": 1,
+      "stock_distribution_source": "human_confirmed",
+      "variant_lines": [
+        {
+          "variant_attributes": {
+            "size": "XL"
+          },
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "41",
+      "photo_number": 41,
+      "name": "TOMMY/DOLBY Formal shirt",
+      "brand": "TOMMY/DOLBY",
+      "category_id": "formal-shirts",
+      "pos_category_id": "pos-shirts",
+      "attributes": {
+        "size": "S",
+        "color": "Light blue",
+        "style": "0663-11",
+        "sleeve": "Long",
+        "pattern": "Solid",
+        "material": "Cotton"
+      },
+      "ai_visible_text": "TOMMY/DOLBY\nNO: 0663-11\nSIZE: S\nWASH AND IRON PROCESS SHOW\nGENTLE PROGRAM WASH\nMAXIMUM TEMPERATURE 30°C\nDO NOT BLEACH\nDO NOT TUMBLE DRY\nIRON MEDIUM TEMPERATURE\nDRY IN SHADE\nDRY CLEAN",
+      "ai_field_evidence": {
+        "name": {
+          "source": "visible_text",
+          "observation": "No printed model name is visible; formal shirt type follows the category."
+        },
+        "size": {
+          "source": "printed_label",
+          "observation": "Hangtag reads SIZE: S."
+        },
+        "brand": {
+          "source": "printed_label",
+          "observation": "TOMMY/DOLBY is printed on the packaging band."
+        },
+        "color": {
+          "source": "visual_observation",
+          "observation": "The garment fabric is visibly light blue."
+        },
+        "style": {
+          "source": "printed_label",
+          "observation": "Hangtag reads NO: 0663-11."
+        },
+        "sleeve": {
+          "source": "visual_observation",
+          "observation": "A buttoned shirt cuff is visible, supporting long sleeves."
+        },
+        "pattern": {
+          "source": "visual_observation",
+          "observation": "The visible fabric has no printed or woven pattern."
+        },
+        "material": {
+          "source": "visual_inference",
+          "observation": "Smooth, matte woven shirting fabric is visible; no composition label is shown."
+        }
+      },
+      "stock_quantity": 1,
+      "stock_distribution_source": "human_confirmed",
+      "variant_lines": [
+        {
+          "variant_attributes": {
+            "size": "S"
+          },
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "42",
+      "photo_number": 42,
+      "name": "TOMMY DOLBY Formal Shirt",
+      "brand": "TOMMY DOLBY",
+      "category_id": "formal-shirts",
+      "pos_category_id": "pos-shirts",
+      "attributes": {
+        "size": "M",
+        "color": "Light blue-grey",
+        "style": "0663-11",
+        "sleeve": "Long",
+        "pattern": "Solid",
+        "material": "Synthetic blend"
+      },
+      "ai_visible_text": "TOMMY DOLBY\nTOMMY DOLBY STYLEWEAR\nNO: 0663-11\nSIZE: M\nWASH AND IRON PROPERLY\nHAND WASH\nDO NOT BLEACH\nDO NOT WRING\nWASH SEPARATELY",
+      "ai_field_evidence": {
+        "name": {
+          "source": "printed_label",
+          "observation": "Brand is printed; garment is a formal shirt from the supplied category."
+        },
+        "size": {
+          "source": "printed_label",
+          "observation": "Hangtag reads SIZE: M."
+        },
+        "brand": {
+          "source": "printed_label",
+          "observation": "TOMMY DOLBY is printed prominently on the package."
+        },
+        "color": {
+          "source": "visual_observation",
+          "observation": "The folded shirt appears light blue-grey."
+        },
+        "style": {
+          "source": "printed_label",
+          "observation": "Hangtag reads NO. 0663-11."
+        },
+        "sleeve": {
+          "source": "visual_observation",
+          "observation": "Folded formal shirt construction and visible cuff indicate long sleeves."
+        },
+        "pattern": {
+          "source": "visual_observation",
+          "observation": "Visible fabric appears uniform with no printed or woven pattern."
+        },
+        "material": {
+          "source": "visual_inference",
+          "observation": "Fabric appears smooth with a uniform, slightly lustrous finish; no composition is legible."
+        }
+      },
+      "stock_quantity": 1,
+      "stock_distribution_source": "human_confirmed",
+      "variant_lines": [
+        {
+          "variant_attributes": {
+            "size": "M"
+          },
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "43",
+      "photo_number": 43,
+      "name": "TOMMY DOOBBY Formal shirt",
+      "brand": "TOMMY DOOBBY",
+      "category_id": "formal-shirts",
+      "pos_category_id": "pos-shirts",
+      "attributes": {
+        "size": "XL",
+        "color": "Light blue",
+        "style": "0463-11",
+        "material": "Cotton"
+      },
+      "ai_visible_text": "TOMMY DOOBBY\nNO: 063-11\nSIZE: XL\nWASH AND IRON PROCESS\nWASH SEPARATELY\nDO NOT BLEACH\nDO NOT TUMBLE DRY\nDO NOT IRON TOO DRY\nGENTLE DRY CLEAN",
+      "ai_field_evidence": {
+        "name": {
+          "source": "printed_label",
+          "observation": "No specific model name is visible; brand is printed and the item is a formal shirt."
+        },
+        "size": {
+          "source": "printed_label",
+          "observation": "Hangtag states SIZE: XL."
+        },
+        "brand": {
+          "source": "printed_label",
+          "observation": "TOMMY DOOBBY is printed on the collar label and front tag."
+        },
+        "color": {
+          "source": "visual_observation",
+          "observation": "The folded shirt fabric is visibly light blue."
+        },
+        "style": {
+          "source": "printed_label",
+          "observation": "Hangtag states NO: 0463-11."
+        },
+        "material": {
+          "source": "visual_inference",
+          "observation": "Smooth lightweight woven shirting fabric is visible; no composition label is shown."
+        }
+      },
+      "stock_quantity": 1,
+      "stock_distribution_source": "human_confirmed",
+      "variant_lines": [
+        {
+          "variant_attributes": {
+            "size": "XL"
+          },
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "44",
+      "photo_number": 44,
+      "name": "TOMMY DOLBY Formal Shirt",
+      "brand": "TOMMY DOLBY",
+      "category_id": "formal-shirts",
+      "pos_category_id": "pos-shirts",
+      "attributes": {
+        "size": "L",
+        "color": "Light blue",
+        "style": "0663-11",
+        "sleeve": "Long",
+        "material": "Cotton"
+      },
+      "ai_visible_text": "TOMMY DOLBY\nSHIRT\nNO: 0663-11\nSIZE: L",
+      "ai_field_evidence": {
+        "name": {
+          "source": "visible_text",
+          "observation": "Brand is printed and the category identifies a formal shirt."
+        },
+        "size": {
+          "source": "printed_label",
+          "observation": "Hang tag states SIZE: L."
+        },
+        "brand": {
+          "source": "printed_label",
+          "observation": "TOMMY DOLBY is printed on the packaging band and hang tag."
+        },
+        "color": {
+          "source": "visual_observation",
+          "observation": "The folded shirt fabric is visibly light blue."
+        },
+        "style": {
+          "source": "printed_label",
+          "observation": "Hang tag states NO: 0663-11."
+        },
+        "sleeve": {
+          "source": "visual_observation",
+          "observation": "Visible folded sleeve/cuff construction supports a long-sleeve shirt."
+        },
+        "material": {
+          "source": "visual_inference",
+          "observation": "Smooth woven shirting fabric is visible; no composition label is legible."
+        }
+      },
+      "stock_quantity": 1,
+      "stock_distribution_source": "human_confirmed",
+      "variant_lines": [
+        {
+          "variant_attributes": {
+            "size": "L"
+          },
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "45",
+      "photo_number": 45,
+      "name": "TOMMY DOLEY Formal shirt",
+      "brand": "TOMMY DOLEY",
+      "category_id": "formal-shirts",
+      "pos_category_id": "pos-shirts",
+      "attributes": {
+        "fit": "Slim",
+        "size": "XXL",
+        "color": "Light blue",
+        "style": "0663-11",
+        "sleeve": "Long",
+        "material": "Cotton"
+      },
+      "ai_visible_text": "TOMMY DOLEY\nSLIM FIT\nNO: 0663-11\nSIZE: XXL\nWASH AND IRON PROCESS SIGNS\nGENTLE PROGRAM, WASH\nMAXIMUM TEMPERATURE 60°C\nDO NOT BLEACH\nDO NOT TURN TO DRY\nIRON MAXIMUM TEMPERATURE 150°C\nDRY CLEAN",
+      "ai_field_evidence": {
+        "fit": {
+          "source": "printed_label",
+          "observation": "Collar label reads SLIM FIT."
+        },
+        "name": {
+          "source": "printed_label",
+          "observation": "TOMMY DOLEY branding is visible; garment is a formal shirt."
+        },
+        "size": {
+          "source": "printed_label",
+          "observation": "Hangtag reads SIZE: XXL."
+        },
+        "brand": {
+          "source": "printed_label",
+          "observation": "TOMMY DOLEY is printed on the collar label and packaging band."
+        },
+        "color": {
+          "source": "visual_observation",
+          "observation": "The shirt fabric is visibly light blue."
+        },
+        "style": {
+          "source": "printed_label",
+          "observation": "Hangtag reads NO: 0663-11."
+        },
+        "sleeve": {
+          "source": "visual_observation",
+          "observation": "A folded cuffed sleeve is visible, consistent with a long-sleeve shirt."
+        },
+        "material": {
+          "source": "visual_inference",
+          "observation": "Smooth lightweight woven shirting fabric is visible; no composition label is shown."
+        }
+      },
+      "stock_quantity": 1,
+      "stock_distribution_source": "human_confirmed",
+      "variant_lines": [
+        {
+          "variant_attributes": {
+            "size": "2XL"
+          },
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "46",
+      "photo_number": 46,
+      "name": "TOMMY DOLBY® Formal shirt",
+      "brand": "TOMMY DOLBY®",
+      "category_id": "formal-shirts",
+      "pos_category_id": "pos-shirts",
+      "attributes": {
+        "fit": "Slim",
+        "size": "XL",
+        "color": "Light blue-gray",
+        "sleeve": "Long",
+        "material": "Cotton"
+      },
+      "ai_visible_text": "XL\nTOMMY DOLBY®\nSLIM FIT\nTOMMY DOLBY®",
+      "ai_field_evidence": {
+        "fit": {
+          "source": "printed_label",
+          "observation": "Collar label reads “SLIM FIT.”"
+        },
+        "name": {
+          "source": "printed_label",
+          "observation": "The printed TOMMY DOLBY® branding is visible on a formal collared shirt."
+        },
+        "size": {
+          "source": "printed_label",
+          "observation": "Small collar tag reads “XL.”"
+        },
+        "brand": {
+          "source": "printed_label",
+          "observation": "Collar label and packaging band read “TOMMY DOLBY®.”"
+        },
+        "color": {
+          "source": "visual_observation",
+          "observation": "Garment appears light blue-gray in the photograph."
+        },
+        "sleeve": {
+          "source": "visual_observation",
+          "observation": "A buttoned cuff is visible, indicating a long-sleeve shirt."
+        },
+        "material": {
+          "source": "visual_inference",
+          "observation": "Smooth, lightweight woven shirting fabric; no composition label is visible."
+        }
+      },
+      "stock_quantity": 1,
+      "stock_distribution_source": "human_confirmed",
+      "variant_lines": [
+        {
+          "variant_attributes": {
+            "size": "XL"
+          },
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "47",
+      "photo_number": 47,
+      "name": "TOMMY DOLBY Formal Shirt",
+      "brand": "TOMMY DOLBY",
+      "category_id": "formal-shirts",
+      "pos_category_id": "pos-shirts",
+      "attributes": {
+        "fit": "Slim",
+        "size": "L",
+        "color": "Light blue",
+        "sleeve": "Long",
+        "pattern": "Solid",
+        "material": "Cotton"
+      },
+      "ai_visible_text": "TOMMY DOLBY®\nSLIM FIT\nTOMMY DOLBY®\nTOMMY DOLBY®",
+      "ai_field_evidence": {
+        "fit": {
+          "source": "printed_label",
+          "observation": "Label below the collar reads “SLIM FIT”."
+        },
+        "name": {
+          "source": "printed_label",
+          "observation": "Brand is printed; garment is a formal shirt per category."
+        },
+        "brand": {
+          "source": "printed_label",
+          "observation": "Collar label and packaging band read “TOMMY DOLBY®”."
+        },
+        "color": {
+          "source": "visual_observation",
+          "observation": "The shirt fabric is visibly light blue."
+        },
+        "sleeve": {
+          "source": "visual_observation",
+          "observation": "A folded cuff and sleeve are visible in the packaging."
+        },
+        "pattern": {
+          "source": "visual_observation",
+          "observation": "Visible fabric appears uniformly coloured without a discernible print or stripe."
+        },
+        "material": {
+          "source": "visual_inference",
+          "observation": "Smooth lightweight woven shirting fabric is visible; no composition label is readable."
+        }
+      },
+      "stock_quantity": 1,
+      "stock_distribution_source": "human_confirmed",
+      "variant_lines": [
+        {
+          "variant_attributes": {
+            "size": "L"
+          },
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "48",
+      "photo_number": 48,
+      "name": "GAUCHE UOMO Formal Shirt",
+      "brand": "GAUCHE UOMO",
+      "category_id": "formal-shirts",
+      "pos_category_id": "pos-shirts",
+      "attributes": {
+        "size": "XXL",
+        "color": "Light Gray",
+        "style": "3651-1",
+        "pattern": "Solid",
+        "material": "Cotton"
+      },
+      "ai_visible_text": "sizes: small-3xl\nNO: 3651-1\nSIZE: XXL\nWASH AND IRON PROCESS SIGNS\nGENTLE PROGRAM, WASH\nMAXIMUM TEMPERATURE 30°C\nDO NOT BLEACH\nDO NOT TUMBLE DRY\nIRON MAXIMUM TEMPERATURE, 150°C\nGENTLE DRY CLEAN\nGAUCHE UOMO",
+      "ai_field_evidence": {
+        "name": {
+          "source": "printed_label",
+          "observation": "GAUCHE UOMO is printed; garment category identifies a formal shirt."
+        },
+        "size": {
+          "source": "printed_label",
+          "observation": "Hangtag states SIZE: XXL."
+        },
+        "brand": {
+          "source": "printed_label",
+          "observation": "GAUCHE UOMO is printed on the shirt front."
+        },
+        "color": {
+          "source": "visual_observation",
+          "observation": "The visible shirt fabric appears light grey."
+        },
+        "style": {
+          "source": "printed_label",
+          "observation": "Hangtag states NO: 3651-1."
+        },
+        "pattern": {
+          "source": "visual_observation",
+          "observation": "Visible fabric has no apparent printed or woven pattern."
+        },
+        "material": {
+          "source": "visual_inference",
+          "observation": "Smooth lightweight woven shirting fabric is visible; no composition label is shown."
+        }
+      },
+      "stock_quantity": 1,
+      "stock_distribution_source": "human_confirmed",
+      "variant_lines": [
+        {
+          "variant_attributes": {
+            "size": "2XL"
+          },
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "49",
+      "photo_number": 49,
+      "name": "GAUCHE Formal Shirt",
+      "brand": "GAUCHE",
+      "category_id": "formal-shirts",
+      "pos_category_id": "pos-shirts",
+      "attributes": {
+        "size": "3XL",
+        "color": "White",
+        "style": "365/1",
+        "sleeve": "Long",
+        "pattern": "Solid",
+        "material": "Cotton"
+      },
+      "ai_visible_text": "GAUCHE\nUOMO\nSHIRT\n3651-1\nSIZE 3XL",
+      "ai_field_evidence": {
+        "name": {
+          "source": "printed_label",
+          "observation": "Printed brand is GAUCHE; garment is a formal shirt."
+        },
+        "size": {
+          "source": "printed_label",
+          "observation": "Hangtag reads “SIZE 3XL.”"
+        },
+        "brand": {
+          "source": "printed_label",
+          "observation": "Packaging band and shirt front print read “GAUCHE.”"
+        },
+        "color": {
+          "source": "visual_observation",
+          "observation": "The shirt fabric is visibly white."
+        },
+        "style": {
+          "source": "printed_label",
+          "observation": "Hangtag reads “365/1.”"
+        },
+        "sleeve": {
+          "source": "visual_observation",
+          "observation": "A buttoned cuff is visible, supporting long sleeves."
+        },
+        "pattern": {
+          "source": "visual_observation",
+          "observation": "No visible stripe, check, or other repeated pattern is present."
+        },
+        "material": {
+          "source": "visual_inference",
+          "observation": "Smooth woven formal shirting fabric is visible; no composition text is legible."
+        }
+      },
+      "stock_quantity": 1,
+      "stock_distribution_source": "human_confirmed",
+      "variant_lines": [
+        {
+          "variant_attributes": {
+            "size": "3XL"
+          },
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "50",
+      "photo_number": 50,
+      "name": "GAUCHE UOMO Formal shirt",
+      "brand": "GAUCHE UOMO",
+      "category_id": "formal-shirts",
+      "pos_category_id": "pos-shirts",
+      "attributes": {
+        "size": "XXL",
+        "color": "Light blue",
+        "style": "3017-4",
+        "pattern": "Micro-check",
+        "material": "Cotton"
+      },
+      "ai_visible_text": "GAUCHE\nUOMO\nGAUCHE\nUOMO\nNO: 3017-4\nSIZE: XXL\nWASH AND IRON PROCESS SIGNS\nGENTLE PROGRAM, WASH\nMAXIMUM TEMPERATURE 30°C\nDO NOT BLEACH\nDO NOT TUMBLE DRY\nIRON MAXIMUM\nTEMPERATURE 150°C\nGENTLE DRY CLEAN",
+      "ai_field_evidence": {
+        "name": {
+          "source": "printed_label",
+          "observation": "GAUCHE UOMO is printed; garment category is a formal shirt."
+        },
+        "size": {
+          "source": "printed_label",
+          "observation": "Hang tag reads SIZE: XXL."
+        },
+        "brand": {
+          "source": "printed_label",
+          "observation": "GAUCHE UOMO is printed on the packaging band and front label."
+        },
+        "color": {
+          "source": "visual_observation",
+          "observation": "The folded shirt is visibly light blue."
+        },
+        "style": {
+          "source": "printed_label",
+          "observation": "Hang tag reads NO: 3017-4."
+        },
+        "pattern": {
+          "source": "visual_observation",
+          "observation": "Fine intersecting woven lines create a subtle micro-check appearance."
+        },
+        "material": {
+          "source": "visual_inference",
+          "observation": "Fine woven shirting texture is visible; no fibre composition is printed."
+        }
+      },
+      "stock_quantity": 1,
+      "stock_distribution_source": "human_confirmed",
+      "variant_lines": [
+        {
+          "variant_attributes": {
+            "size": "2XL"
+          },
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "51",
+      "photo_number": 51,
+      "name": "GAUCHE Formal Shirt",
+      "brand": "GAUCHE",
+      "category_id": "formal-shirts",
+      "pos_category_id": "pos-shirts",
+      "attributes": {
+        "fit": "Slim",
+        "size": "L",
+        "color": "Blue",
+        "style": "5017-4",
+        "pattern": "Solid",
+        "material": "Cotton"
+      },
+      "ai_visible_text": "GAUCHE\nUOMO\nSLIM FIT\nNO: 5017-4\nSIZE: L\nWASH AND IRON PROCESS SIGN\nGENTLE PROGRAM WASH\nMAXIMUM TEMPERATURE 30°C\nDO NOT BLEACH\nDO NOT TURN TO DRY\nIRON MAXIMUM\nTEMPERATURE 150°C\nGENTLE DRY CLEAN",
+      "ai_field_evidence": {
+        "fit": {
+          "source": "printed_label",
+          "observation": "Collar label states SLIM FIT."
+        },
+        "name": {
+          "source": "printed_label",
+          "observation": "GAUCHE is printed; garment is a formal shirt."
+        },
+        "size": {
+          "source": "printed_label",
+          "observation": "Hangtag states SIZE: L."
+        },
+        "brand": {
+          "source": "printed_label",
+          "observation": "GAUCHE is printed on the collar label and packaging band."
+        },
+        "color": {
+          "source": "visual_observation",
+          "observation": "The visible garment fabric is light blue."
+        },
+        "style": {
+          "source": "printed_label",
+          "observation": "Hangtag states NO: 5017-4."
+        },
+        "pattern": {
+          "source": "visual_observation",
+          "observation": "Fabric has no distinct printed or woven arrangement beyond fine texture."
+        },
+        "material": {
+          "source": "visual_inference",
+          "observation": "Fine textured woven shirting fabric is visible; no fibre composition is printed."
+        }
+      },
+      "stock_quantity": 1,
+      "stock_distribution_source": "human_confirmed",
+      "variant_lines": [
+        {
+          "variant_attributes": {
+            "size": "L"
+          },
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "52",
+      "photo_number": 52,
+      "name": "GAUCHE UOMO Formal Shirt",
+      "brand": "GAUCHE UOMO",
+      "category_id": "formal-shirts",
+      "pos_category_id": "pos-shirts",
+      "attributes": {
+        "fit": "Slim",
+        "size": "XL",
+        "color": "Light blue",
+        "style": "5017-4",
+        "pattern": "Solid",
+        "material": "Cotton"
+      },
+      "ai_visible_text": "GAUCHE UOMO\nGAUCHE\nUOMO\nSLIM FIT\nNO: 5017-4\nSIZE: XL\nWASH AND IRON PROCESS SIGNS\nGENTLE PROGRAM, WASH\nMAXIMUM TEMPERATURE 30°C\nDO NOT BLEACH\nDO NOT TURN TO DRY\nIRON MAXIMUM\nTEMPERATURE 150°C\nGENTLE DRY CLEAN",
+      "ai_field_evidence": {
+        "fit": {
+          "source": "printed_label",
+          "observation": "Inner collar label reads “SLIM FIT.”"
+        },
+        "name": {
+          "source": "printed_label",
+          "observation": "GAUCHE UOMO is printed; garment category identifies it as a formal shirt."
+        },
+        "size": {
+          "source": "printed_label",
+          "observation": "Hangtag reads “SIZE: XL.”"
+        },
+        "brand": {
+          "source": "printed_label",
+          "observation": "The packaging band and shirt front print read “GAUCHE UOMO.”"
+        },
+        "color": {
+          "source": "visual_observation",
+          "observation": "The visible shirt fabric is light blue."
+        },
+        "style": {
+          "source": "printed_label",
+          "observation": "Hangtag reads “NO: 5017-4.”"
+        },
+        "pattern": {
+          "source": "visual_observation",
+          "observation": "The fabric appears uniformly colored with no distinct printed pattern."
+        },
+        "material": {
+          "source": "visual_inference",
+          "observation": "Fine woven formal shirting texture is visible; no composition label is readable."
+        }
+      },
+      "stock_quantity": 1,
+      "stock_distribution_source": "human_confirmed",
+      "variant_lines": [
+        {
+          "variant_attributes": {
+            "size": "XL"
+          },
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "53",
+      "photo_number": 53,
+      "name": "GAUCHE UOMO Formal Shirt",
+      "brand": "GAUCHE UOMO",
+      "category_id": "formal-shirts",
+      "pos_category_id": "pos-shirts",
+      "attributes": {
+        "fit": "Slim",
+        "size": "M",
+        "color": "Light blue",
+        "style": "5017-A",
+        "sleeve": "Long",
+        "material": "Cotton"
+      },
+      "ai_visible_text": "GAUCHE UOMO\nSLIM FIT\nM\nNO.: 5017-A\nSIZE: M\nWASH AND IRON PROCESS SINGS\nWASH SEPARATELY WITH\nMACHINE WASH 30°C\nDO NOT BLEACH\nDO NOT TUMBLE DRY\nIRON MAXIMUM 150°C\nTEMPERATURE\nGENTLE DRY CLEAN",
+      "ai_field_evidence": {
+        "fit": {
+          "source": "printed_label",
+          "observation": "Collar label states SLIM FIT."
+        },
+        "name": {
+          "source": "printed_label",
+          "observation": "GAUCHE UOMO is printed; the item is a formal shirt."
+        },
+        "size": {
+          "source": "printed_label",
+          "observation": "Hangtag states SIZE: M."
+        },
+        "brand": {
+          "source": "printed_label",
+          "observation": "GAUCHE UOMO is printed on the collar label, packaging band, and front packaging."
+        },
+        "color": {
+          "source": "visual_observation",
+          "observation": "The garment fabric is visibly light blue."
+        },
+        "style": {
+          "source": "printed_label",
+          "observation": "Hangtag states NO.: 5017-A."
+        },
+        "sleeve": {
+          "source": "visual_inference",
+          "observation": "Folded formal shirt construction appears to have long sleeves."
+        },
+        "material": {
+          "source": "visual_inference",
+          "observation": "Fine textured woven shirting fabric is visible; no fibre composition is printed."
+        }
+      },
+      "stock_quantity": 1,
+      "stock_distribution_source": "human_confirmed",
+      "variant_lines": [
+        {
+          "variant_attributes": {
+            "size": "M"
+          },
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "54",
+      "photo_number": 54,
+      "name": "GAUCHE UOMO Formal Shirt",
+      "brand": "GAUCHE UOMO",
+      "category_id": "formal-shirts",
+      "pos_category_id": "pos-shirts",
+      "attributes": {
+        "fit": "Slim",
+        "size": "S",
+        "color": "Light blue",
+        "style": "5017-4",
+        "sleeve": "Long",
+        "pattern": "Micro geometric texture",
+        "material": "Cotton"
+      },
+      "ai_visible_text": "GAUCHE UOMO\nSLIM FIT\nSHIRT\nNO: 5017-4\nSIZE: S\nWASH AND IRON PROCESS SIGNS\nGENTLE PROGRAM, WASH\nMAXIMUM TEMPERATURE 30°C\nDO NOT BLEACH\nDO NOT TURN TO DRY\nIRON MAXIMUM TEMPERATURE 150°C\nGENTLE DRY CLEAN",
+      "ai_field_evidence": {
+        "fit": {
+          "source": "printed_label",
+          "observation": "Inner label reads SLIM FIT."
+        },
+        "name": {
+          "source": "printed_label",
+          "observation": "GAUCHE UOMO is printed; garment is a formal shirt."
+        },
+        "size": {
+          "source": "printed_label",
+          "observation": "Hang tag reads SIZE: S."
+        },
+        "brand": {
+          "source": "printed_label",
+          "observation": "GAUCHE UOMO is printed on the shirt label and packaging band."
+        },
+        "color": {
+          "source": "visual_observation",
+          "observation": "The folded shirt fabric is visibly light blue."
+        },
+        "style": {
+          "source": "printed_label",
+          "observation": "Hang tag reads NO: 5017-4."
+        },
+        "sleeve": {
+          "source": "visual_observation",
+          "observation": "Folded formal shirt construction and visible cuff indicate long sleeves."
+        },
+        "pattern": {
+          "source": "visual_observation",
+          "observation": "Fine repeating woven texture is visible across the blue fabric."
+        },
+        "material": {
+          "source": "visual_inference",
+          "observation": "Fine textured woven shirt fabric is visible; no composition label is shown."
+        }
+      },
+      "stock_quantity": 1,
+      "stock_distribution_source": "human_confirmed",
+      "variant_lines": [
+        {
+          "variant_attributes": {
+            "size": "S"
+          },
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "55",
+      "photo_number": 55,
+      "name": "GAUCHE Formal shirt",
+      "brand": "GAUCHE",
+      "category_id": "formal-shirts",
+      "pos_category_id": "pos-shirts",
+      "attributes": {
+        "fit": "Slim",
+        "size": "XL",
+        "color": "Light Gray",
+        "style": "M5601B",
+        "sleeve": "Long",
+        "pattern": "Solid",
+        "material": "Cotton"
+      },
+      "ai_visible_text": "GAUCHE UOMO\nSLIM FIT\nM5601B\nGAUCHE UOMO\nNO. 09603-2K\nSIZE: XL\nWASH AND IRON PROCESS SIGNS\n30° GENTLE PROGRAM WASH\nMAXIMUM TEMPERATURE 30°C\nDO NOT BLEACH\nDO NOT TUMBLE DRY\nIRON MAXIMUM TEMPERATURE 150°C\nGENTLE DRY CLEAN",
+      "ai_field_evidence": {
+        "fit": {
+          "source": "printed_label",
+          "observation": "Collar label reads SLIM FIT."
+        },
+        "name": {
+          "source": "visible_text",
+          "observation": "GAUCHE is printed; the garment is a formal shirt."
+        },
+        "size": {
+          "source": "printed_label",
+          "observation": "Hangtag reads SIZE: XL."
+        },
+        "brand": {
+          "source": "printed_label",
+          "observation": "GAUCHE UOMO is printed on the collar label and hangtag."
+        },
+        "color": {
+          "source": "visual_observation",
+          "observation": "The shirt fabric is visibly light grey."
+        },
+        "style": {
+          "source": "printed_label",
+          "observation": "Small collar label reads “M5601B.”"
+        },
+        "sleeve": {
+          "source": "visual_observation",
+          "observation": "Buttoned cuffs indicate long sleeves."
+        },
+        "pattern": {
+          "source": "visual_observation",
+          "observation": "The visible fabric has no printed or woven pattern."
+        },
+        "material": {
+          "source": "visual_inference",
+          "observation": "Smooth, tightly woven shirting fabric is visible; no composition label is shown."
+        }
+      },
+      "stock_quantity": 1,
+      "stock_distribution_source": "human_confirmed",
+      "variant_lines": [
+        {
+          "variant_attributes": {
+            "size": "XL"
+          },
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "56",
+      "photo_number": 56,
+      "name": "GAUCHE UOMO Formal Shirt",
+      "brand": "GAUCHE UOMO",
+      "category_id": "formal-shirts",
+      "pos_category_id": "pos-shirts",
+      "attributes": {
+        "fit": "Slim",
+        "size": "L",
+        "color": "Light Gray",
+        "style": "D0663-2A",
+        "sleeve": "Long",
+        "material": "Cotton"
+      },
+      "ai_visible_text": "GAUCHE UOMO\nSLIM FIT\nGAUCHE UOMO\nSHIRT\nNO: D0663-2A\nSIZE: L\nWASH HAND IRON PROCESS SIGNS\nGENTLE PROGRAM, WASH\nMAXIMUM TEMPERATURE 30°C\nDO NOT BLEACH\nDO NOT TURN TO DRY\nIRON MAXIMUM 150°C TEMPERATURE\nGENTLE DRY CLEAN",
+      "ai_field_evidence": {
+        "fit": {
+          "source": "printed_label",
+          "observation": "Collar label states SLIM FIT."
+        },
+        "name": {
+          "source": "visual_observation",
+          "observation": "Packaged collared button-front formal shirt; no specific model name is visible."
+        },
+        "size": {
+          "source": "printed_label",
+          "observation": "Hangtag states SIZE: L."
+        },
+        "brand": {
+          "source": "printed_label",
+          "observation": "GAUCHE UOMO is printed on the collar label, band, and hangtag."
+        },
+        "color": {
+          "source": "visual_observation",
+          "observation": "The garment fabric appears light gray."
+        },
+        "style": {
+          "source": "printed_label",
+          "observation": "Hangtag states NO: D0663-2A."
+        },
+        "sleeve": {
+          "source": "visual_observation",
+          "observation": "Folded long sleeves and button cuffs are visible."
+        },
+        "material": {
+          "source": "visual_inference",
+          "observation": "Smooth, lightweight woven shirting fabric is visible; no composition label is shown."
+        }
+      },
+      "stock_quantity": 1,
+      "stock_distribution_source": "human_confirmed",
+      "variant_lines": [
+        {
+          "variant_attributes": {
+            "size": "L"
+          },
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "57",
+      "photo_number": 57,
+      "name": "GAUCHE UOMO Formal shirt",
+      "brand": "GAUCHE UOMO",
+      "category_id": "formal-shirts",
+      "pos_category_id": "pos-shirts",
+      "attributes": {
+        "fit": "Slim",
+        "size": "XL",
+        "color": "Light lavender",
+        "style": "3557-1",
+        "pattern": "Solid",
+        "material": "Cotton"
+      },
+      "ai_visible_text": "GAUCHE\nUOMO\nSLIM FIT\nSHIRT\nNO:\nSIZE:\n3557-1\nXL\nWASH HAND PROHIBITED\nGENTLE MACHINE WASH - 30°C\nDO NOT BLEACH\nIRON AT MEDIUM TEMPERATURE 150°C\nDO NOT TUMBLE DRY\nGENTLE DRY CLEAN",
+      "ai_field_evidence": {
+        "fit": {
+          "source": "printed_label",
+          "observation": "Collar label reads “SLIM FIT.”"
+        },
+        "name": {
+          "source": "visual_observation",
+          "observation": "Packaged formal button-front shirt; no printed model name."
+        },
+        "size": {
+          "source": "printed_label",
+          "observation": "Hang tag states “SIZE: XL.”"
+        },
+        "brand": {
+          "source": "printed_label",
+          "observation": "Collar label and hang tag read “GAUCHE UOMO.”"
+        },
+        "color": {
+          "source": "visual_observation",
+          "observation": "Garment fabric appears light lavender."
+        },
+        "style": {
+          "source": "printed_label",
+          "observation": "Hang tag shows “NO: 3557-1.”"
+        },
+        "pattern": {
+          "source": "visual_observation",
+          "observation": "Fabric appears uniformly colored with no distinct printed pattern."
+        },
+        "material": {
+          "source": "visual_inference",
+          "observation": "Fine woven shirting texture is visible; no fibre composition is printed."
+        }
+      },
+      "stock_quantity": 1,
+      "stock_distribution_source": "human_confirmed",
+      "variant_lines": [
+        {
+          "variant_attributes": {
+            "size": "XL"
+          },
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "58",
+      "photo_number": 58,
+      "name": "GAUCHE UOMO Formal shirt",
+      "brand": "GAUCHE UOMO",
+      "category_id": "formal-shirts",
+      "pos_category_id": "pos-shirts",
+      "attributes": {
+        "fit": "Slim",
+        "size": "XL",
+        "color": "Light blue",
+        "style": "DCC63-2A",
+        "sleeve": "Long",
+        "pattern": "Solid",
+        "material": "Cotton"
+      },
+      "ai_visible_text": "XL\nM56018\nGAUCHE\nUOMO\nSLIM FIT\nSHIRT\nNO: DCC63-2A\nSIZE: XL\nWASH AND IRON PROCESS SIGNS\nGENTLE PROGRAM, WASH\nMAXIMUM TEMPERATURE 30°C\nDO NOT BLEACH\nDO NOT TURN TO DRY\nIRON MAXIMUM TEMPERATURE 150°C\nGENTLE DRY CLEAN",
+      "ai_field_evidence": {
+        "fit": {
+          "source": "printed_label",
+          "observation": "Collar label reads “SLIM FIT”."
+        },
+        "name": {
+          "source": "printed_label",
+          "observation": "GAUCHE UOMO labels are visible on a packaged formal button-front shirt."
+        },
+        "size": {
+          "source": "printed_label",
+          "observation": "The hangtag reads “SIZE: XL” and the collar tag also reads “XL”."
+        },
+        "brand": {
+          "source": "printed_label",
+          "observation": "Collar and packaging labels read “GAUCHE UOMO”."
+        },
+        "color": {
+          "source": "visual_observation",
+          "observation": "The shirt fabric appears light blue."
+        },
+        "style": {
+          "source": "printed_label",
+          "observation": "Hangtag reads “NO: DCC63-2A”."
+        },
+        "sleeve": {
+          "source": "visual_observation",
+          "observation": "Folded shirt construction includes a visible cuff, supporting long sleeves."
+        },
+        "pattern": {
+          "source": "visual_observation",
+          "observation": "Visible fabric has no printed or woven pattern."
+        },
+        "material": {
+          "source": "visual_inference",
+          "observation": "Smooth lightweight woven shirting fabric is visible; no composition is printed."
+        }
+      },
+      "stock_quantity": 1,
+      "stock_distribution_source": "human_confirmed",
+      "variant_lines": [
+        {
+          "variant_attributes": {
+            "size": "XL"
+          },
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "59",
+      "photo_number": 59,
+      "name": "GIOIELLO Formal shirt",
+      "brand": "GIOIELLO",
+      "category_id": "formal-shirts",
+      "pos_category_id": "pos-shirts",
+      "attributes": {
+        "fit": "Slim",
+        "size": "XL",
+        "color": "White",
+        "style": "38-352",
+        "sleeve": "Long",
+        "material": "Cotton"
+      },
+      "ai_visible_text": "GIOIELLO\nSLIM FIT\nGIOIELLO\nGIOIELLO\nNO: 138-352\nSIZE: XL\nWASH AND IRON PROCESS SIGNS\nGENTLE PROGRAM WASH\nMAXIMUM TEMPERATURE 30°C\nDO NOT BLEACH\nDO NOT TURN TO DRY\nIRON MAXIMUM TEMPERATURE 150°C\nGENTLE DRY CLEAN",
+      "ai_field_evidence": {
+        "fit": {
+          "source": "printed_label",
+          "observation": "Collar label reads SLIM FIT."
+        },
+        "name": {
+          "source": "visible_text",
+          "observation": "GIOIELLO is printed; the item is a formal shirt in the provided category."
+        },
+        "size": {
+          "source": "printed_label",
+          "observation": "Hangtag sticker reads SIZE: XL."
+        },
+        "brand": {
+          "source": "printed_label",
+          "observation": "GIOIELLO is printed on the collar label, packaging band, and hangtag."
+        },
+        "color": {
+          "source": "visual_observation",
+          "observation": "The garment appears white."
+        },
+        "style": {
+          "source": "printed_label",
+          "observation": "Hangtag sticker reads MO. 38-352."
+        },
+        "sleeve": {
+          "source": "visual_observation",
+          "observation": "A buttoned shirt cuff is visible, supporting long sleeves."
+        },
+        "material": {
+          "source": "visual_inference",
+          "observation": "Fine textured woven shirting fabric is visible; no composition is printed."
+        }
+      },
+      "stock_quantity": 1,
+      "stock_distribution_source": "human_confirmed",
+      "variant_lines": [
+        {
+          "variant_attributes": {
+            "size": "XL"
+          },
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "60",
+      "photo_number": 60,
+      "name": "GIOIELLO Formal Shirt",
+      "brand": "GIOIELLO",
+      "category_id": "formal-shirts",
+      "pos_category_id": "pos-shirts",
+      "attributes": {
+        "fit": "Slim",
+        "size": "L",
+        "color": "White",
+        "style": "738-352",
+        "sleeve": "Long",
+        "material": "Cotton"
+      },
+      "ai_visible_text": "GIOIELLO\nSLIM FIT\nNO. 738-352\nSIZE: L\nWASH AND IRON PROCESS SIGNS\nMACHINE PROGRAM WASH\nMAXIMUM TEMPERATURE 30°C\nDO NOT BLEACH\nDO NOT TUMBLE DRY\nIRON MAXIMUM SOLE-PLATE\nTEMPERATURE 150°C\nGENTLE DRY CLEAN",
+      "ai_field_evidence": {
+        "fit": {
+          "source": "printed_label",
+          "observation": "Collar label states \"SLIM FIT\"."
+        },
+        "name": {
+          "source": "printed_label",
+          "observation": "GIOIELLO is printed on the garment; item is a formal shirt per category."
+        },
+        "size": {
+          "source": "printed_label",
+          "observation": "Hangtag states \"SIZE: L\"."
+        },
+        "brand": {
+          "source": "printed_label",
+          "observation": "GIOIELLO is printed on the collar label, hangtag, and shirt front."
+        },
+        "color": {
+          "source": "visual_observation",
+          "observation": "The visible shirt fabric is white."
+        },
+        "style": {
+          "source": "printed_label",
+          "observation": "Hangtag states \"NO. 738-352\"."
+        },
+        "sleeve": {
+          "source": "visual_observation",
+          "observation": "A buttoned cuff and folded long sleeve are visible."
+        },
+        "material": {
+          "source": "visual_inference",
+          "observation": "The textured woven shirting fabric appears consistent with cotton."
+        }
+      },
+      "stock_quantity": 1,
+      "stock_distribution_source": "human_confirmed",
+      "variant_lines": [
+        {
+          "variant_attributes": {
+            "size": "L"
+          },
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "61",
+      "photo_number": 61,
+      "name": "GIOIELLO Formal Shirt",
+      "brand": "GIOIELLO",
+      "category_id": "formal-shirts",
+      "pos_category_id": "pos-shirts",
+      "attributes": {
+        "fit": "Slim",
+        "size": "XXL",
+        "color": "White",
+        "style": "738-352",
+        "pattern": "Solid",
+        "material": "Cotton"
+      },
+      "ai_visible_text": "GIOIELLO\nSLIM FIT\nGIOIELLO\nGIOIELLO\nNO: 738-352\nSIZE: XXL\nWASH AND IRON PROCESS SIGNS\nGENTLE PROGRAM, WASH\nMAXIMUM TEMPERATURE 30°C\nDO NOT BLEACH\nDO NOT TURN TO DRY\nIRON MAXIMUM\nTEMPERATURE 150°C\nGENTLE DRY CLEAN",
+      "ai_field_evidence": {
+        "fit": {
+          "source": "printed_label",
+          "observation": "Collar label reads \"SLIM FIT\"."
+        },
+        "name": {
+          "source": "printed_label",
+          "observation": "GIOIELLO is printed; no specific model name is visible, so the formal-shirt category is used."
+        },
+        "size": {
+          "source": "printed_label",
+          "observation": "Hangtag reads \"SIZE: XXL\"."
+        },
+        "brand": {
+          "source": "printed_label",
+          "observation": "GIOIELLO is printed on the collar label, packaging band, and shirt front."
+        },
+        "color": {
+          "source": "visual_observation",
+          "observation": "The folded shirt is visibly white."
+        },
+        "style": {
+          "source": "printed_label",
+          "observation": "Hangtag reads \"NO: 738-352\"."
+        },
+        "pattern": {
+          "source": "visual_observation",
+          "observation": "No printed or woven multicolor arrangement is visible; the shirt appears solid."
+        },
+        "material": {
+          "source": "visual_inference",
+          "observation": "The visible textured woven shirting fabric suggests cotton or a cotton blend; no composition label is shown."
+        }
+      },
+      "stock_quantity": 1,
+      "stock_distribution_source": "human_confirmed",
+      "variant_lines": [
+        {
+          "variant_attributes": {
+            "size": "2XL"
+          },
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "62",
+      "photo_number": 62,
+      "name": "HUGO & VICTOR Formal Shirt",
+      "brand": "Hugo & Victor",
+      "category_id": "formal-shirts",
+      "pos_category_id": "pos-shirts",
+      "attributes": {
+        "fit": "Slim",
+        "color": "White",
+        "sleeve": "Long",
+        "pattern": "Solid",
+        "material": "Cotton"
+      },
+      "ai_visible_text": "HV\nHUGO & VICTOR\nPARIS\nslim fit\nsize: small - 3xl\nHUGO & VICTOR\nHV\nHUGO & VICTOR\nHV\nHUGO & VICTOR\nPARIS\nslim fit",
+      "ai_field_evidence": {
+        "fit": {
+          "source": "printed_label",
+          "observation": "Neck label and hangtag state slim fit."
+        },
+        "name": {
+          "source": "printed_label",
+          "observation": "HUGO & VICTOR is printed; garment is a formal shirt."
+        },
+        "brand": {
+          "source": "printed_label",
+          "observation": "Neck label and packaging band read HUGO & VICTOR."
+        },
+        "color": {
+          "source": "visual_observation",
+          "observation": "The folded shirt is visibly white."
+        },
+        "sleeve": {
+          "source": "visual_observation",
+          "observation": "A folded cuff and sleeve are visible."
+        },
+        "pattern": {
+          "source": "visual_observation",
+          "observation": "Visible shirt fabric has no printed or woven pattern."
+        },
+        "material": {
+          "source": "visual_inference",
+          "observation": "Fine woven shirt fabric is visible, but no composition label is shown."
+        }
+      },
+      "stock_quantity": 6,
+      "stock_distribution_source": "human_confirmed",
+      "variant_lines": [
+        {
+          "variant_attributes": {
+            "size": "S"
+          },
+          "quantity": 1
+        },
+        {
+          "variant_attributes": {
+            "size": "M"
+          },
+          "quantity": 1
+        },
+        {
+          "variant_attributes": {
+            "size": "L"
+          },
+          "quantity": 1
+        },
+        {
+          "variant_attributes": {
+            "size": "XL"
+          },
+          "quantity": 1
+        },
+        {
+          "variant_attributes": {
+            "size": "2XL"
+          },
+          "quantity": 1
+        },
+        {
+          "variant_attributes": {
+            "size": "3XL"
+          },
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "63",
+      "photo_number": 63,
+      "name": "HUGO & VICTOR Formal Shirt",
+      "brand": "Hugo & Victor",
+      "category_id": "formal-shirts",
+      "pos_category_id": "pos-shirts",
+      "attributes": {
+        "fit": "Slim",
+        "color": "Blue",
+        "sleeve": "Long",
+        "pattern": "Solid",
+        "material": "Polyester-cotton blend"
+      },
+      "ai_visible_text": "HV\nHUGO & VICTOR\nPARIS\nslim fit\nsize: small - 3xl\nHUGO & VICTOR\nHV\nHUGO & VICTOR\nHV\nHUGO & VICTOR\nPARIS\nslim fit",
+      "ai_field_evidence": {
+        "fit": {
+          "source": "printed_label",
+          "observation": "Neck label and hangtag state “slim fit”."
+        },
+        "name": {
+          "source": "printed_label",
+          "observation": "Brand is printed; garment is a formal shirt."
+        },
+        "brand": {
+          "source": "printed_label",
+          "observation": "Neck label, band, and hangtag read “HUGO & VICTOR”."
+        },
+        "color": {
+          "source": "visual_observation",
+          "observation": "The garment is visibly blue."
+        },
+        "sleeve": {
+          "source": "visual_observation",
+          "observation": "Folded shirt shows a buttoned cuff consistent with long sleeves."
+        },
+        "pattern": {
+          "source": "visual_observation",
+          "observation": "Visible fabric has no printed pattern."
+        },
+        "material": {
+          "source": "visual_inference",
+          "observation": "Fine, tightly woven textured shirt fabric is visible; no composition label is shown."
+        }
+      },
+      "stock_quantity": 6,
+      "stock_distribution_source": "human_confirmed",
+      "variant_lines": [
+        {
+          "variant_attributes": {
+            "size": "S"
+          },
+          "quantity": 1
+        },
+        {
+          "variant_attributes": {
+            "size": "M"
+          },
+          "quantity": 1
+        },
+        {
+          "variant_attributes": {
+            "size": "L"
+          },
+          "quantity": 1
+        },
+        {
+          "variant_attributes": {
+            "size": "XL"
+          },
+          "quantity": 1
+        },
+        {
+          "variant_attributes": {
+            "size": "2XL"
+          },
+          "quantity": 1
+        },
+        {
+          "variant_attributes": {
+            "size": "3XL"
+          },
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "64",
+      "photo_number": 64,
+      "name": "HUGO & VICTOR Formal shirt",
+      "brand": "Hugo & Victor",
+      "category_id": "formal-shirts",
+      "pos_category_id": "pos-shirts",
+      "attributes": {
+        "fit": "Slim",
+        "color": "Blue and white",
+        "sleeve": "Long",
+        "pattern": "Vertical stripe",
+        "material": "Cotton"
+      },
+      "ai_visible_text": "H\nHUGO & VICTOR\nPARIS\nslim fit\nsize: small - 3xl",
+      "ai_field_evidence": {
+        "fit": {
+          "source": "printed_label",
+          "observation": "Collar label and hang tag state “slim fit”."
+        },
+        "name": {
+          "source": "printed_label",
+          "observation": "Printed HUGO & VICTOR branding on a formal shirt."
+        },
+        "brand": {
+          "source": "printed_label",
+          "observation": "Collar label and hang tag read “HUGO & VICTOR”."
+        },
+        "color": {
+          "source": "visual_observation",
+          "observation": "The shirt fabric is visibly blue with narrow white stripes."
+        },
+        "sleeve": {
+          "source": "visual_observation",
+          "observation": "A buttoned cuff is visible, supporting a long-sleeve shirt."
+        },
+        "pattern": {
+          "source": "visual_observation",
+          "observation": "Clearly visible narrow vertical blue-and-white stripes."
+        },
+        "material": {
+          "source": "visual_inference",
+          "observation": "Smooth lightweight woven shirting fabric; no composition label is visible."
+        }
+      },
+      "stock_quantity": 6,
+      "stock_distribution_source": "human_confirmed",
+      "variant_lines": [
+        {
+          "variant_attributes": {
+            "size": "S"
+          },
+          "quantity": 1
+        },
+        {
+          "variant_attributes": {
+            "size": "M"
+          },
+          "quantity": 1
+        },
+        {
+          "variant_attributes": {
+            "size": "L"
+          },
+          "quantity": 1
+        },
+        {
+          "variant_attributes": {
+            "size": "XL"
+          },
+          "quantity": 1
+        },
+        {
+          "variant_attributes": {
+            "size": "2XL"
+          },
+          "quantity": 1
+        },
+        {
+          "variant_attributes": {
+            "size": "3XL"
+          },
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "65",
+      "photo_number": 65,
+      "name": "HUGO & VICTOR Formal shirt",
+      "brand": "Hugo & Victor",
+      "category_id": "formal-shirts",
+      "pos_category_id": "pos-shirts",
+      "attributes": {
+        "fit": "Slim",
+        "color": "Blue",
+        "sleeve": "Long",
+        "pattern": "Micro geometric",
+        "material": "Cotton"
+      },
+      "ai_visible_text": "HV\nHUGO & VICTOR\nPARIS\nsize: small - 3xl\nHUGO & VICTOR\nHV\nHUGO & VICTOR\nHV\nHUGO & VICTOR CLOTHING\nEST. 1928\nPARIS\nHUGO & VICTOR\nPARIS\nslim fit",
+      "ai_field_evidence": {
+        "fit": {
+          "source": "printed_label",
+          "observation": "Hang tag reads “slim fit.”"
+        },
+        "name": {
+          "source": "visible_text",
+          "observation": "No specific model name is printed; garment is a formal shirt."
+        },
+        "brand": {
+          "source": "printed_label",
+          "observation": "Collar label and hang tag read “HUGO & VICTOR.”"
+        },
+        "color": {
+          "source": "visual_observation",
+          "observation": "The shirt fabric is visibly blue."
+        },
+        "sleeve": {
+          "source": "visual_observation",
+          "observation": "A buttoned shirt cuff is visible, supporting long sleeves."
+        },
+        "pattern": {
+          "source": "visual_observation",
+          "observation": "Fine repeating micro-scale texture is visible across the fabric."
+        },
+        "material": {
+          "source": "visual_inference",
+          "observation": "Fine, tightly woven shirting fabric is visible; no composition label is shown."
+        }
+      },
+      "stock_quantity": 6,
+      "stock_distribution_source": "human_confirmed",
+      "variant_lines": [
+        {
+          "variant_attributes": {
+            "size": "S"
+          },
+          "quantity": 1
+        },
+        {
+          "variant_attributes": {
+            "size": "M"
+          },
+          "quantity": 1
+        },
+        {
+          "variant_attributes": {
+            "size": "L"
+          },
+          "quantity": 1
+        },
+        {
+          "variant_attributes": {
+            "size": "XL"
+          },
+          "quantity": 1
+        },
+        {
+          "variant_attributes": {
+            "size": "2XL"
+          },
+          "quantity": 1
+        },
+        {
+          "variant_attributes": {
+            "size": "3XL"
+          },
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "66",
+      "photo_number": 66,
+      "name": "HUGO & VICTOR Formal Shirt",
+      "brand": "Hugo & Victor",
+      "category_id": "formal-shirts",
+      "pos_category_id": "pos-shirts",
+      "attributes": {
+        "fit": "Slim",
+        "color": "Blue and white",
+        "sleeve": "Long",
+        "pattern": "Vertical stripe",
+        "material": "Cotton"
+      },
+      "ai_visible_text": "HUGO & VICTOR\nPARIS\nslim fit\nsizes: small - 3xl",
+      "ai_field_evidence": {
+        "fit": {
+          "source": "printed_label",
+          "observation": "Collar label reads “slim fit”."
+        },
+        "name": {
+          "source": "printed_label",
+          "observation": "Printed brand; garment is a formal shirt."
+        },
+        "brand": {
+          "source": "printed_label",
+          "observation": "Collar label and packaging band print “HUGO & VICTOR”."
+        },
+        "color": {
+          "source": "visual_observation",
+          "observation": "Garment is predominantly blue with white stripes."
+        },
+        "sleeve": {
+          "source": "visual_observation",
+          "observation": "Visible folded cuff indicates a long-sleeve shirt."
+        },
+        "pattern": {
+          "source": "visual_observation",
+          "observation": "Clearly visible narrow vertical stripes."
+        },
+        "material": {
+          "source": "visual_inference",
+          "observation": "Smooth, lightweight woven shirting fabric is visible; no composition label."
+        }
+      },
+      "stock_quantity": 6,
+      "stock_distribution_source": "human_confirmed",
+      "variant_lines": [
+        {
+          "variant_attributes": {
+            "size": "S"
+          },
+          "quantity": 1
+        },
+        {
+          "variant_attributes": {
+            "size": "M"
+          },
+          "quantity": 1
+        },
+        {
+          "variant_attributes": {
+            "size": "L"
+          },
+          "quantity": 1
+        },
+        {
+          "variant_attributes": {
+            "size": "XL"
+          },
+          "quantity": 1
+        },
+        {
+          "variant_attributes": {
+            "size": "2XL"
+          },
+          "quantity": 1
+        },
+        {
+          "variant_attributes": {
+            "size": "3XL"
+          },
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "67",
+      "photo_number": 67,
+      "name": "HUGO & VICTOR Formal Shirt",
+      "brand": "Hugo & Victor",
+      "category_id": "formal-shirts",
+      "pos_category_id": "pos-shirts",
+      "attributes": {
+        "fit": "Slim",
+        "color": "Blue and white",
+        "sleeve": "Long",
+        "pattern": "Vertical stripe",
+        "material": "Cotton"
+      },
+      "ai_visible_text": "HV\nHUGO & VICTOR\nPARIS\nslim fit\nsizes: small-3xl\nCTOR\nHUGO & VICTOR\nHUGO & VI\nHUGO & VICTOR\nPARIS\nslim fit",
+      "ai_field_evidence": {
+        "color": {
+          "source": "visual_observation",
+          "observation": "The shirt has blue vertical stripes on a white ground."
+        },
+        "pattern": {
+          "source": "visual_observation",
+          "observation": "Repeated narrow vertical stripes are visible across the shirt."
+        },
+        "material": {
+          "source": "visual_inference",
+          "observation": "Fine lightweight woven shirting fabric is visible; no composition label is shown."
+        }
+      },
+      "stock_quantity": 6,
+      "stock_distribution_source": "human_confirmed",
+      "variant_lines": [
+        {
+          "variant_attributes": {
+            "size": "S"
+          },
+          "quantity": 1
+        },
+        {
+          "variant_attributes": {
+            "size": "M"
+          },
+          "quantity": 1
+        },
+        {
+          "variant_attributes": {
+            "size": "L"
+          },
+          "quantity": 1
+        },
+        {
+          "variant_attributes": {
+            "size": "XL"
+          },
+          "quantity": 1
+        },
+        {
+          "variant_attributes": {
+            "size": "2XL"
+          },
+          "quantity": 1
+        },
+        {
+          "variant_attributes": {
+            "size": "3XL"
+          },
+          "quantity": 1
+        }
+      ]
+    }
+  ],
+  "expected": [
+    {
+      "model": "26201A-6",
+      "brand": "Mack Weldon",
+      "color": "Light beige",
+      "members": [
+        "08",
+        "09",
+        "10",
+        "11",
+        "12",
+        "13"
+      ],
+      "sizes": {
+        "L": 1,
+        "XL": 1,
+        "M": 1,
+        "3XL": 1,
+        "2XL": 1,
+        "4XL": 1
+      }
+    },
+    {
+      "model": "26201B-26",
+      "brand": "Mack Weldon",
+      "color": "Light blue",
+      "members": [
+        "14",
+        "34"
+      ],
+      "sizes": {
+        "M": 1,
+        "4XL": 1
+      }
+    },
+    {
+      "model": "26201A-11",
+      "brand": "Mack Weldon",
+      "color": "Navy blue and white",
+      "members": [
+        "18",
+        "30",
+        "31",
+        "32"
+      ],
+      "sizes": {
+        "2XL": 1,
+        "M": 1,
+        "L": 1,
+        "XL": 1
+      }
+    },
+    {
+      "model": "26201B-25",
+      "brand": "Mack Weldon",
+      "color": "White",
+      "members": [
+        "23",
+        "24",
+        "25",
+        "37"
+      ],
+      "sizes": {
+        "M": 1,
+        "L": 1,
+        "XL": 2
+      }
+    },
+    {
+      "model": "26201A-7",
+      "brand": "Mack Weldon",
+      "color": "Black",
+      "members": [
+        "27",
+        "28"
+      ],
+      "sizes": {
+        "2XL": 1,
+        "XL": 1
+      }
+    },
+    {
+      "model": "26201A-13",
+      "brand": "Mack Weldon",
+      "color": "Light blue",
+      "members": [
+        "29",
+        "36"
+      ],
+      "sizes": {
+        "M": 1,
+        "XL": 1
+      }
+    },
+    {
+      "model": "26201A-1",
+      "brand": "Mack Weldon",
+      "color": "White",
+      "members": [
+        "38",
+        "39"
+      ],
+      "sizes": {
+        "S": 1,
+        "M": 1
+      }
+    },
+    {
+      "model": "0663-11",
+      "brand": "Tommy Dolby",
+      "color": "Light blue",
+      "members": [
+        "41",
+        "42",
+        "43",
+        "44",
+        "45"
+      ],
+      "sizes": {
+        "S": 1,
+        "M": 1,
+        "XL": 1,
+        "L": 1,
+        "2XL": 1
+      }
+    },
+    {
+      "model": "3651-1",
+      "brand": "Gauche UOMO",
+      "color": "Light grey",
+      "members": [
+        "48",
+        "49",
+        "57"
+      ],
+      "sizes": {
+        "2XL": 1,
+        "3XL": 1,
+        "XL": 1
+      }
+    },
+    {
+      "model": "5017-4",
+      "brand": "Gauche UOMO",
+      "color": "Blue",
+      "members": [
+        "50",
+        "51",
+        "52",
+        "53",
+        "54"
+      ],
+      "sizes": {
+        "2XL": 1,
+        "L": 1,
+        "XL": 1,
+        "M": 1,
+        "S": 1
+      }
+    },
+    {
+      "model": "D9663-2A",
+      "brand": "Gauche UOMO",
+      "color": "Light grey",
+      "members": [
+        "55",
+        "56",
+        "58"
+      ],
+      "sizes": {
+        "XL": 2,
+        "L": 1
+      }
+    },
+    {
+      "model": "738-352",
+      "brand": "Gioiello",
+      "color": "White",
+      "members": [
+        "59",
+        "60",
+        "61"
+      ],
+      "sizes": {
+        "XL": 1,
+        "L": 1,
+        "2XL": 1
+      }
+    }
+  ],
+  "expected_units": 126,
+  "expected_separate": 26
+}

@@ -20,6 +20,8 @@ async function prepareDatabase() {
   await pool.query(
     await fs.readFile(path.join(__dirname, '../migrations/001_receiving_batches.sql'), 'utf8'),
   );
+  await pool.query(await fs.readFile(path.join(__dirname, '../migrations/002_match_suggestions.sql'), 'utf8'));
+  await pool.query(await fs.readFile(path.join(__dirname, '../migrations/003_ai_batches.sql'), 'utf8'));
   const seeded = await pool.query('SELECT 1 FROM users WHERE username=$1', ['testadmin']);
   if (!seeded.rowCount || process.argv.includes('--reset')) {
     // This reset targets only the explicitly named local integration database.

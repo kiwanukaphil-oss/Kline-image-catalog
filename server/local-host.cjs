@@ -13,7 +13,8 @@ function createLocalHost(dependencies = loadPosDependencies()) {
     throw new Error('The local host only supports the dedicated local K-Line test database.');
   const { posRequire, source } = dependencies;
   // Exercise the actual packaged POS mount, including its security middleware.
-  if (process.env.CATALOG_WORKSPACE_ENABLED === 'true') return source('server');
+  // The packaged-mount path is retained for explicit release parity tests. Default previews exercise current source.
+  if (process.env.KLINE_TEST_PACKAGED_WORKSPACE === 'true') return source('server');
   // Removal candidate after release parity review: the original isolated adapter host.
   const express = posRequire('express');
   const app = express();

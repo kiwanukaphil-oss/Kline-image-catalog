@@ -11,6 +11,8 @@ process.env.CATALOG_AI_ENABLED = 'true';
 process.env.OPENAI_API_KEY = 'local-provider-fixture-not-a-real-key';
 process.env.OPENAI_MAX_ATTEMPTS = '1';
 installLocalImageStore(dependencies);
+process.env.CATALOG_AI_RATE_PER_HOUR = '10000';
+process.env.CATALOG_AI_RATE_PER_DAY = '10000';
 const originalFetch = global.fetch;
 let providerCalls = 0,
   failNext = false;
@@ -59,6 +61,8 @@ global.fetch = async (url, options) => {
 const server = createLocalHost(dependencies).listen(0, '127.0.0.1');
 await new Promise((resolve) => server.on('listening', resolve));
 const base = `http://127.0.0.1:${server.address().port}/api`;
+const { startAiBatchWorker } = await import('../../server/ai-batches.cjs');
+const worker = startAiBatchWorker(dependencies);
 const branch = '00000000-0000-4000-b111-000000000001';
 const category = '00000000-0000-4000-0300-000000000001';
 let token = '';
@@ -77,8 +81,8 @@ async function call(route, body, method = body ? 'POST' : 'GET') {
   assert(response.ok, JSON.stringify(data));
   return data;
 }
-const browser = await chromium.launch({ channel: 'chrome', headless: true });
-const page = await browser.newPage({ viewport: { width: 1366, height: 1000 } });
+let browser = await chromium.launch({ channel: 'chrome', headless: true });
+let page = await browser.newPage({ viewport: { width: 1366, height: 1000 } });
 const checks = [],
   errors = [];
 page.on('pageerror', (error) => errors.push(error.message));
@@ -129,28 +133,71 @@ try {
   for (const index of [1, 2])
     await page.getByRole('checkbox', { name: `Select AI review lot ${index}`, exact: true }).check();
   await page.getByRole('button', { name: 'AI fill', exact: true }).click();
+  let loseAcceptance = true;
+  await page.route('**/catalog-workspace/ai-batches', async (route) => {
+    if (route.request().method() !== 'POST' || !loseAcceptance)
+      return route.continue({ url: route.request().url().replace('http://127.0.0.1:5109/api', base) });
+    loseAcceptance = false;
+    const accepted = await route.fetch({
+      url: route.request().url().replace('http://127.0.0.1:5109/api', base),
+    });
+    assert.equal(accepted.status(), 200);
+    await route.abort('connectionreset');
+  });
   failNext = true;
-  await page.getByRole('button', { name: 'Fill 2 photos', exact: true }).click();
-  await page.getByRole('button', { name: 'Check saved progress', exact: true }).waitFor();
-  assert.equal(providerCalls, 1);
-  await page.getByRole('button', { name: 'Check saved progress', exact: true }).click();
-  await page.getByRole('button', { name: 'Fill 2 photos', exact: true }).click();
-  await page.getByRole('button', { name: 'Stop after this photo', exact: true }).click();
-  await page.getByRole('button', { name: 'Fill 1 photo', exact: true }).waitFor();
-  assert.equal(providerCalls, 2);
-  await page.getByRole('button', { name: 'Fill 1 photo', exact: true }).click();
+  await page.getByRole('button', { name: 'Fill 2 photos in background', exact: true }).click();
+  await page.getByRole('button', { name: 'Check batch acceptance', exact: true }).click();
+  pass('Lost batch acknowledgement recovers through the same submission key');
   await page
-    .getByText(/details filled · Review/)
+    .getByText(/Needs attention/)
     .first()
     .waitFor();
-  await page.getByRole('button', { name: 'Done', exact: true }).waitFor({ state: 'visible' });
-  await page.waitForFunction(() =>
-    [...document.querySelectorAll('.ai-fill-row')].every((row) => row.textContent.includes('details filled')),
-  );
+  assert.equal(providerCalls, 1);
+  await page.getByRole('checkbox', { name: /I reviewed saved details and approve/ }).check();
+  await page.getByRole('button', { name: 'Retry unresolved and resume', exact: true }).click();
+  // Close the entire browser after acceptance; only the server worker can advance the remaining photos.
+  await browser.close();
+  const deadline = Date.now() + 30000;
+  let background;
+  while (Date.now() < deadline) {
+    const savedBatches = await call('/catalog-workspace/ai-batches');
+    // Removal candidate from the former polling loop: an unfinished-batch lookup is unnecessary;
+    // the per-item saved jobs below establish whether this exact selection completed.
+    const completed = await Promise.all(ids.map((id) => call('/catalog-workspace/items/' + id)));
+    if (completed.every((row) => row.item.ai_run?.status === 'succeeded')) {
+      background = savedBatches.batches.find((row) => row.total === 2 && row.status === 'done');
+      break;
+    }
+    await new Promise((resolve) => setTimeout(resolve, 300));
+  }
+  assert(background, 'Accepted photos must finish with the browser closed');
   assert.equal(providerCalls, 3);
-  pass(
-    'Selected photos fill sequentially; a provider failure pauses and only retries after checking saved progress',
+  pass('Provider failure pauses; approved retry completes both photos while the browser is closed');
+  browser = await chromium.launch({ channel: 'chrome', headless: true });
+  page = await browser.newPage({ viewport: { width: 1366, height: 1000 } });
+  page.on('pageerror', (error) => errors.push(error.message));
+  await page.route('http://127.0.0.1:5109/api/**', (route) =>
+    route.continue({ url: route.request().url().replace('http://127.0.0.1:5109/api', base) }),
   );
+  await page.goto(process.env.KLINE_PREVIEW_URL || 'http://127.0.0.1:5198');
+  await page.getByLabel('Username').fill('testadmin');
+  await page.getByLabel('Password', { exact: true }).fill('testpass123');
+  await page.getByRole('button', { name: 'Sign in', exact: true }).click();
+  await page.getByRole('heading', { name: 'Receiving', exact: true }).waitFor();
+  await page.getByText(/Background AI fill \(/).click();
+  await page
+    .locator('.receipt-outcome')
+    .filter({ hasText: '2/2 finished' })
+    .first()
+    .getByRole('button', { name: 'View progress' })
+    .click();
+  await page.getByText('Ready to review', { exact: true }).first().waitFor();
+  pass('A fresh browser session discovers saved batch progress without reselecting photos');
+  await page.setViewportSize({ width: 360, height: 800 });
+  assert(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth));
+  await page.screenshot({ path: 'verification/ai-batch-mobile.png' });
+  await page.setViewportSize({ width: 1366, height: 1000 });
+  pass('Background progress remains usable at a 360-pixel phone viewport');
   const filled = await call(`/catalog-workspace/items/${ids[0]}`);
   assert.equal(filled.item.name, 'AI review lot 1');
   assert.equal(filled.item.brand, 'Staff brand');
@@ -159,13 +206,6 @@ try {
   assert.equal(filled.item.stock_distribution_source, 'ai_suggested');
   assert.equal(filled.item.ai_run.status, 'succeeded');
   pass('AI preserves existing staff details and records suggested quantities separately from confirmation');
-  await page.getByRole('button', { name: 'Done', exact: true }).click();
-  for (const index of [1, 2])
-    await page.getByRole('checkbox', { name: `Select AI review lot ${index}`, exact: true }).check();
-  await page.getByRole('button', { name: 'AI fill', exact: true }).click();
-  await page.getByText('Ready to review', { exact: true }).first().waitFor();
-  assert.equal(await page.getByRole('button', { name: /^Fill \d/ }).count(), 0);
-  assert.equal(providerCalls, 3);
   await page.getByRole('button', { name: 'Review details', exact: true }).first().click();
   await page.getByLabel('Material', { exact: true }).waitFor();
   await page.getByText('Check suggestion', { exact: true }).click();
@@ -240,6 +280,7 @@ try {
   throw error;
 } finally {
   await browser.close();
+  await worker.stop();
   await new Promise((resolve) => server.close(resolve));
   await dependencies.source('config/database').pool.end();
   global.fetch = originalFetch;

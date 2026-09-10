@@ -1,6 +1,6 @@
 {
   "name": "@kline/pos-workspace",
-  "version": "0.21.0",
+  "version": "0.23.0",
   "private": true,
   "description": "Branch-scoped receiving and stock extension for the existing K-Line POS",
   "main": "index.cjs",
@@ -9,6 +9,12 @@
     "pos-dependencies.cjs",
     "workspace-router.cjs",
     "product-matching.cjs",
+    "match-candidates.cjs",
+    "match-suggestions.cjs",
+    "ai-batches.cjs",
+    "host-integration",
+    "migrations/003_ai_batches.sql",
+    "migrations/002_match_suggestions.sql",
     "workspace-service.cjs",
     "workspace-repository.cjs",
     "README.md"

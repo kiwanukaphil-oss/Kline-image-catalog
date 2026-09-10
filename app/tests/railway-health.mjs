@@ -2,7 +2,7 @@ import fs from 'node:fs/promises';
 
 const production = process.argv.includes('--production');
 const catalogOrigin = production
-  ? 'https://catalog-production-ed0b.up.railway.app'
+  ? 'https://klinemen-catalog.com'
   : 'https://catalog-web-production-2d56.up.railway.app';
 const posOrigin = production
   ? 'https://inventory-pos.pages.dev'
@@ -52,6 +52,13 @@ async function hasHtmlDocument(response) {
   );
 }
 
+/** During a domain cutover, a cached old app must not pass as the replacement. */
+async function hasCatalogWorkspace(response) {
+  return response.status === 200 &&
+    response.headers.get('content-type')?.includes('text/html') &&
+    (await response.text()).includes('K-Line | Stock workspace');
+}
+
 function allowsOrigin(origin) {
   return (response) =>
     response.status >= 200 &&
@@ -65,7 +72,7 @@ function preflightOptions(origin) {
 }
 
 const checks = await Promise.all([
-  checkEndpoint('Catalog HTML', catalogOrigin, hasHtmlDocument),
+  checkEndpoint('Catalog workspace HTML', catalogOrigin, hasCatalogWorkspace),
   checkEndpoint('POS HTML', posOrigin, hasHtmlDocument),
   checkEndpoint('API process', `${apiOrigin}/api/health`, hasHealthyJson),
   checkEndpoint('Database connectivity', `${apiOrigin}/api/db-health`, hasHealthyJson),
