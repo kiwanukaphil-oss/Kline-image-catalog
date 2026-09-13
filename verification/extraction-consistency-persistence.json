@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "model": "gpt-5.6-sol",
+  "checks": [
+    "Concurrent staff brand, colour and material edits win",
+    "New name rebuilt consistently under the item lock",
+    "Dual alpha/neck size saved as 2XL",
+    "Human-confirmed quantity of seven unchanged",
+    "Size tag rejected as stock-lot evidence",
+    "Durable usage records the requested model"
+  ]
+}

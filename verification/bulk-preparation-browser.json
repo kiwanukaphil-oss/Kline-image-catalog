@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "real_local_pos": true,
+  "checks": [
+    "Shared required details and flags saved for 52 lots across pages",
+    "Count confirmation preserves confirmed quantities and isolates ambiguous labels",
+    "Only the corrected exception is retried",
+    "Bulk pricing, costs and receiving create exactly 60 units across 52 lots without product editors"
+  ]
+}

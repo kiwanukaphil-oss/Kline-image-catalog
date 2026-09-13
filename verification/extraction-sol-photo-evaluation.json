@@ -1,0 +1,549 @@
+{
+  "checked_at": "2026-09-12T18:03:07.159Z",
+  "production_records_changed": false,
+  "requested_model": "gpt-5.6-sol",
+  "results": [
+    {
+      "design": "Navy",
+      "model": "gpt-5.6-sol",
+      "usage": {
+        "input_tokens": 7841,
+        "input_tokens_details": {
+          "cache_write_tokens": 7838,
+          "cached_tokens": 0
+        },
+        "output_tokens": 1217,
+        "output_tokens_details": {
+          "reasoning_tokens": 863
+        },
+        "total_tokens": 9058
+      },
+      "raw": {
+        "visible_text": "XXL\n18-18½\nTAILORED CULTURE\nOXFORD\nSlim Fit\nOXFORD\nOXFORD",
+        "values": {
+          "brand": "OXFORD",
+          "name": "OXFORD Long Sleeve Shirt - Navy",
+          "size": "2XL / 18-18½",
+          "color": "Navy",
+          "pattern": "Solid",
+          "sleeve": "Long",
+          "fit": "Slim",
+          "material": "Cotton"
+        },
+        "confidence": {
+          "brand": "High",
+          "name": "Medium",
+          "size": "High",
+          "color": "High",
+          "pattern": "High",
+          "sleeve": "Medium",
+          "fit": "High",
+          "material": "Low"
+        },
+        "evidence": {
+          "brand": {
+            "source": "printed_label",
+            "observation": "OXFORD is printed on the neck label and packaging band."
+          },
+          "name": {
+            "source": "visual_inference",
+            "observation": "Generic title based on the OXFORD branding, navy color, and visible collared shirt construction."
+          },
+          "size": {
+            "source": "printed_label",
+            "observation": "Size tag reads XXL and 18-18½; XXL is normalized to 2XL."
+          },
+          "color": {
+            "source": "visual_observation",
+            "observation": "The shirt is visibly navy blue."
+          },
+          "pattern": {
+            "source": "visual_observation",
+            "observation": "Fabric has a uniform color without a printed motif."
+          },
+          "sleeve": {
+            "source": "visual_observation",
+            "observation": "A folded sleeve with a cuff is visible."
+          },
+          "fit": {
+            "source": "printed_label",
+            "observation": "Neck label reads Slim Fit."
+          },
+          "material": {
+            "source": "visual_inference",
+            "observation": "Textured Oxford-style woven fabric has cotton-like visual characteristics; no composition label is visible."
+          }
+        },
+        "stock_distribution": {
+          "detected": false,
+          "evidence_text": null,
+          "entries": [],
+          "confidence": null
+        }
+      },
+      "normalized": {
+        "values": {
+          "brand": "Oxford",
+          "name": "Oxford Long Sleeve Shirt - Navy",
+          "size": "2XL / 18-18½",
+          "color": "Navy",
+          "pattern": "Solid",
+          "sleeve": "Long",
+          "fit": "Slim",
+          "material": "Cotton"
+        },
+        "confidence": {
+          "brand": "High",
+          "name": "Medium",
+          "size": "High",
+          "color": "High",
+          "pattern": "High",
+          "sleeve": "Medium",
+          "fit": "High",
+          "material": "Low"
+        },
+        "evidence": {
+          "brand": {
+            "source": "printed_label",
+            "observation": "OXFORD is printed on the neck label and packaging band."
+          },
+          "name": {
+            "source": "visual_observation",
+            "observation": "Standard design name composed from category, brand and supported sleeve/colour/pattern attributes; size and stock quantities excluded."
+          },
+          "size": {
+            "source": "printed_label",
+            "observation": "Size tag reads XXL and 18-18½; XXL is normalized to 2XL."
+          },
+          "color": {
+            "source": "visual_observation",
+            "observation": "The shirt is visibly navy blue."
+          },
+          "pattern": {
+            "source": "visual_observation",
+            "observation": "Fabric has a uniform color without a printed motif."
+          },
+          "sleeve": {
+            "source": "visual_observation",
+            "observation": "A folded sleeve with a cuff is visible."
+          },
+          "fit": {
+            "source": "printed_label",
+            "observation": "Neck label reads Slim Fit."
+          },
+          "material": {
+            "source": "visual_inference",
+            "observation": "Textured Oxford-style woven fabric has cotton-like visual characteristics; no composition label is visible."
+          }
+        },
+        "visibleText": "XXL\n18-18½\nTAILORED CULTURE\nOXFORD\nSlim Fit\nOXFORD\nOXFORD",
+        "stockDistribution": null
+      }
+    },
+    {
+      "design": "Floral",
+      "model": "gpt-5.6-sol",
+      "usage": {
+        "input_tokens": 7841,
+        "input_tokens_details": {
+          "cache_write_tokens": 7838,
+          "cached_tokens": 0
+        },
+        "output_tokens": 981,
+        "output_tokens_details": {
+          "reasoning_tokens": 611
+        },
+        "total_tokens": 8822
+      },
+      "raw": {
+        "visible_text": "M\n15-15½\nTAILORED\nCULTURE\nOXFORD\nSlim Fit\nOXFORD\nOXFORD\nSHIRT\nTAILORED\nCULTURE\nOXFORD\nTAILORED\nCULTURE",
+        "values": {
+          "brand": "OXFORD",
+          "name": "OXFORD Long Sleeve Shirt - Navy and Blue Floral Paisley",
+          "size": "M / 15-15½",
+          "color": "Navy and blue",
+          "pattern": "Floral Paisley",
+          "sleeve": "Long",
+          "fit": "Slim",
+          "material": null
+        },
+        "confidence": {
+          "brand": "High",
+          "name": "Medium",
+          "size": "High",
+          "color": "Medium",
+          "pattern": "High",
+          "sleeve": "Medium",
+          "fit": "High",
+          "material": null
+        },
+        "evidence": {
+          "brand": {
+            "source": "printed_label",
+            "observation": "OXFORD is printed repeatedly on the neck label, band and hangtag."
+          },
+          "name": {
+            "source": "visual_inference",
+            "observation": "Composed from the printed brand and visible long-sleeve floral paisley shirt attributes."
+          },
+          "size": {
+            "source": "printed_label",
+            "observation": "Neck tag reads “M” and “15-15½”."
+          },
+          "color": {
+            "source": "visual_observation",
+            "observation": "The shirt has a dark navy ground with blue woven motifs."
+          },
+          "pattern": {
+            "source": "visual_observation",
+            "observation": "Visible all-over floral and paisley motifs."
+          },
+          "sleeve": {
+            "source": "visual_observation",
+            "observation": "A buttoned shirt cuff is visible, supporting long sleeves."
+          },
+          "fit": {
+            "source": "printed_label",
+            "observation": "Neck label reads “Slim Fit”."
+          },
+          "material": {
+            "source": null,
+            "observation": null
+          }
+        },
+        "stock_distribution": {
+          "detected": false,
+          "evidence_text": null,
+          "entries": [],
+          "confidence": null
+        }
+      },
+      "normalized": {
+        "values": {
+          "brand": "Oxford",
+          "name": "Oxford Long Sleeve Shirt - Navy and Blue Floral Paisley",
+          "size": "M / 15-15½",
+          "color": "Navy and Blue",
+          "pattern": "Floral Paisley",
+          "sleeve": "Long",
+          "fit": "Slim"
+        },
+        "confidence": {
+          "brand": "High",
+          "name": "Medium",
+          "size": "High",
+          "color": "Medium",
+          "pattern": "High",
+          "sleeve": "Medium",
+          "fit": "High"
+        },
+        "evidence": {
+          "brand": {
+            "source": "printed_label",
+            "observation": "OXFORD is printed repeatedly on the neck label, band and hangtag."
+          },
+          "name": {
+            "source": "visual_observation",
+            "observation": "Standard design name composed from category, brand and supported sleeve/colour/pattern attributes; size and stock quantities excluded."
+          },
+          "size": {
+            "source": "printed_label",
+            "observation": "Neck tag reads “M” and “15-15½”."
+          },
+          "color": {
+            "source": "visual_observation",
+            "observation": "The shirt has a dark navy ground with blue woven motifs."
+          },
+          "pattern": {
+            "source": "visual_observation",
+            "observation": "Visible all-over floral and paisley motifs."
+          },
+          "sleeve": {
+            "source": "visual_observation",
+            "observation": "A buttoned shirt cuff is visible, supporting long sleeves."
+          },
+          "fit": {
+            "source": "printed_label",
+            "observation": "Neck label reads “Slim Fit”."
+          }
+        },
+        "visibleText": "M\n15-15½\nTAILORED\nCULTURE\nOXFORD\nSlim Fit\nOXFORD\nOXFORD\nSHIRT\nTAILORED\nCULTURE\nOXFORD\nTAILORED\nCULTURE",
+        "stockDistribution": null
+      }
+    },
+    {
+      "design": "White",
+      "model": "gpt-5.6-sol",
+      "usage": {
+        "input_tokens": 7841,
+        "input_tokens_details": {
+          "cache_write_tokens": 7838,
+          "cached_tokens": 0
+        },
+        "output_tokens": 1383,
+        "output_tokens_details": {
+          "reasoning_tokens": 1034
+        },
+        "total_tokens": 9224
+      },
+      "raw": {
+        "visible_text": "OXFORD\nOXFORD\nOXFORD\nTAILORED COUTURE\nOXFORD\nSlim Fit\n4XL\n20-20½",
+        "values": {
+          "brand": "OXFORD",
+          "name": "OXFORD Long Sleeve Shirt - White",
+          "size": "4XL / 20-20½",
+          "color": "White",
+          "pattern": "Solid",
+          "sleeve": "Long",
+          "fit": "Slim",
+          "material": "Cotton"
+        },
+        "confidence": {
+          "brand": "High",
+          "name": "High",
+          "size": "High",
+          "color": "High",
+          "pattern": "High",
+          "sleeve": "High",
+          "fit": "High",
+          "material": "Medium"
+        },
+        "evidence": {
+          "brand": {
+            "source": "printed_label",
+            "observation": "OXFORD is printed on the neck label and packaging band."
+          },
+          "name": {
+            "source": "visual_inference",
+            "observation": "Branded white collared shirt with a visible long-sleeve cuff."
+          },
+          "size": {
+            "source": "printed_label",
+            "observation": "Size tag reads 4XL and 20-20½."
+          },
+          "color": {
+            "source": "visual_observation",
+            "observation": "The shirt is visibly white."
+          },
+          "pattern": {
+            "source": "visual_observation",
+            "observation": "The fabric has no visible printed motif or contrasting pattern."
+          },
+          "sleeve": {
+            "source": "visual_observation",
+            "observation": "A buttoned barrel cuff confirms long-sleeve construction."
+          },
+          "fit": {
+            "source": "printed_label",
+            "observation": "Neck label reads Slim Fit."
+          },
+          "material": {
+            "source": "visual_inference",
+            "observation": "Matte, textured Oxford-style woven fabric supports cotton, but no composition label is visible."
+          }
+        },
+        "stock_distribution": {
+          "detected": false,
+          "evidence_text": null,
+          "entries": [],
+          "confidence": null
+        }
+      },
+      "normalized": {
+        "values": {
+          "brand": "Oxford",
+          "name": "Oxford Long Sleeve Shirt - White",
+          "size": "4XL / 20-20½",
+          "color": "White",
+          "pattern": "Solid",
+          "sleeve": "Long",
+          "fit": "Slim",
+          "material": "Cotton"
+        },
+        "confidence": {
+          "brand": "High",
+          "name": "High",
+          "size": "High",
+          "color": "High",
+          "pattern": "High",
+          "sleeve": "High",
+          "fit": "High",
+          "material": "Medium"
+        },
+        "evidence": {
+          "brand": {
+            "source": "printed_label",
+            "observation": "OXFORD is printed on the neck label and packaging band."
+          },
+          "name": {
+            "source": "visual_observation",
+            "observation": "Standard design name composed from category, brand and supported sleeve/colour/pattern attributes; size and stock quantities excluded."
+          },
+          "size": {
+            "source": "printed_label",
+            "observation": "Size tag reads 4XL and 20-20½."
+          },
+          "color": {
+            "source": "visual_observation",
+            "observation": "The shirt is visibly white."
+          },
+          "pattern": {
+            "source": "visual_observation",
+            "observation": "The fabric has no visible printed motif or contrasting pattern."
+          },
+          "sleeve": {
+            "source": "visual_observation",
+            "observation": "A buttoned barrel cuff confirms long-sleeve construction."
+          },
+          "fit": {
+            "source": "printed_label",
+            "observation": "Neck label reads Slim Fit."
+          },
+          "material": {
+            "source": "visual_inference",
+            "observation": "Matte, textured Oxford-style woven fabric supports cotton, but no composition label is visible."
+          }
+        },
+        "visibleText": "OXFORD\nOXFORD\nOXFORD\nTAILORED COUTURE\nOXFORD\nSlim Fit\n4XL\n20-20½",
+        "stockDistribution": null
+      }
+    },
+    {
+      "design": "Blue",
+      "model": "gpt-5.6-sol",
+      "usage": {
+        "input_tokens": 7841,
+        "input_tokens_details": {
+          "cache_write_tokens": 7838,
+          "cached_tokens": 0
+        },
+        "output_tokens": 828,
+        "output_tokens_details": {
+          "reasoning_tokens": 479
+        },
+        "total_tokens": 8669
+      },
+      "raw": {
+        "visible_text": "M\n15-15½\nTAILORED CULTURE\nOXFORD\nSlim Fit\nOXFORD\nOXFORD\nSHIRT",
+        "values": {
+          "brand": "OXFORD",
+          "name": "OXFORD Long Sleeve Shirt - Blue",
+          "size": "M 15-15½",
+          "color": "Blue",
+          "pattern": "Solid",
+          "sleeve": "Long",
+          "fit": "Slim",
+          "material": "Cotton"
+        },
+        "confidence": {
+          "brand": "High",
+          "name": "Medium",
+          "size": "High",
+          "color": "High",
+          "pattern": "High",
+          "sleeve": "Medium",
+          "fit": "High",
+          "material": "Low"
+        },
+        "evidence": {
+          "brand": {
+            "source": "printed_label",
+            "observation": "OXFORD is printed on the neck label and packaging band."
+          },
+          "name": {
+            "source": "visual_inference",
+            "observation": "Blue collared business shirt with OXFORD branding and a visible folded cuff consistent with long sleeves."
+          },
+          "size": {
+            "source": "printed_label",
+            "observation": "Size tag reads “M” and “15-15½”."
+          },
+          "color": {
+            "source": "visual_observation",
+            "observation": "The shirt is visibly blue throughout."
+          },
+          "pattern": {
+            "source": "visual_observation",
+            "observation": "Fabric has a uniform appearance without a printed pattern."
+          },
+          "sleeve": {
+            "source": "visual_observation",
+            "observation": "A folded sleeve cuff is visible on the packaged shirt."
+          },
+          "fit": {
+            "source": "printed_label",
+            "observation": "Neck label explicitly reads “Slim Fit”."
+          },
+          "material": {
+            "source": "visual_inference",
+            "observation": "Matte, finely woven Oxford-style shirting fabric visually resembles cotton."
+          }
+        },
+        "stock_distribution": {
+          "detected": false,
+          "evidence_text": null,
+          "entries": [],
+          "confidence": null
+        }
+      },
+      "normalized": {
+        "values": {
+          "brand": "Oxford",
+          "name": "Oxford Long Sleeve Shirt - Blue",
+          "size": "M 15-15½",
+          "color": "Blue",
+          "pattern": "Solid",
+          "sleeve": "Long",
+          "fit": "Slim",
+          "material": "Cotton"
+        },
+        "confidence": {
+          "brand": "High",
+          "name": "Medium",
+          "size": "High",
+          "color": "High",
+          "pattern": "High",
+          "sleeve": "Medium",
+          "fit": "High",
+          "material": "Low"
+        },
+        "evidence": {
+          "brand": {
+            "source": "printed_label",
+            "observation": "OXFORD is printed on the neck label and packaging band."
+          },
+          "name": {
+            "source": "visual_observation",
+            "observation": "Standard design name composed from category, brand and supported sleeve/colour/pattern attributes; size and stock quantities excluded."
+          },
+          "size": {
+            "source": "printed_label",
+            "observation": "Size tag reads “M” and “15-15½”."
+          },
+          "color": {
+            "source": "visual_observation",
+            "observation": "The shirt is visibly blue throughout."
+          },
+          "pattern": {
+            "source": "visual_observation",
+            "observation": "Fabric has a uniform appearance without a printed pattern."
+          },
+          "sleeve": {
+            "source": "visual_observation",
+            "observation": "A folded sleeve cuff is visible on the packaged shirt."
+          },
+          "fit": {
+            "source": "printed_label",
+            "observation": "Neck label explicitly reads “Slim Fit”."
+          },
+          "material": {
+            "source": "visual_inference",
+            "observation": "Matte, finely woven Oxford-style shirting fabric visually resembles cotton."
+          }
+        },
+        "visibleText": "M\n15-15½\nTAILORED CULTURE\nOXFORD\nSlim Fit\nOXFORD\nOXFORD\nSHIRT",
+        "stockDistribution": null
+      }
+    }
+  ]
+}

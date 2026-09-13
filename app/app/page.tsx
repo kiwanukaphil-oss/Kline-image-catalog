@@ -12,6 +12,7 @@ import { Stock } from '@/components/stock';
 import { WorkspaceSettings } from '@/components/workspace-settings';
 import { InstallApp } from '@/components/install-app';
 import { Modal } from '@/components/workspace-ui';
+import { BranchWorkspaceGate } from '@/components/branch-workspace-gate';
 type Destination = 'Receiving' | 'Pricing' | 'Stock';
 
 /** Restore the tab's POS session, then obtain authoritative capabilities. */
@@ -32,16 +33,23 @@ export default function Workspace() {
     else setNavigation({ action: event.detail.busy ? undefined : action, busy: event.detail.busy });
   }
   async function restoreSession() {
-    /* Reload POS identity before choosing an authorized remembered or default branch. */
+    /* Restore only an explicit choice belonging to this account; legacy defaults must pass the gate. */
 
     try {
-      let activeBranch = sessionStorage.getItem('kline.branch');
+      // The session endpoint requires branch context even when fetching only account capabilities.
+      // Use the POS default for this metadata read without selecting or opening that workspace.
+      const { user } = await requestPos<{ user: { default_branch_id: string } }>('/auth/me');
+      const { data } = await requestPos<{ data: Session }>('/catalog/session', user.default_branch_id);
+      const rememberedBranch = sessionStorage.getItem('kline.branch');
+      const activeBranch =
+        sessionStorage.getItem('kline.branch-owner') === data.id &&
+        data.branches.some((candidate) => candidate.id === rememberedBranch && candidate.can_switch_to)
+          ? rememberedBranch!
+          : '';
       if (!activeBranch) {
-        const { user } = await requestPos<{ user: { default_branch_id: string } }>('/auth/me');
-        activeBranch = user.default_branch_id;
-        sessionStorage.setItem('kline.branch', activeBranch);
+        sessionStorage.removeItem('kline.branch');
+        sessionStorage.removeItem('kline.branch-owner');
       }
-      const { data } = await requestPos<{ data: Session }>('/catalog/session', activeBranch);
       setSession(data);
       setBranch(activeBranch);
       setError('');
@@ -55,6 +63,7 @@ export default function Workspace() {
   function signOut() {
     sessionStorage.removeItem('kline.session');
     sessionStorage.removeItem('kline.branch');
+    sessionStorage.removeItem('kline.branch-owner');
     setSession(null);
     setBranch('');
     setPriceScope([]);
@@ -78,6 +87,23 @@ export default function Workspace() {
       </main>
     );
   if (!session) return <SignIn onSignIn={restoreSession} connectionError={error} />;
+  if (!branch)
+    return expired ? (
+      <SignIn onSignIn={restoreSession} connectionError={error} />
+    ) : (
+      <BranchWorkspaceGate
+        session={session}
+        onSignOut={signOut}
+        onEnter={(selectedSession, selectedBranch) => {
+          sessionStorage.setItem('kline.branch', selectedBranch);
+          sessionStorage.setItem('kline.branch-owner', selectedSession.id);
+          setSession(selectedSession);
+          setBranch(selectedBranch);
+          setDestination('Receiving');
+          setPriceScope([]);
+        }}
+      />
+    );
   return (
     <div className="workspace">
       <aside className="navigation">
@@ -156,6 +182,7 @@ export default function Workspace() {
                 navigateSafely(() => {
                   setBranch(nextBranch);
                   sessionStorage.setItem('kline.branch', nextBranch);
+                  sessionStorage.setItem('kline.branch-owner', session.id);
                   setPriceScope([]);
                 });
               }}
@@ -285,7 +312,10 @@ function SignIn({
       if (resume && result.user.id !== resume.id)
         throw new Error('Sign in with the account that owns this work.');
       sessionStorage.setItem('kline.session', result.token);
-      if (!resume) sessionStorage.setItem('kline.branch', result.user.default_branch_id);
+      if (!resume) {
+        sessionStorage.removeItem('kline.branch');
+        sessionStorage.removeItem('kline.branch-owner');
+      }
       await onSignIn();
     } catch (cause) {
       setError((cause as Error).message);

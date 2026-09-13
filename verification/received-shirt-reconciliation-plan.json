@@ -1,0 +1,47 @@
+{
+  "status": "applied and independently verified",
+  "branch": "NAMUGONGO",
+  "authorization": "Owner requested linking the seven received shirts to their existing products and explicitly confirmed retaining the blue group.",
+  "plan": [
+    {
+      "design": "Navy",
+      "size": "2XL",
+      "units": 1,
+      "action": "Reparent existing variant to older navy product"
+    },
+    {
+      "design": "Floral paisley",
+      "size": "M",
+      "units": 1,
+      "action": "Reparent existing variant to older floral product"
+    },
+    {
+      "design": "White",
+      "size": "4XL",
+      "units": 2,
+      "action": "Reparent existing variant to older white product"
+    },
+    {
+      "design": "Blue",
+      "sizes": [
+        "M",
+        "XL",
+        "3XL"
+      ],
+      "units": 3,
+      "action": "Retain current grouped product"
+    }
+  ],
+  "preserve": [
+    "Variant IDs",
+    "Barcodes and SKUs",
+    "Prices and costs",
+    "Branch quantities",
+    "Receipt IDs, dates and quantity history",
+    "Source images and target primary photos"
+  ],
+  "duplicates": "Mark three empty source products inactive and retain audit comments; delete nothing",
+  "material": "Carry Cotton into the three matching existing products",
+  "safety": "Full before snapshot, transactional rehearsal, exact state fingerprint before apply, atomic transaction, audit record, independent post-commit read",
+  "evidence": "verification/received-shirt-reconciliation-verified.json"
+}

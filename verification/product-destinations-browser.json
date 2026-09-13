@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "real_local_pos": true,
+  "checks": [
+    "Eight rows become two existing restock destinations, two explicit new products and one shared no-stock update",
+    "Saved stock continues to bulk count preparation without individual editors",
+    "Mobile dialog fits viewport; source quantities are not confirmed by assigning destinations"
+  ]
+}

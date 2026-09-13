@@ -9,6 +9,8 @@ try {
   await page.getByLabel('Username').fill('testadmin');
   await page.getByLabel('Password', { exact: true }).fill('testpass123');
   await page.getByRole('button', { name: 'Sign in', exact: true }).click();
+  await page.getByRole('radio', { name: 'Test Store', exact: true }).check();
+  await page.getByRole('button', { name: 'Enter workspace', exact: true }).click();
   await page.getByRole('tab', { name: 'All merchandise', exact: true }).click();
   await page.getByLabel('Find incoming merchandise').fill('Cancellation browser');
   await page.locator('.receiving-identity').first().click();

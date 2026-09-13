@@ -1,0 +1,223 @@
+{
+  "passed": true,
+  "verified_at": "2026-09-12T17:44:12.043Z",
+  "branch": "NAMUGONGO",
+  "reconciled_units": 4,
+  "blue_units_retained": 3,
+  "stock_and_movement_rows_unchanged": true,
+  "receipt_and_photo_links_consistent": true,
+  "duplicates_inactive": 3,
+  "audit_records": 1,
+  "products": [
+    {
+      "id": "0a3185e3-b689-4f59-91eb-ab586607cb1c",
+      "name": "OXFORD Short Sleeve Shirt - Blue",
+      "is_active": true,
+      "material": "Cotton",
+      "variant_id": "025bceb0-539d-4bda-995a-07c4097405b2",
+      "variant_attributes": {
+        "fit": "slim",
+        "size": "3XL",
+        "color": "blue",
+        "sleeve": "short"
+      },
+      "stock_quantity": 1
+    },
+    {
+      "id": "0a3185e3-b689-4f59-91eb-ab586607cb1c",
+      "name": "OXFORD Short Sleeve Shirt - Blue",
+      "is_active": true,
+      "material": "Cotton",
+      "variant_id": "3721e441-5ff1-4d67-8963-0c4a0d60f970",
+      "variant_attributes": {
+        "fit": "slim",
+        "size": "M",
+        "color": "blue",
+        "sleeve": "short"
+      },
+      "stock_quantity": 1
+    },
+    {
+      "id": "0a3185e3-b689-4f59-91eb-ab586607cb1c",
+      "name": "OXFORD Short Sleeve Shirt - Blue",
+      "is_active": true,
+      "material": "Cotton",
+      "variant_id": "5e26ae88-cc5d-4514-b494-7221fb94783a",
+      "variant_attributes": {
+        "fit": "slim",
+        "size": "XL",
+        "color": "blue",
+        "sleeve": "short"
+      },
+      "stock_quantity": 1
+    },
+    {
+      "id": "16cde31a-4d7d-4875-87a0-2aa02257cc76",
+      "name": "Oxford Short Sleeve Shirt - Navy Floral Paisley",
+      "is_active": true,
+      "material": "Cotton",
+      "variant_id": "58506d0d-24f8-453d-811f-337524432e15",
+      "variant_attributes": {
+        "fit": "slim",
+        "size": "3XL",
+        "color": "navy and blue",
+        "sleeve": "short"
+      },
+      "stock_quantity": 1
+    },
+    {
+      "id": "16cde31a-4d7d-4875-87a0-2aa02257cc76",
+      "name": "Oxford Short Sleeve Shirt - Navy Floral Paisley",
+      "is_active": true,
+      "material": "Cotton",
+      "variant_id": "9aa9f48a-24b1-44a8-abaf-761c61211a01",
+      "variant_attributes": {
+        "fit": "slim",
+        "size": "XL",
+        "color": "navy and blue",
+        "sleeve": "short"
+      },
+      "stock_quantity": 1
+    },
+    {
+      "id": "16cde31a-4d7d-4875-87a0-2aa02257cc76",
+      "name": "Oxford Short Sleeve Shirt - Navy Floral Paisley",
+      "is_active": true,
+      "material": "Cotton",
+      "variant_id": "a924541d-472d-44c7-88b9-32d2ff7f375c",
+      "variant_attributes": {
+        "fit": "slim",
+        "size": "M",
+        "color": "navy and blue",
+        "sleeve": "short"
+      },
+      "stock_quantity": 1
+    },
+    {
+      "id": "16cde31a-4d7d-4875-87a0-2aa02257cc76",
+      "name": "Oxford Short Sleeve Shirt - Navy Floral Paisley",
+      "is_active": true,
+      "material": "Cotton",
+      "variant_id": "a97ed207-7b8d-4071-a640-7190de02efe1",
+      "variant_attributes": {
+        "fit": "slim",
+        "size": "2XL",
+        "color": "navy and blue",
+        "sleeve": "short"
+      },
+      "stock_quantity": 1
+    },
+    {
+      "id": "16cde31a-4d7d-4875-87a0-2aa02257cc76",
+      "name": "Oxford Short Sleeve Shirt - Navy Floral Paisley",
+      "is_active": true,
+      "material": "Cotton",
+      "variant_id": "ef02987d-1054-4e79-bfa0-11be6bdb72c0",
+      "variant_attributes": {
+        "fit": "slim",
+        "size": "L",
+        "color": "navy and blue",
+        "sleeve": "short"
+      },
+      "stock_quantity": 1
+    },
+    {
+      "id": "52e0c436-c24d-48b2-aa44-6bb03ebae3b2",
+      "name": "Oxford Short Sleeve Shirt - Navy",
+      "is_active": true,
+      "material": "Cotton",
+      "variant_id": "1fea7745-8342-4f12-9a32-b6301e356931",
+      "variant_attributes": {
+        "fit": "slim",
+        "size": "L",
+        "color": "navy",
+        "sleeve": "short"
+      },
+      "stock_quantity": 1
+    },
+    {
+      "id": "52e0c436-c24d-48b2-aa44-6bb03ebae3b2",
+      "name": "Oxford Short Sleeve Shirt - Navy",
+      "is_active": true,
+      "material": "Cotton",
+      "variant_id": "7893ef94-7d31-4a05-9ddc-4634e270e303",
+      "variant_attributes": {
+        "fit": "slim",
+        "size": "2XL",
+        "color": "navy",
+        "sleeve": "short"
+      },
+      "stock_quantity": 1
+    },
+    {
+      "id": "52e0c436-c24d-48b2-aa44-6bb03ebae3b2",
+      "name": "Oxford Short Sleeve Shirt - Navy",
+      "is_active": true,
+      "material": "Cotton",
+      "variant_id": "aae66285-dc92-4ce8-95fa-670458161028",
+      "variant_attributes": {
+        "fit": "slim",
+        "size": "XL",
+        "color": "navy",
+        "sleeve": "short"
+      },
+      "stock_quantity": 1
+    },
+    {
+      "id": "644fc1b0-d837-474a-bd3c-dad41bff0e20",
+      "name": "Oxford Short Sleeve Shirt - White",
+      "is_active": true,
+      "material": "Cotton",
+      "variant_id": "133bdf3e-c8d3-4561-921b-e7ff02c5e089",
+      "variant_attributes": {
+        "fit": "slim",
+        "size": "XL",
+        "color": "white",
+        "sleeve": "short"
+      },
+      "stock_quantity": 1
+    },
+    {
+      "id": "644fc1b0-d837-474a-bd3c-dad41bff0e20",
+      "name": "Oxford Short Sleeve Shirt - White",
+      "is_active": true,
+      "material": "Cotton",
+      "variant_id": "5f66dafa-a795-4e73-b0cd-df4f51427e2e",
+      "variant_attributes": {
+        "fit": "slim",
+        "size": "L",
+        "color": "white",
+        "sleeve": "short"
+      },
+      "stock_quantity": 1
+    },
+    {
+      "id": "644fc1b0-d837-474a-bd3c-dad41bff0e20",
+      "name": "Oxford Short Sleeve Shirt - White",
+      "is_active": true,
+      "material": "Cotton",
+      "variant_id": "69ebc3e7-09a7-46d8-a217-d9cdd05c9811",
+      "variant_attributes": {
+        "fit": "slim",
+        "size": "4XL",
+        "color": "white",
+        "sleeve": "short"
+      },
+      "stock_quantity": 2
+    },
+    {
+      "id": "644fc1b0-d837-474a-bd3c-dad41bff0e20",
+      "name": "Oxford Short Sleeve Shirt - White",
+      "is_active": true,
+      "material": "Cotton",
+      "variant_id": "e973e300-244c-4ccd-a720-2754e75edcfe",
+      "variant_attributes": {
+        "fit": "slim",
+        "size": "3XL",
+        "color": "white",
+        "sleeve": "short"
+      },
+      "stock_quantity": 1
+    }
+  ]
+}

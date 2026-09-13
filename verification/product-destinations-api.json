@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "checks": [
+    "Different existing targets and an explicit single-lot new destination save in one batch without stock",
+    "Lost-acknowledgement retries cannot create duplicate groups",
+    "Partial existing groups cannot be silently split",
+    "Concurrent POS changes invalidate the reviewed update",
+    "Name, description and gallery update archives source intake; no publication or duplicate photo on retry",
+    "Update permission and source branch isolation enforced",
+    "Every source quantity and stock movement count is unchanged"
+  ]
+}

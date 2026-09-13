@@ -33,6 +33,8 @@ import { describeReceivingProducts, summarizeReceivingProducts } from '@/lib/rec
 import { isUncertainReceiptError, RECEIPT_CONNECTION_MESSAGE } from '@/lib/receipt-connection';
 import { readPendingPhotos } from '@/lib/upload-queue';
 import { SuggestedMatches } from './suggested-matches';
+import { BulkPreparation } from './bulk-preparation';
+import { ProductDestinations } from './product-destinations';
 type Batch = {
   id: string;
   title: string;
@@ -67,7 +69,9 @@ type Receipt = {
 const lotCount = (count: number) => `${count} ${count === 1 ? 'lot' : 'lots'}`;
 const nextTask = (item: CatalogItem) =>
   /* Give each lot one next task while leaving the complete blocker list in its details. */ item.is_cancelled
-    ? 'Cancelled'
+    ? item.intake_archive_reason?.startsWith('Completed POS photo/details update')
+      ? 'POS updated · no stock'
+      : 'Cancelled'
     : item.is_published
       ? item.requires_pos_reconciliation
         ? 'Check POS link'
@@ -119,6 +123,8 @@ export function Receiving({
   const [receiptSearch, setReceiptSearch] = useState(''),
     [receiptPage, setReceiptPage] = useState(1);
   const [aiItems, setAiItems] = useState<CatalogItem[] | null>(null);
+  const [preparingItems, setPreparingItems] = useState<CatalogItem[] | null>(null);
+  const [destinationItems, setDestinationItems] = useState<CatalogItem[] | null>(null);
   const [pendingCount, setPendingCount] = useState(0);
   const initialViewChosen = useRef(false);
   const refs = usePosRead<{ data: References }>('/catalog/reference-data', branch);
@@ -506,7 +512,7 @@ export function Receiving({
                   <option value="flagged">Flagged photos</option>
                   <option value="reconcile">Check POS link</option>
                   <option value="received">Received</option>
-                  <option value="cancelled">Cancelled intake</option>
+                  <option value="cancelled">Archived / cancelled intake</option>
                 </WorkspaceSelect>
               </label>
             )}
@@ -658,7 +664,11 @@ export function Receiving({
               {tab === 'ready' && session.can_publish && (
                 <Button
                   disabled={!selectableItems.length}
-                  onClick={() => setReceiving(selectableItems.map((item) => item.id))}
+                  onClick={() =>
+                    session.can_open_pos_product
+                      ? setDestinationItems([...selectableItems])
+                      : setReceiving(selectableItems.map((item) => item.id))
+                  }
                 >
                   <ArrowDownToLine size={16} />
                   Receive all ready
@@ -793,6 +803,12 @@ export function Receiving({
                 Clear
               </Button>
               {session.can_edit && (
+                <Button onClick={() => setPreparingItems([...selectedItems])}>Prepare selected</Button>
+              )}
+              {session.can_publish && session.can_open_pos_product && (
+                <Button onClick={() => setDestinationItems([...selectedItems])}>Choose destinations</Button>
+              )}
+              {session.can_edit && (
                 <Button variant="outline" onClick={() => onPrice(selected)}>
                   <Tag size={16} />
                   Price
@@ -816,7 +832,13 @@ export function Receiving({
                 </Button>
               )}
               {session.can_publish && (
-                <Button onClick={() => setReceiving(selected)}>
+                <Button
+                  onClick={() =>
+                    session.can_open_pos_product
+                      ? setDestinationItems([...selectedItems])
+                      : setReceiving(selected)
+                  }
+                >
                   <ArrowDownToLine size={16} />
                   Receive selected into POS
                 </Button>
@@ -922,6 +944,40 @@ export function Receiving({
           }}
         />
       )}
+      {preparingItems && refs.data && (
+        <BulkPreparation
+          items={preparingItems}
+          branch={branch}
+          session={session}
+          references={refs.data.data}
+          onClose={() => setPreparingItems(null)}
+          onSaved={refreshReceiving}
+          onPrice={(ids) => {
+            setPreparingItems(null);
+            onPrice(ids);
+          }}
+          onReceive={(ids) => {
+            setDestinationItems(preparingItems.filter((item) => ids.includes(item.id)));
+            setPreparingItems(null);
+          }}
+        />
+      )}
+      {destinationItems && (
+        <ProductDestinations
+          items={destinationItems}
+          branch={branch}
+          onClose={() => setDestinationItems(null)}
+          onSaved={refreshReceiving}
+          onReceive={(ids) => {
+            setDestinationItems(null);
+            setReceiving(ids);
+          }}
+          onPrepare={(ids) => {
+            setPreparingItems(destinationItems.filter((item) => ids.includes(item.id)));
+            setDestinationItems(null);
+          }}
+        />
+      )}
       {editing && refs.data && (
         <DraftEditor
           itemId={editing}
@@ -971,6 +1027,14 @@ export function Receiving({
           branchName={session.branches.find((b) => b.id === branch)?.name || ''}
           onClose={() => setReceiving(null)}
           onComplete={refreshReceiving}
+          onPrepareLots={
+            session.can_edit
+              ? (lots) => {
+                  setReceiving(null);
+                  setPreparingItems(lots);
+                }
+              : undefined
+          }
           onReviewLot={(id) => {
             refreshReceiving();
             setReceiving(null);
@@ -1044,6 +1108,7 @@ function ReceiveReview({
   onStock,
   onReceipts,
   onReviewLot,
+  onPrepareLots,
 }: {
   ids: string[];
   branch: string;
@@ -1053,6 +1118,7 @@ function ReceiveReview({
   onStock: () => void;
   onReceipts: () => void;
   onReviewLot: (id: string) => void;
+  onPrepareLots?: (items: CatalogItem[]) => void;
 }) {
   const [items, setItems] = useState<(CatalogItem & { publication_revision: string })[]>([]);
   const [error, setError] = useState('');
@@ -1309,6 +1375,15 @@ function ReceiveReview({
                 </strong>
                 <span>{units(exceptions)} units excluded</span>
               </summary>
+              {onPrepareLots && (
+                <Button
+                  variant="outline"
+                  disabled={busy}
+                  onClick={() => onPrepareLots(exceptions.filter((item) => !item.is_cancelled))}
+                >
+                  Prepare all exceptions together
+                </Button>
+              )}
               {exceptions.map((item) => (
                 <div className="receipt-outcome" key={item.id}>
                   <div>

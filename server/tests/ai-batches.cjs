@@ -9,8 +9,10 @@ async function verifyBackgroundAi() {
   require('./local-images.cjs').installLocalImageStore(dependencies);
   process.env.CATALOG_AI_ENABLED='true'; process.env.OPENAI_API_KEY='local-fixture-not-a-real-key'; process.env.OPENAI_MAX_ATTEMPTS='1';
   process.env.CATALOG_AI_RATE_PER_HOUR='10000'; process.env.CATALOG_AI_RATE_PER_DAY='10000';
-  let providerCalls=0, fail=false;
-  const restoreProvider=require('./ai-batch-provider.cjs').installBatchProvider({delay:60,onCall:()=>providerCalls++,shouldFail:()=>fail});
+  let providerCalls=0, fail=false, releaseFirstProvider, notifyFirstProvider;
+  const firstProviderStarted=new Promise(resolve=>{notifyFirstProvider=resolve;});
+  const firstProviderGate=new Promise(resolve=>{releaseFirstProvider=resolve;});
+  const restoreProvider=require('./ai-batch-provider.cjs').installBatchProvider({delay:60,onCall:()=>providerCalls++,shouldFail:()=>fail,beforeResponse:async()=>{if(providerCalls===1){notifyFirstProvider();await firstProviderGate;}}});
   const { pool }=dependencies.source('config/database');
   const service=require('../ai-batches.cjs').createAiBatchService(dependencies);
   const secondWorker=require('../ai-batches.cjs').createAiBatchService(dependencies);
@@ -47,7 +49,12 @@ async function verifyBackgroundAi() {
     await call(`/catalog-workspace/ai-batches/${batch.id}`,null,401,'');
     await call(`/catalog-workspace/ai-batches/${batch.id}`,null,400,token,randomUUID());
     assert.equal(providerCalls,0);pass('Idempotent acceptance, overlap and legacy endpoint protection; authenticated branch scope');
-    await Promise.all([service.runOne(),secondWorker.runOne()]);
+    // Hold the first provider call open to test simultaneous workers without depending on scheduler timing.
+    const firstWorker=service.runOne();
+    await firstProviderStarted;
+    await secondWorker.runOne();
+    releaseFirstProvider();
+    await firstWorker;
     assert.equal((await service.read(batch.id,branch)).items.filter(item=>item.state==='done').length,1);
     await call(`/catalog-workspace/ai-batches/${batch.id}/stop`,{});
     const beforeStop=providerCalls; await service.runOne();assert.equal(providerCalls,beforeStop);
@@ -123,6 +130,7 @@ async function verifyBackgroundAi() {
     pass('Publication after queue acceptance prevents later inference');
     fs.writeFileSync('verification/ai-batches-integration.json',JSON.stringify({checked_at:new Date().toISOString(),checks,provider_calls:providerCalls,paid_provider_calls:0,production_changed:false},null,2));
   } finally {
+    releaseFirstProvider();
     child?.kill();
     await pool.query('UPDATE users SET is_active=true WHERE id=$1',[actor]);
     await pool.query(`UPDATE catalog_workspace.ai_batch_items SET state='skipped',lease_until=NULL WHERE batch_id=ANY($1::uuid[]) AND state IN ('queued','running','attention')`,[batchIds]);

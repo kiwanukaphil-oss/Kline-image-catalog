@@ -1,0 +1,13 @@
+{
+  "reviewed_on": "2026-09-12",
+  "branch": "NAMUGONGO",
+  "status": "visual_candidates_only_no_merges_applied",
+  "pairs": [
+    {"design":"Navy OXFORD short sleeve","new_product_id":"37709e8c-a6e9-4e12-9252-aea572278218","existing_product_id":"52e0c436-c24d-48b2-aa44-6bb03ebae3b2","new_size":"2XL","existing_sizes":["L","XL"]},
+    {"design":"OXFORD navy floral/paisley short sleeve","new_product_id":"35044328-9043-4f0e-b692-28ac2e09f5d7","existing_product_id":"16cde31a-4d7d-4875-87a0-2aa02257cc76","new_size":"M","existing_sizes":["L","XL","2XL","3XL"]},
+    {"design":"White OXFORD short sleeve","new_product_id":"3d0e6f9e-ee11-4374-96f8-d05b6e853be3","existing_product_id":"644fc1b0-d837-474a-bd3c-dad41bff0e20","new_size":"4XL","existing_sizes":["L","XL","3XL"]}
+  ],
+  "basis":"Original source photos inspected for matching brand, slim-fit label, collar, button placement, colour and fabric/design. No reliable shared printed model codes.",
+  "production_changes":false,
+  "outstanding":"Review actual balances, sales/movement links, prices, barcodes and receipt history before a stock-aware reconciliation. Do not receive these lots again."
+}

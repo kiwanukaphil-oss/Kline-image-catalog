@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "database": "kline_catalog_workspace_test",
+  "checks": [
+    "A stale lot fails independently while valid details commit with fresh snapshots",
+    "Batch reads enforce authentication, distinct IDs and branch isolation",
+    "Batch photo assignment preserves old bytes, stock and attributes; same-photo retry is idempotent",
+    "Count validation isolates bad quantities and stale retry cannot change saved counts",
+    "Read-only staff cannot use batch saving or source-photo repair to bypass edit permission"
+  ]
+}

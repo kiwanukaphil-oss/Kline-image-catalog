@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "real_local_pos": true,
+  "frontend": "https://klinemen-catalog.com",
+  "checks": [
+    "Two explicitly assigned photos attached together",
+    "Group checked and returned to separate lots in batch",
+    "Category mapping saved and changed again with fresh revision",
+    "Source quantities preserved; no stock received",
+    "Mobile batch has no page overflow"
+  ]
+}

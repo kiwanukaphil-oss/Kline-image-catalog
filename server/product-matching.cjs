@@ -1,5 +1,6 @@
 const { randomUUID } = require("node:crypto");
 const { identityOf, fingerprint } = require("./match-candidates.cjs");
+const { canonicalCatalogSize } = require("./host-integration/catalogExtractionPolicy.cjs");
 const MATCH_BLOCKER = "Receive this lot through its matched product group.";
 const normalized = (value) =>
   String(value || "")
@@ -14,7 +15,7 @@ function variantIdentity(attributes) {
     const key = normalized(rawKey) === "colour" ? "color" : normalized(rawKey);
     let value = normalized(rawValue);
     if (!value) continue;
-    if (key === "size") value = { xxl: "2xl", xxxl: "3xl", xxxxl: "4xl" }[value] || value;
+    if (key === "size") value = canonicalCatalogSize(value).toLowerCase();
     if (key === "sleeve") {
       value = value.replace(/[- ]sleeves?d?$/, "");
       value =
@@ -237,7 +238,7 @@ function createProductMatchingService({ source }) {
       ).rows;
       return rows.map((plan) => ({ ...plan, revision: revision(plan, branchId, userId) }));
     },
-    async save({ branchId, userId, plan, expectedRevision, validateIdentity }) {
+    async save({ branchId, userId, plan, expectedRevision, validateIdentity, allowSingleNew = false }) {
       // Serialize plan membership changes so two staff members cannot assign a lot twice.
       return repository.withTransaction(async (client) => {
         await client.query(
@@ -275,7 +276,7 @@ function createProductMatchingService({ source }) {
             "Some lots already belong to a product match. Unmatch them first.",
           );
         const contexts = await readContexts(client, next, false);
-        if (!next.target_product_id && next.item_ids.length < 2)
+        if (!next.target_product_id && next.item_ids.length < 2 && !allowSingleNew)
           throw DomainError.validationFailed("A new product group needs at least two lots.");
         if (next.target_product_id) {
           const target = await repository.loadRestockTarget(client, next.target_product_id);

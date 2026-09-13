@@ -1,0 +1,76 @@
+{
+  "status": "applied",
+  "checked_at": "2026-09-12T17:43:52.738Z",
+  "before_hash": "9aceb593a8c47c9480755c5cd6d7f81037ed0276114ad38ae03fb2833094fa94",
+  "snapshot_path": ".test-data/shirt-reconciliation-before-1789235018042.json",
+  "branch": "NAMUGONGO",
+  "pairs": [
+    {
+      "design": "Navy OXFORD short sleeve",
+      "target_product_id": "52e0c436-c24d-48b2-aa44-6bb03ebae3b2",
+      "source_product_id": "37709e8c-a6e9-4e12-9252-aea572278218",
+      "variant_id": "7893ef94-7d31-4a05-9ddc-4634e270e303",
+      "size": "2XL",
+      "quantity": 1,
+      "photos": 1,
+      "original_attributes": {
+        "fit": "Slim",
+        "size": "2XL",
+        "color": "Navy",
+        "sleeve": "Short"
+      },
+      "attributes": {
+        "fit": "slim",
+        "size": "2XL",
+        "color": "navy",
+        "sleeve": "short"
+      }
+    },
+    {
+      "design": "OXFORD navy floral/paisley short sleeve",
+      "target_product_id": "16cde31a-4d7d-4875-87a0-2aa02257cc76",
+      "source_product_id": "35044328-9043-4f0e-b692-28ac2e09f5d7",
+      "variant_id": "a924541d-472d-44c7-88b9-32d2ff7f375c",
+      "size": "M",
+      "quantity": 1,
+      "photos": 1,
+      "original_attributes": {
+        "fit": "Slim",
+        "size": "M",
+        "color": "Black and dark blue",
+        "sleeve": "Short"
+      },
+      "attributes": {
+        "fit": "slim",
+        "size": "M",
+        "color": "navy and blue",
+        "sleeve": "short"
+      }
+    },
+    {
+      "design": "White OXFORD short sleeve",
+      "target_product_id": "644fc1b0-d837-474a-bd3c-dad41bff0e20",
+      "source_product_id": "3d0e6f9e-ee11-4374-96f8-d05b6e853be3",
+      "variant_id": "69ebc3e7-09a7-46d8-a217-d9cdd05c9811",
+      "size": "4XL",
+      "quantity": 2,
+      "photos": 2,
+      "original_attributes": {
+        "fit": "slim",
+        "size": "4XL",
+        "color": "white",
+        "sleeve": "short"
+      },
+      "attributes": {
+        "fit": "slim",
+        "size": "4XL",
+        "color": "white",
+        "sleeve": "short"
+      }
+    }
+  ],
+  "blue_unchanged": true,
+  "stock_movements_added": 0,
+  "stock_quantity_unchanged": true,
+  "barcodes_prices_history_preserved": true
+}

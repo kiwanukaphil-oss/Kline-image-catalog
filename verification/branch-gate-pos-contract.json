@@ -1,0 +1,7 @@
+{
+  "passed": true,
+  "missing_header_status": 400,
+  "metadata_header_accepted": true,
+  "real_pos_middleware": true,
+  "database_lookups_stubbed": true
+}

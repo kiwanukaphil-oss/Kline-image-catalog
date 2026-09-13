@@ -61,6 +61,26 @@ function createWorkspaceRouter(dependencies) {
   })));
   const matching = require('./product-matching.cjs').createProductMatchingService(dependencies);
   const canMatch = [checkPermission('catalog.publish'), checkPermission('products.view')];
+  const destinations = require('./product-destinations.cjs').createProductDestinationService(dependencies);
+  const canUpdateDestination = req => ['catalog.edit','catalog.delete','products.edit'].every(permission => new Set(req.user.permissions || []).has(permission));
+  router.post('/destinations/read', ...canMatch, reply(async req => ({
+    ...(await destinations.read({itemIds:req.body.item_ids,branchId:req.branchId,userId:req.user.id})),can_update:canUpdateDestination(req),
+  })));
+  router.get('/destinations/products', ...canMatch, reply(req => destinations.products({categoryId:uuid(req.query.category_id),search:text(req.query.search || '',120),branchId:req.branchId})));
+  router.post('/destinations/:action', ...canMatch, reply(async req => {
+    // Every destination is reviewed separately and returns an independent result; failures never mask successful saves.
+    const action=choice(req.params.action,['review','apply']),operations=req.body.operations;
+    if(!Array.isArray(operations)||!operations.length||operations.length>20)throw DomainError.validationFailed('Choose 1 to 20 destinations per request.');
+    const results=[];
+    for(const row of operations){
+      try{
+        if(!row || typeof row!=='object'||!row.operation)throw DomainError.validationFailed('Invalid destination.');
+        const input={operation:row.operation,expectedRevision:row.expected_revision,branchId:req.branchId,userId:req.user.id,canUpdate:canUpdateDestination(req)};
+        results.push({key:row.key,...(action==='review'?{review:await destinations.review(input)}:await destinations.apply(input))});
+      }catch(error){results.push({key:row?.key,error:error instanceof DomainError?error.message:'Destination could not be saved. Reload saved state before retrying.'});}
+    }
+    return {results};
+  }));
   const suggestions = require('./match-suggestions.cjs').createMatchSuggestionService(dependencies, matching);
   router.get('/match-suggestions', ...canMatch, reply(req => suggestions.list({ branchId:req.branchId, userId:req.user.id,
     batchId:req.query.batch_id ? uuid(req.query.batch_id) : null })));
@@ -209,6 +229,52 @@ function createWorkspaceRouter(dependencies) {
       });
     }),
   );
+  router.post(
+    '/items/:id/source-photo',
+    checkPermission('catalog.edit'),
+    checkPermission('catalog.upload'),
+    source('middleware/uploadRateLimiter').catalogUploadRateLimiter,
+    source('middleware/catalogImageUpload').parseSingleCatalogImage,
+    reply(req => service.attachSourcePhoto({ itemId: uuid(req.params.id), branchId: req.branchId,
+      userId: req.user.id, expectedRevision: req.body.expected_revision, image: req.file })),
+  );
+  router.post('/preparation/read', reply(async req => {
+    // Bound each request while returning a separate safe outcome for every selected lot.
+    const ids = req.body?.item_ids;
+    if (!Array.isArray(ids) || !ids.length || ids.length > 50 || new Set(ids).size !== ids.length)
+      throw DomainError.validationFailed('Choose 1 to 50 distinct lots per preparation request.');
+    ids.forEach(uuid);
+    const results = [];
+    for (const id of ids) {
+      try { results.push({ id, detail: await service.itemDetail(req.branchId, id, req.user.id) }); }
+      catch (error) { results.push({ id, error: error instanceof DomainError ? error.message : 'Unable to load this product. Retry shortly.' }); }
+    }
+    return { results };
+  }));
+  router.post('/preparation/save', checkPermission('catalog.edit'), reply(async req => {
+    // Each lot retains its own revision and transaction; one conflict must not roll back other prepared products.
+    const mode = choice(req.body?.mode, ['counts', 'details']);
+    const rows = req.body?.rows;
+    if (!Array.isArray(rows) || !rows.length || rows.length > 20 || new Set(rows.map(row => row?.id)).size !== rows.length)
+      throw DomainError.validationFailed('Choose 1 to 20 distinct lots per save request.');
+    rows.forEach(row => uuid(row?.id));
+    const results = [];
+    for (const row of rows) {
+      let saved = false;
+      try {
+        let payload = row.payload;
+        if (!payload || typeof payload !== 'object' || Array.isArray(payload)) throw DomainError.validationFailed('Invalid preparation values.');
+        if (mode === 'details') {
+          payload = { ...payload, name: text(payload.name, 250), brand: text(payload.brand || '', 150), category_id: uuid(payload.category_id) };
+          if (!payload.attributes || typeof payload.attributes !== 'object' || Array.isArray(payload.attributes)) throw DomainError.validationFailed('Invalid product attributes.');
+        }
+        await service[mode === 'counts' ? 'confirmCount' : 'updateDetails']({ itemId: row.id, branchId: req.branchId, userId: req.user.id, payload });
+        saved = true;
+        results.push({ id: row.id, saved, detail: await service.itemDetail(req.branchId, row.id, req.user.id) });
+      } catch (error) { results.push({ id: row.id, saved, error: error instanceof DomainError ? error.message : 'Unable to finish this product. Reload saved state before retrying.' }); }
+    }
+    return { results };
+  }));
   router.post(
     '/items/:id/photo',
     checkPermission('catalog.publish'),

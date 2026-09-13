@@ -1,4 +1,5 @@
 const { createHash } = require("node:crypto");
+const { canonicalCatalogSize } = require("./host-integration/catalogExtractionPolicy.cjs");
 const normalizeText = (value) =>
   String(value ?? "")
     .trim()
@@ -103,7 +104,7 @@ function summarizeCounts(members) {
       let size = normalizeText(
         line.variant_attributes?.size || item.attributes?.size || "Size not recorded",
       );
-      size = { xxl: "2xl", xxxl: "3xl", xxxxl: "4xl" }[size] || size;
+      size = canonicalCatalogSize(size).toLowerCase();
       const key = JSON.stringify(
         Object.fromEntries(
           Object.entries({ ...line.variant_attributes, size: size.toUpperCase() }).sort(

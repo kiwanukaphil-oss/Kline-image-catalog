@@ -1,0 +1,282 @@
+{
+  "checked_at": "2026-09-12T18:06:50.838Z",
+  "production_records_changed": false,
+  "requested_model": "gpt-5.6-sol",
+  "evaluation_mode": "Two photos with owner-confirmed Short sleeve and Cotton supplied as protected saved fields; not a blind accuracy benchmark",
+  "results": [
+    {
+      "design": "Navy",
+      "model": "gpt-5.6-sol",
+      "usage": {
+        "input_tokens": 8016,
+        "input_tokens_details": {
+          "cache_write_tokens": 8013,
+          "cached_tokens": 0
+        },
+        "output_tokens": 758,
+        "output_tokens_details": {
+          "reasoning_tokens": 400
+        },
+        "total_tokens": 8774
+      },
+      "raw": {
+        "visible_text": "XXL\n18-18½\nTAILORED CULTURE\nOXFORD\nSlim Fit\nOXFORD\nOXFORD",
+        "values": {
+          "brand": "OXFORD",
+          "name": "OXFORD Short Sleeve Shirt - Navy",
+          "size": "2XL",
+          "color": "Navy",
+          "pattern": "Solid",
+          "sleeve": "Short",
+          "fit": "Slim",
+          "material": "Cotton"
+        },
+        "confidence": {
+          "brand": "High",
+          "name": "High",
+          "size": "High",
+          "color": "High",
+          "pattern": "High",
+          "sleeve": "High",
+          "fit": "High",
+          "material": "High"
+        },
+        "evidence": {
+          "brand": {
+            "source": "printed_label",
+            "observation": "Neck label and packaging band read “OXFORD”."
+          },
+          "name": {
+            "source": "printed_label",
+            "observation": "OXFORD-branded collared shirt; saved sleeve value is Short and shirt is visibly navy."
+          },
+          "size": {
+            "source": "printed_label",
+            "observation": "Size tag reads “XXL” with neck size “18-18½”; XXL normalized to 2XL."
+          },
+          "color": {
+            "source": "visual_observation",
+            "observation": "Shirt fabric is uniformly navy."
+          },
+          "pattern": {
+            "source": "visual_observation",
+            "observation": "Fabric has no contrasting printed or woven motif."
+          },
+          "sleeve": {
+            "source": "visual_observation",
+            "observation": "Saved product data specifies Short; visible garment is consistent with a short-sleeve shirt."
+          },
+          "fit": {
+            "source": "printed_label",
+            "observation": "Neck label explicitly reads “Slim Fit”."
+          },
+          "material": {
+            "source": "visual_inference",
+            "observation": "Saved product data specifies Cotton; visible textured woven fabric is consistent with cotton."
+          }
+        },
+        "stock_distribution": {
+          "detected": false,
+          "evidence_text": null,
+          "entries": [],
+          "confidence": null
+        }
+      },
+      "normalized": {
+        "values": {
+          "brand": "Oxford",
+          "name": "Oxford Short Sleeve Shirt - Navy",
+          "size": "2XL",
+          "color": "Navy",
+          "pattern": "Solid",
+          "sleeve": "Short",
+          "fit": "Slim",
+          "material": "Cotton"
+        },
+        "confidence": {
+          "brand": "High",
+          "name": "High",
+          "size": "High",
+          "color": "High",
+          "pattern": "High",
+          "sleeve": "High",
+          "fit": "High",
+          "material": "Medium"
+        },
+        "evidence": {
+          "brand": {
+            "source": "printed_label",
+            "observation": "Neck label and packaging band read “OXFORD”."
+          },
+          "name": {
+            "source": "visual_observation",
+            "observation": "Standard design name composed from category, brand and supported sleeve/colour/pattern attributes; size and stock quantities excluded."
+          },
+          "size": {
+            "source": "printed_label",
+            "observation": "Size tag reads “XXL” with neck size “18-18½”; XXL normalized to 2XL."
+          },
+          "color": {
+            "source": "visual_observation",
+            "observation": "Shirt fabric is uniformly navy."
+          },
+          "pattern": {
+            "source": "visual_observation",
+            "observation": "Fabric has no contrasting printed or woven motif."
+          },
+          "sleeve": {
+            "source": "visual_observation",
+            "observation": "Saved product data specifies Short; visible garment is consistent with a short-sleeve shirt."
+          },
+          "fit": {
+            "source": "printed_label",
+            "observation": "Neck label explicitly reads “Slim Fit”."
+          },
+          "material": {
+            "source": "visual_inference",
+            "observation": "Saved product data specifies Cotton; visible textured woven fabric is consistent with cotton."
+          }
+        },
+        "visibleText": "XXL\n18-18½\nTAILORED CULTURE\nOXFORD\nSlim Fit\nOXFORD\nOXFORD",
+        "stockDistribution": null
+      }
+    },
+    {
+      "design": "Floral",
+      "model": "gpt-5.6-sol",
+      "usage": {
+        "input_tokens": 8016,
+        "input_tokens_details": {
+          "cache_write_tokens": 8013,
+          "cached_tokens": 0
+        },
+        "output_tokens": 800,
+        "output_tokens_details": {
+          "reasoning_tokens": 440
+        },
+        "total_tokens": 8816
+      },
+      "raw": {
+        "visible_text": "M\n15-15½\nTAILORED CULTURE\nOXFORD\nSlim Fit\nOXFORD\nOXFORD\nSHIRT\nTAILORED CULTURE\nOXFORD\nTAILORED CULTURE\nOXFORD",
+        "values": {
+          "brand": "OXFORD",
+          "name": "OXFORD Short Sleeve Shirt - Navy Floral Paisley",
+          "size": "M",
+          "color": "Navy",
+          "pattern": "Floral Paisley",
+          "sleeve": "Short",
+          "fit": "Slim",
+          "material": "Cotton"
+        },
+        "confidence": {
+          "brand": "High",
+          "name": "High",
+          "size": "High",
+          "color": "Medium",
+          "pattern": "High",
+          "sleeve": "High",
+          "fit": "High",
+          "material": "High"
+        },
+        "evidence": {
+          "brand": {
+            "source": "printed_label",
+            "observation": "OXFORD is printed repeatedly on the neck and hang tags."
+          },
+          "name": {
+            "source": "visual_observation",
+            "observation": "Branded button-up shirt with a navy floral-paisley woven design; saved sleeve value is Short."
+          },
+          "size": {
+            "source": "printed_label",
+            "observation": "Neck label shows M above 15-15½."
+          },
+          "color": {
+            "source": "visual_observation",
+            "observation": "Fabric is predominantly very dark navy."
+          },
+          "pattern": {
+            "source": "visual_observation",
+            "observation": "Visible tonal floral and paisley motifs cover the fabric."
+          },
+          "sleeve": {
+            "source": "visual_observation",
+            "observation": "Saved staff value specifies Short; sleeve construction is not visible."
+          },
+          "fit": {
+            "source": "printed_label",
+            "observation": "Neck label reads Slim Fit."
+          },
+          "material": {
+            "source": "visual_inference",
+            "observation": "Saved staff material value specifies Cotton."
+          }
+        },
+        "stock_distribution": {
+          "detected": false,
+          "evidence_text": null,
+          "entries": [],
+          "confidence": null
+        }
+      },
+      "normalized": {
+        "values": {
+          "brand": "Oxford",
+          "name": "Oxford Short Sleeve Shirt - Navy Floral Paisley",
+          "size": "M",
+          "color": "Navy",
+          "pattern": "Floral Paisley",
+          "sleeve": "Short",
+          "fit": "Slim",
+          "material": "Cotton"
+        },
+        "confidence": {
+          "brand": "High",
+          "name": "Medium",
+          "size": "High",
+          "color": "Medium",
+          "pattern": "High",
+          "sleeve": "High",
+          "fit": "High",
+          "material": "Medium"
+        },
+        "evidence": {
+          "brand": {
+            "source": "printed_label",
+            "observation": "OXFORD is printed repeatedly on the neck and hang tags."
+          },
+          "name": {
+            "source": "visual_observation",
+            "observation": "Standard design name composed from category, brand and supported sleeve/colour/pattern attributes; size and stock quantities excluded."
+          },
+          "size": {
+            "source": "printed_label",
+            "observation": "Neck label shows M above 15-15½."
+          },
+          "color": {
+            "source": "visual_observation",
+            "observation": "Fabric is predominantly very dark navy."
+          },
+          "pattern": {
+            "source": "visual_observation",
+            "observation": "Visible tonal floral and paisley motifs cover the fabric."
+          },
+          "sleeve": {
+            "source": "visual_observation",
+            "observation": "Saved staff value specifies Short; sleeve construction is not visible."
+          },
+          "fit": {
+            "source": "printed_label",
+            "observation": "Neck label reads Slim Fit."
+          },
+          "material": {
+            "source": "visual_inference",
+            "observation": "Saved staff material value specifies Cotton."
+          }
+        },
+        "visibleText": "M\n15-15½\nTAILORED CULTURE\nOXFORD\nSlim Fit\nOXFORD\nOXFORD\nSHIRT\nTAILORED CULTURE\nOXFORD\nTAILORED CULTURE\nOXFORD",
+        "stockDistribution": null
+      }
+    }
+  ]
+}

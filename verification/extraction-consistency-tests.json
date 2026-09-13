@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "checks": [
+    "Equivalent alpha sizes agree in extraction and manual stock distributions; ambiguous and regional sizes remain distinct",
+    "Stable garment names exclude size, price and material; existing brand spelling wins without fuzzy correction",
+    "Saved attributes constrain a new name; material alternatives and invented percentages cannot pass as facts",
+    "Numbers retain numeric types; provider objects, booleans and placeholders are rejected",
+    "Shirt alpha sizes are primary while collar sizes remain evidence; genuine dual sizes are preserved",
+    "Stock extraction requires quoted lot evidence; duplicate size aliases cannot double stock",
+    "Initial/retry prompts agree and Sol uses the supported structured image request"
+  ]
+}

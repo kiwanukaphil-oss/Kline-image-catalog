@@ -245,7 +245,9 @@ export function DraftEditor({
       title={item?.name || 'Prepare merchandise'}
       description={
         item?.is_cancelled
-          ? 'Cancelled intake · photo and history retained'
+          ? item.intake_archive_reason?.startsWith('Completed POS photo/details update')
+            ? 'POS photo/details updated · no stock received · source archived'
+            : 'Cancelled intake · photo and history retained'
           : item?.requires_pos_reconciliation
             ? 'Existing POS link · receiving locked'
             : item?.is_published

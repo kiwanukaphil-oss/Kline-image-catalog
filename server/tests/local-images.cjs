@@ -41,6 +41,19 @@ function installLocalImageStore(dependencies) {
   // POS copies use the same private-key signing fixture, including POS-only stock projections.
   const productImages = dependencies.source('utils/productImageStorage');
   productImages.createProductImageUrl = dependencies.posRequire(modulePath).createCatalogImageUrl;
+  // No-stock gallery updates use the private-object contract against isolated local bytes.
+  const storage = dependencies.source('services/railwayObjectStorageService');
+  storage.downloadPrivateObject = async key => ({buffer:await fs.readFile(imagePath(key))});
+  storage.inspectPrivateObject = async key => {
+    const bytes=await fs.readFile(imagePath(key));
+    const metadata=await fs.readFile(imagePath(key)+'.metadata.json','utf8').then(JSON.parse).catch(()=>({contentType:'image/jpeg',metadata:{}}));
+    return {contentLength:bytes.length,...metadata};
+  };
+  storage.storePrivateObjectIfAbsent = async ({objectKey,buffer,contentType,metadata}) => {
+    const target=imagePath(objectKey);await fs.mkdir(path.dirname(target),{recursive:true});
+    try {await fs.writeFile(target,buffer,{flag:'wx'});await fs.writeFile(target+'.metadata.json',JSON.stringify({contentType,metadata}));return {created:true};}
+    catch(error){if(error.code==='EEXIST')return {created:false};throw error;}
+  };
   return async function serveLocalImage(req, res) {
     const { key, expires, signature } = req.query;
     if (

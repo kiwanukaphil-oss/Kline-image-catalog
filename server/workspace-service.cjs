@@ -172,6 +172,7 @@ function createWorkspaceService({ source }) {
             revision: revisionOf(context),
             is_published: published(context),
             is_cancelled:!!context.item.intake_cancelled_at,
+            intake_archive_reason: context.item.intake_cancelled_at ? (await client.query('SELECT reason FROM inventory.intake_cancellations WHERE item_id=$1 AND restored_at IS NULL',[item.id])).rows[0]?.reason || null : null,
             requires_pos_reconciliation: !!context.item.pos_product_id && !context.item.publication_id && context.item.pos_sync_status !== 'synced',
             blockers: published(context) ? [] : catalogPublicationBlockers(context).filter(message => message !== 'Receive this lot through its matched product group.'),
           };
@@ -215,6 +216,7 @@ function createWorkspaceService({ source }) {
             image_url: await createCatalogImageUrl(item.image_path),
             is_published: published(context),
             is_cancelled:!!item.intake_cancelled_at,
+            intake_archive_reason: item.intake_cancelled_at ? (await client.query('SELECT reason FROM inventory.intake_cancellations WHERE item_id=$1 AND restored_at IS NULL',[itemId])).rows[0]?.reason || null : null,
             requires_pos_reconciliation: !!item.pos_product_id && !item.publication_id && item.pos_sync_status !== 'synced',
             stock_quantity: item.stock_quantity,
             stock_distribution_source: item.stock_distribution_source,
@@ -244,6 +246,32 @@ function createWorkspaceService({ source }) {
       return { ...receipt, photo_handoff };
     },
     transferPhoto: (input) => transferCatalogPhoto(input),
+    /** Attach explicitly assigned batch photos with a fresh key, preserving previous image bytes and audit history. */
+    async attachSourcePhoto({ itemId, branchId, userId, expectedRevision, image }) {
+      const extension = { 'image/jpeg': 'jpg', 'image/png': 'png', 'image/webp': 'webp' }[image?.mimetype];
+      if (!extension || !image?.buffer?.length || image.buffer.length > 5 * 1024 * 1024)
+        throw DomainError.validationFailed('Choose a JPG, PNG or WEBP photo of 5 MB or smaller.');
+      const { createHash } = require('node:crypto');
+      const digest = createHash('sha256').update(image.buffer).digest('hex');
+      const imagePath = `preparation/${itemId}/${digest}.${extension}`;
+      return repository.transaction(async client => {
+        // Lock and check scope before storage writes; same bytes can be retried without replacing another object.
+        const context = await requireContext(client, itemId, branchId);
+        if (published(context) || context.item.intake_cancelled_at)
+          throw DomainError.conflict('Only active unreceived lots can have preparation photos attached.');
+        if (context.item.image_path === imagePath) return { saved: true, already_saved: true };
+        if (revisionOf(context) !== expectedRevision)
+          throw DomainError.conflict('This lot changed. Refresh before attaching the photo.');
+        await source('services/catalogImageStorageService').storeCatalogImage({
+          objectKey: imagePath, buffer: image.buffer, contentType: image.mimetype, itemId,
+        });
+        await client.query('UPDATE inventory.items SET image_path=$1,updated_by=$2 WHERE id=$3 AND branch_id=$4',
+          [imagePath, userId, itemId, branchId]);
+        await repository.recordEdit(client, { itemId, userId,
+          before: { image_path: context.item.image_path }, after: { image_path: imagePath, photo_assignment: 'Batch preparation' } });
+        return { saved: true };
+      });
+    },
     /** Reject stale or published edits; category-defined values remain sparse and auditable. */
     async updateDetails({ branchId, itemId, userId, payload }) {
       return repository.transaction(async (client) => {

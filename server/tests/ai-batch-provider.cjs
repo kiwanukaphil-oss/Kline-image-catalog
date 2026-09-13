@@ -1,9 +1,10 @@
 /** Replace only external inference with deterministic photo evidence; never contact a paid provider. */
-function installBatchProvider({ delay = 10, onCall = () => {}, shouldFail = () => false } = {}) {
+function installBatchProvider({ delay = 10, onCall = () => {}, shouldFail = () => false, beforeResponse = async () => {} } = {}) {
   const original = global.fetch;
   global.fetch = async (url, options) => {
     if (String(url) !== 'https://api.openai.com/v1/responses') return original(url, options);
     onCall();
+    await beforeResponse();
     await new Promise(resolve => setTimeout(resolve, delay));
     if (shouldFail()) return new Response(JSON.stringify({error:{message:'Fixture outage'}}),{status:503});
     const values = { name:'Fixture shirt',brand:'Fixture brand',color:'Green',size:'L',material:'Cotton',style:'BG-123',pattern:'Solid',fit:'Regular',sleeve:'Long' };

@@ -1,0 +1,108 @@
+{
+  "checked_at": "2026-09-12T16:52:19.080Z",
+  "scope": "NAMUGONGO remaining seven-shirt delivery",
+  "status": "reviewed_candidates_not_applied",
+  "pending_groups": 0,
+  "received_groups": 21,
+  "proposed_groups": [
+    {
+      "name": "OXFORD Short Sleeve Shirt - Blue",
+      "ids": [
+        "928e2dda-e0b8-421d-8de9-f4ba05dfb34d",
+        "a8a9f09d-0a5c-412e-8723-4c5da76e0aca",
+        "992eb3f7-454f-4fb9-8a15-b4aea1760f11"
+      ],
+      "evidence": "Matching solid-blue appearance, fabric texture, button-down collar, white buttons, OXFORD labels and Slim Fit labels; sizes M, XL and 3XL.",
+      "source_fingerprints": [
+        {
+          "id": "928e2dda-e0b8-421d-8de9-f4ba05dfb34d",
+          "updated_at": "2026-09-11T06:43:53.222Z",
+          "attributes": {
+            "fit": "Slim",
+            "size": "M",
+            "color": "Blue",
+            "sleeve": "Short",
+            "pattern": "Solid",
+            "material": "Cotton"
+          },
+          "stock_quantity": 1,
+          "stock_distribution_source": "intake_default"
+        },
+        {
+          "id": "a8a9f09d-0a5c-412e-8723-4c5da76e0aca",
+          "updated_at": "2026-09-11T06:43:53.222Z",
+          "attributes": {
+            "fit": "Slim",
+            "size": "XL",
+            "color": "Blue",
+            "sleeve": "Short",
+            "pattern": "Solid",
+            "material": "Cotton"
+          },
+          "stock_quantity": 1,
+          "stock_distribution_source": "intake_default"
+        },
+        {
+          "id": "992eb3f7-454f-4fb9-8a15-b4aea1760f11",
+          "updated_at": "2026-09-11T06:43:53.222Z",
+          "attributes": {
+            "fit": "Slim",
+            "size": "3XL",
+            "color": "Blue",
+            "sleeve": "Short",
+            "pattern": "Solid",
+            "material": "Cotton"
+          },
+          "stock_quantity": 1,
+          "stock_distribution_source": "intake_default"
+        }
+      ]
+    },
+    {
+      "name": "OXFORD Short Sleeve Shirt - White",
+      "ids": [
+        "d5546adc-00a6-4a18-9676-565347510be5",
+        "be7b1674-50fc-4bfa-8636-5caeaf8a68b2"
+      ],
+      "evidence": "Matching white appearance, fabric texture, button-down collar, white buttons, OXFORD labels and Slim Fit labels; both 4XL. Photos alone do not establish whether these are two units or repeated photos of one unit.",
+      "source_fingerprints": [
+        {
+          "id": "d5546adc-00a6-4a18-9676-565347510be5",
+          "updated_at": "2026-09-11T06:43:53.222Z",
+          "attributes": {
+            "fit": "Slim",
+            "size": "4XL",
+            "color": "White",
+            "style": null,
+            "sleeve": "Short",
+            "pattern": "Solid",
+            "material": "Cotton"
+          },
+          "stock_quantity": 1,
+          "stock_distribution_source": "intake_default"
+        },
+        {
+          "id": "be7b1674-50fc-4bfa-8636-5caeaf8a68b2",
+          "updated_at": "2026-09-11T06:43:53.222Z",
+          "attributes": {
+            "fit": "Slim",
+            "size": "4XL",
+            "color": "White",
+            "style": null,
+            "sleeve": "Short",
+            "pattern": "Solid",
+            "material": "Cotton"
+          },
+          "stock_quantity": 1,
+          "stock_distribution_source": "intake_default"
+        }
+      ]
+    }
+  ],
+  "separate_ids": [
+    "7d881dc4-9829-4dbe-acef-8abf12b2d05d",
+    "69d6584e-8643-4743-adea-578eb6867ce0"
+  ],
+  "automatic_suggestion_limit": "Exact evidenced model code required. These seven shirts have no reliable saved model code; manual visual grouping is available.",
+  "production_changes": false
+}

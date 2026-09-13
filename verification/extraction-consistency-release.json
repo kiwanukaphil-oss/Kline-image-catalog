@@ -1,0 +1,44 @@
+{
+  "status": "deployed and verified",
+  "package_version": "0.26.0",
+  "backend_snapshot": ".test-data/ai-consistency-deploy-20260912/pos",
+  "frontend_snapshot": ".test-data/ai-consistency-20260912/catalog",
+  "previous_backend": "cd660630-f679-4850-a7eb-6cf7fc2e5c69",
+  "previous_frontend": "930dde2a-9d88-4e4a-afca-56aa025c3d18",
+  "model": "gpt-5.6-sol",
+  "production_records_changed": false,
+  "production_settings_changed": true,
+  "git_commit_created": false,
+  "required_environment": {
+    "OPENAI_MODEL": "gpt-5.6-sol",
+    "OPENAI_REASONING_EFFORT": "medium",
+    "OPENAI_TIMEOUT_MS": "90000",
+    "OPENAI_MAX_OUTPUT_TOKENS": "8192",
+    "OPENAI_MAX_ATTEMPTS": "3"
+  },
+  "manifest": {
+    "server/host-integration/catalogExtractionPolicy.cjs": "b0584c00064e9805f216bbc85b93999115ae3c0e26ec76cf4a3f1bd3682b9d76",
+    "server/host-integration/apply-extraction-policy.cjs": "99dc9daa200d8d6b5f093a8475819fe62823004bf2ca3915c21742c86d6542d6",
+    "server/match-candidates.cjs": "5c8c5ab0138ca044991dcc07674534ae83e987e8da523e79309be2590f426be8",
+    "server/product-matching.cjs": "887d6be45daa6565158837d7228c275e4167af4d7505682ceeed211a043a8d8f",
+    "app/lib/variant-order.ts": "9957e4fe0f864123b54c1d722fdedf03ce091c2ee2306935e64b75897dc9de6a"
+  },
+  "package_sha256": "5e767bb470e9d94790cca796df1451b145cc412247c23a02a5b1c0d59e5075cb",
+  "environment_verified": true,
+  "backend_deployment": "7e16d7fb-572d-45ee-be0d-263eb0cf77ec",
+  "backend_status": "SUCCESS",
+  "backend_health": "200 OK",
+  "frontend_deployment": "e10e712a-304e-405d-a558-fc5d89948eaf",
+  "frontend_status": "SUCCESS",
+  "url": "https://klinemen-catalog.com",
+  "deployed_at": "2026-09-12T18:23:20.169Z",
+  "verified_at": "2026-09-12T18:24:14.696Z",
+  "frontend_http": 200,
+  "hosted_branch_gate": {
+    "passed": true,
+    "checks": 11,
+    "api_mode": "intercepted fixtures; no production merchandise writes",
+    "initial_navigation_timeout": true,
+    "retry_passed": true
+  }
+}

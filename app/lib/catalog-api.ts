@@ -41,6 +41,7 @@ export type CatalogItem = {
   created_at: string;
   is_published: boolean;
   is_cancelled?: boolean;
+  intake_archive_reason?: string | null;
   requires_pos_reconciliation?: boolean;
   stock_distribution_source: string;
   blockers: string[];
