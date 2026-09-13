@@ -1,0 +1,464 @@
+{
+  "checked_at": "2026-09-13T14:43:35.357Z",
+  "batch_id": "59d8974d-f8cc-4012-82f8-b487039aee7b",
+  "production_records_changed": false,
+  "original_photos_reviewed": 29,
+  "sizes_present": 29,
+  "blank_count_rows": 24,
+  "material_counts": {
+    "Denim": 23,
+    "Cotton": 4,
+    "Cotton Blend": 2
+  },
+  "quantity_note_lots": 7,
+  "saved_total_units": 38,
+  "quantity_note_units": 16,
+  "remaining_22_one_unit_counts": "Intake defaults, not verified counts from the images",
+  "rows": [
+    {
+      "index": 0,
+      "item_id": "483692f7-7e98-4b56-b45d-0bbadb5f2276",
+      "name": "Zara Jeans - Blue",
+      "image_path": "jeans/483692f7-7e98-4b56-b45d-0bbadb5f2276.jpg",
+      "updated_at": "2026-09-12T18:27:44.709Z",
+      "size_read_from_photo": "34",
+      "size_source": "caption",
+      "inseam": null,
+      "quantity_caption": null,
+      "saved_quantity": 1,
+      "findings": [
+        "Count row has no size; shared UI proposal now uses saved size without changing quantity or confirmation.",
+        "Size evidence incorrectly calls the added caption a printed label."
+      ]
+    },
+    {
+      "index": 1,
+      "item_id": "0ca121e5-3cbf-4e39-b976-afbd74fe9fc2",
+      "name": "Zara Jeans - Blue",
+      "image_path": "jeans/0ca121e5-3cbf-4e39-b976-afbd74fe9fc2.jpg",
+      "updated_at": "2026-09-12T18:28:09.656Z",
+      "size_read_from_photo": "32",
+      "size_source": "caption",
+      "inseam": null,
+      "quantity_caption": null,
+      "saved_quantity": 1,
+      "findings": [
+        "Count row has no size; shared UI proposal now uses saved size without changing quantity or confirmation."
+      ]
+    },
+    {
+      "index": 2,
+      "item_id": "b8e2bf6f-d20d-45f0-ae42-b31f6b98f650",
+      "name": "GAP Jeans - Blue",
+      "image_path": "jeans/b8e2bf6f-d20d-45f0-ae42-b31f6b98f650.jpg",
+      "updated_at": "2026-09-12T18:28:21.729Z",
+      "size_read_from_photo": "40",
+      "size_source": "printed_label",
+      "inseam": null,
+      "quantity_caption": null,
+      "saved_quantity": 1,
+      "findings": [
+        "Count row has no size; shared UI proposal now uses saved size without changing quantity or confirmation.",
+        "Light-blue washed denim appears consistent across these three photos; saved colour varies Blue/Light Blue."
+      ]
+    },
+    {
+      "index": 3,
+      "item_id": "d70e7dde-ed34-44fc-8b98-6f1f5a04cc4c",
+      "name": "GAP Jeans - Blue",
+      "image_path": "jeans/d70e7dde-ed34-44fc-8b98-6f1f5a04cc4c.jpg",
+      "updated_at": "2026-09-12T18:28:37.937Z",
+      "size_read_from_photo": "38",
+      "size_source": "printed_label",
+      "inseam": null,
+      "quantity_caption": null,
+      "saved_quantity": 1,
+      "findings": [
+        "Count row has no size; shared UI proposal now uses saved size without changing quantity or confirmation.",
+        "Light-blue washed denim appears consistent across these three photos; saved colour varies Blue/Light Blue."
+      ]
+    },
+    {
+      "index": 4,
+      "item_id": "5235ccac-849a-45cb-aaf7-c12636d3f82e",
+      "name": "GAP Jeans - Light Blue",
+      "image_path": "jeans/5235ccac-849a-45cb-aaf7-c12636d3f82e.jpg",
+      "updated_at": "2026-09-12T18:28:58.159Z",
+      "size_read_from_photo": "32",
+      "size_source": "printed_label",
+      "inseam": null,
+      "quantity_caption": null,
+      "saved_quantity": 1,
+      "findings": [
+        "Count row has no size; shared UI proposal now uses saved size without changing quantity or confirmation.",
+        "Light-blue washed denim appears consistent across these three photos; saved colour varies Blue/Light Blue."
+      ]
+    },
+    {
+      "index": 5,
+      "item_id": "7633e497-5f91-41f8-a0c3-6a026f4c223b",
+      "name": "DIESEL Jeans - Dark Blue",
+      "image_path": "jeans/7633e497-5f91-41f8-a0c3-6a026f4c223b.jpg",
+      "updated_at": "2026-09-12T18:29:14.120Z",
+      "size_read_from_photo": "40",
+      "size_source": "printed_label",
+      "inseam": null,
+      "quantity_caption": null,
+      "saved_quantity": 1,
+      "findings": [
+        "Count row has no size; shared UI proposal now uses saved size without changing quantity or confirmation.",
+        "Waist-only W40 should normalize to 40.",
+        "Dark-blue Diesel photos have inconsistent Blue/Dark Blue values; lighting inference remains less reliable than a caption."
+      ]
+    },
+    {
+      "index": 6,
+      "item_id": "0bb55e5c-799a-4e84-b7ea-e6e9a14dcc6f",
+      "name": "DIESEL Jeans - Blue",
+      "image_path": "jeans/0bb55e5c-799a-4e84-b7ea-e6e9a14dcc6f.jpg",
+      "updated_at": "2026-09-12T18:29:24.627Z",
+      "size_read_from_photo": "34",
+      "size_source": "printed_label",
+      "inseam": null,
+      "quantity_caption": null,
+      "saved_quantity": 1,
+      "findings": [
+        "Count row has no size; shared UI proposal now uses saved size without changing quantity or confirmation.",
+        "Dark-blue Diesel photos have inconsistent Blue/Dark Blue values; lighting inference remains less reliable than a caption."
+      ]
+    },
+    {
+      "index": 7,
+      "item_id": "da0fb89d-96ad-4441-a18c-7432a4d5944b",
+      "name": "DIESEL Jeans - Dark Blue",
+      "image_path": "jeans/da0fb89d-96ad-4441-a18c-7432a4d5944b.jpg",
+      "updated_at": "2026-09-12T18:29:42.156Z",
+      "size_read_from_photo": "36",
+      "size_source": "printed_label",
+      "inseam": null,
+      "quantity_caption": null,
+      "saved_quantity": 1,
+      "findings": [
+        "Count row has no size; shared UI proposal now uses saved size without changing quantity or confirmation.",
+        "Use Denim: visible denim fabric; no photographed composition label or material caption supports the inconsistent fibre guess.",
+        "Dark-blue Diesel photos have inconsistent Blue/Dark Blue values; lighting inference remains less reliable than a caption."
+      ]
+    },
+    {
+      "index": 8,
+      "item_id": "3c596c74-3c96-4d80-955e-9756c6b28a6f",
+      "name": "GAP Jeans - Gray",
+      "image_path": "jeans/3c596c74-3c96-4d80-955e-9756c6b28a6f.jpg",
+      "updated_at": "2026-09-12T18:29:58.580Z",
+      "size_read_from_photo": "36",
+      "size_source": "printed_label",
+      "inseam": 30,
+      "quantity_caption": null,
+      "saved_quantity": 1,
+      "findings": [
+        "Count row has no size; shared UI proposal now uses saved size without changing quantity or confirmation."
+      ]
+    },
+    {
+      "index": 9,
+      "item_id": "7876bbb9-902e-4889-aef6-a80d3cf6825a",
+      "name": "American Eagle Outfitters 0310 Jeans - Gray",
+      "image_path": "jeans/7876bbb9-902e-4889-aef6-a80d3cf6825a.jpg",
+      "updated_at": "2026-09-12T18:30:24.584Z",
+      "size_read_from_photo": "34",
+      "size_source": "printed_label",
+      "inseam": 32,
+      "quantity_caption": 2,
+      "saved_quantity": 2,
+      "findings": [
+        "American Eagle / American Eagle Outfitters branding is the same on these photos. Standardize this batch name; small style digits are unreliable and should not distinguish names. Existing style values are removal/reinspection candidates, not deleted."
+      ]
+    },
+    {
+      "index": 10,
+      "item_id": "16124f22-b753-4000-8923-3bc8871c7bec",
+      "name": "AMERICAN EAGLE 6310 Jeans - Gray",
+      "image_path": "jeans/16124f22-b753-4000-8923-3bc8871c7bec.jpg",
+      "updated_at": "2026-09-12T18:30:46.133Z",
+      "size_read_from_photo": "30",
+      "size_source": "printed_label",
+      "inseam": 32,
+      "quantity_caption": null,
+      "saved_quantity": 1,
+      "findings": [
+        "Count row has no size; shared UI proposal now uses saved size without changing quantity or confirmation.",
+        "Use Denim: visible denim fabric; no photographed composition label or material caption supports the inconsistent fibre guess.",
+        "American Eagle / American Eagle Outfitters branding is the same on these photos. Standardize this batch name; small style digits are unreliable and should not distinguish names. Existing style values are removal/reinspection candidates, not deleted."
+      ]
+    },
+    {
+      "index": 11,
+      "item_id": "cc98ba5a-508c-40f0-bb6d-f2668158441d",
+      "name": "American Eagle Outfitters 8310 Jeans - Gray",
+      "image_path": "jeans/cc98ba5a-508c-40f0-bb6d-f2668158441d.jpg",
+      "updated_at": "2026-09-12T18:31:10.248Z",
+      "size_read_from_photo": "36",
+      "size_source": "printed_label",
+      "inseam": 32,
+      "quantity_caption": 2,
+      "saved_quantity": 2,
+      "findings": [
+        "Count row has no size; shared UI proposal now uses saved size without changing quantity or confirmation.",
+        "American Eagle / American Eagle Outfitters branding is the same on these photos. Standardize this batch name; small style digits are unreliable and should not distinguish names. Existing style values are removal/reinspection candidates, not deleted."
+      ]
+    },
+    {
+      "index": 12,
+      "item_id": "963047bd-9baf-4cc3-bf15-2246d7ec3fb9",
+      "name": "American Eagle Outfitters Jeans - Gray",
+      "image_path": "jeans/963047bd-9baf-4cc3-bf15-2246d7ec3fb9.jpg",
+      "updated_at": "2026-09-12T18:31:31.386Z",
+      "size_read_from_photo": "32",
+      "size_source": "printed_label",
+      "inseam": 32,
+      "quantity_caption": null,
+      "saved_quantity": 1,
+      "findings": [
+        "Count row has no size; shared UI proposal now uses saved size without changing quantity or confirmation.",
+        "American Eagle / American Eagle Outfitters branding is the same on these photos. Standardize this batch name; small style digits are unreliable and should not distinguish names. Existing style values are removal/reinspection candidates, not deleted."
+      ]
+    },
+    {
+      "index": 13,
+      "item_id": "4b93e52e-a39b-4c8f-9f17-b081bf1e35b5",
+      "name": "American Eagle Outfitters 0310 Jeans - Gray",
+      "image_path": "jeans/4b93e52e-a39b-4c8f-9f17-b081bf1e35b5.jpg",
+      "updated_at": "2026-09-12T18:31:50.202Z",
+      "size_read_from_photo": "38",
+      "size_source": "printed_label",
+      "inseam": 32,
+      "quantity_caption": null,
+      "saved_quantity": 1,
+      "findings": [
+        "Count row has no size; shared UI proposal now uses saved size without changing quantity or confirmation.",
+        "Use Denim: visible denim fabric; no photographed composition label or material caption supports the inconsistent fibre guess.",
+        "American Eagle / American Eagle Outfitters branding is the same on these photos. Standardize this batch name; small style digits are unreliable and should not distinguish names. Existing style values are removal/reinspection candidates, not deleted."
+      ]
+    },
+    {
+      "index": 14,
+      "item_id": "4d1b63ae-9d36-40bd-aa9d-2ad6a9b8961e",
+      "name": "HILFIGER DENIM Jeans - Blue",
+      "image_path": "jeans/4d1b63ae-9d36-40bd-aa9d-2ad6a9b8961e.jpg",
+      "updated_at": "2026-09-12T18:32:04.159Z",
+      "size_read_from_photo": "36",
+      "size_source": "printed_label",
+      "inseam": null,
+      "quantity_caption": null,
+      "saved_quantity": 1,
+      "findings": [
+        "Count row has no size; shared UI proposal now uses saved size without changing quantity or confirmation.",
+        "Use Denim: visible denim fabric; no photographed composition label or material caption supports the inconsistent fibre guess."
+      ]
+    },
+    {
+      "index": 15,
+      "item_id": "0e6e0030-518a-4c5b-b540-67afbb178578",
+      "name": "HILFIGER DENIM Jeans - Blue",
+      "image_path": "jeans/0e6e0030-518a-4c5b-b540-67afbb178578.jpg",
+      "updated_at": "2026-09-12T18:32:15.467Z",
+      "size_read_from_photo": "32",
+      "size_source": "printed_label",
+      "inseam": null,
+      "quantity_caption": null,
+      "saved_quantity": 1,
+      "findings": [
+        "Count row has no size; shared UI proposal now uses saved size without changing quantity or confirmation."
+      ]
+    },
+    {
+      "index": 16,
+      "item_id": "b7943771-940c-4246-96c9-5a4106399c97",
+      "name": "HILFIGER DENIM Jeans - Blue",
+      "image_path": "jeans/b7943771-940c-4246-96c9-5a4106399c97.jpg",
+      "updated_at": "2026-09-12T18:32:28.506Z",
+      "size_read_from_photo": "38",
+      "size_source": "printed_label",
+      "inseam": null,
+      "quantity_caption": 2,
+      "saved_quantity": 2,
+      "findings": [
+        "Count row has no size; shared UI proposal now uses saved size without changing quantity or confirmation."
+      ]
+    },
+    {
+      "index": 17,
+      "item_id": "d3aace56-31a2-4ea2-ad9c-6ccb6d7b936c",
+      "name": "HILFIGER DENIM Jeans - Blue",
+      "image_path": "jeans/d3aace56-31a2-4ea2-ad9c-6ccb6d7b936c.jpg",
+      "updated_at": "2026-09-12T18:32:43.414Z",
+      "size_read_from_photo": "40",
+      "size_source": "printed_label",
+      "inseam": null,
+      "quantity_caption": null,
+      "saved_quantity": 1,
+      "findings": [
+        "Count row has no size; shared UI proposal now uses saved size without changing quantity or confirmation."
+      ]
+    },
+    {
+      "index": 18,
+      "item_id": "b6ae8817-14f5-4af9-8e30-66b012e90d6f",
+      "name": "HILFIGER DENIM Jeans - Blue",
+      "image_path": "jeans/b6ae8817-14f5-4af9-8e30-66b012e90d6f.jpg",
+      "updated_at": "2026-09-12T18:32:58.803Z",
+      "size_read_from_photo": "34",
+      "size_source": "printed_label",
+      "inseam": null,
+      "quantity_caption": 2,
+      "saved_quantity": 2,
+      "findings": []
+    },
+    {
+      "index": 19,
+      "item_id": "d5fae3fb-d0fa-48ce-b244-87bced63ac86",
+      "name": "Boss Jeans - Dark Blue",
+      "image_path": "jeans/d5fae3fb-d0fa-48ce-b244-87bced63ac86.jpg",
+      "updated_at": "2026-09-12T18:33:15.210Z",
+      "size_read_from_photo": "32",
+      "size_source": "caption",
+      "inseam": null,
+      "quantity_caption": null,
+      "saved_quantity": 1,
+      "findings": [
+        "Count row has no size; shared UI proposal now uses saved size without changing quantity or confirmation.",
+        "Use Denim: visible denim fabric; no photographed composition label or material caption supports the inconsistent fibre guess."
+      ]
+    },
+    {
+      "index": 20,
+      "item_id": "7752e90f-6aff-48af-8679-27c9399688f5",
+      "name": "Boss Jeans - Dark Blue",
+      "image_path": "jeans/7752e90f-6aff-48af-8679-27c9399688f5.jpg",
+      "updated_at": "2026-09-12T18:33:30.148Z",
+      "size_read_from_photo": "34",
+      "size_source": "caption",
+      "inseam": null,
+      "quantity_caption": 2,
+      "saved_quantity": 2,
+      "findings": []
+    },
+    {
+      "index": 21,
+      "item_id": "ca108ade-c271-4f6b-bdf5-ac77cfad340a",
+      "name": "Boss Jeans - Dark Blue",
+      "image_path": "jeans/ca108ade-c271-4f6b-bdf5-ac77cfad340a.jpg",
+      "updated_at": "2026-09-12T18:33:45.477Z",
+      "size_read_from_photo": "36",
+      "size_source": "caption",
+      "inseam": null,
+      "quantity_caption": 3,
+      "saved_quantity": 3,
+      "findings": []
+    },
+    {
+      "index": 22,
+      "item_id": "f0562e8e-edb6-4ac6-bd2c-d4081c228e91",
+      "name": "Boss Jeans - Dark Blue",
+      "image_path": "jeans/f0562e8e-edb6-4ac6-bd2c-d4081c228e91.jpg",
+      "updated_at": "2026-09-12T18:34:00.256Z",
+      "size_read_from_photo": "38",
+      "size_source": "caption",
+      "inseam": null,
+      "quantity_caption": 3,
+      "saved_quantity": 3,
+      "findings": []
+    },
+    {
+      "index": 23,
+      "item_id": "cbce14bd-0440-4998-a3fd-f98b9286ee2e",
+      "name": "Boss Jeans - Dark Blue",
+      "image_path": "jeans/cbce14bd-0440-4998-a3fd-f98b9286ee2e.jpg",
+      "updated_at": "2026-09-12T18:34:12.609Z",
+      "size_read_from_photo": "40",
+      "size_source": "caption",
+      "inseam": null,
+      "quantity_caption": null,
+      "saved_quantity": 1,
+      "findings": [
+        "Count row has no size; shared UI proposal now uses saved size without changing quantity or confirmation."
+      ]
+    },
+    {
+      "index": 24,
+      "item_id": "87147120-77e9-4bdf-ba0e-e41f093dc685",
+      "name": "DIESEL Jeans - Black",
+      "image_path": "jeans/87147120-77e9-4bdf-ba0e-e41f093dc685.jpg",
+      "updated_at": "2026-09-12T18:34:23.735Z",
+      "size_read_from_photo": "36",
+      "size_source": "printed_label",
+      "inseam": null,
+      "quantity_caption": null,
+      "saved_quantity": 1,
+      "findings": [
+        "Count row has no size; shared UI proposal now uses saved size without changing quantity or confirmation."
+      ]
+    },
+    {
+      "index": 25,
+      "item_id": "930c25fc-c60f-4b13-9f25-3f83a3aa7d02",
+      "name": "DIESEL Jeans - Black",
+      "image_path": "jeans/930c25fc-c60f-4b13-9f25-3f83a3aa7d02.jpg",
+      "updated_at": "2026-09-12T18:34:39.752Z",
+      "size_read_from_photo": "38",
+      "size_source": "printed_label",
+      "inseam": null,
+      "quantity_caption": null,
+      "saved_quantity": 1,
+      "findings": [
+        "Count row has no size; shared UI proposal now uses saved size without changing quantity or confirmation.",
+        "Use Denim: visible denim fabric; no photographed composition label or material caption supports the inconsistent fibre guess."
+      ]
+    },
+    {
+      "index": 26,
+      "item_id": "e9458b47-9ac9-4895-98e2-fb24408afa46",
+      "name": "DIESEL Jeans - Black",
+      "image_path": "jeans/e9458b47-9ac9-4895-98e2-fb24408afa46.jpg",
+      "updated_at": "2026-09-12T18:34:53.974Z",
+      "size_read_from_photo": "34",
+      "size_source": "printed_label",
+      "inseam": null,
+      "quantity_caption": null,
+      "saved_quantity": 1,
+      "findings": [
+        "Count row has no size; shared UI proposal now uses saved size without changing quantity or confirmation."
+      ]
+    },
+    {
+      "index": 27,
+      "item_id": "624fd685-1b5e-4805-b450-d35ef87c3d8a",
+      "name": "GAP Jeans - Blue",
+      "image_path": "jeans/624fd685-1b5e-4805-b450-d35ef87c3d8a.jpg",
+      "updated_at": "2026-09-12T18:35:10.201Z",
+      "size_read_from_photo": "38",
+      "size_source": "printed_label",
+      "inseam": null,
+      "quantity_caption": null,
+      "saved_quantity": 1,
+      "findings": [
+        "Count row has no size; shared UI proposal now uses saved size without changing quantity or confirmation."
+      ]
+    },
+    {
+      "index": 28,
+      "item_id": "53335f5f-9b10-40f3-9a1c-bd5904e802fe",
+      "name": "GAP Jeans - Dark Gray",
+      "image_path": "jeans/53335f5f-9b10-40f3-9a1c-bd5904e802fe.jpg",
+      "updated_at": "2026-09-12T18:35:24.972Z",
+      "size_read_from_photo": "34",
+      "size_source": "printed_label",
+      "inseam": null,
+      "quantity_caption": null,
+      "saved_quantity": 1,
+      "findings": [
+        "Count row has no size; shared UI proposal now uses saved size without changing quantity or confirmation."
+      ]
+    }
+  ]
+}

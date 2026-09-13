@@ -2321,3 +2321,20 @@ td small {
   .bulk-preparation-table td { border-bottom: 0; }
   .bulk-preparation-table td:first-child { padding-bottom: 0; }
 }
+
+/* Keep the ordinary delivery journey readable on a phone and its next action in reach. */
+.delivery-checkout { max-width: 1120px; margin: 0 auto; }
+.delivery-steps { color: var(--muted-foreground); margin: 1rem 0; }
+.delivery-bulk, .delivery-required { display: flex; flex-wrap: wrap; gap: 1rem; align-items: end; padding: 1rem 0; }
+.delivery-bulk label, .delivery-required label { flex: 1 1 150px; }
+.delivery-price-item { border: 1px solid var(--border); border-radius: 12px; padding: 1rem; margin: 1rem 0; background: var(--background); }
+.delivery-item-heading { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+.delivery-item-heading img { width: 76px; height: 92px; object-fit: contain; }
+.delivery-item-heading label { flex: 1; }
+.delivery-item-heading > span { max-width: 180px; font-size: .85rem; }
+.delivery-checkout table { width: 100%; text-align: left; }
+.delivery-checkout th, .delivery-checkout td { padding: .5rem; min-width: 90px; }
+.delivery-actions { position: sticky; bottom: 0; display: flex; justify-content: flex-end; gap: .75rem; padding: 1rem; border-top: 1px solid var(--border); background: var(--background); z-index: 5; }
+@media (max-width: 640px) { .delivery-item-heading { flex-wrap: wrap; } .delivery-item-heading label { min-width: 150px; } .delivery-item-heading > span { max-width: none; } .delivery-price-item { padding: .65rem; } .delivery-actions { flex-wrap: wrap; } }
+
+@media (max-width: 767px) { .delivery-actions { bottom: 76px; } .delivery-checkout { padding-bottom: 90px; } }

@@ -21,6 +21,7 @@ export function AiFieldHint({
         {confidence} confidence{evidence?.source === 'printed_label' ? ' · Printed label' : ''}
       </span>
       {evidence?.observation && <p>{evidence.observation}</p>}
+      {evidence?.source === 'caption' && <span>Product caption</span>}
     </details>
   );
 }

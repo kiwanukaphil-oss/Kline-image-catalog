@@ -54,7 +54,7 @@ function createProductMatchingService({ source }) {
     createPublicationRevision(plan, { branchId, userId });
 
   /** Lock members deterministically and reject cross-branch, cancelled, unready or already-received evidence. */
-  async function readContexts(client, plan, requireReady = true) {
+  async function readContexts(client, plan, requireReady = true, allowProposedCounts = false) {
     const contexts = [];
     for (const itemId of [...plan.item_ids].sort()) {
       const context = await repository.loadLockedContext(client, {
@@ -75,7 +75,7 @@ function createProductMatchingService({ source }) {
       )
         throw DomainError.conflict("A matching category is inactive. Review the lot category.");
       const blockers = catalogPublicationBlockers(context).filter(
-        (message) => message !== MATCH_BLOCKER,
+        (message) => message !== MATCH_BLOCKER && !(allowProposedCounts && message === 'Confirm the photographed stock breakdown before import.'),
       );
       if (requireReady && blockers.length)
         throw DomainError.validationFailed(`${context.item.name}: ${blockers.join(" ")}`);
@@ -89,8 +89,8 @@ function createProductMatchingService({ source }) {
   }
 
   /** Group identical sellable attributes; existing variants retain their prices while new ones require consistent prices/costs. */
-  async function prepareProduct(client, plan) {
-    const contexts = await readContexts(client, plan);
+  async function prepareProduct(client, plan, allowProposedCounts = false) {
+    const contexts = await readContexts(client, plan, true, allowProposedCounts);
     if (plan.identity_review) {
       const identities = [...contexts]
         .sort((a, b) => a.item.id.localeCompare(b.item.id))
@@ -350,9 +350,9 @@ function createProductMatchingService({ source }) {
         return { retired: true };
       });
     },
-    async receive({ branchId, userId, id, expectedRevision, apply = false }) {
+    async receive({ branchId, userId, id, expectedRevision, apply = false, transactionClient, allowProposedCounts = false }) {
       // All source receipts and stock movements commit together, with the plan ID making retry idempotent.
-      const result = await repository.withTransaction(async (client) => {
+      const result = await (transactionClient ? work => work(transactionClient) : work => repository.withTransaction(work))(async (client) => {
         const plan = (
           await client.query(
             "SELECT * FROM catalog_workspace.product_matches WHERE id=$1 AND branch_id=$2 FOR UPDATE",
@@ -366,7 +366,7 @@ function createProductMatchingService({ source }) {
             product_id: plan.result_product_id,
             item_ids: plan.item_ids,
           };
-        const prepared = await prepareProduct(client, plan);
+        const prepared = await prepareProduct(client, plan, !apply && allowProposedCounts);
         const review = presentReview(plan, prepared, branchId, userId);
         if (!apply) return review;
         if (review.revision !== expectedRevision)
@@ -470,7 +470,7 @@ function createProductMatchingService({ source }) {
           already_received: false,
         };
       });
-      if (apply)
+      if (apply && !transactionClient)
         for (const itemId of result.item_ids) {
           try {
             await transferCatalogPhoto({ branchId, itemId, userId, appendGallery: true });

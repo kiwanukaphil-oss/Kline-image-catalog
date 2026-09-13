@@ -1,0 +1,35 @@
+{
+  "status": "deployed and verified",
+  "package_version": "0.27.0",
+  "policy_version": "2026-09-13.1",
+  "backend_snapshot": ".test-data/caption-release-20260913/pos",
+  "frontend_snapshot": ".test-data/caption-release-20260913/catalog",
+  "previous_backend": "7e16d7fb-572d-45ee-be0d-263eb0cf77ec",
+  "previous_frontend": "e6c2e5a9-e871-4005-bd83-25f9e68cf9d1",
+  "production_records_changed": false,
+  "git_commit_created": false,
+  "manifest": {
+    "app/components/draft-editor.tsx": "d884786a006c9e69b4965c4a63eada84fd5213dc5f2c1e3642626f4aab32f459",
+    "app/components/ai-field-hint.tsx": "fdb37ca782bd05d9d78c78e0ebd829d2760d6fcecf498aacbbd0b65d84e2a636",
+    "app/lib/bulk-preparation.ts": "04f3e9cdc1d51b2d05a99203b5fcdd2bd77eefa6e505c19e2928ed26787e6088",
+    "server/host-integration/catalogExtractionPolicy.cjs": "2a7ff81500a90224f84cb714e68b7d8804f540333825cd90235a9f723b43e51f",
+    "server/host-integration/apply-caption-policy.cjs": "1a26cedd797bd65cc4babda654d6f8fd13626de230452d827ba87e97d9a314ff",
+    "server/match-candidates.cjs": "9b132236ef65fcc0e72e64c265b5b69fc86e609ef45be71072b8b5dd55a318d6"
+  },
+  "backend_deployment": "a3a66630-24d8-48bd-8f8b-0774dd6d1e2d",
+  "frontend_deployment": "d4f3152e-5bbd-4ac7-88e2-62430f4f9762",
+  "backend_status": "SUCCESS",
+  "frontend_status": "SUCCESS",
+  "frontend_http": 200,
+  "backend_health_http": 200,
+  "caption_hint_in_deployed_assets": true,
+  "model": "gpt-5.6-sol",
+  "environment_verified": true,
+  "verified_at": "2026-09-13T14:59:59.902Z",
+  "url": "https://klinemen-catalog.com",
+  "hosted_branch_gate": {
+    "passed": true,
+    "checks": 11,
+    "api_mode": "intercepted fixtures; no production merchandise writes"
+  }
+}

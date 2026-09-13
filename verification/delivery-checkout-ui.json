@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "checks": [
+    "Main flow hides technical tools",
+    "Bulk pricing and costs save together",
+    "Mobile fits viewport",
+    "Summary is read-only; back preserves edits",
+    "Explicit send completes two products"
+  ]
+}

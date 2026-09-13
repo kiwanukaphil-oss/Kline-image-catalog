@@ -12,6 +12,7 @@ export function AiFill({
   branch,
   onClose,
   onReview,
+  onPrice,
   onExtracted,
 }: {
   items?: CatalogItem[];
@@ -19,6 +20,7 @@ export function AiFill({
   branch: string;
   onClose: () => void;
   onReview: (id: string) => void;
+  onPrice?: (ids: string[]) => void;
   onExtracted?: () => void;
 }) {
   const [id, setId] = useState(batchId);
@@ -158,6 +160,15 @@ export function AiFill({
             {batch.items.length} finished
           </p>
           <p>{batch.message || 'You can safely close this window. Accepted work continues on the server.'}</p>
+          {onPrice && batch.items.some((item) => item.state === 'done') && (
+            <Button
+              onClick={() =>
+                onPrice(batch.items.filter((item) => item.state === 'done').map((item) => item.item_id))
+              }
+            >
+              Price completed items
+            </Button>
+          )}
           <div className="ai-fill-list">
             {batch.items.map((item) => (
               <div className="ai-fill-row" key={item.id}>
@@ -221,10 +232,12 @@ export function AiFill({
 export function AiBatchProgress({
   branch,
   onReview,
+  onPrice,
   onExtracted,
 }: {
   branch: string;
   onReview: (id: string) => void;
+  onPrice?: (ids: string[]) => void;
   onExtracted: () => void;
 }) {
   const [batches, setBatches] = useState<AiBatchSummary[]>([]);
@@ -310,6 +323,14 @@ export function AiBatchProgress({
             setSelected(null);
             onReview(id);
           }}
+          onPrice={
+            onPrice
+              ? (ids) => {
+                  setSelected(null);
+                  onPrice(ids);
+                }
+              : undefined
+          }
           onExtracted={onExtracted}
         />
       )}

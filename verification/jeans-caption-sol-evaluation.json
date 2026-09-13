@@ -1,0 +1,551 @@
+{
+  "checked_at": "2026-09-13T14:50:03.742Z",
+  "production_records_changed": false,
+  "results": [
+    {
+      "index": 0,
+      "model": "gpt-5.6-sol",
+      "raw": {
+        "visible_text": "ZARA\nsize: 34\nSLIM",
+        "values": {
+          "brand": "ZARA",
+          "name": "ZARA Jeans - Blue",
+          "size": "34",
+          "color": "Blue",
+          "pattern": "Solid",
+          "fit": "Slim",
+          "material": "Denim",
+          "style": null,
+          "inseam": null
+        },
+        "confidence": {
+          "brand": "High",
+          "name": "High",
+          "size": "High",
+          "color": "High",
+          "pattern": "High",
+          "fit": "High",
+          "material": "Medium",
+          "style": null,
+          "inseam": null
+        },
+        "evidence": {
+          "brand": {
+            "source": "printed_label",
+            "observation": "Attached waistband patch reads “ZARA”."
+          },
+          "name": {
+            "source": "visual_observation",
+            "observation": "ZARA-branded blue jeans are shown."
+          },
+          "size": {
+            "source": "caption",
+            "observation": "Added product caption reads “size: 34”."
+          },
+          "color": {
+            "source": "visual_observation",
+            "observation": "Garment is visibly blue."
+          },
+          "pattern": {
+            "source": "visual_observation",
+            "observation": "Denim has no visible printed pattern."
+          },
+          "fit": {
+            "source": "printed_label",
+            "observation": "Attached hangtag reads “SLIM”."
+          },
+          "material": {
+            "source": "visual_inference",
+            "observation": "Visible twill weave and construction are characteristic of denim."
+          },
+          "style": {
+            "source": null,
+            "observation": null
+          },
+          "inseam": {
+            "source": null,
+            "observation": null
+          }
+        },
+        "stock_distribution": {
+          "detected": false,
+          "evidence_text": null,
+          "entries": [],
+          "confidence": null
+        }
+      },
+      "normalized": {
+        "values": {
+          "brand": "ZARA",
+          "name": "ZARA Jeans - Blue",
+          "size": "34",
+          "color": "Blue",
+          "pattern": "Solid",
+          "fit": "Slim",
+          "material": "Denim"
+        },
+        "confidence": {
+          "brand": "High",
+          "name": "High",
+          "size": "High",
+          "color": "High",
+          "pattern": "High",
+          "fit": "High",
+          "material": "Medium"
+        },
+        "evidence": {
+          "brand": {
+            "source": "printed_label",
+            "observation": "Attached waistband patch reads “ZARA”."
+          },
+          "name": {
+            "source": "visual_observation",
+            "observation": "Standard design name composed from category, brand and supported sleeve/colour/pattern attributes; size and stock quantities excluded."
+          },
+          "size": {
+            "source": "caption",
+            "observation": "Added product caption reads “size: 34”."
+          },
+          "color": {
+            "source": "visual_observation",
+            "observation": "Garment is visibly blue."
+          },
+          "pattern": {
+            "source": "visual_observation",
+            "observation": "Denim has no visible printed pattern."
+          },
+          "fit": {
+            "source": "printed_label",
+            "observation": "Attached hangtag reads “SLIM”."
+          },
+          "material": {
+            "source": "visual_inference",
+            "observation": "Visible twill weave and construction are characteristic of denim."
+          }
+        },
+        "visibleText": "ZARA\nsize: 34\nSLIM",
+        "stockDistribution": null
+      }
+    },
+    {
+      "index": 5,
+      "model": "gpt-5.6-sol",
+      "raw": {
+        "visible_text": "W 40\nDiesel Industry\nDIESEL\nFOR SUCCESSFUL LIVING",
+        "values": {
+          "brand": "DIESEL",
+          "name": "DIESEL Jeans - Blue",
+          "size": "40",
+          "color": "Blue",
+          "pattern": "Solid",
+          "fit": null,
+          "material": "Denim",
+          "style": "Jeans",
+          "inseam": null
+        },
+        "confidence": {
+          "brand": "High",
+          "name": "High",
+          "size": "High",
+          "color": "Medium",
+          "pattern": "High",
+          "fit": null,
+          "material": "High",
+          "style": "High",
+          "inseam": null
+        },
+        "evidence": {
+          "brand": {
+            "source": "printed_label",
+            "observation": "Orange manufacturer label reads “DIESEL”."
+          },
+          "name": {
+            "source": "visual_observation",
+            "observation": "DIESEL labels are attached to visibly blue jeans."
+          },
+          "size": {
+            "source": "printed_label",
+            "observation": "Waist label reads “W 40”."
+          },
+          "color": {
+            "source": "visual_observation",
+            "observation": "Garment is visibly blue."
+          },
+          "pattern": {
+            "source": "visual_observation",
+            "observation": "Denim has no visible printed pattern."
+          },
+          "fit": {
+            "source": null,
+            "observation": null
+          },
+          "material": {
+            "source": "visual_observation",
+            "observation": "Characteristic denim weave and jeans construction are visible."
+          },
+          "style": {
+            "source": "visual_observation",
+            "observation": "Waistband, belt loops, pocket and contrast stitching identify jeans."
+          },
+          "inseam": {
+            "source": null,
+            "observation": null
+          }
+        },
+        "stock_distribution": {
+          "detected": false,
+          "evidence_text": null,
+          "entries": [],
+          "confidence": null
+        }
+      },
+      "normalized": {
+        "values": {
+          "brand": "DIESEL",
+          "name": "DIESEL Jeans - Blue",
+          "size": "40",
+          "color": "Blue",
+          "pattern": "Solid",
+          "material": "Denim"
+        },
+        "confidence": {
+          "brand": "High",
+          "name": "Medium",
+          "size": "High",
+          "color": "Medium",
+          "pattern": "High",
+          "material": "Medium"
+        },
+        "evidence": {
+          "brand": {
+            "source": "printed_label",
+            "observation": "Orange manufacturer label reads “DIESEL”."
+          },
+          "name": {
+            "source": "visual_observation",
+            "observation": "Standard design name composed from category, brand and supported sleeve/colour/pattern attributes; size and stock quantities excluded."
+          },
+          "size": {
+            "source": "printed_label",
+            "observation": "Waist label reads “W 40”."
+          },
+          "color": {
+            "source": "visual_observation",
+            "observation": "Garment is visibly blue."
+          },
+          "pattern": {
+            "source": "visual_observation",
+            "observation": "Denim has no visible printed pattern."
+          },
+          "material": {
+            "source": "visual_inference",
+            "observation": "Characteristic denim weave and jeans construction are visible."
+          }
+        },
+        "visibleText": "W 40\nDiesel Industry\nDIESEL\nFOR SUCCESSFUL LIVING",
+        "stockDistribution": null
+      }
+    },
+    {
+      "index": 11,
+      "model": "gpt-5.6-sol",
+      "raw": {
+        "visible_text": "No; 2 pieces\nAIRFLEX +\nSLIM\nSUSTAINABLE WASH\nAIRFLEX +\nNO. 8310\n36 / 32\nAMERICAN EAGLE\nOUTFITTERS\nAMERICAN EAGLE\nAMERICAN EAGLE\nOUTFITTERS",
+        "values": {
+          "brand": "AMERICAN EAGLE OUTFITTERS",
+          "name": "AMERICAN EAGLE OUTFITTERS AirFlex+ Jeans - Gray",
+          "size": "36",
+          "color": "Gray",
+          "pattern": "Solid",
+          "fit": "Slim",
+          "material": "Denim",
+          "style": "AirFlex+",
+          "inseam": "32"
+        },
+        "confidence": {
+          "brand": "High",
+          "name": "Medium",
+          "size": "High",
+          "color": "Medium",
+          "pattern": "High",
+          "fit": "High",
+          "material": "High",
+          "style": "High",
+          "inseam": "High"
+        },
+        "evidence": {
+          "brand": {
+            "source": "printed_label",
+            "observation": "Manufacturer tags read “AMERICAN EAGLE OUTFITTERS”."
+          },
+          "name": {
+            "source": "visual_observation",
+            "observation": "AirFlex+ manufacturer tag is attached to visibly gray jeans."
+          },
+          "size": {
+            "source": "printed_label",
+            "observation": "Tag reads “36 / 32”; 36 is the waist size."
+          },
+          "color": {
+            "source": "visual_observation",
+            "observation": "The denim has a dominant washed gray appearance."
+          },
+          "pattern": {
+            "source": "visual_observation",
+            "observation": "No printed or woven decorative pattern is visible."
+          },
+          "fit": {
+            "source": "printed_label",
+            "observation": "Tag explicitly reads “SLIM”."
+          },
+          "material": {
+            "source": "visual_observation",
+            "observation": "Visible twill weave and jeans construction identify denim fabric."
+          },
+          "style": {
+            "source": "printed_label",
+            "observation": "Tag reads “AIRFLEX +”."
+          },
+          "inseam": {
+            "source": "printed_label",
+            "observation": "Tag reads “36 / 32”; 32 is the inseam."
+          }
+        },
+        "stock_distribution": {
+          "detected": true,
+          "evidence_text": "No; 2 pieces",
+          "entries": [
+            {
+              "variant_attributes": {
+                "size": "36"
+              },
+              "quantity": 2
+            }
+          ],
+          "confidence": "High"
+        }
+      },
+      "normalized": {
+        "values": {
+          "brand": "AMERICAN EAGLE OUTFITTERS",
+          "name": "AMERICAN EAGLE OUTFITTERS Jeans - Gray",
+          "size": "36",
+          "color": "Gray",
+          "pattern": "Solid",
+          "fit": "Slim",
+          "material": "Denim",
+          "style": "AirFlex+",
+          "inseam": 32
+        },
+        "confidence": {
+          "brand": "High",
+          "name": "Medium",
+          "size": "High",
+          "color": "Medium",
+          "pattern": "High",
+          "fit": "High",
+          "material": "Medium",
+          "style": "High",
+          "inseam": "High"
+        },
+        "evidence": {
+          "brand": {
+            "source": "printed_label",
+            "observation": "Manufacturer tags read “AMERICAN EAGLE OUTFITTERS”."
+          },
+          "name": {
+            "source": "visual_observation",
+            "observation": "Standard design name composed from category, brand and supported sleeve/colour/pattern attributes; size and stock quantities excluded."
+          },
+          "size": {
+            "source": "printed_label",
+            "observation": "Tag reads “36 / 32”; 36 is the waist size."
+          },
+          "color": {
+            "source": "visual_observation",
+            "observation": "The denim has a dominant washed gray appearance."
+          },
+          "pattern": {
+            "source": "visual_observation",
+            "observation": "No printed or woven decorative pattern is visible."
+          },
+          "fit": {
+            "source": "printed_label",
+            "observation": "Tag explicitly reads “SLIM”."
+          },
+          "material": {
+            "source": "visual_inference",
+            "observation": "Visible twill weave and jeans construction identify denim fabric."
+          },
+          "style": {
+            "source": "printed_label",
+            "observation": "Tag reads “AIRFLEX +”."
+          },
+          "inseam": {
+            "source": "printed_label",
+            "observation": "Tag reads “36 / 32”; 32 is the inseam."
+          }
+        },
+        "visibleText": "No; 2 pieces\nAIRFLEX +\nSLIM\nSUSTAINABLE WASH\nAIRFLEX +\nNO. 8310\n36 / 32\nAMERICAN EAGLE\nOUTFITTERS\nAMERICAN EAGLE\nAMERICAN EAGLE\nOUTFITTERS",
+        "stockDistribution": {
+          "entries": [
+            {
+              "variant_attributes": {
+                "size": "36"
+              },
+              "quantity": 2
+            }
+          ],
+          "totalQuantity": 2,
+          "evidenceText": "No; 2 pieces",
+          "confidence": "High"
+        }
+      }
+    },
+    {
+      "index": 21,
+      "model": "gpt-5.6-sol",
+      "raw": {
+        "visible_text": "BOSS\nsize; 36\ncolor; dark blue\nNo; 3 pieces\nSLIM FIT\nBOSS",
+        "values": {
+          "brand": "BOSS",
+          "name": "BOSS Jeans - Dark Blue",
+          "size": "36",
+          "color": "Dark Blue",
+          "pattern": "Solid",
+          "fit": "Slim",
+          "material": "Denim",
+          "style": "Jeans",
+          "inseam": null
+        },
+        "confidence": {
+          "brand": "High",
+          "name": "High",
+          "size": "High",
+          "color": "High",
+          "pattern": "High",
+          "fit": "High",
+          "material": "Medium",
+          "style": "High",
+          "inseam": null
+        },
+        "evidence": {
+          "brand": {
+            "source": "printed_label",
+            "observation": "BOSS is printed on the attached hangtag and waistband patch."
+          },
+          "name": {
+            "source": "visual_observation",
+            "observation": "BOSS labels, dark-blue jeans, and caption color support the generic catalog name."
+          },
+          "size": {
+            "source": "caption",
+            "observation": "Caption states “size; 36”."
+          },
+          "color": {
+            "source": "caption",
+            "observation": "Caption states “color; dark blue”."
+          },
+          "pattern": {
+            "source": "visual_observation",
+            "observation": "The visible denim has no contrasting printed pattern."
+          },
+          "fit": {
+            "source": "printed_label",
+            "observation": "Attached hangtag reads “SLIM FIT”."
+          },
+          "material": {
+            "source": "visual_inference",
+            "observation": "Visible twill weave and jeans construction support denim."
+          },
+          "style": {
+            "source": "visual_observation",
+            "observation": "Back pockets, waistband, belt loops, and denim construction identify jeans."
+          },
+          "inseam": {
+            "source": null,
+            "observation": null
+          }
+        },
+        "stock_distribution": {
+          "detected": true,
+          "evidence_text": "size; 36\ncolor; dark blue\nNo; 3 pieces",
+          "entries": [
+            {
+              "variant_attributes": {
+                "size": "36"
+              },
+              "quantity": 3
+            }
+          ],
+          "confidence": "High"
+        }
+      },
+      "normalized": {
+        "values": {
+          "brand": "BOSS",
+          "name": "BOSS Jeans - Dark Blue",
+          "size": "36",
+          "color": "Dark Blue",
+          "pattern": "Solid",
+          "fit": "Slim",
+          "material": "Denim"
+        },
+        "confidence": {
+          "brand": "High",
+          "name": "High",
+          "size": "High",
+          "color": "High",
+          "pattern": "High",
+          "fit": "High",
+          "material": "Medium"
+        },
+        "evidence": {
+          "brand": {
+            "source": "printed_label",
+            "observation": "BOSS is printed on the attached hangtag and waistband patch."
+          },
+          "name": {
+            "source": "visual_observation",
+            "observation": "Standard design name composed from category, brand and supported sleeve/colour/pattern attributes; size and stock quantities excluded."
+          },
+          "size": {
+            "source": "caption",
+            "observation": "Caption states “size; 36”."
+          },
+          "color": {
+            "source": "caption",
+            "observation": "Caption states “color; dark blue”."
+          },
+          "pattern": {
+            "source": "visual_observation",
+            "observation": "The visible denim has no contrasting printed pattern."
+          },
+          "fit": {
+            "source": "printed_label",
+            "observation": "Attached hangtag reads “SLIM FIT”."
+          },
+          "material": {
+            "source": "visual_inference",
+            "observation": "Visible twill weave and jeans construction support denim."
+          }
+        },
+        "visibleText": "BOSS\nsize; 36\ncolor; dark blue\nNo; 3 pieces\nSLIM FIT\nBOSS",
+        "stockDistribution": {
+          "entries": [
+            {
+              "variant_attributes": {
+                "size": "36"
+              },
+              "quantity": 3
+            }
+          ],
+          "totalQuantity": 3,
+          "evidenceText": "size; 36\ncolor; dark blue\nNo; 3 pieces",
+          "confidence": "High"
+        }
+      }
+    }
+  ],
+  "normalization_note": "Provider outputs preserved verbatim; normalized results replayed through final policy after excluding generic garment types from style."
+}

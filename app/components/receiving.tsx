@@ -34,6 +34,7 @@ import { isUncertainReceiptError, RECEIPT_CONNECTION_MESSAGE } from '@/lib/recei
 import { readPendingPhotos } from '@/lib/upload-queue';
 import { SuggestedMatches } from './suggested-matches';
 import { BulkPreparation } from './bulk-preparation';
+import { DeliveryCheckout } from './delivery-checkout';
 import { ProductDestinations } from './product-destinations';
 type Batch = {
   id: string;
@@ -68,25 +69,7 @@ type Receipt = {
 };
 const lotCount = (count: number) => `${count} ${count === 1 ? 'lot' : 'lots'}`;
 const nextTask = (item: CatalogItem) =>
-  /* Give each lot one next task while leaving the complete blocker list in its details. */ item.is_cancelled
-    ? item.intake_archive_reason?.startsWith('Completed POS photo/details update')
-      ? 'POS updated · no stock'
-      : 'Cancelled'
-    : item.is_published
-      ? item.requires_pos_reconciliation
-        ? 'Check POS link'
-        : 'Received'
-      : !item.blockers.length
-        ? 'Ready for POS'
-        : item.blockers.some((b) => b.includes('name'))
-          ? 'Name this lot'
-          : item.blockers.some((b) => b.includes('stock breakdown'))
-            ? 'Count sizes'
-            : item.blockers.some((b) => b.includes('retail'))
-              ? 'Set selling price'
-              : item.blockers.some((b) => b.includes('cost'))
-                ? 'Cost needed'
-                : 'Complete details';
+  item.is_cancelled ? 'Cancelled' : item.is_published ? 'Received' : !item.name ? 'AI fill' : 'Price items';
 
 /** Keep persistent delivery groups, individual preparation and historical receipts in one receiving workspace. */
 export function Receiving({
@@ -102,6 +85,8 @@ export function Receiving({
   onStock: () => void;
   active?: boolean;
 }) {
+  const [checkoutIds, setCheckoutIds] = useState<string[] | null>(null);
+  const [advanced, setAdvanced] = useState(false);
   const [tab, setTab] = useState('deliveries'),
     [batch, setBatch] = useState<Batch | null>(null),
     [search, setSearch] = useState(''),
@@ -146,7 +131,7 @@ export function Receiving({
   const matchingItems = scope.items.filter(
     (item) =>
       (tab !== 'ready' || (!item.is_published && !item.is_cancelled && !item.blockers.length)) &&
-      (tab !== 'preparing' || (!item.is_published && !item.is_cancelled && item.blockers.length > 0)) &&
+      (tab !== 'preparing' || (!item.is_published && !item.is_cancelled)) &&
       (!brandFilter || item.brand === brandFilter) &&
       (!deliveryFilter ||
         (deliveryFilter === 'ungrouped' ? !item.batch_id : item.batch_id === deliveryFilter)),
@@ -277,6 +262,19 @@ export function Receiving({
       setSelectedItems([]);
     }
   }, [active, refreshInventory, refreshBatches, refreshReceipts]);
+  if (checkoutIds)
+    return (
+      <DeliveryCheckout
+        ids={checkoutIds}
+        branch={branch}
+        session={session}
+        onBack={() => {
+          setCheckoutIds(null);
+          refreshReceiving();
+        }}
+        onStock={onStock}
+      />
+    );
   return (
     <>
       <div className="page-heading">
@@ -290,7 +288,7 @@ export function Receiving({
                   month: 'long',
                   day: 'numeric',
                 })
-              : 'New deliveries, ready for their next step.'}
+              : 'Upload photos, AI fill, price items, then send to POS.'}
           </p>
         </div>
         {session.can_upload && refs.data && (
@@ -323,12 +321,30 @@ export function Receiving({
       <Tabs className="receiving-tabs" value={tab} onValueChange={(value) => changeTab(String(value))}>
         <TabsList variant="line">
           {!batch && <TabsTrigger value="deliveries">Deliveries</TabsTrigger>}
-          <TabsTrigger value="preparing">Preparation</TabsTrigger>
-          <TabsTrigger value="ready">Ready for POS</TabsTrigger>
+          <TabsTrigger value="preparing">Incoming</TabsTrigger>
+          {advanced && <TabsTrigger value="ready">Ready for POS</TabsTrigger>}
           <TabsTrigger value="lots">{batch ? 'Merchandise' : 'All merchandise'}</TabsTrigger>
           <TabsTrigger value="receipts">Receipts</TabsTrigger>
         </TabsList>
       </Tabs>
+      <Button
+        variant="ghost"
+        aria-expanded={advanced}
+        onClick={() => {
+          setAdvanced(!advanced);
+          if (tab === 'ready') changeTab('preparing');
+        }}
+      >
+        Advanced tools
+      </Button>
+      {advanced && (
+        <p className="muted">Optional product matching, destination overrides and preparation tools.</p>
+      )}
+      {advanced && session.can_edit && (
+        <Button variant="outline" onClick={() => onPrice([])}>
+          Advanced pricing rules
+        </Button>
+      )}
       {tab === 'deliveries' && (
         <section className="delivery-section">
           <SearchField
@@ -360,7 +376,7 @@ export function Receiving({
                   Clear search
                 </Button>
               ) : (
-                <p>Add photos, confirm the sizes, then set prices.</p>
+                <p>Add photos, AI fill the details, then price and send to POS.</p>
               )}
               {session.can_upload && <Button onClick={() => setUploading(true)}>New delivery</Button>}
             </div>
@@ -417,9 +433,15 @@ export function Receiving({
         </section>
       )}
       {active && session.can_edit && (
-        <AiBatchProgress key={branch} branch={branch} onReview={setEditing} onExtracted={refreshReceiving} />
+        <AiBatchProgress
+          key={branch}
+          branch={branch}
+          onReview={setEditing}
+          onPrice={setCheckoutIds}
+          onExtracted={refreshReceiving}
+        />
       )}
-      {active && session.can_publish && session.can_open_pos_product && (
+      {advanced && active && session.can_publish && session.can_open_pos_product && (
         <SuggestedMatches
           key={`${branch}:${batch?.id || ''}`}
           branch={branch}
@@ -428,7 +450,7 @@ export function Receiving({
           onSaved={refreshReceiving}
         />
       )}
-      {['ready', 'preparing', 'lots'].includes(tab) && !!visibleMatches.length && (
+      {advanced && ['ready', 'preparing', 'lots'].includes(tab) && !!visibleMatches.length && (
         <details className="receiving-review-group" open>
           <summary>
             <strong>{visibleMatches.length} matched products</strong>
@@ -695,7 +717,7 @@ export function Receiving({
                   : tab === 'ready'
                     ? 'Nothing ready for POS yet.'
                     : tab === 'preparing'
-                      ? 'No lots need preparation.'
+                      ? 'No incoming items.'
                       : 'No merchandise here yet.'}
               </h2>
               {search || task !== 'all' || categoryFilter || brandFilter || deliveryFilter ? (
@@ -715,11 +737,11 @@ export function Receiving({
                 </Button>
               ) : tab === 'ready' ? (
                 <Button variant="outline" onClick={() => changeTab('preparing')}>
-                  View preparation
+                  View incoming items
                 </Button>
               ) : tab === 'preparing' ? (
-                <Button variant="outline" onClick={() => changeTab('ready')}>
-                  View ready lots
+                <Button variant="outline" onClick={() => setUploading(true)}>
+                  New delivery
                 </Button>
               ) : (
                 <p>Add photos to start this delivery.</p>
@@ -762,12 +784,11 @@ export function Receiving({
                   </div>
                   <button
                     onClick={() =>
-                      session.can_publish && nextTask(item) === 'Ready for POS'
-                        ? setReceiving(
-                            productMatches.data?.find((plan) => plan.item_ids.includes(item.id))
-                              ?.item_ids || [item.id],
-                          )
-                        : setEditing(item.id)
+                      item.is_published || item.is_cancelled
+                        ? setEditing(item.id)
+                        : !item.name && session.can_ai_extract
+                          ? setAiItems([item])
+                          : setCheckoutIds([item.id])
                     }
                     className={`task-status ${item.is_published ? 'received' : item.blockers.length ? 'preparing' : 'ready'}`}
                   >
@@ -803,15 +824,9 @@ export function Receiving({
                 Clear
               </Button>
               {session.can_edit && (
-                <Button onClick={() => setPreparingItems([...selectedItems])}>Prepare selected</Button>
-              )}
-              {session.can_publish && session.can_open_pos_product && (
-                <Button onClick={() => setDestinationItems([...selectedItems])}>Choose destinations</Button>
-              )}
-              {session.can_edit && (
-                <Button variant="outline" onClick={() => onPrice(selected)}>
+                <Button onClick={() => setCheckoutIds(selected)}>
                   <Tag size={16} />
-                  Price
+                  Price items
                 </Button>
               )}
               {session.can_ai_extract && (
@@ -820,28 +835,40 @@ export function Receiving({
                   AI fill
                 </Button>
               )}
-              {session.can_publish && session.can_open_pos_product && (
-                <Button
-                  variant="outline"
-                  onClick={() => {
-                    setEditingMatch(undefined);
-                    setMatchEditorItems([...selectedItems]);
-                  }}
-                >
-                  Match product
-                </Button>
-              )}
-              {session.can_publish && (
-                <Button
-                  onClick={() =>
-                    session.can_open_pos_product
-                      ? setDestinationItems([...selectedItems])
-                      : setReceiving(selected)
-                  }
-                >
-                  <ArrowDownToLine size={16} />
-                  Receive selected into POS
-                </Button>
+              {advanced && (
+                <>
+                  {session.can_edit && (
+                    <>
+                      <Button variant="outline" onClick={() => setPreparingItems([...selectedItems])}>
+                        Prepare selected
+                      </Button>
+                      <Button variant="outline" onClick={() => onPrice(selected)}>
+                        Pricing rules
+                      </Button>
+                    </>
+                  )}
+                  {session.can_publish && session.can_open_pos_product && (
+                    <>
+                      <Button variant="outline" onClick={() => setDestinationItems([...selectedItems])}>
+                        Choose destinations
+                      </Button>
+                      <Button
+                        variant="outline"
+                        onClick={() => {
+                          setEditingMatch(undefined);
+                          setMatchEditorItems([...selectedItems]);
+                        }}
+                      >
+                        Match product
+                      </Button>
+                    </>
+                  )}
+                  {session.can_publish && (
+                    <Button variant="outline" onClick={() => setReceiving(selected)}>
+                      Advanced receipt
+                    </Button>
+                  )}
+                </>
               )}
             </div>
           )}
@@ -994,6 +1021,10 @@ export function Receiving({
       )}
       {aiItems && (
         <AiFill
+          onPrice={(ids) => {
+            setAiItems(null);
+            setCheckoutIds(ids);
+          }}
           items={aiItems}
           branch={branch}
           onExtracted={() => setSuggestionVersion((value) => value + 1)}

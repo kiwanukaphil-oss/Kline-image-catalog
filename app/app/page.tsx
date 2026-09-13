@@ -118,24 +118,26 @@ export default function Workspace() {
               { name: 'Pricing', icon: Tag },
               { name: 'Stock', icon: Boxes },
             ] as const
-          ).map(({ name, icon: Icon }) => (
-            /* Expose the three daily workspaces as labelled, keyboard-accessible navigation. */ <Button
-              key={name}
-              variant="ghost"
-              className={`nav-link ${destination === name ? 'active' : ''}`}
-              aria-current={destination === name ? 'page' : undefined}
-              onClick={() => {
-                if (name !== destination)
-                  navigateSafely(() => {
-                    setDestination(name);
-                    if (name === 'Pricing') setPriceScope([]);
-                  });
-              }}
-            >
-              <Icon size={19} />
-              {name}
-            </Button>
-          ))}
+          )
+            .filter(({ name }) => name !== 'Pricing')
+            .map(({ name, icon: Icon }) => (
+              /* Keep daily navigation simple; the preserved Pricing workspace opens from Advanced tools. */ <Button
+                key={name}
+                variant="ghost"
+                className={`nav-link ${destination === name ? 'active' : ''}`}
+                aria-current={destination === name ? 'page' : undefined}
+                onClick={() => {
+                  if (name !== destination)
+                    navigateSafely(() => {
+                      setDestination(name);
+                      if (name === 'Pricing') setPriceScope([]);
+                    });
+                }}
+              >
+                <Icon size={19} />
+                {name}
+              </Button>
+            ))}
         </nav>
         <div className="nav-bottom">
           <span className="avatar">{(session.full_name || session.username).slice(0, 1)}</span>

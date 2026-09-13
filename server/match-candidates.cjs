@@ -34,7 +34,7 @@ function modelEvidence(item) {
     return { source: "Saved caption/label text", text: item.ai_visible_text };
   const evidence = item.ai_field_evidence?.style;
   if (
-    ["printed_label", "visible_text"].includes(evidence?.source) &&
+    ["printed_label", "visible_text", "caption"].includes(evidence?.source) &&
     complete.test(evidence.observation)
   )
     return { source: evidence.source, text: evidence.observation };

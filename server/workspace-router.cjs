@@ -60,6 +60,32 @@ function createWorkspaceRouter(dependencies) {
     id:uuid(req.params.id),branchId:req.branchId,userId:req.user.id,action:choice(req.params.action,['stop','resume']),confirmRetry:req.body.confirm_retry===true,
   })));
   const matching = require('./product-matching.cjs').createProductMatchingService(dependencies);
+  const checkout = require('./delivery-checkout.cjs').createDeliveryCheckout(dependencies, matching);
+  const checkoutActor = req => ({branchId:req.branchId,userId:req.user.id,canViewCost:new Set(req.user.permissions || []).has('catalog.view_cost')});
+  const checkoutIds = ids => {
+    if(!Array.isArray(ids)||!ids.length||ids.length>1000||new Set(ids).size!==ids.length) throw DomainError.validationFailed('Choose 1 to 1000 distinct items.');
+    return ids.map(uuid);
+  };
+  router.post('/delivery/read',reply(req=>checkout.read(checkoutIds(req.body.item_ids),checkoutActor(req))));
+  router.post('/delivery/save',checkPermission('catalog.edit'),reply(async req=>{
+    // Each item is revision checked and independently saved; one invalid row cannot lose the rest of the batch.
+    if(!Array.isArray(req.body.rows)||!req.body.rows.length||req.body.rows.length>20) throw DomainError.validationFailed('Save 1 to 20 items per request.');
+    const results=[];
+    for(const row of req.body.rows) {
+      try {uuid(row.id);results.push({id:row.id,item:await checkout.save(row,checkoutActor(req))});}
+      catch(error){results.push({id:row?.id,error:error instanceof DomainError?error.message:'Unable to save. Reload this item before retrying.'});}
+    }
+    return {results};
+  }));
+  router.post('/delivery/review',checkPermission('catalog.publish'),reply(req=>checkout.review(checkoutIds(req.body.item_ids),checkoutActor(req))));
+  router.post('/delivery/send',checkPermission('catalog.publish'),checkPermission('catalog.edit'),reply(async req=>{
+    const review=req.body.review,unit=review?.unit;
+    if(!unit||typeof unit.group!=='boolean') throw DomainError.validationFailed('Review this delivery first.');
+    uuid(unit.id);checkoutIds(unit.item_ids);
+    if(!unit.group&&(unit.item_ids.length!==1||unit.item_ids[0]!==unit.id)) throw DomainError.validationFailed('Invalid reviewed product.');
+    if(typeof review.revision!=='string'||! /^[a-f0-9]{64}$/.test(review.revision)) throw DomainError.validationFailed('Review this delivery first.');
+    return checkout.send(review,checkoutActor(req));
+  }));
   const canMatch = [checkPermission('catalog.publish'), checkPermission('products.view')];
   const destinations = require('./product-destinations.cjs').createProductDestinationService(dependencies);
   const canUpdateDestination = req => ['catalog.edit','catalog.delete','products.edit'].every(permission => new Set(req.user.permissions || []).has(permission));

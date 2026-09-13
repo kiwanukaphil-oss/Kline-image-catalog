@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "checks": [
+    "Bulk pricing saves proposed quantities; read-only review creates no products or count confirmations",
+    "Stale summary rejected without confirming counts",
+    "Concurrent send and repeated retry produce exactly one receipt and confirm quantities atomically",
+    "Confirmed groups are included together, reviewed without count modal, and received as one product",
+    "Cost editing and XXL normalization work; unauthorized costs and stale saves are rejected; a failed publisher rolls back quantity confirmation",
+    "Authentication and branch isolation enforced"
+  ]
+}

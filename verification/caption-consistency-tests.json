@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "checks": [
+    "Caption evidence survives strict schema and preserves explicit material without hedging",
+    "Size-only captions and model numbers cannot create quantities",
+    "A separate quantity note retains its exact count and receives the single extracted size",
+    "Waist-only jeans labels normalize consistently without stripping full measurements",
+    "Initial and retry instructions both explicitly prioritize all factual captions over tags"
+  ]
+}

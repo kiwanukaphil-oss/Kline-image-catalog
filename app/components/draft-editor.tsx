@@ -15,6 +15,7 @@ import { Restock } from './restock';
 import { ItemActivity } from './item-activity';
 import { IntakeCancellation } from './intake-cancellation';
 import { useWorkspaceProtection } from '@/lib/workspace-protection';
+import { proposedCounts } from '@/lib/bulk-preparation';
 import type { Category } from './upload-delivery';
 import type { CategoryField } from './receiving';
 type Detail = { item: CatalogItem; fields: CategoryField[]; revision: string; blockers: string[] };
@@ -87,10 +88,9 @@ export function DraftEditor({
     setCategory(current.category_id);
     setAttributes(current.attributes || {});
     setRows(
-      current.variant_lines.map((line) => ({
-        id: line.id,
-        size: String(line.variant_attributes.size || ''),
-        quantity: String(line.quantity),
+      proposedCounts(detail.data).map((count, index) => ({
+        id: current.variant_lines[index]?.id || `suggested-${index}`,
+        ...count,
       })),
     );
     setDirty(false);

@@ -29,7 +29,7 @@ export type PreparationRow = {
 export function proposedCounts(detail: PreparationDetail): PreparationCount[] {
   const lines = detail.item.variant_lines;
   const label = String(detail.item.attributes?.size || '').trim();
-  const singleSize = /^(?:\d{1,3}(?:\.5)?|(?:[2-9])?X{0,3}[SML]|one size)$/i.test(label);
+  const singleSize = /^(?:(?:W\s*|UK\s*|EU\s*|US\s*)?\d{1,3}(?:\.5)?(?:\s*L\s*\d{2,3})?|XXS|XS|S|M|L|XL|X{2,6}L|[2-9]XL|one size)$/i.test(label);
   const seed = detail.item.stock_distribution_source !== 'human_confirmed' && lines.length <= 1 && singleSize;
   return lines.length
     ? lines.map((line) => ({

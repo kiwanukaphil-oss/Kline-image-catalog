@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "checks": [
+    "Fresh login ignores default branch and loads no merchandise before explicit selection",
+    "Rejected branch entry stays at gate without reading merchandise",
+    "Chosen non-default branch survives reload",
+    "Same-account session recovery preserves selected workspace",
+    "Unsaved-work navigation guard still protects branch changes",
+    "Existing branch switcher works without signing out",
+    "Sign-out and fresh login require another deliberate branch choice",
+    "Legacy automatic branch storage cannot bypass the gate",
+    "Remembered inaccessible branch returns to the gate",
+    "Single authorized branch still requires explicit selection",
+    "No authorized branches fails closed with useful guidance"
+  ]
+}
