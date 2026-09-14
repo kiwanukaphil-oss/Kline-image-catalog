@@ -22,8 +22,9 @@ let items = ids.map((id, n) => ({
   count_source: 'ai_suggested',
   required_fields: [],
   issues: [],
-  lines: [{ id: `line${n}`, size: n ? 'XXL' : 'M', quantity: 2, price: null, cost: null }],
+  lines: [{ id: `line${n}`, size: n ? 'XXL' : 'M', quantity: 2, price: null, cost: 40000 }],
 }));
+let pricePlan;
 // Intercept every API request: UI verification cannot modify hosted records.
 await page.route('**/api/**', async (route) => {
   const path = new URL(route.request().url()).pathname,
@@ -49,6 +50,60 @@ await page.route('**/api/**', async (route) => {
   if (path.endsWith('/catalog/reference-data')) return respond({ data: { categories: [], fields: [] } });
   if (path.endsWith('/product-matches')) return respond([]);
   if (path.endsWith('/ai-batches')) return respond({ batches: [] });
+  if (path.endsWith('/catalog/pricing/workspace'))
+    return respond({
+      data: {
+        items: items.map((item) => ({
+          ...item,
+          base_price: null,
+          base_cost_price: 40000,
+          lines: item.lines.map((line) => ({
+            ...line,
+            variant_attributes: { size: line.size },
+            effective_price: line.price,
+            effective_cost: line.cost,
+            price_override: line.price,
+            cost_override: line.cost,
+          })),
+        })),
+        total: items.length,
+        limit: 100,
+      },
+    });
+  if (path.endsWith('/catalog/pricing/preview')) {
+    saves.push(body);
+    pricePlan = {
+      id: 'plan1',
+      status: 'preview',
+      summary: { item_count: 2, variant_count: 2, total_units: 4, changed_count: 2, protected_count: 0 },
+      rows: items.map((item) => {
+        const change = body.items.find((row) => row.id === item.id);
+        return {
+          item_id: item.id,
+          line_id: item.lines[0].id,
+          name: item.name,
+          variant_attributes: { size: item.lines[0].size },
+          quantity: 2,
+          price_before: null,
+          price_after: change.lines[0]?.price_override ?? change.base_price,
+          changed: true,
+          price_source: 'shared',
+          price_protected: false,
+        };
+      }),
+    };
+    return respond({ data: pricePlan });
+  }
+  if (path.endsWith('/catalog/pricing/plans/plan1/apply')) {
+    items = items.map((item) => ({
+      ...item,
+      lines: item.lines.map((line) => ({
+        ...line,
+        price: pricePlan.rows.find((row) => row.item_id === item.id).price_after,
+      })),
+    }));
+    return respond({ data: { ...pricePlan, status: 'applied' } });
+  }
   if (path.endsWith('/delivery/read'))
     return respond({ results: items.map((item) => ({ id: item.id, item })), expanded: 0, groups: [] });
   if (path.endsWith('/delivery/save')) {
@@ -108,37 +163,52 @@ try {
   assert.equal(await button('Prepare selected').count(), 0);
   assert.equal(await button('Choose destinations').count(), 0);
   await page.locator('.selection-bar').getByRole('button', { name: 'Price items', exact: true }).click();
-  await page.getByRole('heading', { name: 'Price items', exact: true }).waitFor();
-  await page.locator('.delivery-bulk').getByLabel('Selling price / UGX', { exact: true }).fill('90000');
-  await page.locator('.delivery-bulk').getByLabel('Cost / UGX', { exact: true }).fill('40000');
-  await button('Apply to selected').click();
-  await page.getByLabel(`Quantity ${ids[0]} 1`, { exact: true }).fill('3');
-  await page.screenshot({ path: '../verification/delivery-pricing-desktop.png', fullPage: true });
+  await page.getByRole('heading', { name: 'Pricing', exact: true }).waitFor();
+  await page.getByLabel('Shared price', { exact: true }).fill('90000');
+  await button('Add exception').click();
+  await page.getByRole('combobox', { name: 'Size for exception 1', exact: true }).click();
+  await page.getByRole('option', { name: 'XXL', exact: true }).click();
+  await page.getByLabel('Price for exception 1', { exact: true }).fill('110000');
+  await page.screenshot({ path: '../verification/restored-pricing-desktop.png', fullPage: true });
   await page.setViewportSize({ width: 390, height: 844 });
-  await page.screenshot({ path: '../verification/delivery-pricing-mobile.png', fullPage: true });
+  await page.screenshot({ path: '../verification/restored-pricing-mobile.png', fullPage: true });
   assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
-  await button('Review for POS').click();
+  await button('Review prices').click();
+  await button('Save prices').click();
+  await page.getByRole('heading', { name: 'Prices saved', exact: true }).waitFor();
+  await page
+    .getByRole('dialog', { name: 'Prices saved', exact: true })
+    .getByRole('button', { name: 'Review for POS', exact: true })
+    .click();
   await page.getByRole('heading', { name: 'Review for POS', exact: true }).waitFor();
   assert.equal(await page.locator('.delivery-checkout input').count(), 0);
-  assert.equal(saves[0].rows.length, 2);
   assert.equal(sent.length, 0);
+  assert.equal(items[0].lines[0].price, 90000);
+  assert.equal(items[1].lines[0].price, 110000);
   await button('Back to pricing').click();
-  assert.equal(await page.getByLabel(`Quantity ${ids[0]} 1`, { exact: true }).inputValue(), '3');
+  await page.getByRole('heading', { name: 'Pricing', exact: true }).waitFor();
   await button('Review for POS').click();
-  await page.screenshot({ path: '../verification/delivery-summary-mobile.png', fullPage: true });
   await button('Send 2 products to POS').click();
   await page.getByRole('heading', { name: 'Sent to POS', exact: true }).waitFor();
   assert.equal(sent.length, 2);
+  await page
+    .getByRole('navigation', { name: 'Workspace', exact: true })
+    .getByRole('button', { name: 'Pricing', exact: true })
+    .click();
+  await page.getByRole('heading', { name: 'Pricing', exact: true }).waitFor();
+  assert.equal(await button('Review for POS').count(), 0);
+  assert(await button('Add exception').count());
   assert.deepEqual(errors, []);
   const checks = [
-    'Main flow hides technical tools',
-    'Bulk pricing and costs save together',
-    'Mobile fits viewport',
-    'Summary is read-only; back preserves edits',
-    'Explicit send completes two products',
+    'Original pricing UI and exceptions reused inside Receiving',
+    'Shared price and size exception saved correctly',
+    'Read-only summary leads directly to send',
+    'Back to pricing preserves saved prices',
+    'Side-menu Pricing restored independently',
+    'Mobile pricing fits viewport',
   ];
   await fs.writeFile(
-    '../verification/delivery-checkout-ui.json',
+    '../verification/restored-pricing-ui.json',
     JSON.stringify({ passed: true, checks }, null, 2),
   );
   console.log(JSON.stringify({ passed: true, checks }));

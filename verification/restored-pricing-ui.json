@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "checks": [
+    "Original pricing UI and exceptions reused inside Receiving",
+    "Shared price and size exception saved correctly",
+    "Read-only summary leads directly to send",
+    "Back to pricing preserves saved prices",
+    "Side-menu Pricing restored independently",
+    "Mobile pricing fits viewport"
+  ]
+}

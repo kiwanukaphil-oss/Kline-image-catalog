@@ -20,12 +20,16 @@ export function DeliveryCheckout({
   session,
   onBack,
   onStock,
+  summaryOnly = false,
+  onReturnToPricing,
 }: {
   ids: string[];
   branch: string;
   session: Session;
   onBack: () => void;
   onStock: () => void;
+  summaryOnly?: boolean;
+  onReturnToPricing?: () => void;
 }) {
   const [items, setItems] = useState<DeliveryItem[]>([]);
   const [review, setReview] = useState<DeliveryReview[] | null>(null);
@@ -56,6 +60,44 @@ export function DeliveryCheckout({
           groups: string[][];
           expanded: number;
         }>('/catalog-workspace/delivery/read', branch, { item_ids: ids });
+        if (!active) return;
+        if (summaryOnly) {
+          // Preserve the old pricing UI: load saved commercial values and seed only unambiguous caption sizes before review.
+          const savedItems = response.results.flatMap((result) =>
+            result.item ? [editableDeliveryItem(result.item)] : [],
+          );
+          for (const item of savedItems.filter(
+            (item) => item.dirty && !item.is_published && !item.is_cancelled,
+          )) {
+            const saved = await postPos<{ results: { error?: string }[] }>(
+              '/catalog-workspace/delivery/save',
+              branch,
+              { rows: [deliverySavePayload(item)] },
+            );
+            if (saved.results.some((result) => result.error))
+              throw Error(
+                saved.results
+                  .map((result) => result.error)
+                  .filter(Boolean)
+                  .join(' '),
+              );
+          }
+          const summary = await postPos<{ results: DeliveryReview[] }>(
+            '/catalog-workspace/delivery/review',
+            branch,
+            { item_ids: response.results.map((result) => result.id) },
+          );
+          if (!active) return;
+          setItems(savedItems.map((item) => ({ ...item, dirty: false })));
+          setReview(summary.results);
+          setError(
+            response.results
+              .filter((result) => result.error)
+              .map((result) => result.error)
+              .join(' '),
+          );
+          return;
+        }
         let drafts: DeliveryItem[] = [];
         try {
           drafts = JSON.parse(sessionStorage.getItem(draftKey) || '[]');
@@ -109,15 +151,15 @@ export function DeliveryCheckout({
     return () => {
       active = false;
     };
-  }, [branch, ids, draftKey, session.can_view_cost]);
+  }, [branch, ids, draftKey, session.can_view_cost, summaryOnly]);
   useEffect(() => {
-    if (loading) return;
+    if (loading || summaryOnly) return;
     try {
       sessionStorage.setItem(draftKey, JSON.stringify(items.filter((item) => item.dirty)));
     } catch {
       setNotice('Your browser could not keep a local draft. Save before leaving this page.');
     }
-  }, [items, draftKey, loading]);
+  }, [items, draftKey, loading, summaryOnly]);
 
   function edit(id: string, patch: Partial<DeliveryItem>) {
     setItems((previous) =>
@@ -269,7 +311,7 @@ export function DeliveryCheckout({
       <div className="page-heading">
         <div>
           <span className="eyebrow">{branchName}</span>
-          <h1>{review ? (complete ? 'Sent to POS' : 'Review for POS') : 'Price items'}</h1>
+          <h1>{review || summaryOnly ? (complete ? 'Sent to POS' : 'Review for POS') : 'Price items'}</h1>
           <p>
             {review
               ? 'Check the items, sizes, quantities and prices below.'
@@ -277,8 +319,8 @@ export function DeliveryCheckout({
           </p>
         </div>
         {!review && (
-          <Button variant="outline" disabled={busy} onClick={onBack}>
-            Back to delivery
+          <Button variant="outline" disabled={busy} onClick={summaryOnly ? onReturnToPricing : onBack}>
+            {summaryOnly ? 'Back to pricing' : 'Back to delivery'}
           </Button>
         )}
       </div>
@@ -292,7 +334,8 @@ export function DeliveryCheckout({
           {error}
         </p>
       )}
-      {!review && !loading && (
+      {/* The superseded inline pricing editor is retained for compatibility, but Receiving uses the original Pricing component. */}
+      {!summaryOnly && !review && !loading && (
         <>
           {!session.can_view_cost && items.some((item) => item.lines.some((line) => line.cost_missing)) && (
             <p role="alert">
@@ -612,6 +655,10 @@ export function DeliveryCheckout({
               variant="outline"
               disabled={busy}
               onClick={() => {
+                if (summaryOnly) {
+                  onReturnToPricing?.();
+                  return;
+                }
                 setReview(null);
                 setError('');
               }}

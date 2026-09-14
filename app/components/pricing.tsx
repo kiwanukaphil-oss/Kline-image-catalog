@@ -34,11 +34,13 @@ export function Pricing({
   session,
   scope,
   onDone,
+  onReviewDelivery,
 }: {
   branch: string;
   session: Session;
   scope: string[];
   onDone: () => void;
+  onReviewDelivery?: () => void;
 }) {
   const [items, setItems] = useState<PriceItem[]>([]),
     [selected, setSelected] = useState<string[]>([]);
@@ -510,6 +512,24 @@ export function Pricing({
           )}
         </aside>
       </div>
+      {onReviewDelivery && (
+        <div className="delivery-actions">
+          <Button
+            disabled={
+              loading ||
+              busy ||
+              !!shared ||
+              !!rules.length ||
+              !!Object.keys(exceptions).length ||
+              !!plan ||
+              !items.length
+            }
+            onClick={onReviewDelivery}
+          >
+            Review for POS
+          </Button>
+        </div>
+      )}
       {plan && (
         <Modal
           title="Review prices"
@@ -619,10 +639,10 @@ export function Pricing({
             <Button
               onClick={() => {
                 setReceipt(null);
-                onDone();
+                (onReviewDelivery || onDone)();
               }}
             >
-              Return to Receiving
+              {onReviewDelivery ? 'Review for POS' : 'Return to Receiving'}
             </Button>
           </div>
         </Modal>

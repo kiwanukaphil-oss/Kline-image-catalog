@@ -34,6 +34,7 @@ import { isUncertainReceiptError, RECEIPT_CONNECTION_MESSAGE } from '@/lib/recei
 import { readPendingPhotos } from '@/lib/upload-queue';
 import { SuggestedMatches } from './suggested-matches';
 import { BulkPreparation } from './bulk-preparation';
+import { Pricing } from './pricing';
 import { DeliveryCheckout } from './delivery-checkout';
 import { ProductDestinations } from './product-destinations';
 type Batch = {
@@ -77,14 +78,17 @@ export function Receiving({
   session,
   onPrice,
   onStock,
+  onNavigate = (action) => action(),
   active = true,
 }: {
   branch: string;
   session: Session;
   onPrice: (ids: string[]) => void;
   onStock: () => void;
+  onNavigate?: (action: () => void) => void;
   active?: boolean;
 }) {
+  const [reviewDelivery, setReviewDelivery] = useState(false);
   const [checkoutIds, setCheckoutIds] = useState<string[] | null>(null);
   const [advanced, setAdvanced] = useState(false);
   const [tab, setTab] = useState('deliveries'),
@@ -99,6 +103,20 @@ export function Receiving({
   const [editingMatch, setEditingMatch] = useState<ProductMatch | undefined>();
   const [suggestionVersion, setSuggestionVersion] = useState(0);
   const productMatches = usePosRead<ProductMatch[]>('/catalog-workspace/product-matches', branch);
+  const checkoutScope = useMemo(
+    () =>
+      checkoutIds
+        ? [
+            ...new Set([
+              ...checkoutIds,
+              ...(productMatches.data || [])
+                .filter((plan) => plan.item_ids.some((id) => checkoutIds.includes(id)))
+                .flatMap((plan) => plan.item_ids),
+            ]),
+          ]
+        : [],
+    [checkoutIds, productMatches.data],
+  );
   const [receipt, setReceipt] = useState<Receipt | null>(null);
   const [task, setTask] = useState('all'),
     [categoryFilter, setCategoryFilter] = useState(''),
@@ -262,17 +280,29 @@ export function Receiving({
       setSelectedItems([]);
     }
   }, [active, refreshInventory, refreshBatches, refreshReceipts]);
+  const closeDeliveryPricing = () => {
+    setCheckoutIds(null);
+    setReviewDelivery(false);
+    refreshReceiving();
+  };
   if (checkoutIds)
-    return (
+    return reviewDelivery ? (
       <DeliveryCheckout
-        ids={checkoutIds}
+        ids={checkoutScope}
         branch={branch}
         session={session}
-        onBack={() => {
-          setCheckoutIds(null);
-          refreshReceiving();
-        }}
+        summaryOnly
+        onReturnToPricing={() => setReviewDelivery(false)}
+        onBack={closeDeliveryPricing}
         onStock={onStock}
+      />
+    ) : (
+      <Pricing
+        branch={branch}
+        session={session}
+        scope={checkoutScope}
+        onDone={() => onNavigate(closeDeliveryPricing)}
+        onReviewDelivery={session.can_publish ? () => setReviewDelivery(true) : undefined}
       />
     );
   return (

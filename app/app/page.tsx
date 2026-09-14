@@ -119,9 +119,9 @@ export default function Workspace() {
               { name: 'Stock', icon: Boxes },
             ] as const
           )
-            .filter(({ name }) => name !== 'Pricing')
+
             .map(({ name, icon: Icon }) => (
-              /* Keep daily navigation simple; the preserved Pricing workspace opens from Advanced tools. */ <Button
+              /* Keep Receiving, Pricing and Stock available as the three daily workspaces. */ <Button
                 key={name}
                 variant="ghost"
                 className={`nav-link ${destination === name ? 'active' : ''}`}
@@ -219,6 +219,7 @@ export default function Workspace() {
         <main key={`${session.id}:${branch}`} className="content">
           <div hidden={destination !== 'Receiving'}>
             <Receiving
+              onNavigate={navigateSafely}
               onStock={() => setDestination('Stock')}
               active={destination === 'Receiving'}
               branch={branch}
