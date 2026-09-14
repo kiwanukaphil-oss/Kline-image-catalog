@@ -6,7 +6,13 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Checkbox } from '@/components/ui/checkbox';
 import { formatMoney, postPos, type Session } from '@/lib/catalog-api';
-import { compileCombinedPriceProposal, type PriceItem, type PricePlan } from '@/lib/pricing';
+import {
+  compileCombinedPriceProposal,
+  withPricingPlanSizes,
+  withPricingSize,
+  type PriceItem,
+  type PricePlan,
+} from '@/lib/pricing';
 import { Modal, Pagination, Photo, SearchField } from './workspace-ui';
 import { compareVariants } from '@/lib/variant-order';
 import {
@@ -107,6 +113,7 @@ export function Pricing({
           setItems(
             all
               .filter((item) => !item.is_published)
+              .map(withPricingSize)
               .map((item) => ({ ...item, lines: [...item.lines].sort(compareVariants) })),
           );
           if (scope.length)
@@ -229,7 +236,7 @@ export function Pricing({
       );
       const { data } = await postPos<{ data: PricePlan }>('/catalog/pricing/preview', branch, payload);
       setReviewPage(1);
-      setPlan(data);
+      setPlan(withPricingPlanSizes(data, items));
     } catch (cause) {
       setError((cause as Error).message);
     } finally {

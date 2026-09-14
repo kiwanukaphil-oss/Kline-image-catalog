@@ -22,3 +22,9 @@ The delivery routes require `node host-integration/apply-delivery-checkout.cjs <
 The ordinary journey is Upload ? AI fill ? Price items ? read-only Review ? Send to POS. Pricing and proposed quantities save together in bulk. Existing confirmed groups remain intact; otherwise items become new products without a destination choice. Advanced tools preserve matching, destination overrides, photo-only updates and pricing rules. Permissions, required product details and category setup still apply. Existing POS variants retain their current price, which the final summary displays.
 
 Validation: `server/tests/delivery-checkout.cjs` against the patched local POS host and `app/tests/delivery-checkout.mjs` against the local UI with intercepted API fixtures. Photo-transfer failure is reported separately from committed stock, and repeated sends do not duplicate stock.
+
+## AI stock-size consistency
+
+Apply `host-integration/apply-stock-size-consistency.cjs <backend-directory>` to the reviewed POS release source, along with the current caption policy. The AI result transaction now fills a missing size on a single stock row independently of detecting a quantity annotation. It uses the final saved product size under the item lock, retains existing quantity and source (defaults remain unconfirmed), and preserves row IDs and price/cost overrides for single-row updates. Confirmed counts, explicit stock sizes, ambiguous sizes and multi-row breakdowns are protected. No schema migration is required.
+
+Regression coverage: `server/tests/stock-size-persistence.cjs` exercises real extraction persistence with mocked provider responses. Production alignment of previously affected jeans is recorded separately in `verification/jeans-size-alignment.json`; it is not an automatic migration or startup action.

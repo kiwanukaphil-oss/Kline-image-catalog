@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "checks": [
+    "Single saved size 40 appears in pricing without stock mutation",
+    "Size filters and exceptions target the original row ID",
+    "Server price-review labels retain size 40",
+    "Explicit and confirmed sizes, multi-size lots and ambiguous labels are preserved"
+  ]
+}

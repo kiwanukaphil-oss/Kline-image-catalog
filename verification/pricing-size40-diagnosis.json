@@ -1,0 +1,27 @@
+{
+  "checked_at": "2026-09-14T07:12:00.107Z",
+  "branch": "NAMUGONGO",
+  "incoming_jeans": 29,
+  "stock_row_sizes": [
+    "34",
+    "36",
+    "38"
+  ],
+  "single_rows_missing_size": 24,
+  "size40_products": [
+    "GAP Jeans - Blue",
+    "HILFIGER DENIM Jeans - Blue",
+    "Boss Jeans - Dark Blue"
+  ],
+  "cause": "Saved product sizes were excluded because pricing only used stock-row variant attributes.",
+  "fix": "Use an unambiguous saved single-item size for pricing display, filters and exceptions; preserve original row identifiers and signed revisions.",
+  "production_records_changed": false,
+  "validation": [
+    "Pure size fallback tests",
+    "Browser size-40 exception and price-review test",
+    "Pricing regression suite",
+    "TypeScript",
+    "Lint",
+    "Production build"
+  ]
+}

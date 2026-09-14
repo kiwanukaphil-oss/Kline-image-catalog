@@ -1,0 +1,53 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "source": "intake_default",
+      "quantity": 1,
+      "size": "40",
+      "passed": true
+    },
+    {
+      "source": "ai_suggested",
+      "quantity": 2,
+      "size": "40",
+      "passed": true
+    },
+    {
+      "source": "intake_default",
+      "quantity": 1,
+      "size": "40",
+      "explicit": true,
+      "passed": true
+    },
+    {
+      "source": "human_confirmed",
+      "quantity": 7,
+      "size": "40",
+      "passed": true
+    },
+    {
+      "source": "intake_default",
+      "quantity": 1,
+      "size": "38-40",
+      "passed": true
+    },
+    {
+      "source": "intake_default",
+      "quantity": 1,
+      "size": "40",
+      "concurrent": true,
+      "passed": true
+    },
+    {
+      "source": "intake_default",
+      "quantity": 1,
+      "size": "40",
+      "concurrent": true,
+      "explicit": true,
+      "passed": true
+    }
+  ],
+  "prices_costs_row_ids_preserved": true,
+  "provider_calls": "local fixtures; no paid model calls"
+}

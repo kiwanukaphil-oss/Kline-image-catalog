@@ -14,7 +14,7 @@ let items = ids.map((id, n) => ({
   name: `Cotton shirt ${n + 1}`,
   brand: 'Oxford',
   image_url: null,
-  attributes: { material: 'Cotton' },
+  attributes: { material: 'Cotton', ...(n ? { size: '40' } : {}) },
   revision: 'a'.repeat(64),
   is_published: false,
   is_cancelled: false,
@@ -22,7 +22,7 @@ let items = ids.map((id, n) => ({
   count_source: 'ai_suggested',
   required_fields: [],
   issues: [],
-  lines: [{ id: `line${n}`, size: n ? 'XXL' : 'M', quantity: 2, price: null, cost: null }],
+  lines: [{ id: `line${n}`, size: n ? '40' : 'M', quantity: 2, price: null, cost: null }],
 }));
 let pricePlan;
 // Intercept every API request: UI verification cannot modify hosted records.
@@ -59,7 +59,7 @@ await page.route('**/api/**', async (route) => {
           base_cost_price: null,
           lines: item.lines.map((line) => ({
             ...line,
-            variant_attributes: { size: line.size },
+            variant_attributes: item.attributes.size ? {} : { size: line.size },
             effective_price: line.price,
             effective_cost: line.cost,
             price_override: line.price,
@@ -82,7 +82,7 @@ await page.route('**/api/**', async (route) => {
           item_id: item.id,
           line_id: item.lines[0].id,
           name: item.name,
-          variant_attributes: { size: item.lines[0].size },
+          variant_attributes: item.attributes.size ? {} : { size: item.lines[0].size },
           quantity: 2,
           price_before: null,
           price_after: change.lines[0]?.price_override ?? change.base_price,
@@ -171,14 +171,16 @@ try {
   await page.getByLabel('Shared cost', { exact: true }).fill('40000');
   await button('Add exception').click();
   await page.getByRole('combobox', { name: 'Size for exception 1', exact: true }).click();
-  await page.getByRole('option', { name: 'XXL', exact: true }).click();
+  await page.getByRole('option', { name: '40', exact: true }).click();
   await page.getByLabel('Price for exception 1', { exact: true }).fill('110000');
   await page.getByLabel('Cost for exception 1', { exact: true }).fill('50000');
-  await page.screenshot({ path: '../verification/combined-pricing-desktop.png', fullPage: true });
+  await page.screenshot({ path: '../verification/pricing-size40-desktop.png', fullPage: true });
   await page.setViewportSize({ width: 390, height: 844 });
-  await page.screenshot({ path: '../verification/combined-pricing-mobile.png', fullPage: true });
+  await page.screenshot({ path: '../verification/pricing-size40-mobile.png', fullPage: true });
   assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
   await button('Review prices').click();
+  await page.getByText('Inspect individual changes', {exact:true}).click();
+  await page.getByRole('dialog', {name:'Review prices',exact:true}).getByText('40', {exact:true}).waitFor();
   await button('Save prices').click();
   await page.getByRole('heading', { name: 'Prices saved', exact: true }).waitFor();
   await page
@@ -217,7 +219,7 @@ try {
     'Mobile pricing fits viewport',
   ];
   await fs.writeFile(
-    '../verification/combined-pricing-ui.json',
+    '../verification/pricing-size40-ui.json',
     JSON.stringify({ passed: true, checks }, null, 2),
   );
   console.log(JSON.stringify({ passed: true, checks }));

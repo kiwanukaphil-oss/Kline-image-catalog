@@ -17,6 +17,7 @@ export type PriceItem = {
   image_url: string | null;
   revision: string;
   is_published: boolean;
+  stock_distribution_source?: string;
   base_price: number | null;
   base_cost_price?: number | null;
   lines: PriceLine[];
@@ -147,5 +148,45 @@ export function compileCombinedPriceProposal(
     keep_overrides: true,
     keep_cost_overrides: true,
     items: [...merged.values()],
+  };
+}
+
+/** Project a saved single product size into a blank pricing row without changing stock, IDs or revision tokens. */
+export function withPricingSize(item: PriceItem): PriceItem {
+  const size = String(item.attributes?.size || '').trim();
+  const single =
+    /^(?:(?:W\s*|UK\s*|EU\s*|US\s*)?\d{1,3}(?:\.5)?(?:\s*L\s*\d{2,3})?|XXS|XS|S|M|L|XL|X{2,6}L|[2-9]XL|one size)$/i.test(
+      size,
+    );
+  if (!single || item.lines.length !== 1 || item.stock_distribution_source === 'human_confirmed') return item;
+  const line = item.lines[0];
+  if (
+    Object.entries(line.variant_attributes).some(
+      ([key, value]) => key.toLowerCase() === 'size' && String(value).trim(),
+    )
+  )
+    return item;
+  return { ...item, lines: [{ ...line, variant_attributes: { ...line.variant_attributes, size } }] };
+}
+
+/** Price plans remain server-owned; restore only display labels from the exact selected source row. */
+export function withPricingPlanSizes(plan: PricePlan, items: PriceItem[]): PricePlan {
+  const sources = new Map(
+    items.flatMap((item) =>
+      withPricingSize(item).lines.map((line) => [`${item.id}:${line.id}`, line] as const),
+    ),
+  );
+  return {
+    ...plan,
+    rows: plan.rows.map((row) => {
+      if (
+        Object.entries(row.variant_attributes).some(
+          ([key, value]) => key.toLowerCase() === 'size' && String(value).trim(),
+        )
+      )
+        return row;
+      const size = sources.get(`${row.item_id}:${row.line_id}`)?.variant_attributes.size;
+      return size ? { ...row, variant_attributes: { ...row.variant_attributes, size } } : row;
+    }),
   };
 }

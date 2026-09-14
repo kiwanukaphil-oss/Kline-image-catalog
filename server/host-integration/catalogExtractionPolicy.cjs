@@ -1,4 +1,4 @@
-const POLICY_VERSION = '2026-09-13.1';
+const POLICY_VERSION = '2026-09-14.1';
 const DEFAULT_MODEL = 'gpt-5.6-sol';
 const cleanText = value => String(value ?? '').trim().replace(/\s+/g, ' ');
 const titleWords = value => cleanText(value).toLowerCase().replace(/\b\p{L}/gu, letter => letter.toUpperCase()).replace(/\bAnd\b/g, 'and');
@@ -134,6 +134,7 @@ function buildCatalogPolicyInstructions() {
     'Keep exact brand spelling: never correct a look-alike brand into a famous brand. The server resolves approved aliases and existing brand capitalization.',
     'For generic clothing use <Brand> <Sleeve when relevant> <Garment> - <Colour> <Pattern>. Omit absent parts and omit Solid. Example: Oxford Short Sleeve Shirt - Navy Floral Paisley. No size, quantity, price, material, promotional words or repeated brand in a design name.',
     'Preserve a clearly readable model/style identifier in its configured field. Jeans or Shirt is a garment type, not a model/style identifier. Inspect small digits carefully: 0, 6 and 8 are not interchangeable. A partly hidden or blurred code must not become a confident identifier or part of the name. For recognizable named products preserve the exact model/flanker; do not invent one.',
+    'Always return an observed single size in values.size, even when no quantity is printed. A size-only caption is not a quantity: leave stock_distribution undetected when there is no explicit count. The catalog will carry the size into its existing stock row while retaining the current unconfirmed quantity.',
     'Canonical alpha sizes are XXS, XS, S, M, L, XL, 2XL, 3XL, 4XL, 5XL, 6XL. XXL means 2XL; XXXL means 3XL. 2XXL is ambiguous: reinspect the label, retain it only if clearly printed, and use Low confidence. Never silently equate ambiguous sizes.',
     'When a shirt tag gives both alpha and neck sizes, use the alpha size as values.size (XXL plus 18-18½ becomes 2XL). Retain the neck measurement in visible_text and evidence, or a dedicated neck-size field if configured. Do not combine both into a new sellable size. An actual M/L dual-alpha size remains M/L.',
     'Preserve UK/EU/US prefixes, numeric shoe sizes, half sizes, neck ranges and waist/inseam measurements. W32 L34 is not just 32. Never convert sizing systems or round to a listed option.',

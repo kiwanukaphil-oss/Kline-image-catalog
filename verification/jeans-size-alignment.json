@@ -1,0 +1,191 @@
+{
+  "applied": true,
+  "at": "2026-09-14T07:23:45.189Z",
+  "reviewed": 29,
+  "aligned": 24,
+  "unchanged": 5,
+  "quantities_prices_costs_row_ids_preserved": true,
+  "counts_not_confirmed": true,
+  "pos_stock_unchanged": true,
+  "backup": ".test-data/jeans-size-alignment-before-1789370602627.json",
+  "items": [
+    {
+      "id": "0bb55e5c-799a-4e84-b7ea-e6e9a14dcc6f",
+      "line_id": "1b99684b-f38d-46e0-958f-2a05eb7536e3",
+      "name": "DIESEL Jeans - Blue",
+      "size": "34",
+      "quantity": 1
+    },
+    {
+      "id": "0ca121e5-3cbf-4e39-b976-afbd74fe9fc2",
+      "line_id": "d623ed1a-791c-4fcc-9040-015e803fb5a5",
+      "name": "Zara Jeans - Blue",
+      "size": "32",
+      "quantity": 1
+    },
+    {
+      "id": "0e6e0030-518a-4c5b-b540-67afbb178578",
+      "line_id": "6ac9c96a-fe58-486d-a665-ef606cde5395",
+      "name": "HILFIGER DENIM Jeans - Blue",
+      "size": "32",
+      "quantity": 1
+    },
+    {
+      "id": "16124f22-b753-4000-8923-3bc8871c7bec",
+      "line_id": "754c12c9-8ca8-4b48-8aea-b800fe216966",
+      "name": "AMERICAN EAGLE 6310 Jeans - Gray",
+      "size": "30",
+      "quantity": 1
+    },
+    {
+      "id": "3c596c74-3c96-4d80-955e-9756c6b28a6f",
+      "line_id": "95fd3d6c-cb29-4e94-a24b-78fe18aa6336",
+      "name": "GAP Jeans - Gray",
+      "size": "36",
+      "quantity": 1
+    },
+    {
+      "id": "483692f7-7e98-4b56-b45d-0bbadb5f2276",
+      "line_id": "b50eb36d-bd6d-477a-8e77-609cf2ea17da",
+      "name": "Zara Jeans - Blue",
+      "size": "34",
+      "quantity": 1
+    },
+    {
+      "id": "4b93e52e-a39b-4c8f-9f17-b081bf1e35b5",
+      "line_id": "197ce830-47d1-495e-9018-5172ed90644c",
+      "name": "American Eagle Outfitters 0310 Jeans - Gray",
+      "size": "38",
+      "quantity": 1
+    },
+    {
+      "id": "4d1b63ae-9d36-40bd-aa9d-2ad6a9b8961e",
+      "line_id": "f975bff9-7dd1-4fe9-8e11-ca77eaaa768c",
+      "name": "HILFIGER DENIM Jeans - Blue",
+      "size": "36",
+      "quantity": 1
+    },
+    {
+      "id": "5235ccac-849a-45cb-aaf7-c12636d3f82e",
+      "line_id": "d5962acf-3e1c-43b3-b7f9-2db739fd652f",
+      "name": "GAP Jeans - Light Blue",
+      "size": "32",
+      "quantity": 1
+    },
+    {
+      "id": "53335f5f-9b10-40f3-9a1c-bd5904e802fe",
+      "line_id": "97e82547-bc0b-4257-a9da-3b1d9cf49b74",
+      "name": "GAP Jeans - Dark Gray",
+      "size": "34",
+      "quantity": 1
+    },
+    {
+      "id": "624fd685-1b5e-4805-b450-d35ef87c3d8a",
+      "line_id": "428b4763-8512-4962-b917-be64059c597b",
+      "name": "GAP Jeans - Blue",
+      "size": "38",
+      "quantity": 1
+    },
+    {
+      "id": "7633e497-5f91-41f8-a0c3-6a026f4c223b",
+      "line_id": "d91b028d-1ca1-4230-b17a-cf06c8d9f53b",
+      "name": "DIESEL Jeans - Dark Blue",
+      "size": "W40",
+      "quantity": 1
+    },
+    {
+      "id": "87147120-77e9-4bdf-ba0e-e41f093dc685",
+      "line_id": "28cd3f90-ed3c-42cc-886b-462b1728bf5b",
+      "name": "DIESEL Jeans - Black",
+      "size": "36",
+      "quantity": 1
+    },
+    {
+      "id": "930c25fc-c60f-4b13-9f25-3f83a3aa7d02",
+      "line_id": "d777a93d-e87e-410f-8dd2-ccbde3c898af",
+      "name": "DIESEL Jeans - Black",
+      "size": "38",
+      "quantity": 1
+    },
+    {
+      "id": "963047bd-9baf-4cc3-bf15-2246d7ec3fb9",
+      "line_id": "042c8c1c-8c27-479b-8905-0f697edb0946",
+      "name": "American Eagle Outfitters Jeans - Gray",
+      "size": "32",
+      "quantity": 1
+    },
+    {
+      "id": "b7943771-940c-4246-96c9-5a4106399c97",
+      "line_id": "63d69b59-3efd-4857-baa7-2273db917127",
+      "name": "HILFIGER DENIM Jeans - Blue",
+      "size": "38",
+      "quantity": 2
+    },
+    {
+      "id": "b8e2bf6f-d20d-45f0-ae42-b31f6b98f650",
+      "line_id": "149035d4-fd5a-4857-aa82-82986597f744",
+      "name": "GAP Jeans - Blue",
+      "size": "40",
+      "quantity": 1
+    },
+    {
+      "id": "cbce14bd-0440-4998-a3fd-f98b9286ee2e",
+      "line_id": "f6931f6e-3a6b-43b3-bb64-f37f32de69ca",
+      "name": "Boss Jeans - Dark Blue",
+      "size": "40",
+      "quantity": 1
+    },
+    {
+      "id": "cc98ba5a-508c-40f0-bb6d-f2668158441d",
+      "line_id": "22d565ce-6cfe-4050-b244-f5ffb0832e05",
+      "name": "American Eagle Outfitters 8310 Jeans - Gray",
+      "size": "36",
+      "quantity": 2
+    },
+    {
+      "id": "d3aace56-31a2-4ea2-ad9c-6ccb6d7b936c",
+      "line_id": "a2ff2d16-1786-4570-b091-7b57b69e7036",
+      "name": "HILFIGER DENIM Jeans - Blue",
+      "size": "40",
+      "quantity": 1
+    },
+    {
+      "id": "d5fae3fb-d0fa-48ce-b244-87bced63ac86",
+      "line_id": "78835259-38c4-438b-8729-910cb0b21d28",
+      "name": "Boss Jeans - Dark Blue",
+      "size": "32",
+      "quantity": 1
+    },
+    {
+      "id": "d70e7dde-ed34-44fc-8b98-6f1f5a04cc4c",
+      "line_id": "be03333b-7c9c-4ae0-af9d-32ad8498ff68",
+      "name": "GAP Jeans - Blue",
+      "size": "38",
+      "quantity": 1
+    },
+    {
+      "id": "da0fb89d-96ad-4441-a18c-7432a4d5944b",
+      "line_id": "1a77c37f-a4dc-4964-b994-397dc11232aa",
+      "name": "DIESEL Jeans - Dark Blue",
+      "size": "36",
+      "quantity": 1
+    },
+    {
+      "id": "e9458b47-9ac9-4895-98e2-fb24408afa46",
+      "line_id": "db0c48d1-2351-4817-97dd-b065d1338e29",
+      "name": "DIESEL Jeans - Black",
+      "size": "34",
+      "quantity": 1
+    }
+  ],
+  "post_commit_verified": true,
+  "stock_sizes": [
+    "30",
+    "32",
+    "34",
+    "36",
+    "38",
+    "40",
+    "W40"
+  ]
+}
