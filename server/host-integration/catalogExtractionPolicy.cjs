@@ -1,4 +1,4 @@
-const POLICY_VERSION = '2026-09-14.1';
+const POLICY_VERSION = '2026-09-14.2';
 const DEFAULT_MODEL = 'gpt-5.6-sol';
 const cleanText = value => String(value ?? '').trim().replace(/\s+/g, ' ');
 const titleWords = value => cleanText(value).toLowerCase().replace(/\b\p{L}/gu, letter => letter.toUpperCase()).replace(/\bAnd\b/g, 'and');
@@ -9,6 +9,9 @@ function canonicalCatalogSize(value) {
   const raw = cleanText(value).toUpperCase();
   const comparable = raw.replace(/[- ]/g, '');
   const longForm = raw.replace(/-/g, ' ');
+  // A waist-only prefix is an equivalent label, not a separate sellable size. Keep full waist/inseam measurements.
+  const waistOnly = raw.match(/^W\s*(\d{2,3}(?:\.5)?)$/);
+  if (waistOnly) return waistOnly[1];
   if (SIZE_ALIASES[longForm]) return SIZE_ALIASES[longForm];
   if (/^X{2,6}L$/.test(comparable)) return `${comparable.length - 1}XL`;
   if (/^[2-9]XL$/.test(comparable)) return comparable;

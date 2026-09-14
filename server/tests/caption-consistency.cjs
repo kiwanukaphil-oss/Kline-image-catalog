@@ -32,7 +32,12 @@ check('A separate quantity note retains its exact count and receives the single 
   assert.equal(actual.stockDistribution.totalQuantity,2);
 });
 check('Waist-only jeans labels normalize consistently without stripping full measurements',()=>{
-  assert.equal(service.normalizeStructuredExtraction(result({size:'W 40'},'W 40','printed_label'),run).values.size,'40');
+  for (const size of ['W40','W 40','w 40','40']) {
+    const actual = service.normalizeStructuredExtraction(result({size},`${size}\nQty: 2 pieces`,'printed_label',{detected:true,evidence_text:'Qty: 2 pieces',entries:[{variant_attributes:{size},quantity:2}],confidence:'High'}),run);
+    assert.equal(actual.values.size,'40');
+    assert.deepEqual(actual.stockDistribution.entries,[{variant_attributes:{size:'40'},quantity:2}]);
+    assert.equal(actual.evidence.size.observation,`${size}\nQty: 2 pieces`);
+  }
   assert.equal(service.normalizeStructuredExtraction(result({size:'W32 L34'},'W32 L34','printed_label'),run).values.size,'W32 L34');
 });
 check('Initial and retry instructions both explicitly prioritize all factual captions over tags',()=>{

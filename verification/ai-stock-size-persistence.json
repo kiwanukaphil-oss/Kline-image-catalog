@@ -4,6 +4,19 @@
     {
       "source": "intake_default",
       "quantity": 1,
+      "size": "W40",
+      "passed": true
+    },
+    {
+      "source": "intake_default",
+      "quantity": 1,
+      "size": "W 40",
+      "explicit": true,
+      "passed": true
+    },
+    {
+      "source": "intake_default",
+      "quantity": 1,
       "size": "40",
       "passed": true
     },

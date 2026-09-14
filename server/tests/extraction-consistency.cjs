@@ -12,7 +12,7 @@ const run={item:{category_path:'Clothing > Shirts > Business Casual',category_sl
 const result=(values,source='visual_observation')=>({visible_text:'OXFORD XXL',values,confidence:Object.fromEntries(Object.keys(values).map(key=>[key,'High'])),evidence:Object.fromEntries(Object.keys(values).map(key=>[key,{source,observation:'Photographed product evidence'}])),stock_distribution:{detected:false,evidence_text:null,entries:[],confidence:null}});
 
 check('Equivalent alpha sizes agree in extraction and manual stock distributions; ambiguous and regional sizes remain distinct',()=>{
- for(const [input,expected]of [['XXL','2XL'],['2 xl','2XL'],['XXXL','3XL'],['XXXXXL','5XL'],['Extra-Large','XL'],['Medium','M'],['2XXL','2XXL'],['EU 42','EU 42'],['UK 8.5','UK 8.5'],['16-16½','16-16½'],['W32 L34','W32 L34']]){
+ for(const [input,expected]of [['W40','40'],['W 40','40'],['w 40','40'],['W32.5','32.5'],['XXL','2XL'],['2 xl','2XL'],['XXXL','3XL'],['XXXXXL','5XL'],['Extra-Large','XL'],['Medium','M'],['2XXL','2XXL'],['EU 42','EU 42'],['UK 8.5','UK 8.5'],['16-16½','16-16½'],['W32 L34','W32 L34']]){
   assert.equal(policy.canonicalCatalogSize(input),expected);assert.equal(stock.canonicalCatalogSize(input),expected);
   assert.equal(service.normalizeStructuredExtraction(result({size:input}),run).values.size,expected);
  }
@@ -50,6 +50,7 @@ check('Stock extraction requires quoted lot evidence; duplicate size aliases can
  const entry=size=>({variant_attributes:{size},quantity:1});
  assert.equal(service.normalizeStructuredExtraction(distribution('XXL',[entry('XXL')]),run).stockDistribution,null);
  assert.equal(service.normalizeStructuredExtraction(distribution('Qty: XXL 1 piece',[entry('XXL'),entry('2XL')]),run).stockDistribution,null);
+ assert.equal(service.normalizeStructuredExtraction(distribution('Qty: W40 1 piece',[entry('W40'),entry('40')]),run).stockDistribution,null);
  assert.equal(service.normalizeStructuredExtraction(distribution('Sizes: S-L and M',[entry('S-L'),entry('M')]),run).stockDistribution,null);
  assert.equal(service.normalizeStructuredExtraction(distribution('Sizes: small-3xl',[entry('S-3XL')]),run).stockDistribution.totalQuantity,6);
 });
