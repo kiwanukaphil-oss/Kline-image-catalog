@@ -22,7 +22,7 @@ let items = ids.map((id, n) => ({
   count_source: 'ai_suggested',
   required_fields: [],
   issues: [],
-  lines: [{ id: `line${n}`, size: n ? 'XXL' : 'M', quantity: 2, price: null, cost: 40000 }],
+  lines: [{ id: `line${n}`, size: n ? 'XXL' : 'M', quantity: 2, price: null, cost: null }],
 }));
 let pricePlan;
 // Intercept every API request: UI verification cannot modify hosted records.
@@ -56,7 +56,7 @@ await page.route('**/api/**', async (route) => {
         items: items.map((item) => ({
           ...item,
           base_price: null,
-          base_cost_price: 40000,
+          base_cost_price: null,
           lines: item.lines.map((line) => ({
             ...line,
             variant_attributes: { size: line.size },
@@ -86,6 +86,8 @@ await page.route('**/api/**', async (route) => {
           quantity: 2,
           price_before: null,
           price_after: change.lines[0]?.price_override ?? change.base_price,
+          cost_before: item.lines[0].cost,
+          cost_after: change.lines[0]?.cost_override ?? change.base_cost_price ?? item.lines[0].cost,
           changed: true,
           price_source: 'shared',
           price_protected: false,
@@ -100,6 +102,7 @@ await page.route('**/api/**', async (route) => {
       lines: item.lines.map((line) => ({
         ...line,
         price: pricePlan.rows.find((row) => row.item_id === item.id).price_after,
+        cost: pricePlan.rows.find((row) => row.item_id === item.id).cost_after,
       })),
     }));
     return respond({ data: { ...pricePlan, status: 'applied' } });
@@ -165,13 +168,15 @@ try {
   await page.locator('.selection-bar').getByRole('button', { name: 'Price items', exact: true }).click();
   await page.getByRole('heading', { name: 'Pricing', exact: true }).waitFor();
   await page.getByLabel('Shared price', { exact: true }).fill('90000');
+  await page.getByLabel('Shared cost', { exact: true }).fill('40000');
   await button('Add exception').click();
   await page.getByRole('combobox', { name: 'Size for exception 1', exact: true }).click();
   await page.getByRole('option', { name: 'XXL', exact: true }).click();
   await page.getByLabel('Price for exception 1', { exact: true }).fill('110000');
-  await page.screenshot({ path: '../verification/restored-pricing-desktop.png', fullPage: true });
+  await page.getByLabel('Cost for exception 1', { exact: true }).fill('50000');
+  await page.screenshot({ path: '../verification/combined-pricing-desktop.png', fullPage: true });
   await page.setViewportSize({ width: 390, height: 844 });
-  await page.screenshot({ path: '../verification/restored-pricing-mobile.png', fullPage: true });
+  await page.screenshot({ path: '../verification/combined-pricing-mobile.png', fullPage: true });
   assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
   await button('Review prices').click();
   await button('Save prices').click();
@@ -185,6 +190,10 @@ try {
   assert.equal(sent.length, 0);
   assert.equal(items[0].lines[0].price, 90000);
   assert.equal(items[1].lines[0].price, 110000);
+  assert.equal(items[0].lines[0].cost, 40000);
+  assert.equal(items[1].lines[0].cost, 50000);
+  assert.equal(saves.length, 1);
+  assert.equal(saves[0].cost_mode, 'fill');
   await button('Back to pricing').click();
   await page.getByRole('heading', { name: 'Pricing', exact: true }).waitFor();
   await button('Review for POS').click();
@@ -200,15 +209,15 @@ try {
   assert(await button('Add exception').count());
   assert.deepEqual(errors, []);
   const checks = [
-    'Original pricing UI and exceptions reused inside Receiving',
-    'Shared price and size exception saved correctly',
+    'Original layout combines retail and optional cost',
+    'Retail and cost with size exceptions save in one plan',
     'Read-only summary leads directly to send',
     'Back to pricing preserves saved prices',
     'Side-menu Pricing restored independently',
     'Mobile pricing fits viewport',
   ];
   await fs.writeFile(
-    '../verification/restored-pricing-ui.json',
+    '../verification/combined-pricing-ui.json',
     JSON.stringify({ passed: true, checks }, null, 2),
   );
   console.log(JSON.stringify({ passed: true, checks }));

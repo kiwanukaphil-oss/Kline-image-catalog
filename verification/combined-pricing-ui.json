@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "checks": [
+    "Original layout combines retail and optional cost",
+    "Retail and cost with size exceptions save in one plan",
+    "Read-only summary leads directly to send",
+    "Back to pricing preserves saved prices",
+    "Side-menu Pricing restored independently",
+    "Mobile pricing fits viewport"
+  ]
+}

@@ -115,3 +115,37 @@ export function compilePriceProposal(
     items: proposals,
   };
 }
+
+/** Merge retail and optional cost into one atomic POS plan; omitted costs never clear saved values. */
+export function compileCombinedPriceProposal(
+  items: PriceItem[],
+  selected: string[],
+  retail: string,
+  retailExceptions: Record<string, string>,
+  cost: string,
+  costExceptions: Record<string, string>,
+  intent: 'fill' | 'revise',
+) {
+  const hasRetail = !!retail.trim() || Object.values(retailExceptions).some((value) => !!value.trim());
+  const hasCost = !!cost.trim() || Object.values(costExceptions).some((value) => !!value.trim());
+  if (!hasRetail && !hasCost) throw new Error('Enter a selling price or cost for the selected merchandise.');
+  const plans = [
+    ...(hasRetail ? [compilePriceProposal(items, selected, retail, retailExceptions, 'retail', intent)] : []),
+    ...(hasCost ? [compilePriceProposal(items, selected, cost, costExceptions, 'cost', intent)] : []),
+  ];
+  const merged = new Map<string, (typeof plans)[number]['items'][number]>();
+  for (const plan of plans)
+    for (const item of plan.items) {
+      const previous = merged.get(item.id);
+      const lines = new Map((previous?.lines || []).map((line) => [line.id, line]));
+      for (const line of item.lines) lines.set(line.id, { ...lines.get(line.id), ...line });
+      merged.set(item.id, { ...previous, ...item, lines: [...lines.values()] });
+    }
+  return {
+    retail_mode: hasRetail ? intent : 'leave',
+    cost_mode: hasCost ? intent : 'leave',
+    keep_overrides: true,
+    keep_cost_overrides: true,
+    items: [...merged.values()],
+  };
+}

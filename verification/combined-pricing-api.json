@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "checks": [
+    "Retail can save with blank costs; POS review remains blocked until costs exist",
+    "One atomic retail and cost plan with size exceptions",
+    "Preview does not save; apply retry is safe",
+    "Blank cost omits all cost edits and preserves saved values",
+    "Undo preserves both fields",
+    "Cost-only selected-size update preserves retail and sibling costs",
+    "Cost permissions and invalid amounts enforced"
+  ]
+}

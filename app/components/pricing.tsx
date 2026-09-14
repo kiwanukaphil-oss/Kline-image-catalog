@@ -5,9 +5,8 @@ import { ArrowLeft, ArrowRight, Check, ChevronDown, Tag } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Checkbox } from '@/components/ui/checkbox';
-import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { formatMoney, postPos, type Session } from '@/lib/catalog-api';
-import { compilePriceProposal, type PriceItem, type PricePlan } from '@/lib/pricing';
+import { compileCombinedPriceProposal, type PriceItem, type PricePlan } from '@/lib/pricing';
 import { Modal, Pagination, Photo, SearchField } from './workspace-ui';
 import { compareVariants } from '@/lib/variant-order';
 import {
@@ -46,6 +45,8 @@ export function Pricing({
     [selected, setSelected] = useState<string[]>([]);
   const [field, setField] = useState<'retail' | 'cost'>('retail'),
     [intent, setIntent] = useState<'fill' | 'revise'>('fill');
+  const [sharedCost, setSharedCost] = useState('');
+  const [costExceptions, setCostExceptions] = useState<Record<string, string>>({});
   const [shared, setShared] = useState(''),
     [exceptions, setExceptions] = useState<Record<string, string>>({});
   const [filters, setFilters] = useState<PricingFilters>(emptyPricingFilters);
@@ -60,7 +61,15 @@ export function Pricing({
     [receipt, setReceipt] = useState<PricePlan | null>(null);
   const [version, setVersion] = useState(0);
   const [historyOpen, setHistoryOpen] = useState(false);
-  useWorkspaceProtection(!!shared || !!rules.length || !!Object.keys(exceptions).length || !!plan, busy);
+  useWorkspaceProtection(
+    !!shared ||
+      !!sharedCost ||
+      !!Object.keys(costExceptions).length ||
+      !!rules.length ||
+      !!Object.keys(exceptions).length ||
+      !!plan,
+    busy,
+  );
   useEffect(() => {
     /* Reset plans when scope changes and ignore responses from an abandoned workspace. */
 
@@ -70,6 +79,8 @@ export function Pricing({
     setSelected([]);
     setPlan(null);
     setShared('');
+    setSharedCost('');
+    setCostExceptions({});
     setExceptions({});
     setRules([]);
     setFilters(emptyPricingFilters);
@@ -117,14 +128,21 @@ export function Pricing({
   }, [branch, scope, version, session.can_edit]);
   const current = (line: PriceItem['lines'][number]) =>
     field === 'retail' ? line.effective_price : line.effective_cost;
-  const visible = filterPricingItems(items, filters, field, intent);
+  const visible = items.filter(
+    (item) =>
+      filterPricingItems([item], filters, 'retail', intent).length ||
+      (session.can_view_cost && filterPricingItems([item], filters, 'cost', intent).length),
+  );
+  const eligibleCombinedLine = (line: PriceItem['lines'][number]) =>
+    eligiblePriceLine(line, filters.size, 'retail', intent) ||
+    (session.can_view_cost && eligiblePriceLine(line, filters.size, 'cost', intent));
   const selectedIds = new Set(selected);
   const selectedItems = items.filter((item) => item.lines.some((line) => selectedIds.has(line.id)));
   const selectedLines = selectedItems
     .flatMap((item) => item.lines)
     .filter((line) => selectedIds.has(line.id));
   const eligibleIds = (item: PriceItem) =>
-    item.lines.filter((line) => eligiblePriceLine(line, filters.size, field, intent)).map((line) => line.id);
+    item.lines.filter((line) => eligibleCombinedLine(line)).map((line) => line.id);
   const categories = [
     ...new Map(
       items
@@ -153,6 +171,15 @@ export function Pricing({
     ).values(),
   ];
   const resolved = resolveGroupExceptions(items, selected, rules, exceptions);
+  const costRules = session.can_view_cost
+    ? rules.filter((rule) => rule.cost?.trim()).map((rule) => ({ ...rule, price: rule.cost! }))
+    : [];
+  const resolvedCosts = resolveGroupExceptions(
+    items,
+    selected,
+    costRules,
+    session.can_view_cost ? costExceptions : {},
+  );
   function changeFilters(patch: Partial<PricingFilters>) {
     setFilters((prior) => ({ ...prior, ...patch }));
     setSelected([]);
@@ -164,6 +191,8 @@ export function Pricing({
     setIntent(nextIntent);
     setSelected([]);
     setShared('');
+    setSharedCost('');
+    setCostExceptions({});
     setExceptions({});
     setRules([]);
     setPage(1);
@@ -181,8 +210,23 @@ export function Pricing({
     setBusy(true);
     setError('');
     try {
-      validateGroupExceptions(rules, resolved);
-      const payload = compilePriceProposal(items, selected, shared, resolved.exceptions, field, intent);
+      validateGroupExceptions(
+        rules.map((rule) => ({
+          ...rule,
+          price: rule.price.trim() || (session.can_view_cost ? rule.cost || '' : ''),
+        })),
+        resolved,
+      );
+      validateGroupExceptions(costRules, resolvedCosts);
+      const payload = compileCombinedPriceProposal(
+        items,
+        selected,
+        shared,
+        resolved.exceptions,
+        session.can_view_cost ? sharedCost : '',
+        resolvedCosts.exceptions,
+        intent,
+      );
       const { data } = await postPos<{ data: PricePlan }>('/catalog/pricing/preview', branch, payload);
       setReviewPage(1);
       setPlan(data);
@@ -240,12 +284,7 @@ export function Pricing({
         </Button>
       </div>
       <div className="pricing-tasks">
-        <Tabs value={field} onValueChange={(value) => changeTask(value as 'retail' | 'cost', intent)}>
-          <TabsList variant="line">
-            <TabsTrigger value="retail">Selling prices</TabsTrigger>
-            {session.can_view_cost && <TabsTrigger value="cost">Costs</TabsTrigger>}
-          </TabsList>
-        </Tabs>
+        {/* Separate retail/cost tabs are superseded by one combined pricing proposal. */}
         <WorkspaceSelect
           aria-label="Pricing task"
           value={intent}
@@ -291,7 +330,7 @@ export function Pricing({
               (sum, item) =>
                 sum +
                 item.lines
-                  .filter((line) => eligiblePriceLine(line, filters.size, field, intent))
+                  .filter((line) => eligibleCombinedLine(line))
                   .reduce((units, line) => units + Number(line.quantity || 0), 0),
               0,
             )
@@ -391,7 +430,7 @@ export function Pricing({
                               <label className="size-selection">
                                 <Checkbox
                                   aria-label={`Include ${Object.values(line.variant_attributes).join(' / ')}`}
-                                  disabled={!eligiblePriceLine(line, filters.size, field, intent)}
+                                  disabled={!eligibleCombinedLine(line)}
                                   checked={selected.includes(line.id)}
                                   onCheckedChange={(value) => toggleLines([line.id], value)}
                                 />
@@ -420,6 +459,50 @@ export function Pricing({
                                     setExceptions((prior) => ({ ...prior, [line.id]: e.target.value }))
                                   }
                                 />
+                                {session.can_view_cost && (
+                                  <Input
+                                    aria-label={`Cost exception for ${item.name} ${Object.values(line.variant_attributes).join(' / ')}`}
+                                    inputMode="decimal"
+                                    disabled={
+                                      (intent === 'fill' && line.effective_cost != null) ||
+                                      !selected.includes(line.id)
+                                    }
+                                    value={
+                                      costExceptions[line.id] === 'shared'
+                                        ? ''
+                                        : costExceptions[line.id] || ''
+                                    }
+                                    placeholder={
+                                      intent === 'fill' && line.effective_cost != null
+                                        ? 'Cost kept'
+                                        : resolvedCosts.exceptions[line.id] || sharedCost || 'Cost (optional)'
+                                    }
+                                    onChange={(event) =>
+                                      setCostExceptions((previous) => ({
+                                        ...previous,
+                                        [line.id]: event.target.value,
+                                      }))
+                                    }
+                                  />
+                                )}
+                                {session.can_view_cost &&
+                                  intent === 'revise' &&
+                                  line.cost_override != null && (
+                                    <button
+                                      className="text-link"
+                                      disabled={!selected.includes(line.id)}
+                                      onClick={() =>
+                                        setCostExceptions((previous) => ({
+                                          ...previous,
+                                          [line.id]: 'shared',
+                                        }))
+                                      }
+                                    >
+                                      {costExceptions[line.id] === 'shared'
+                                        ? 'Will use shared cost'
+                                        : 'Use shared cost'}
+                                    </button>
+                                  )}
                                 {!locked &&
                                   (field === 'retail' ? line.price_override : line.cost_override) != null && (
                                     <button
@@ -470,12 +553,32 @@ export function Pricing({
               />
             </div>
           </label>
+          {session.can_view_cost && (
+            <label className="shared-price">
+              Cost per unit (optional)
+              <div className="money-input">
+                <span>UGX</span>
+                <Input
+                  aria-label="Shared cost"
+                  inputMode="decimal"
+                  value={sharedCost}
+                  onChange={(event) => {
+                    setSharedCost(event.target.value);
+                    setError('');
+                  }}
+                  placeholder="Leave unchanged"
+                />
+              </div>
+              <small>Leave blank to keep existing costs. A cost is required before sending to POS.</small>
+            </label>
+          )}
           <small>
             {intent === 'fill'
               ? 'Existing values are kept.'
               : 'Individual size prices are kept unless edited.'}
           </small>
           <PricingExceptionRules
+            includeCost={session.can_view_cost}
             rules={rules}
             brands={brands}
             sizes={sizes}
@@ -485,9 +588,10 @@ export function Pricing({
               setError('');
             }}
           />
-          {resolved.conflicts.length > 0 && (
+          {(resolved.conflicts.length > 0 || resolvedCosts.conflicts.length > 0) && (
             <p className="error" role="alert">
-              {resolved.conflicts.length} sizes have conflicting exceptions.
+              {resolved.conflicts.length + resolvedCosts.conflicts.length} sizes have conflicting retail or
+              cost exceptions.
             </p>
           )}
           <>
@@ -499,7 +603,13 @@ export function Pricing({
           </>
           <Button
             className="h-11 w-full"
-            disabled={loading || busy || !selected.length || resolved.conflicts.length > 0}
+            disabled={
+              loading ||
+              busy ||
+              !selected.length ||
+              resolved.conflicts.length > 0 ||
+              resolvedCosts.conflicts.length > 0
+            }
             onClick={reviewPrices}
           >
             Review {field === 'retail' ? 'prices' : 'costs'}
@@ -519,6 +629,8 @@ export function Pricing({
               loading ||
               busy ||
               !!shared ||
+              !!sharedCost ||
+              !!Object.keys(costExceptions).length ||
               !!rules.length ||
               !!Object.keys(exceptions).length ||
               !!plan ||
@@ -550,6 +662,18 @@ export function Pricing({
               </div>
             ))}
           </div>
+          {session.can_view_cost && (
+            <div className="price-review-groups" aria-label="Reviewed costs">
+              {summarizePricePlan(plan, 'cost').map((group) => (
+                <div className="price-review-group" key={`${group.price}:${group.changed}`}>
+                  <strong>Cost: {group.price == null ? 'Not set' : `UGX ${formatMoney(group.price)}`}</strong>
+                  <span>
+                    {group.lots.size} lots ? {group.sizes} sizes ? {group.units} units
+                  </span>
+                </div>
+              ))}
+            </div>
+          )}
           <details className="price-review-details">
             <summary>Inspect individual changes</summary>
             <div className="table-scroll">
@@ -558,8 +682,14 @@ export function Pricing({
                   <tr>
                     <th>Merchandise / size</th>
                     <th>Units</th>
-                    <th>Before / UGX</th>
-                    <th>After / UGX</th>
+                    <th>Retail before / UGX</th>
+                    <th>Retail after / UGX</th>
+                    {session.can_view_cost && (
+                      <>
+                        <th>Cost before / UGX</th>
+                        <th>Cost after / UGX</th>
+                      </>
+                    )}
                   </tr>
                 </thead>
                 <tbody>
@@ -577,6 +707,12 @@ export function Pricing({
                         <strong>{formatMoney(field === 'retail' ? row.price_after : row.cost_after)}</strong>
                         {!row.changed && <small className="block">Kept</small>}
                       </td>
+                      {session.can_view_cost && (
+                        <>
+                          <td>{formatMoney(row.cost_before)}</td>
+                          <td>{formatMoney(row.cost_after)}</td>
+                        </>
+                      )}
                     </tr>
                   ))}
                 </tbody>

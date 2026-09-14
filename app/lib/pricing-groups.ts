@@ -1,7 +1,7 @@
 import { parseMoney, type PriceItem, type PriceLine, type PricePlan } from './pricing.ts';
 
 export type PricingFilters = { search: string; category: string; brand: string; size: string };
-export type PriceExceptionRule = { id: string; brand: string; size: string; price: string };
+export type PriceExceptionRule = { id: string; brand: string; size: string; price: string; cost?: string };
 export const emptyPricingFilters: PricingFilters = { search: '', category: '', brand: '', size: '' };
 export const pricingKey = (value: string | null | undefined) => (value || '').trim().toLocaleLowerCase();
 export const lineSize = (line: PriceLine) =>
@@ -100,10 +100,12 @@ export function summarizePricePlan(plan: PricePlan, field: 'retail' | 'cost') {
   >();
   for (const row of plan.rows) {
     const price = (field === 'retail' ? row.price_after : row.cost_after) ?? null;
-    const key = `${price}:${row.changed}`;
+    const changed =
+      field === 'retail' ? row.price_before !== row.price_after : row.cost_before !== row.cost_after;
+    const key = `${price}:${changed}`;
     const group = groups.get(key) || {
       price,
-      changed: row.changed,
+      changed,
       lots: new Set<string>(),
       sizes: 0,
       units: 0,

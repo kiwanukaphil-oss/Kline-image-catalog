@@ -50,7 +50,9 @@ export function PricingExceptionRules({
   sizes,
   counts,
   onChange,
+  includeCost = false,
 }: {
+  includeCost?: boolean;
   rules: PriceExceptionRule[];
   brands: PricingChoice[];
   sizes: PricingChoice[];
@@ -99,6 +101,18 @@ export function PricingExceptionRules({
               onChange={(event) => updateRule(rule.id, { price: event.target.value })}
             />
           </label>
+          {includeCost && (
+            <label>
+              Cost / UGX (optional)
+              <Input
+                aria-label={`Cost for exception ${index + 1}`}
+                inputMode="decimal"
+                value={rule.cost || ''}
+                placeholder="Shared cost"
+                onChange={(event) => updateRule(rule.id, { cost: event.target.value })}
+              />
+            </label>
+          )}
           <small>{counts[rule.id] || 0} selected sizes match</small>
         </fieldset>
       ))}
