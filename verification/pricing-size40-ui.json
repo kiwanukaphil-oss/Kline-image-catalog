@@ -1,6 +1,8 @@
 {
   "passed": true,
   "checks": [
+    "Select-all checkbox selects, clears and completes partial selection on desktop and mobile",
+    "Changing filters clears selection so hidden items cannot be priced accidentally",
     "Original layout combines retail and optional cost",
     "Retail and cost with size exceptions save in one plan",
     "Read-only summary leads directly to send",

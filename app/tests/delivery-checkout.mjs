@@ -167,6 +167,24 @@ try {
   assert.equal(await button('Choose destinations').count(), 0);
   await page.locator('.selection-bar').getByRole('button', { name: 'Price items', exact: true }).click();
   await page.getByRole('heading', { name: 'Pricing', exact: true }).waitFor();
+  // The same checkbox selects, clears and completes a partial selection beside the item list.
+  const selectAll = page.getByRole('checkbox', { name: 'Select all', exact: true });
+  await page.getByText('2 of 2 items selected', { exact: true }).waitFor();
+  assert.equal(await selectAll.getAttribute('aria-checked'), 'true');
+  await selectAll.click();
+  await page.getByText('0 of 2 items selected', { exact: true }).waitFor();
+  await page.getByRole('checkbox', { name: 'Select Cotton shirt 1', exact: true }).click();
+  assert.equal(await selectAll.getAttribute('aria-checked'), 'mixed');
+  await selectAll.click();
+  await page.getByText('2 of 2 items selected', { exact: true }).waitFor();
+  await page.getByPlaceholder('Find merchandise').fill('Cotton shirt 1');
+  await page.getByText('0 of 1 items selected', { exact: true }).waitFor();
+  await selectAll.click();
+  await page.getByText('1 of 1 items selected', { exact: true }).waitFor();
+  await page.getByPlaceholder('Find merchandise').fill('');
+  await page.getByText('0 of 2 items selected', { exact: true }).waitFor();
+  await selectAll.click();
+  assert.equal(await button('Clear selection').count(), 0);
   await page.getByLabel('Shared price', { exact: true }).fill('90000');
   await page.getByLabel('Shared cost', { exact: true }).fill('40000');
   await button('Add exception').click();
@@ -176,6 +194,10 @@ try {
   await page.getByLabel('Cost for exception 1', { exact: true }).fill('50000');
   await page.screenshot({ path: '../verification/pricing-size40-desktop.png', fullPage: true });
   await page.setViewportSize({ width: 390, height: 844 });
+  await selectAll.click();
+  await page.getByText('0 of 2 items selected', { exact: true }).waitFor();
+  await selectAll.click();
+  await page.getByText('2 of 2 items selected', { exact: true }).waitFor();
   await page.screenshot({ path: '../verification/pricing-size40-mobile.png', fullPage: true });
   assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
   await button('Review prices').click();
@@ -211,6 +233,8 @@ try {
   assert(await button('Add exception').count());
   assert.deepEqual(errors, []);
   const checks = [
+    'Select-all checkbox selects, clears and completes partial selection on desktop and mobile',
+    'Changing filters clears selection so hidden items cannot be priced accidentally',
     'Original layout combines retail and optional cost',
     'Retail and cost with size exceptions save in one plan',
     'Read-only summary leads directly to send',

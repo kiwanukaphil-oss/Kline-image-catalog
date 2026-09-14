@@ -150,6 +150,9 @@ export function Pricing({
     .filter((line) => selectedIds.has(line.id));
   const eligibleIds = (item: PriceItem) =>
     item.lines.filter((line) => eligibleCombinedLine(line)).map((line) => line.id);
+  const selectableIds = visible.flatMap(eligibleIds);
+  const allSelected = selectableIds.length > 0 && selectableIds.every((id) => selectedIds.has(id));
+  const partlySelected = !allSelected && selectableIds.some((id) => selectedIds.has(id));
   const categories = [
     ...new Map(
       items
@@ -329,31 +332,23 @@ export function Pricing({
           onChange={(size) => changeFilters({ size })}
         />
       </div>
-      <div className="toolbar pricing-group-selection">
-        <span className="muted">
-          {visible.length.toLocaleString()} matching lots /{' '}
-          {visible
-            .reduce(
-              (sum, item) =>
-                sum +
-                item.lines
-                  .filter((line) => eligibleCombinedLine(line))
-                  .reduce((units, line) => units + Number(line.quantity || 0), 0),
-              0,
-            )
-            .toLocaleString()}{' '}
-          units
-        </span>
-        <Button
-          variant="outline"
-          disabled={loading || !visible.length}
-          onClick={() => toggleLines(visible.flatMap(eligibleIds), true)}
-        >
-          Select all {visible.length} matches
-        </Button>
-      </div>
       <div className="pricing-layout pricing-groups-layout">
         <section className="pricing-merchandise">
+          {/* The shared checkbox replaces the old select-matches and remote clear buttons. */}
+          <div className="pricing-selection-bar">
+            <label className="pricing-select-all">
+              <Checkbox
+                checked={allSelected}
+                indeterminate={partlySelected}
+                disabled={loading || !selectableIds.length}
+                onCheckedChange={() => setSelected(allSelected ? [] : selectableIds)}
+              />
+              <span>Select all</span>
+            </label>
+            <span className="muted" role="status">
+              {selectedItems.length} of {visible.length} items selected
+            </span>
+          </div>
           {loading ? (
             <p role="status" className="loading">
               Loading merchandise…
@@ -376,7 +371,7 @@ export function Pricing({
                 const ids = eligibleIds(item),
                   checked = ids.length > 0 && ids.every((id) => selectedIds.has(id));
                 return (
-                  <article className={`price-item ${checked ? 'selected' : ''}`} key={item.id}>
+                  <article className={`price-item ${ids.some((id) => selectedIds.has(id)) ? 'selected' : ''}`} key={item.id}>
                     <div className="price-item-head">
                       <Checkbox
                         aria-label={`Select ${item.name || 'unnamed lot'}`}
@@ -622,11 +617,7 @@ export function Pricing({
             Review {field === 'retail' ? 'prices' : 'costs'}
             <ArrowRight size={16} />
           </Button>
-          {selected.length > 0 && (
-            <Button variant="ghost" onClick={() => setSelected([])}>
-              Clear selection
-            </Button>
-          )}
+          {/* Removal candidate replaced above: the separate Clear selection button. */}
         </aside>
       </div>
       {onReviewDelivery && (
